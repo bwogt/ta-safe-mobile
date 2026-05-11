@@ -3,6 +3,7 @@ import { Input } from '@/components/ui/Input';
 import { LoginFormData } from '@/schemas/login.schema';
 import { Ionicons } from '@expo/vector-icons';
 import { Stack } from 'expo-router';
+import { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -15,10 +16,13 @@ export default function __Screen() {
     formState: { errors },
   } = useForm<LoginFormData>();
 
+  const [hidePassword, setHidePassword] = useState(true);
+  const togglePassword = () => setHidePassword(!hidePassword);
+
   return (
     <SafeAreaView className="flex-1">
       <Stack.Screen options={{ headerShown: false }} />
-      <View className="gap-3xl flex-1 justify-center px-lg">
+      <View className="gap-2xl flex-1 justify-center px-lg">
         <View className="gap-xl">
           <View>
             <Text className="text-4xl font-bold">Bem Vindo!</Text>
@@ -34,7 +38,6 @@ export default function __Screen() {
                   <Input
                     label="Email"
                     value={value}
-                    className="rounded-lg border-2"
                     onChangeText={onChange}
                     keyboardType="email-address"
                     autoCapitalize="none"
@@ -51,9 +54,17 @@ export default function __Screen() {
                   <Input
                     label="Senha"
                     value={value}
-                    className="rounded-lg border-2"
                     onChangeText={onChange}
                     autoCapitalize="none"
+                    secureTextEntry={hidePassword}
+                    iconRight={
+                      <Ionicons
+                        name={hidePassword ? 'eye-off' : 'eye'}
+                        size={20}
+                        color="black"
+                        onPress={togglePassword}
+                      />
+                    }
                   />
                 )}
               />
