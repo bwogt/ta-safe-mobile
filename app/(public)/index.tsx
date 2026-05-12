@@ -30,21 +30,29 @@ export default function __Screen() {
 
       console.log(useAuthStore.getState());
     } catch (error: any) {
-      console.log(error);
+      const serverErrors = error.response?.data?.errors;
+
+      if (serverErrors) {
+        for (const [fieldName, message] of Object.entries(serverErrors)) {
+          setError(fieldName as keyof LoginRequest, {
+            message: message as string,
+          });
+        }
+      }
     }
   };
 
   return (
     <SafeAreaView className="flex-1">
       <Stack.Screen options={{ headerShown: false }} />
-      <View className="flex-1 justify-center gap-2xl px-lg">
-        <View className="gap-xl">
+      <View className="flex-1 justify-center gap-xl px-lg">
+        <View className="gap-2xl">
           <View>
-            <Text className="text-4xl font-bold">Bem Vindo!</Text>
+            <Text className="text-5xl font-bold">Bem vindo!</Text>
             <Text className="text-xl">Acesse sua conta para continuar.</Text>
           </View>
 
-          <View className="gap-xl">
+          <View>
             <View>
               <Controller
                 name="email"
@@ -53,6 +61,7 @@ export default function __Screen() {
                   <Input
                     label="Email"
                     value={value}
+                    error={errors.email?.message}
                     onChangeText={onChange}
                     keyboardType="email-address"
                     autoCapitalize="none"
@@ -69,6 +78,7 @@ export default function __Screen() {
                   <Input
                     label="Senha"
                     value={value}
+                    error={errors.password?.message}
                     onChangeText={onChange}
                     autoCapitalize="none"
                     secureTextEntry={hidePassword}

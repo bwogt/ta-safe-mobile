@@ -8,6 +8,7 @@ module.exports = {
       colors: {
         primary: '#6100DD',
         neutral: '#B2B2B8',
+        error: '#FF0000',
       },
       spacing: {
         xs: '4px',
