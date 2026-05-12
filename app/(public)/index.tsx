@@ -1,6 +1,9 @@
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
-import { LoginFormData } from '@/schemas/login.schema';
+import { LoginRequest } from '@/schemas/auth/login-request.schema';
+import { LoginResponse } from '@/schemas/auth/login-response.schema';
+import api from '@/services/api/api';
+import { useAuthStore } from '@/stores/auth/useAuthStore';
 import { Ionicons } from '@expo/vector-icons';
 import { Stack } from 'expo-router';
 import { useState } from 'react';
@@ -14,15 +17,27 @@ export default function __Screen() {
     handleSubmit,
     setError,
     formState: { errors },
-  } = useForm<LoginFormData>();
+  } = useForm<LoginRequest>();
 
   const [hidePassword, setHidePassword] = useState(true);
   const togglePassword = () => setHidePassword(!hidePassword);
 
+  const onSubmit = async (data: LoginRequest) => {
+    try {
+      const response = await api.post<LoginResponse>('/auth/login', data);
+      const auth = response.data.data;
+      useAuthStore.setState({ user: auth.user, accessToken: auth.token });
+
+      console.log(useAuthStore.getState());
+    } catch (error: any) {
+      console.log(error);
+    }
+  };
+
   return (
     <SafeAreaView className="flex-1">
       <Stack.Screen options={{ headerShown: false }} />
-      <View className="gap-2xl flex-1 justify-center px-lg">
+      <View className="flex-1 justify-center gap-2xl px-lg">
         <View className="gap-xl">
           <View>
             <Text className="text-4xl font-bold">Bem Vindo!</Text>
@@ -75,6 +90,7 @@ export default function __Screen() {
         <Button
           label="Entrar"
           className="rounded bg-primary p-sm"
+          onPress={handleSubmit(onSubmit)}
           iconLeft={
             <Ionicons
               className="mr-2"
