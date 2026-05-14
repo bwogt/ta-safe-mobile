@@ -1,7 +1,7 @@
 import { AxiosError, AxiosResponse } from 'axios';
 
 import { Message } from '@/schemas/message/message.schema';
-import { notify } from '@/services/notify/ notify';
+import { notify } from '@/services/notify/notify';
 
 function handleMessage(message?: Message) {
   if (message) {
