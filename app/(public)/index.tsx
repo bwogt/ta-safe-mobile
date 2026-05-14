@@ -3,8 +3,10 @@ import { Input } from '@/components/ui/Input';
 import { LoginRequest } from '@/schemas/auth/login-request.schema';
 import { LoginResponse } from '@/schemas/auth/login-response.schema';
 import api from '@/services/api/api';
+import { applyValidationErrors } from '@/services/form/apply-validation-errors';
 import { useAuthStore } from '@/stores/auth/useAuthStore';
 import { Ionicons } from '@expo/vector-icons';
+import axios from 'axios';
 import { Stack } from 'expo-router';
 import { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
@@ -30,15 +32,9 @@ export default function LoginScreen() {
       const auth = response.data.data;
 
       useAuthStore.setState({ user: auth.user, accessToken: auth.token });
-    } catch (error: any) {
-      const serverErrors = error.response?.data?.errors;
-
-      if (serverErrors) {
-        for (const [fieldName, message] of Object.entries(serverErrors)) {
-          setError(fieldName as keyof LoginRequest, {
-            message: message as string,
-          });
-        }
+    } catch (error: unknown) {
+      if (axios.isAxiosError(error)) {
+        applyValidationErrors(error, setError);
       }
     }
   };
