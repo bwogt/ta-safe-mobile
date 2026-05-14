@@ -8,10 +8,15 @@ import { Ionicons } from '@expo/vector-icons';
 import { Stack } from 'expo-router';
 import { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-export default function __Screen() {
+export default function LoginScreen() {
+  const { t } = useTranslation('auth');
+  const [hidePassword, setHidePassword] = useState(true);
+  const togglePassword = () => setHidePassword(!hidePassword);
+
   const {
     control,
     handleSubmit,
@@ -19,16 +24,12 @@ export default function __Screen() {
     formState: { errors },
   } = useForm<LoginRequest>();
 
-  const [hidePassword, setHidePassword] = useState(true);
-  const togglePassword = () => setHidePassword(!hidePassword);
-
   const onSubmit = async (data: LoginRequest) => {
     try {
       const response = await api.post<LoginResponse>('/auth/login', data);
       const auth = response.data.data;
-      useAuthStore.setState({ user: auth.user, accessToken: auth.token });
 
-      console.log(useAuthStore.getState());
+      useAuthStore.setState({ user: auth.user, accessToken: auth.token });
     } catch (error: any) {
       const serverErrors = error.response?.data?.errors;
 
@@ -48,8 +49,8 @@ export default function __Screen() {
       <View className="flex-1 justify-center gap-xl px-lg">
         <View className="gap-2xl">
           <View>
-            <Text className="text-5xl font-bold">Bem vindo!</Text>
-            <Text className="text-xl">Acesse sua conta para continuar.</Text>
+            <Text className="text-5xl font-bold">{t('title')}</Text>
+            <Text className="text-xl">{t('subtitle')}</Text>
           </View>
 
           <View>
@@ -59,7 +60,7 @@ export default function __Screen() {
                 control={control}
                 render={({ field: { value, onChange } }) => (
                   <Input
-                    label="Email"
+                    label={t('emailLabel')}
                     value={value}
                     error={errors.email?.message}
                     onChangeText={onChange}
@@ -76,7 +77,7 @@ export default function __Screen() {
                 control={control}
                 render={({ field: { value, onChange } }) => (
                   <Input
-                    label="Senha"
+                    label={t('passwordLabel')}
                     value={value}
                     error={errors.password?.message}
                     onChangeText={onChange}
@@ -98,7 +99,7 @@ export default function __Screen() {
         </View>
 
         <Button
-          label="Entrar"
+          label={t('loginButton')}
           className="rounded bg-primary p-sm"
           onPress={handleSubmit(onSubmit)}
           iconLeft={
