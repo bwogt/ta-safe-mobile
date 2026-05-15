@@ -41,7 +41,7 @@ export function Input({
         </View>
       </View>
 
-      {error && <Text className="text-error">{error}</Text>}
+      {error && <Text className="text-danger">{error}</Text>}
     </View>
   );
 }

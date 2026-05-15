@@ -1,5 +1,5 @@
 import { Message } from '@/schemas/message/message.schema';
-import { notify } from '@/services/notify/notify';
+import { notify } from '@/services/notify';
 import { makeAxiosError } from '@/tests/factories/makeAxiosError';
 import { makeAxiosResponse } from '@/tests/factories/makeAxiosResponse';
 import { AxiosError } from 'axios';

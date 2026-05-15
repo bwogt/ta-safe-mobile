@@ -2,7 +2,7 @@ import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
 import { LoginRequest } from '@/schemas/auth/login-request.schema';
 import { LoginResponse } from '@/schemas/auth/login-response.schema';
-import api from '@/services/api/api';
+import api from '@/services/api';
 import { applyValidationErrors } from '@/services/form/apply-validation-errors';
 import { useAuthStore } from '@/stores/auth/useAuthStore';
 import { Ionicons } from '@expo/vector-icons';
@@ -17,6 +17,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 export default function LoginScreen() {
   const { t } = useTranslation('auth');
   const [hidePassword, setHidePassword] = useState(true);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const togglePassword = () => setHidePassword(!hidePassword);
 
   const {
@@ -28,6 +29,7 @@ export default function LoginScreen() {
 
   const onSubmit = async (data: LoginRequest) => {
     try {
+      setIsSubmitting(true);
       const response = await api.post<LoginResponse>('/auth/login', data);
       const auth = response.data.data;
 
@@ -36,6 +38,8 @@ export default function LoginScreen() {
       if (axios.isAxiosError(error)) {
         applyValidationErrors(error, setError);
       }
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -58,6 +62,7 @@ export default function LoginScreen() {
                   <Input
                     label={t('emailLabel')}
                     value={value}
+                    editable={!isSubmitting}
                     error={errors.email?.message}
                     onChangeText={onChange}
                     keyboardType="email-address"
@@ -76,6 +81,7 @@ export default function LoginScreen() {
                     label={t('passwordLabel')}
                     value={value}
                     error={errors.password?.message}
+                    editable={!isSubmitting}
                     onChangeText={onChange}
                     autoCapitalize="none"
                     secureTextEntry={hidePassword}
@@ -84,7 +90,7 @@ export default function LoginScreen() {
                         name={hidePassword ? 'eye-off' : 'eye'}
                         size={20}
                         color="black"
-                        onPress={togglePassword}
+                        onPress={isSubmitting ? undefined : togglePassword}
                       />
                     }
                   />
@@ -95,13 +101,13 @@ export default function LoginScreen() {
         </View>
 
         <Button
-          label={t('loginButton')}
-          className="rounded bg-primary p-sm"
+          label={isSubmitting ? t('submitButton') : t('loginButton')}
           onPress={handleSubmit(onSubmit)}
+          disabled={isSubmitting}
           iconLeft={
             <Ionicons
               className="mr-2"
-              name="log-in-outline"
+              name={isSubmitting ? 'sync' : 'log-in-outline'}
               size={20}
               color="white"
             />
