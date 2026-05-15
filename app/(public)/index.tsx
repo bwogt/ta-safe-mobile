@@ -6,7 +6,7 @@ import api from '@/services/api';
 import { applyValidationErrors } from '@/services/form/apply-validation-errors';
 import { useAuthStore } from '@/stores/auth/useAuthStore';
 import { Ionicons } from '@expo/vector-icons';
-import axios from 'axios';
+import { isAxiosError } from 'axios';
 import { Stack } from 'expo-router';
 import { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
@@ -35,7 +35,7 @@ export default function LoginScreen() {
 
       useAuthStore.setState({ user: auth.user, accessToken: auth.token });
     } catch (error: unknown) {
-      if (axios.isAxiosError(error)) {
+      if (isAxiosError(error)) {
         applyValidationErrors(error, setError);
       }
     } finally {
