@@ -9,7 +9,7 @@ import {
   responseInterceptor,
 } from './message.interceptor';
 
-jest.mock('@/services/notify/notify', () => ({
+jest.mock('@/services/notify', () => ({
   notify: jest.fn(),
 }));
 
