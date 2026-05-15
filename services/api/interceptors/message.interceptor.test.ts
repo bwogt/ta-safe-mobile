@@ -1,6 +1,9 @@
 import { Message } from '@/schemas/message/message.schema';
 import { notify } from '@/services/notify/notify';
-import { AxiosError, AxiosResponse } from 'axios';
+import { makeAxiosError } from '@/tests/factories/makeAxiosError';
+import { makeAxiosResponse } from '@/tests/factories/makeAxiosResponse';
+import { AxiosError } from 'axios';
+import { unknown } from 'zod';
 import {
   responseErrorInterceptor,
   responseInterceptor,
@@ -15,46 +18,34 @@ describe('messageInterceptor', () => {
     jest.clearAllMocks();
   });
 
-  const createMockResponse = (message?: Message) =>
-    ({
-      data: { message },
-      status: 200,
-      statusText: 'OK',
-      headers: {},
-      config: {} as any,
-    }) as AxiosResponse;
-
   it('should call notify when response contains a message', () => {
-    const mockedMessage: Message = { type: 'success', text: 'Success message' };
-    const response = createMockResponse(mockedMessage);
+    const message: Message = { type: 'success', text: 'Success message' };
+    const response = makeAxiosResponse({ message });
 
     responseInterceptor(response);
-    expect(notify).toHaveBeenCalledWith(mockedMessage);
+    expect(notify).toHaveBeenCalledWith(message);
   });
 
   it('should not call notify when response has no message', () => {
-    const response = createMockResponse(undefined);
+    const response = makeAxiosResponse(undefined);
     responseInterceptor(response);
 
     expect(notify).not.toHaveBeenCalled();
   });
 
   it('should return the original response', () => {
-    const response = createMockResponse();
+    const response = makeAxiosResponse(unknown);
     const result = responseInterceptor(response);
 
     expect(result).toBe(response);
   });
 
   it('should call notify when error response contains a message', async () => {
-    const mockedMessage: Message = { type: 'error', text: 'Bad Request' };
-
-    const error = {
-      response: { data: { message: mockedMessage } },
-    } as AxiosError;
+    const message: Message = { type: 'error', text: 'Bad Request' };
+    const error = makeAxiosError({ message: message });
 
     await expect(responseErrorInterceptor(error)).rejects.toEqual(error);
-    expect(notify).toHaveBeenCalledWith(mockedMessage);
+    expect(notify).toHaveBeenCalledWith(message);
   });
 
   it('should reject with the original error', async () => {
