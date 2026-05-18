@@ -1,9 +1,9 @@
 import { z } from 'zod';
-import { messageSchema } from '../message/message.schema';
+import { apiFlashMessageSchema } from '../message/api-flash-message.schema';
 import { userSchema } from '../user.schema';
 
 export const loginResponseSchema = z.object({
-  message: messageSchema,
+  message: apiFlashMessageSchema,
   data: z.object({
     user: userSchema,
     token: z.string(),

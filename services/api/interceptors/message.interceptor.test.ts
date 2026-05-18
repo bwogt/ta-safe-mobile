@@ -1,4 +1,4 @@
-import { Message } from '@/schemas/message/message.schema';
+import { ApiFlashMessage } from '@/schemas/message/api-flash-message.schema';
 import { notify } from '@/services/notify';
 import { makeAxiosError } from '@/tests/factories/makeAxiosError';
 import { makeAxiosResponse } from '@/tests/factories/makeAxiosResponse';
@@ -19,7 +19,10 @@ describe('messageInterceptor', () => {
   });
 
   it('should call notify when response contains a message', () => {
-    const message: Message = { type: 'success', text: 'Success message' };
+    const message: ApiFlashMessage = {
+      type: 'success',
+      text: 'Success message',
+    };
     const response = makeAxiosResponse({ message });
 
     responseInterceptor(response);
@@ -41,7 +44,7 @@ describe('messageInterceptor', () => {
   });
 
   it('should call notify when error response contains a message', async () => {
-    const message: Message = { type: 'error', text: 'Bad Request' };
+    const message: ApiFlashMessage = { type: 'error', text: 'Bad Request' };
     const error = makeAxiosError({ message: message });
 
     await expect(responseErrorInterceptor(error)).rejects.toEqual(error);

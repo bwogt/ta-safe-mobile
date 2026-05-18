@@ -1,9 +1,9 @@
 import { AxiosError, AxiosResponse } from 'axios';
 
-import { Message } from '@/schemas/message/message.schema';
+import { ApiFlashMessage } from '@/schemas/message/api-flash-message.schema';
 import { notify } from '@/services/notify';
 
-function handleMessage(message?: Message) {
+function handleMessage(message?: ApiFlashMessage) {
   if (message) {
     notify(message);
   }
