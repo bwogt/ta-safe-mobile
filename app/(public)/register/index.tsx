@@ -6,6 +6,7 @@ import { RegisterUserRequest } from '@/schemas/auth/register-user-request.schema
 import api from '@/services/api';
 import { applyValidationErrors } from '@/services/form/apply-validation-errors';
 import { useAuthStore } from '@/stores/auth/useAuthStore';
+import { maskCpf } from '@/utils/masks/maskCpf';
 import { Ionicons } from '@expo/vector-icons';
 import { isAxiosError } from 'axios';
 import { Stack } from 'expo-router';
@@ -69,7 +70,7 @@ export default function UserRegistrationScreen() {
             <Text className="text-2xl font-bold text-primary">
               {t('register-user:title')}
             </Text>
-            <Text className="text-subtitle text-xl">
+            <Text className="text-xl text-subtitle">
               {t('register-user:subtitle')}
             </Text>
           </View>
@@ -111,7 +112,7 @@ export default function UserRegistrationScreen() {
                   label={t('fields:cpf')}
                   value={value}
                   error={errors.cpf?.message}
-                  onChangeText={onChange}
+                  onChangeText={(text) => onChange(maskCpf(text))}
                   keyboardType="numeric"
                   autoCapitalize="none"
                 />
