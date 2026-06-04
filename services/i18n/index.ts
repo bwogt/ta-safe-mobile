@@ -5,12 +5,14 @@ i18n.use(initReactI18next).init({
   lng: 'pt_BR',
   fallbackLng: 'pt_BR',
 
-  ns: ['auth'],
-  defaultNS: 'auth',
+  ns: ['login', 'fields', 'register-user'],
+  defaultNS: 'login',
 
   resources: {
     pt_BR: {
-      auth: require('./locales/pt-BR/auth.json'),
+      login: require('./locales/pt-BR/login.json'),
+      fields: require('./locales/pt-BR/fields.json'),
+      'register-user': require('./locales/pt-BR/register-user.json'),
     },
   },
 

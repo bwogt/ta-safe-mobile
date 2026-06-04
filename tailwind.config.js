@@ -8,6 +8,7 @@ module.exports = {
       colors: {
         primary: '#6100DD',
         neutral: '#B2B2B8',
+        subtitle: '#666',
         danger: '#FF0000',
       },
       spacing: {

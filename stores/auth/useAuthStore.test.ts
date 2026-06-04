@@ -1,4 +1,4 @@
-import { User } from '@/schemas/user.schema';
+import { User } from '@/schemas/user/user.schema';
 import { useAuthStore } from '@/stores/auth/useAuthStore';
 import * as SecureStore from 'expo-secure-store';
 import { makeUser } from '../../tests/factories/makeUser';

@@ -1,9 +1,9 @@
-import { ValidationErrorResponse } from '@/schemas/message/validation-error.schema';
+import { ApiFormErrors } from '@/schemas/message/api-form-errors.schema';
 import { AxiosError } from 'axios';
 import { FieldValues, Path, UseFormSetError } from 'react-hook-form';
 
 export function applyValidationErrors<T extends FieldValues>(
-  error: AxiosError<ValidationErrorResponse>,
+  error: AxiosError<ApiFormErrors>,
   setError: UseFormSetError<T>,
 ) {
   const errors = error.response?.data?.errors;

@@ -1,4 +1,4 @@
-import { ValidationErrorResponse } from '@/schemas/message/validation-error.schema';
+import { ApiFormErrors } from '@/schemas/message/api-form-errors.schema';
 import { makeAxiosError } from '@/tests/factories/makeAxiosError';
 import { applyValidationErrors } from './apply-validation-errors';
 
@@ -8,7 +8,7 @@ describe('applyValidationErrors', () => {
     const emailError = 'E-mail is required';
     const passwordError = 'Password is required';
 
-    const error = makeAxiosError<ValidationErrorResponse>({
+    const error = makeAxiosError<ApiFormErrors>({
       message: { type: 'error', text: 'Bad Request' },
       errors: {
         email: [emailError],
@@ -30,7 +30,7 @@ describe('applyValidationErrors', () => {
   it('should not set errors when response has no validation errors', () => {
     const setError = jest.fn();
 
-    const error = makeAxiosError<ValidationErrorResponse>({
+    const error = makeAxiosError<ApiFormErrors>({
       message: { type: 'error', text: 'Bad Request' },
     });
 

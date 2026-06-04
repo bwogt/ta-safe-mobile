@@ -1,3 +1,4 @@
+import { AuthSwitchLink } from '@/components/ui/AuthSwitchLink';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
 import { LoginRequest } from '@/schemas/auth/login-request.schema';
@@ -15,7 +16,7 @@ import { Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function LoginScreen() {
-  const { t } = useTranslation('auth');
+  const { t } = useTranslation(['login', 'fields']);
   const [hidePassword, setHidePassword] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const togglePassword = () => setHidePassword(!hidePassword);
@@ -49,8 +50,8 @@ export default function LoginScreen() {
       <View className="flex-1 justify-center gap-xl px-lg">
         <View className="gap-2xl">
           <View>
-            <Text className="text-5xl font-bold">{t('title')}</Text>
-            <Text className="text-xl">{t('subtitle')}</Text>
+            <Text className="text-5xl font-bold">{t('login:title')}</Text>
+            <Text className="text-xl">{t('login:subtitle')}</Text>
           </View>
 
           <View>
@@ -60,7 +61,7 @@ export default function LoginScreen() {
                 control={control}
                 render={({ field: { value, onChange } }) => (
                   <Input
-                    label={t('emailLabel')}
+                    label={t('fields:email')}
                     value={value}
                     editable={!isSubmitting}
                     error={errors.email?.message}
@@ -78,7 +79,7 @@ export default function LoginScreen() {
                 control={control}
                 render={({ field: { value, onChange } }) => (
                   <Input
-                    label={t('passwordLabel')}
+                    label={t('fields:password')}
                     value={value}
                     error={errors.password?.message}
                     editable={!isSubmitting}
@@ -101,7 +102,7 @@ export default function LoginScreen() {
         </View>
 
         <Button
-          label={isSubmitting ? t('submitButton') : t('loginButton')}
+          label={isSubmitting ? t('login:submit') : t('login:login')}
           onPress={handleSubmit(onSubmit)}
           disabled={isSubmitting}
           iconLeft={
@@ -112,6 +113,12 @@ export default function LoginScreen() {
               color="white"
             />
           }
+        />
+
+        <AuthSwitchLink
+          href="/(public)/register"
+          text={t('login:noAccount')}
+          actionText={t('login:createAccount')}
         />
       </View>
     </SafeAreaView>
