@@ -13,14 +13,19 @@ or configuration adjustments).
 Step-by-step instructions for the reviewer to test the changes (e.g., commands to run, tests to be performed,
 specific endpoints to call, or UI flows to follow).
 
-1. Setup the environment
+1. Start the backend API ([ta-safe-api](https://github.com/bwogt/ta-safe-api))
 
-```bash
-# Start development environment
-docker compose --profile web up -d --build
+```zsh
+docker compose --profile web up -d
 ```
 
-2. Run the automated test suite
+2. Start the Expo development server:
+
+```zsh
+npx expo start -c
+```
+
+3. Run the automated test suite
 
 ```bash
 npm run test:ci
