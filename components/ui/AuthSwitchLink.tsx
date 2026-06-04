@@ -15,7 +15,7 @@ export function AuthSwitchLink({
   return (
     <Link href={href} asChild>
       <Pressable>
-        <Text className="text-subtitle text-center text-lg">
+        <Text className="text-center text-lg text-subtitle">
           {text}{' '}
           <Text className="text-lg font-bold text-primary">{actionText}</Text>
         </Text>
