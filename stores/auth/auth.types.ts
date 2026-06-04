@@ -1,4 +1,4 @@
-import { User } from '@/schemas/user.schema';
+import { User } from '@/schemas/user/user.schema';
 
 export type AuthState = {
   user: User | null;

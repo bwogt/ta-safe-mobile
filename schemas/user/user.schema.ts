@@ -5,7 +5,6 @@ export const userSchema = z.object({
   name: z.string().max(255),
   email: z.email(),
   cpf: z.string().regex(/^\d{3}\.\d{3}\.\d{3}\-\d{2}$/),
-  phone: z.string().regex(/^[(]\d{2}[)]\s\d{5}-\d{4}$/),
   email_verified_at: z.string().nullable(),
   created_at: z.iso.datetime(),
   updated_at: z.iso.datetime(),

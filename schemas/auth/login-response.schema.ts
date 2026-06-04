@@ -1,6 +1,6 @@
 import { z } from 'zod';
 import { apiFlashMessageSchema } from '../message/api-flash-message.schema';
-import { userSchema } from '../user.schema';
+import { userSchema } from '../user/user.schema';
 
 export const loginResponseSchema = z.object({
   message: apiFlashMessageSchema,

@@ -11,7 +11,7 @@ import { Stack } from 'expo-router';
 import { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { ScrollView, View } from 'react-native';
+import { ScrollView, Text, View } from 'react-native';
 
 export default function UserRegistrationScreen() {
   const { t } = useTranslation(['fields', 'register-user']);
@@ -44,8 +44,17 @@ export default function UserRegistrationScreen() {
 
   return (
     <ScrollView>
-      <Stack.Screen options={{ title: t('register-user:title') }} />
-      <View className="mt-3xl flex-1 justify-center gap-2xl px-lg">
+      <Stack.Screen options={{ headerTitle: '', headerTransparent: true }} />
+      <View className="mt-3xl flex-1 justify-center gap-2xl px-lg pt-xl">
+        <View className="gap-sm">
+          <Text className="text-2xl font-bold text-primary">
+            {t('register-user:title')}
+          </Text>
+          <Text className="text-xl text-neutral">
+            {t('register-user:subtitle')}
+          </Text>
+        </View>
+
         <View>
           <Controller
             name="name"
@@ -91,21 +100,6 @@ export default function UserRegistrationScreen() {
           />
 
           <Controller
-            name="phone"
-            control={control}
-            render={({ field: { value, onChange } }) => (
-              <Input
-                label={t('fields:phone')}
-                value={value}
-                error={errors.phone?.message}
-                onChangeText={onChange}
-                keyboardType="phone-pad"
-                autoCapitalize="none"
-              />
-            )}
-          />
-
-          <Controller
             name="password"
             control={control}
             render={({ field: { value, onChange } }) => (
@@ -113,29 +107,6 @@ export default function UserRegistrationScreen() {
                 label={t('fields:password')}
                 value={value}
                 error={errors.password?.message}
-                onChangeText={onChange}
-                autoCapitalize="none"
-                secureTextEntry={hidePassword}
-                iconRight={
-                  <Ionicons
-                    name={hidePassword ? 'eye-off' : 'eye'}
-                    size={20}
-                    color="black"
-                    onPress={isSubmitting ? undefined : togglePassword}
-                  />
-                }
-              />
-            )}
-          />
-
-          <Controller
-            name="password_confirmation"
-            control={control}
-            render={({ field: { value, onChange } }) => (
-              <Input
-                label={t('fields:password_confirmation')}
-                value={value}
-                error={errors.password_confirmation?.message}
                 onChangeText={onChange}
                 autoCapitalize="none"
                 secureTextEntry={hidePassword}
@@ -160,6 +131,14 @@ export default function UserRegistrationScreen() {
           }
           disabled={isSubmitting}
           onPress={handleSubmit(onSubmit)}
+          iconLeft={
+            <Ionicons
+              className="mr-2"
+              name={isSubmitting ? 'sync' : 'log-in-outline'}
+              size={20}
+              color="white"
+            />
+          }
         />
       </View>
     </ScrollView>

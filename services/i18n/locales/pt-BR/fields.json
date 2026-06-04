@@ -3,6 +3,5 @@
   "email": "E-mail",
   "password": "Senha",
   "password_confirmation": "Confirmar Senha",
-  "cpf": "CPF",
-  "phone": "Celular"
+  "cpf": "CPF"
 }
