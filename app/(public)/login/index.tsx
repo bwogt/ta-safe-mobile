@@ -1,3 +1,4 @@
+import { AuthSwitchLink } from '@/components/ui/AuthSwitchLink';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
 import { LoginRequest } from '@/schemas/auth/login-request.schema';
@@ -7,7 +8,7 @@ import { applyValidationErrors } from '@/services/form/apply-validation-errors';
 import { useAuthStore } from '@/stores/auth/useAuthStore';
 import { Ionicons } from '@expo/vector-icons';
 import { isAxiosError } from 'axios';
-import { Link, Stack } from 'expo-router';
+import { Stack } from 'expo-router';
 import { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
@@ -114,14 +115,11 @@ export default function LoginScreen() {
           }
         />
 
-        <View className="items-center">
-          <Link
-            href="/(public)/register"
-            className="text-lg font-bold text-primary underline"
-          >
-            {t('login:register')}
-          </Link>
-        </View>
+        <AuthSwitchLink
+          href="/(public)/register"
+          text={t('login:noAccount')}
+          actionText={t('login:createAccount')}
+        />
       </View>
     </SafeAreaView>
   );

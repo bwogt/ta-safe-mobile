@@ -3,5 +3,6 @@
   "subtitle": "Acesse sua conta para continuar.",
   "login": "Entrar",
   "submit": "Entrando...",
-  "register": "Novo por aqui? Cadastre-se."
+  "noAccount": "Ainda não possui uma conta?",
+  "createAccount": "Cadastre-se"
 }
