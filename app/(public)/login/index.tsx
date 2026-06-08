@@ -1,13 +1,9 @@
 import { AuthSwitchLink } from '@/components/ui/AuthSwitchLink';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
+import { useLogin } from '@/queries/auth/useLogin';
 import { LoginRequest } from '@/schemas/auth/login-request.schema';
-import { LoginResponse } from '@/schemas/auth/login-response.schema';
-import api from '@/services/api';
-import { applyValidationErrors } from '@/services/form/apply-validation-errors';
-import { useAuthStore } from '@/stores/auth/useAuthStore';
 import { Ionicons } from '@expo/vector-icons';
-import { isAxiosError } from 'axios';
 import { Stack } from 'expo-router';
 import { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
@@ -16,11 +12,6 @@ import { Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function LoginScreen() {
-  const { t } = useTranslation(['login', 'fields']);
-  const [hidePassword, setHidePassword] = useState(true);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const togglePassword = () => setHidePassword(!hidePassword);
-
   const {
     control,
     handleSubmit,
@@ -28,21 +19,12 @@ export default function LoginScreen() {
     formState: { errors },
   } = useForm<LoginRequest>();
 
-  const onSubmit = async (data: LoginRequest) => {
-    try {
-      setIsSubmitting(true);
-      const response = await api.post<LoginResponse>('/auth/login', data);
-      const auth = response.data.data;
+  const { t } = useTranslation(['login', 'fields']);
+  const [hidePassword, setHidePassword] = useState(true);
+  const togglePassword = () => setHidePassword(!hidePassword);
 
-      useAuthStore.setState({ user: auth.user, accessToken: auth.token });
-    } catch (error: unknown) {
-      if (isAxiosError(error)) {
-        applyValidationErrors(error, setError);
-      }
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+  const { mutate: login, isPending } = useLogin(setError);
+  const onSubmit = (data: LoginRequest) => login(data);
 
   return (
     <SafeAreaView className="flex-1">
@@ -63,7 +45,7 @@ export default function LoginScreen() {
                   <Input
                     label={t('fields:email')}
                     value={value}
-                    editable={!isSubmitting}
+                    editable={!isPending}
                     error={errors.email?.message}
                     onChangeText={onChange}
                     keyboardType="email-address"
@@ -82,7 +64,7 @@ export default function LoginScreen() {
                     label={t('fields:password')}
                     value={value}
                     error={errors.password?.message}
-                    editable={!isSubmitting}
+                    editable={!isPending}
                     onChangeText={onChange}
                     autoCapitalize="none"
                     secureTextEntry={hidePassword}
@@ -91,7 +73,7 @@ export default function LoginScreen() {
                         name={hidePassword ? 'eye-off' : 'eye'}
                         size={20}
                         color="black"
-                        onPress={isSubmitting ? undefined : togglePassword}
+                        onPress={isPending ? undefined : togglePassword}
                       />
                     }
                   />
@@ -102,13 +84,13 @@ export default function LoginScreen() {
         </View>
 
         <Button
-          label={isSubmitting ? t('login:submit') : t('login:login')}
+          label={isPending ? t('login:submit') : t('login:login')}
           onPress={handleSubmit(onSubmit)}
-          disabled={isSubmitting}
+          disabled={isPending}
           iconLeft={
             <Ionicons
               className="mr-2"
-              name={isSubmitting ? 'sync' : 'log-in-outline'}
+              name={isPending ? 'sync' : 'log-in-outline'}
               size={20}
               color="white"
             />
