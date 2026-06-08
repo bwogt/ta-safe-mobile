@@ -13,6 +13,7 @@ i18n.use(initReactI18next).init({
       login: require('./locales/pt-BR/login.json'),
       fields: require('./locales/pt-BR/fields.json'),
       'register-user': require('./locales/pt-BR/register-user.json'),
+      'password-reset-start': require('./locales/pt-BR/password-reset-start.json'),
     },
   },
 

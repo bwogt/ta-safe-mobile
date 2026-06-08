@@ -1,6 +1,7 @@
 import { AuthSwitchLink } from '@/components/ui/AuthSwitchLink';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
+import { TextLink } from '@/components/ui/TextLink';
 import { useLogin } from '@/queries/auth/useLogin';
 import { LoginRequest } from '@/schemas/auth/login-request.schema';
 import { Ionicons } from '@expo/vector-icons';
@@ -8,7 +9,7 @@ import { Stack } from 'expo-router';
 import { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { Text, View } from 'react-native';
+import { KeyboardAvoidingView, Platform, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function LoginScreen() {
@@ -29,80 +30,91 @@ export default function LoginScreen() {
   return (
     <SafeAreaView className="flex-1">
       <Stack.Screen options={{ headerShown: false }} />
-      <View className="flex-1 justify-center gap-xl px-lg">
-        <View className="gap-2xl">
-          <View>
-            <Text className="text-5xl font-bold">{t('login:title')}</Text>
-            <Text className="text-xl">{t('login:subtitle')}</Text>
-          </View>
-
-          <View>
+      <KeyboardAvoidingView
+        style={{ flex: 1 }}
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      >
+        <View className="flex-1 justify-center gap-2xl px-lg">
+          <View className="gap-2xl">
             <View>
-              <Controller
-                name="email"
-                control={control}
-                render={({ field: { value, onChange } }) => (
-                  <Input
-                    label={t('fields:email')}
-                    value={value}
-                    editable={!isPending}
-                    error={errors.email?.message}
-                    onChangeText={onChange}
-                    keyboardType="email-address"
-                    autoCapitalize="none"
-                  />
-                )}
-              />
+              <Text className="text-5xl font-bold">{t('login:title')}</Text>
+              <Text className="text-xl">{t('login:subtitle')}</Text>
             </View>
 
             <View>
-              <Controller
-                name="password"
-                control={control}
-                render={({ field: { value, onChange } }) => (
-                  <Input
-                    label={t('fields:password')}
-                    value={value}
-                    error={errors.password?.message}
-                    editable={!isPending}
-                    onChangeText={onChange}
-                    autoCapitalize="none"
-                    secureTextEntry={hidePassword}
-                    iconRight={
-                      <Ionicons
-                        name={hidePassword ? 'eye-off' : 'eye'}
-                        size={20}
-                        color="black"
-                        onPress={isPending ? undefined : togglePassword}
-                      />
-                    }
-                  />
-                )}
-              />
+              <View>
+                <Controller
+                  name="email"
+                  control={control}
+                  render={({ field: { value, onChange } }) => (
+                    <Input
+                      label={t('fields:email')}
+                      value={value}
+                      editable={!isPending}
+                      error={errors.email?.message}
+                      onChangeText={onChange}
+                      keyboardType="email-address"
+                      autoCapitalize="none"
+                    />
+                  )}
+                />
+              </View>
+
+              <View>
+                <Controller
+                  name="password"
+                  control={control}
+                  render={({ field: { value, onChange } }) => (
+                    <Input
+                      label={t('fields:password')}
+                      value={value}
+                      error={errors.password?.message}
+                      editable={!isPending}
+                      onChangeText={onChange}
+                      autoCapitalize="none"
+                      secureTextEntry={hidePassword}
+                      iconRight={
+                        <Ionicons
+                          name={hidePassword ? 'eye-off' : 'eye'}
+                          size={20}
+                          color="black"
+                          onPress={isPending ? undefined : togglePassword}
+                        />
+                      }
+                    />
+                  )}
+                />
+
+                <TextLink
+                  href="/(public)/password-reset/start"
+                  text={t('login:forgotPassword')}
+                  className="text-right font-semibold text-primary"
+                />
+              </View>
             </View>
           </View>
+
+          <Button
+            label={isPending ? t('login:submit') : t('login:login')}
+            onPress={handleSubmit(onSubmit)}
+            disabled={isPending}
+            iconLeft={
+              <Ionicons
+                className="mr-2"
+                name={isPending ? 'sync' : 'log-in-outline'}
+                size={20}
+                color="white"
+              />
+            }
+          />
+
+          <AuthSwitchLink
+            href="/(public)/register"
+            text={t('login:noAccount')}
+            actionText={t('login:createAccount')}
+          />
         </View>
-
-        <Button
-          label={isPending ? t('login:submit') : t('login:login')}
-          onPress={handleSubmit(onSubmit)}
-          disabled={isPending}
-          iconLeft={
-            <Ionicons
-              className="mr-2"
-              name={isPending ? 'sync' : 'log-in-outline'}
-              size={20}
-              color="white"
-            />
-          }
-        />
-
-        <AuthSwitchLink
-          href="/(public)/register"
-          text={t('login:noAccount')}
-          actionText={t('login:createAccount')}
-        />
-      </View>
+      </KeyboardAvoidingView>
     </SafeAreaView>
   );
 }

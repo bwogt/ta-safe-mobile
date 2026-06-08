@@ -11,6 +11,7 @@ import { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { KeyboardAvoidingView, Platform, ScrollView, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function UserRegistrationScreen() {
   const {
@@ -28,116 +29,118 @@ export default function UserRegistrationScreen() {
   const onSubmit = (data: RegisterUserRequest) => register(data);
 
   return (
-    <KeyboardAvoidingView
-      style={{ flex: 1 }}
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-    >
-      <ScrollView
-        keyboardShouldPersistTaps="handled"
-        contentContainerStyle={{
-          paddingBottom: 48,
-        }}
+    <SafeAreaView className="flex-1">
+      <Stack.Screen options={{ headerShown: false }} />
+      <KeyboardAvoidingView
+        style={{ flex: 1 }}
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       >
-        <Stack.Screen options={{ headerShown: false }} />
-        <View className="mt-3xl flex-1 justify-center gap-2xl px-lg">
-          <PageHeader
-            title={t('register-user:title')}
-            subtitle={t('register-user:subtitle')}
-          />
-
-          <View>
-            <Controller
-              name="name"
-              control={control}
-              render={({ field: { value, onChange } }) => (
-                <Input
-                  label={t('fields:name')}
-                  value={value}
-                  error={errors.name?.message}
-                  onChangeText={onChange}
-                />
-              )}
+        <ScrollView
+          keyboardShouldPersistTaps="handled"
+          contentContainerStyle={{
+            paddingBottom: 48,
+          }}
+        >
+          <View className="mt-3xl flex-1 justify-center gap-2xl px-lg">
+            <PageHeader
+              title={t('register-user:title')}
+              subtitle={t('register-user:subtitle')}
             />
 
-            <Controller
-              name="email"
-              control={control}
-              render={({ field: { value, onChange } }) => (
-                <Input
-                  label={t('fields:email')}
-                  value={value}
-                  error={errors.email?.message}
-                  onChangeText={onChange}
-                  keyboardType="email-address"
-                  autoCapitalize="none"
+            <View>
+              <Controller
+                name="name"
+                control={control}
+                render={({ field: { value, onChange } }) => (
+                  <Input
+                    label={t('fields:name')}
+                    value={value}
+                    error={errors.name?.message}
+                    onChangeText={onChange}
+                  />
+                )}
+              />
+
+              <Controller
+                name="email"
+                control={control}
+                render={({ field: { value, onChange } }) => (
+                  <Input
+                    label={t('fields:email')}
+                    value={value}
+                    error={errors.email?.message}
+                    onChangeText={onChange}
+                    keyboardType="email-address"
+                    autoCapitalize="none"
+                  />
+                )}
+              />
+
+              <Controller
+                name="cpf"
+                control={control}
+                render={({ field: { value, onChange } }) => (
+                  <Input
+                    label={t('fields:cpf')}
+                    value={value}
+                    error={errors.cpf?.message}
+                    onChangeText={(text) => onChange(maskCpf(text))}
+                    keyboardType="numeric"
+                    autoCapitalize="none"
+                  />
+                )}
+              />
+
+              <Controller
+                name="password"
+                control={control}
+                render={({ field: { value, onChange } }) => (
+                  <Input
+                    label={t('fields:password')}
+                    value={value}
+                    error={errors.password?.message}
+                    onChangeText={onChange}
+                    autoCapitalize="none"
+                    secureTextEntry={hidePassword}
+                    iconRight={
+                      <Ionicons
+                        name={hidePassword ? 'eye-off' : 'eye'}
+                        size={20}
+                        color="black"
+                        onPress={isPending ? undefined : togglePassword}
+                      />
+                    }
+                  />
+                )}
+              />
+            </View>
+
+            <Button
+              label={
+                isPending
+                  ? t('register-user:submit')
+                  : t('register-user:createAccount')
+              }
+              disabled={!isValid || isPending}
+              onPress={handleSubmit(onSubmit)}
+              iconLeft={
+                <Ionicons
+                  className="mr-2"
+                  name={isPending ? 'sync' : 'log-in-outline'}
+                  size={20}
+                  color="white"
                 />
-              )}
+              }
             />
 
-            <Controller
-              name="cpf"
-              control={control}
-              render={({ field: { value, onChange } }) => (
-                <Input
-                  label={t('fields:cpf')}
-                  value={value}
-                  error={errors.cpf?.message}
-                  onChangeText={(text) => onChange(maskCpf(text))}
-                  keyboardType="numeric"
-                  autoCapitalize="none"
-                />
-              )}
-            />
-
-            <Controller
-              name="password"
-              control={control}
-              render={({ field: { value, onChange } }) => (
-                <Input
-                  label={t('fields:password')}
-                  value={value}
-                  error={errors.password?.message}
-                  onChangeText={onChange}
-                  autoCapitalize="none"
-                  secureTextEntry={hidePassword}
-                  iconRight={
-                    <Ionicons
-                      name={hidePassword ? 'eye-off' : 'eye'}
-                      size={20}
-                      color="black"
-                      onPress={isPending ? undefined : togglePassword}
-                    />
-                  }
-                />
-              )}
+            <AuthSwitchLink
+              href="/(public)/login"
+              text={t('register-user:haveAccount')}
+              actionText={t('register-user:login')}
             />
           </View>
-
-          <Button
-            label={
-              isPending
-                ? t('register-user:submit')
-                : t('register-user:createAccount')
-            }
-            disabled={!isValid || isPending}
-            onPress={handleSubmit(onSubmit)}
-            iconLeft={
-              <Ionicons
-                className="mr-2"
-                name={isPending ? 'sync' : 'log-in-outline'}
-                size={20}
-                color="white"
-              />
-            }
-          />
-
-          <AuthSwitchLink
-            href="/(public)/login"
-            text={t('register-user:haveAccount')}
-            actionText={t('register-user:login')}
-          />
-        </View>
-      </ScrollView>
-    </KeyboardAvoidingView>
+        </ScrollView>
+      </KeyboardAvoidingView>
+    </SafeAreaView>
   );
 }

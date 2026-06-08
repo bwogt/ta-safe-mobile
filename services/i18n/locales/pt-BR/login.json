@@ -4,5 +4,6 @@
   "login": "Entrar",
   "submit": "Entrando...",
   "noAccount": "Ainda não possui uma conta?",
-  "createAccount": "Cadastre-se"
+  "createAccount": "Cadastre-se",
+  "forgotPassword": "Esqueci minha senha"
 }
