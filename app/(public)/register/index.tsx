@@ -1,33 +1,18 @@
 import { AuthSwitchLink } from '@/components/ui/AuthSwitchLink';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
-import { LoginResponse } from '@/schemas/auth/login-response.schema';
+import PageHeader from '@/components/ui/PageHeader';
+import { useRegisterUser } from '@/queries/auth/useRegisterUser';
 import { RegisterUserRequest } from '@/schemas/auth/register-user-request.schema';
-import api from '@/services/api';
-import { applyValidationErrors } from '@/services/form/apply-validation-errors';
-import { useAuthStore } from '@/stores/auth/useAuthStore';
 import { maskCpf } from '@/utils/masks/maskCpf';
 import { Ionicons } from '@expo/vector-icons';
-import { isAxiosError } from 'axios';
 import { Stack } from 'expo-router';
 import { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import {
-  Keyboard,
-  KeyboardAvoidingView,
-  Platform,
-  ScrollView,
-  Text,
-  View,
-} from 'react-native';
+import { KeyboardAvoidingView, Platform, ScrollView, View } from 'react-native';
 
 export default function UserRegistrationScreen() {
-  const { t } = useTranslation(['fields', 'register-user']);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [hidePassword, setHidePassword] = useState(true);
-  const togglePassword = () => setHidePassword(!hidePassword);
-
   const {
     control,
     handleSubmit,
@@ -35,23 +20,12 @@ export default function UserRegistrationScreen() {
     formState: { errors, isValid },
   } = useForm<RegisterUserRequest>();
 
-  const onSubmit = async (data: RegisterUserRequest) => {
-    try {
-      Keyboard.dismiss();
-      setIsSubmitting(true);
+  const { t } = useTranslation(['fields', 'register-user']);
+  const [hidePassword, setHidePassword] = useState(true);
+  const togglePassword = () => setHidePassword(!hidePassword);
 
-      const response = await api.post<LoginResponse>('/auth/register', data);
-      const auth = response.data.data;
-
-      useAuthStore.setState({ user: auth.user, accessToken: auth.token });
-    } catch (error: unknown) {
-      if (isAxiosError(error)) {
-        applyValidationErrors(error, setError);
-      }
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+  const { mutate: register, isPending } = useRegisterUser(setError);
+  const onSubmit = (data: RegisterUserRequest) => register(data);
 
   return (
     <KeyboardAvoidingView
@@ -66,14 +40,10 @@ export default function UserRegistrationScreen() {
       >
         <Stack.Screen options={{ headerShown: false }} />
         <View className="mt-3xl flex-1 justify-center gap-2xl px-lg">
-          <View className="gap-sm">
-            <Text className="text-2xl font-bold text-primary">
-              {t('register-user:title')}
-            </Text>
-            <Text className="text-xl text-subtitle">
-              {t('register-user:subtitle')}
-            </Text>
-          </View>
+          <PageHeader
+            title={t('register-user:title')}
+            subtitle={t('register-user:subtitle')}
+          />
 
           <View>
             <Controller
@@ -135,7 +105,7 @@ export default function UserRegistrationScreen() {
                       name={hidePassword ? 'eye-off' : 'eye'}
                       size={20}
                       color="black"
-                      onPress={isSubmitting ? undefined : togglePassword}
+                      onPress={isPending ? undefined : togglePassword}
                     />
                   }
                 />
@@ -145,16 +115,16 @@ export default function UserRegistrationScreen() {
 
           <Button
             label={
-              isSubmitting
+              isPending
                 ? t('register-user:submit')
                 : t('register-user:createAccount')
             }
-            disabled={!isValid || isSubmitting}
+            disabled={!isValid || isPending}
             onPress={handleSubmit(onSubmit)}
             iconLeft={
               <Ionicons
                 className="mr-2"
-                name={isSubmitting ? 'sync' : 'log-in-outline'}
+                name={isPending ? 'sync' : 'log-in-outline'}
                 size={20}
                 color="white"
               />
