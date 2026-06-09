@@ -51,7 +51,7 @@ export default function PasswordResetCheck() {
             name="code"
             render={({ field: { value, onChange } }) => (
               <Input
-                label={t('password-reset-check:code')}
+                label={t('password-reset-check:fields:code')}
                 value={value}
                 error={errors.code?.message}
                 onChangeText={(text) => {
@@ -67,8 +67,8 @@ export default function PasswordResetCheck() {
           <Button
             label={
               isPending
-                ? t('password-reset-check:submit')
-                : t('password-reset-check:verify')
+                ? t('password-reset-check:actions:submitting')
+                : t('password-reset-check:actions:submit')
             }
             onPress={handleSubmit(onSubmit)}
             disabled={isPending}
@@ -84,7 +84,7 @@ export default function PasswordResetCheck() {
 
           <TextLink
             href="/(public)/login"
-            text={t('password-reset-check:backToLogin')}
+            text={t('password-reset-check:actions:backToLogin')}
             className="text-center text-lg font-semibold text-primary"
           />
         </View>

@@ -20,7 +20,7 @@ export default function LoginScreen() {
     formState: { errors },
   } = useForm<LoginRequest>();
 
-  const { t } = useTranslation(['login', 'fields']);
+  const { t } = useTranslation(['login']);
   const [hidePassword, setHidePassword] = useState(true);
   const togglePassword = () => setHidePassword(!hidePassword);
 
@@ -48,7 +48,7 @@ export default function LoginScreen() {
                   control={control}
                   render={({ field: { value, onChange } }) => (
                     <Input
-                      label={t('fields:email')}
+                      label={t('login:fields:email')}
                       value={value}
                       editable={!isPending}
                       error={errors.email?.message}
@@ -66,7 +66,7 @@ export default function LoginScreen() {
                   control={control}
                   render={({ field: { value, onChange } }) => (
                     <Input
-                      label={t('fields:password')}
+                      label={t('login:fields:password')}
                       value={value}
                       error={errors.password?.message}
                       editable={!isPending}
@@ -87,7 +87,7 @@ export default function LoginScreen() {
 
                 <TextLink
                   href="/(public)/password-reset/start"
-                  text={t('login:forgotPassword')}
+                  text={t('login:actions:forgotPassword')}
                   className="text-right font-semibold text-primary"
                 />
               </View>
@@ -95,7 +95,11 @@ export default function LoginScreen() {
           </View>
 
           <Button
-            label={isPending ? t('login:submit') : t('login:login')}
+            label={
+              isPending
+                ? t('login:actions:submitting')
+                : t('login:actions:submit')
+            }
             onPress={handleSubmit(onSubmit)}
             disabled={isPending}
             iconLeft={
@@ -110,8 +114,8 @@ export default function LoginScreen() {
 
           <AuthSwitchLink
             href="/(public)/register"
-            text={t('login:noAccount')}
-            actionText={t('login:createAccount')}
+            text={t('login:actions:noAccount')}
+            actionText={t('login:actions:createAccount')}
           />
         </View>
       </KeyboardAvoidingView>

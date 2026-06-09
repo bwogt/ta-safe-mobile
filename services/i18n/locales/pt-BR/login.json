@@ -1,9 +1,15 @@
 {
   "title": "Bem vindo!",
   "subtitle": "Acesse sua conta para continuar.",
-  "login": "Entrar",
-  "submit": "Entrando...",
-  "noAccount": "Ainda não possui uma conta?",
-  "createAccount": "Cadastre-se",
-  "forgotPassword": "Esqueci minha senha"
+  "fields": {
+    "email": "E-mail",
+    "password": "Senha"
+  },
+  "actions": {
+    "submit": "Entrar",
+    "submitting": "Entrando...",
+    "noAccount": "Ainda não possui uma conta?",
+    "createAccount": "Cadastre-se",
+    "forgotPassword": "Esqueci minha senha"
+  }
 }

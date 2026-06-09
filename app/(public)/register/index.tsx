@@ -53,7 +53,7 @@ export default function UserRegistrationScreen() {
                 control={control}
                 render={({ field: { value, onChange } }) => (
                   <Input
-                    label={t('fields:name')}
+                    label={t('register-user:fields:name')}
                     value={value}
                     error={errors.name?.message}
                     onChangeText={onChange}
@@ -66,7 +66,7 @@ export default function UserRegistrationScreen() {
                 control={control}
                 render={({ field: { value, onChange } }) => (
                   <Input
-                    label={t('fields:email')}
+                    label={t('register-user:fields:email')}
                     value={value}
                     error={errors.email?.message}
                     onChangeText={onChange}
@@ -81,7 +81,7 @@ export default function UserRegistrationScreen() {
                 control={control}
                 render={({ field: { value, onChange } }) => (
                   <Input
-                    label={t('fields:cpf')}
+                    label={t('register-user:fields:cpf')}
                     value={value}
                     error={errors.cpf?.message}
                     onChangeText={(text) => onChange(maskCpf(text))}
@@ -96,7 +96,7 @@ export default function UserRegistrationScreen() {
                 control={control}
                 render={({ field: { value, onChange } }) => (
                   <Input
-                    label={t('fields:password')}
+                    label={t('register-user:fields:password')}
                     value={value}
                     error={errors.password?.message}
                     onChangeText={onChange}
@@ -118,8 +118,8 @@ export default function UserRegistrationScreen() {
             <Button
               label={
                 isPending
-                  ? t('register-user:submit')
-                  : t('register-user:createAccount')
+                  ? t('register-user:actions:submitting')
+                  : t('register-user:actions:submit')
               }
               disabled={!isValid || isPending}
               onPress={handleSubmit(onSubmit)}
@@ -135,8 +135,8 @@ export default function UserRegistrationScreen() {
 
             <AuthSwitchLink
               href="/(public)/login"
-              text={t('register-user:haveAccount')}
-              actionText={t('register-user:login')}
+              text={t('register-user:actions:haveAccount')}
+              actionText={t('register-user:actions:login')}
             />
           </View>
         </ScrollView>

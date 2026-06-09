@@ -41,7 +41,7 @@ export default function PasswordResetStart() {
             control={control}
             render={({ field: { value, onChange } }) => (
               <Input
-                label={t('fields:email')}
+                label={t('password-reset-start:fields:email')}
                 value={value}
                 editable={!isPending}
                 error={errors.email?.message}
@@ -55,15 +55,15 @@ export default function PasswordResetStart() {
           <Button
             label={
               isPending
-                ? t('password-reset-start:submit')
-                : t('password-reset-start:send')
+                ? t('password-reset-start:actions:submitting')
+                : t('password-reset-start:actions:submit')
             }
             onPress={handleSubmit(onSubmit)}
             disabled={isPending}
             iconLeft={
               <Ionicons
                 className="mr-2"
-                name={isPending ? 'sync' : 'barcode-outline'}
+                name={isPending ? 'sync' : 'mail-outline'}
                 size={20}
                 color="white"
               />
@@ -72,7 +72,7 @@ export default function PasswordResetStart() {
 
           <TextLink
             href="/(public)/login"
-            text={t('password-reset-start:backToLogin')}
+            text={t('password-reset-start:actions:backToLogin')}
             className="text-center text-lg font-semibold text-primary"
           />
         </View>
