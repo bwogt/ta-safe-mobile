@@ -3,7 +3,7 @@ import { Input } from '@/components/ui/Input';
 import PageHeader from '@/components/ui/PageHeader';
 import { TextLink } from '@/components/ui/TextLink';
 import { usePasswordResetStart } from '@/queries/password-reset/usePasswordResetStart';
-import { PasswordResetStartRequest } from '@/schemas/password-reset/password-reset-start.shema';
+import { PasswordResetStartRequest } from '@/schemas/password-reset/start.request.shema';
 import { Ionicons } from '@expo/vector-icons';
 import { Stack } from 'expo-router';
 import { Controller, useForm } from 'react-hook-form';
@@ -20,14 +20,14 @@ export default function PasswordResetStart() {
   } = useForm<PasswordResetStartRequest>();
 
   const { t } = useTranslation(['fields', 'password-reset-start']);
-  const { mutate: passwordReset, isPending } = usePasswordResetStart(setError);
-  const onSubmit = (data: PasswordResetStartRequest) => passwordReset(data);
+  const { mutate: start, isPending } = usePasswordResetStart(setError);
+  const onSubmit = (data: PasswordResetStartRequest) => start(data);
 
   return (
     <SafeAreaView className="flex-1">
       <Stack.Screen options={{ headerShown: false }} />
       <KeyboardAvoidingView
-        style={{ flex: 1 }}
+        className="flex-1"
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       >
         <View className="flex-1 justify-center gap-2xl px-lg">

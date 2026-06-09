@@ -1,9 +1,9 @@
 import { z } from 'zod';
 
-export const passwordResetStartRequestSchema = z.object({
+export const PasswordResetStartRequestSchema = z.object({
   email: z.email(),
 });
 
 export type PasswordResetStartRequest = z.infer<
-  typeof passwordResetStartRequestSchema
+  typeof PasswordResetStartRequestSchema
 >;

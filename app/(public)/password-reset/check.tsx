@@ -3,7 +3,7 @@ import { Input } from '@/components/ui/Input';
 import PageHeader from '@/components/ui/PageHeader';
 import { TextLink } from '@/components/ui/TextLink';
 import { usePasswordResetCheckCode } from '@/queries/password-reset/usePasswordResetCheckCode';
-import { PasswordResetCheckCodeRequest } from '@/schemas/password-reset/password-reset-check-code.shema';
+import { PasswordResetCheckCodeRequest } from '@/schemas/password-reset/check-code.request.shema';
 import { Ionicons } from '@expo/vector-icons';
 import { Stack, useLocalSearchParams } from 'expo-router';
 import { useEffect } from 'react';
@@ -24,8 +24,8 @@ export default function PasswordResetCheck() {
   const { t } = useTranslation(['fields', 'password-reset-check']);
   const { email } = useLocalSearchParams();
 
-  const { mutate, isPending } = usePasswordResetCheckCode(setError);
-  const onSubmit = (data: PasswordResetCheckCodeRequest) => mutate(data);
+  const { mutate: checkCode, isPending } = usePasswordResetCheckCode(setError);
+  const onSubmit = (data: PasswordResetCheckCodeRequest) => checkCode(data);
 
   useEffect(() => {
     if (email) {
@@ -37,7 +37,7 @@ export default function PasswordResetCheck() {
     <SafeAreaView className="flex-1">
       <Stack.Screen options={{ headerShown: false }} />
       <KeyboardAvoidingView
-        style={{ flex: 1 }}
+        className="flex-1"
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       >
         <View className="flex-1 justify-center gap-2xl px-lg">
