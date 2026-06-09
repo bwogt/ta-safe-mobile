@@ -1,4 +1,4 @@
-import { apiFlashMessageSchema } from '@/schemas/message/api-flash-message.schema';
+import { ApiFlashMessageSchema } from '@/schemas/message/api-flash-message.schema';
 import { PasswordResetStartRequest } from '@/schemas/password-reset/start.request.shema';
 import api from '@/services/api';
 import { applyValidationErrors } from '@/services/form/apply-validation-errors';
@@ -13,7 +13,7 @@ export function usePasswordResetStart(
   return useMutation({
     mutationFn: async (data: PasswordResetStartRequest) => {
       const response = await api.post('/password-reset/start', data);
-      return apiFlashMessageSchema.parse(response.data.message);
+      return ApiFlashMessageSchema.parse(response.data.message);
     },
 
     onSuccess: (_, variables) => {

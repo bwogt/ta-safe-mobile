@@ -1,5 +1,5 @@
 import { ApiFlashMessageSchema } from '@/schemas/message/api-flash-message.schema';
-import { PasswordResetCheckCodeRequest } from '@/schemas/password-reset/check-code.request.shema';
+import { PasswordResetRequest } from '@/schemas/password-reset/password-reset.shema';
 import api from '@/services/api';
 import { applyValidationErrors } from '@/services/form/apply-validation-errors';
 import { useMutation } from '@tanstack/react-query';
@@ -7,23 +7,17 @@ import { isAxiosError } from 'axios';
 import { router } from 'expo-router';
 import { UseFormSetError } from 'react-hook-form';
 
-export function usePasswordResetCheckCode(
-  setError: UseFormSetError<PasswordResetCheckCodeRequest>,
+export function usePasswordReset(
+  setError: UseFormSetError<PasswordResetRequest>,
 ) {
   return useMutation({
-    mutationFn: async (data: PasswordResetCheckCodeRequest) => {
-      const response = await api.post('/password-reset/check-code', data);
+    mutationFn: async (data: PasswordResetRequest) => {
+      const response = await api.post('/password-reset', data);
       return ApiFlashMessageSchema.parse(response.data.message);
     },
 
-    onSuccess: (_, variables) => {
-      router.replace({
-        pathname: '/(public)/password-reset/reset',
-        params: {
-          email: variables.email,
-          code: variables.code,
-        },
-      });
+    onSuccess: () => {
+      router.replace('/(public)/login');
     },
 
     onError: (error) => {

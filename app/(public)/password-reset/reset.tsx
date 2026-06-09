@@ -2,36 +2,39 @@ import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
 import PageHeader from '@/components/ui/PageHeader';
 import { TextLink } from '@/components/ui/TextLink';
-import { usePasswordResetCheckCode } from '@/queries/password-reset/usePasswordResetCheckCode';
-import { PasswordResetCheckCodeRequest } from '@/schemas/password-reset/check-code.request.shema';
+import { usePasswordReset } from '@/queries/password-reset/usePasswordReset';
+import { PasswordResetRequest } from '@/schemas/password-reset/password-reset.shema';
 import { Ionicons } from '@expo/vector-icons';
 import { Stack, useLocalSearchParams } from 'expo-router';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { KeyboardAvoidingView, Platform, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-export default function PasswordResetCheck() {
+export default function PasswordReset() {
   const {
     control,
     handleSubmit,
     setError,
     setValue,
     formState: { errors },
-  } = useForm<PasswordResetCheckCodeRequest>();
+  } = useForm<PasswordResetRequest>();
 
-  const { t } = useTranslation(['fields', 'password-reset-check']);
-  const { email } = useLocalSearchParams();
+  const { t } = useTranslation(['password-reset']);
+  const { email, code } = useLocalSearchParams();
+  const [hidePassword, setHidePassword] = useState(true);
+  const togglePassword = () => setHidePassword(!hidePassword);
 
-  const { mutate: checkCode, isPending } = usePasswordResetCheckCode(setError);
-  const onSubmit = (data: PasswordResetCheckCodeRequest) => checkCode(data);
+  const { mutate: reset, isPending } = usePasswordReset(setError);
+  const onSubmit = (data: PasswordResetRequest) => reset(data);
 
   useEffect(() => {
-    if (email) {
+    if (email && code) {
       setValue('email', email as string);
+      setValue('code', code as string);
     }
-  }, [email]);
+  }, [email, code]);
 
   return (
     <SafeAreaView className="flex-1">
@@ -42,24 +45,30 @@ export default function PasswordResetCheck() {
       >
         <View className="flex-1 justify-center gap-2xl px-lg">
           <PageHeader
-            title={t('password-reset-check:title')}
-            subtitle={t('password-reset-check:subtitle', { email: email })}
+            title={t('password-reset:title')}
+            subtitle={t('password-reset:subtitle', { email: email })}
           />
 
           <Controller
+            name="password"
             control={control}
-            name="code"
             render={({ field: { value, onChange } }) => (
               <Input
-                label={t('password-reset-check:code')}
+                label={t('password-reset:fields:newPassword')}
                 value={value}
-                error={errors.code?.message}
-                onChangeText={(text) => {
-                  const onlyNumbers = text.replace(/\D/g, '');
-                  onChange(onlyNumbers);
-                }}
-                maxLength={6}
-                keyboardType="number-pad"
+                error={errors.password?.message}
+                editable={!isPending}
+                onChangeText={onChange}
+                autoCapitalize="none"
+                secureTextEntry={hidePassword}
+                iconRight={
+                  <Ionicons
+                    name={hidePassword ? 'eye-off' : 'eye'}
+                    size={20}
+                    color="black"
+                    onPress={isPending ? undefined : togglePassword}
+                  />
+                }
               />
             )}
           />
@@ -67,15 +76,15 @@ export default function PasswordResetCheck() {
           <Button
             label={
               isPending
-                ? t('password-reset-check:submit')
-                : t('password-reset-check:verify')
+                ? t('password-reset:actions:submit')
+                : t('password-reset:actions:save')
             }
             onPress={handleSubmit(onSubmit)}
             disabled={isPending}
             iconLeft={
               <Ionicons
                 className="mr-2"
-                name={'barcode-outline'}
+                name={'shield-checkmark-outline'}
                 size={20}
                 color="white"
               />
@@ -84,7 +93,7 @@ export default function PasswordResetCheck() {
 
           <TextLink
             href="/(public)/login"
-            text={t('password-reset-check:backToLogin')}
+            text={t('password-reset:actions:backToLogin')}
             className="text-center text-lg font-semibold text-primary"
           />
         </View>

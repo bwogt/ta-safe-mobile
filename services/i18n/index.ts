@@ -15,6 +15,7 @@ i18n.use(initReactI18next).init({
       'register-user': require('./locales/pt-BR/register-user.json'),
       'password-reset-start': require('./locales/pt-BR/password-reset-start.json'),
       'password-reset-check': require('./locales/pt-BR/password-reset-check.json'),
+      'password-reset': require('./locales/pt-BR/password-reset.json'),
     },
   },
 
