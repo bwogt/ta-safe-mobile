@@ -1,4 +1,4 @@
-import { AxiosError, InternalAxiosRequestConfig } from 'axios';
+import { InternalAxiosRequestConfig } from 'axios';
 
 import { useAuthStore } from '@/stores/auth/useAuthStore';
 
@@ -10,8 +10,4 @@ export function authInterceptor(config: InternalAxiosRequestConfig) {
   }
 
   return config;
-}
-
-export function authErrorInterceptor(error: AxiosError) {
-  return Promise.reject(error);
 }

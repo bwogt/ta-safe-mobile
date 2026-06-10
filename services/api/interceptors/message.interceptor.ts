@@ -1,6 +1,8 @@
 import { AxiosError, AxiosResponse } from 'axios';
 
 import { ApiFlashMessage } from '@/schemas/message/api-flash-message.schema';
+import { ApiFormErrors } from '@/schemas/message/api-form-errors.schema';
+import i18n from '@/services/i18n';
 import { notify } from '@/services/notify';
 
 function handleMessage(message?: ApiFlashMessage) {
@@ -14,7 +16,14 @@ export function responseInterceptor(response: AxiosResponse) {
   return response;
 }
 
-export function responseErrorInterceptor(error: AxiosError<any>) {
-  handleMessage(error.response?.data?.message);
+export function responseErrorInterceptor(error: AxiosError) {
+  if (!error.response) {
+    notify({ type: 'error', text: i18n.t('axios:noConnection') });
+    return Promise.reject(error);
+  }
+
+  const data = error.response.data as ApiFormErrors;
+  handleMessage(data.message);
+
   return Promise.reject(error);
 }
