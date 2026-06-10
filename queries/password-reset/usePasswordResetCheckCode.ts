@@ -1,5 +1,5 @@
 import { ApiFlashMessageSchema } from '@/schemas/message/api-flash-message.schema';
-import { PasswordResetCheckCodeRequest } from '@/schemas/password-reset/check-code.request.shema';
+import { PasswordResetCheckCodeRequest } from '@/schemas/password-reset/check-code.request.schema';
 import api from '@/services/api';
 import { applyValidationErrors } from '@/services/form/apply-validation-errors';
 import { useMutation } from '@tanstack/react-query';
