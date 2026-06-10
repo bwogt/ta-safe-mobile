@@ -1,5 +1,5 @@
 import { LoginRequest } from '@/schemas/auth/login-request.schema';
-import { loginResponseSchema } from '@/schemas/auth/login-response.schema';
+import { LoginResponseSchema } from '@/schemas/auth/login-response.schema';
 import api from '@/services/api';
 import { applyValidationErrors } from '@/services/form/apply-validation-errors';
 import { useAuthStore } from '@/stores/auth/useAuthStore';
@@ -11,7 +11,7 @@ export function useLogin(setError: UseFormSetError<LoginRequest>) {
   return useMutation({
     mutationFn: async (data: LoginRequest) => {
       const response = await api.post('/auth/login', data);
-      return loginResponseSchema.parse(response.data);
+      return LoginResponseSchema.parse(response.data);
     },
 
     onSuccess: ({ data: { user, token } }) => {
