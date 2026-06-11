@@ -1,4 +1,4 @@
 {
-  "noConnection": "Sem conexão com a internet",
-  "timeout": "Tempo de espera excedido"
+  "noConnection": "Não foi possível se conectar ao servidor. Tente novamente.",
+  "timeout": "Tempo de espera excedido."
 }

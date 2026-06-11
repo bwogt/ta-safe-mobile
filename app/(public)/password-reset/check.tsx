@@ -21,7 +21,7 @@ export default function PasswordResetCheck() {
     formState: { errors },
   } = useForm<PasswordResetCheckCodeRequest>();
 
-  const { t } = useTranslation(['fields', 'password-reset-check']);
+  const { t } = useTranslation('password-reset');
   const { email } = useLocalSearchParams();
 
   const { mutate: checkCode, isPending } = usePasswordResetCheckCode(setError);
@@ -31,14 +31,14 @@ export default function PasswordResetCheck() {
     if (email) {
       setValue('email', email as string);
     }
-  }, [email]);
+  }, [email, setValue]);
 
   return (
     <AuthScreen>
       <View className="flex-1 justify-center gap-2xl px-lg">
         <PageHeader
-          title={t('password-reset-check:title')}
-          subtitle={t('password-reset-check:subtitle', { email: email })}
+          title={t('check.title')}
+          subtitle={t('check.subtitle', { email: email })}
         />
 
         <Controller
@@ -46,7 +46,7 @@ export default function PasswordResetCheck() {
           name="code"
           render={({ field: { value, onChange } }) => (
             <Input
-              label={t('password-reset-check:fields:code')}
+              label={t('check.fields.code')}
               value={value}
               error={errors.code?.message}
               onChangeText={(text) => {
@@ -62,8 +62,8 @@ export default function PasswordResetCheck() {
         <Button
           label={
             isPending
-              ? t('password-reset-check:actions:submitting')
-              : t('password-reset-check:actions:submit')
+              ? t('check.actions.submitting')
+              : t('check.actions.submit')
           }
           onPress={handleSubmit(onSubmit)}
           disabled={isPending}
@@ -79,8 +79,8 @@ export default function PasswordResetCheck() {
 
         <TextLink
           href="/(public)/login"
-          text={t('password-reset-check:actions:backToLogin')}
-          className="text-center text-lg font-semibold text-primary"
+          text={t('check.actions.backToLogin')}
+          disabled={isPending}
         />
       </View>
     </AuthScreen>

@@ -17,10 +17,10 @@ export default function UserRegistrationScreen() {
     control,
     handleSubmit,
     setError,
-    formState: { errors, isValid },
+    formState: { errors },
   } = useForm<RegisterUserRequest>();
 
-  const { t } = useTranslation(['fields', 'register-user']);
+  const { t } = useTranslation('auth');
   const [hidePassword, setHidePassword] = useState(true);
   const togglePassword = () => setHidePassword(!hidePassword);
 
@@ -37,8 +37,8 @@ export default function UserRegistrationScreen() {
       >
         <View className="mt-3xl flex-1 justify-center gap-2xl px-lg">
           <PageHeader
-            title={t('register-user:title')}
-            subtitle={t('register-user:subtitle')}
+            title={t('registerUser.title')}
+            subtitle={t('registerUser.subtitle')}
           />
 
           <View>
@@ -47,7 +47,7 @@ export default function UserRegistrationScreen() {
               control={control}
               render={({ field: { value, onChange } }) => (
                 <Input
-                  label={t('register-user:fields:name')}
+                  label={t('registerUser.fields.name')}
                   value={value}
                   error={errors.name?.message}
                   onChangeText={onChange}
@@ -60,7 +60,7 @@ export default function UserRegistrationScreen() {
               control={control}
               render={({ field: { value, onChange } }) => (
                 <Input
-                  label={t('register-user:fields:email')}
+                  label={t('registerUser.fields.email')}
                   value={value}
                   error={errors.email?.message}
                   onChangeText={onChange}
@@ -75,7 +75,7 @@ export default function UserRegistrationScreen() {
               control={control}
               render={({ field: { value, onChange } }) => (
                 <Input
-                  label={t('register-user:fields:cpf')}
+                  label={t('registerUser.fields.cpf')}
                   value={value}
                   error={errors.cpf?.message}
                   onChangeText={(text) => onChange(maskCpf(text))}
@@ -90,7 +90,7 @@ export default function UserRegistrationScreen() {
               control={control}
               render={({ field: { value, onChange } }) => (
                 <Input
-                  label={t('register-user:fields:password')}
+                  label={t('registerUser.fields.password')}
                   value={value}
                   error={errors.password?.message}
                   onChangeText={onChange}
@@ -112,10 +112,10 @@ export default function UserRegistrationScreen() {
           <Button
             label={
               isPending
-                ? t('register-user:actions:submitting')
-                : t('register-user:actions:submit')
+                ? t('registerUser.actions.submitting')
+                : t('registerUser.actions.submit')
             }
-            disabled={!isValid || isPending}
+            disabled={isPending}
             onPress={handleSubmit(onSubmit)}
             iconLeft={
               <Ionicons
@@ -129,8 +129,9 @@ export default function UserRegistrationScreen() {
 
           <AuthSwitchLink
             href="/(public)/login"
-            text={t('register-user:actions:haveAccount')}
-            actionText={t('register-user:actions:login')}
+            text={t('registerUser.actions.haveAccount')}
+            actionText={t('registerUser.actions.login')}
+            disabled={isPending}
           />
         </View>
       </ScrollView>

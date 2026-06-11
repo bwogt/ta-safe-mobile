@@ -2,7 +2,7 @@ import { ApiFormErrors } from '@/schemas/message/api-form-errors.schema';
 import { AxiosError } from 'axios';
 import { FieldValues, Path, UseFormSetError } from 'react-hook-form';
 
-export function applyValidationErrors<T extends FieldValues>(
+export function applyApiFormErrors<T extends FieldValues>(
   error: AxiosError<ApiFormErrors>,
   setError: UseFormSetError<T>,
 ) {

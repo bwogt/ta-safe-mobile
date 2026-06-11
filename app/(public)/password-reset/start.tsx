@@ -18,24 +18,21 @@ export default function PasswordResetStart() {
     formState: { errors },
   } = useForm<PasswordResetStartRequest>();
 
-  const { t } = useTranslation(['fields', 'password-reset-start']);
+  const { t } = useTranslation('password-reset');
   const { mutate: start, isPending } = usePasswordResetStart(setError);
   const onSubmit = (data: PasswordResetStartRequest) => start(data);
 
   return (
     <AuthScreen>
       <View className="flex-1 justify-center gap-2xl px-lg ">
-        <PageHeader
-          title={t('password-reset-start:title')}
-          subtitle={t('password-reset-start:subtitle')}
-        />
+        <PageHeader title={t('start.title')} subtitle={t('start.subtitle')} />
 
         <Controller
           name="email"
           control={control}
           render={({ field: { value, onChange } }) => (
             <Input
-              label={t('password-reset-start:fields:email')}
+              label={t('start.fields.email')}
               value={value}
               editable={!isPending}
               error={errors.email?.message}
@@ -49,8 +46,8 @@ export default function PasswordResetStart() {
         <Button
           label={
             isPending
-              ? t('password-reset-start:actions:submitting')
-              : t('password-reset-start:actions:submit')
+              ? t('start.actions.submitting')
+              : t('start.actions.submit')
           }
           onPress={handleSubmit(onSubmit)}
           disabled={isPending}
@@ -66,8 +63,8 @@ export default function PasswordResetStart() {
 
         <TextLink
           href="/(public)/login"
-          text={t('password-reset-start:actions:backToLogin')}
-          className="text-center text-lg font-semibold text-primary"
+          text={t('start.actions.backToLogin')}
+          disabled={isPending}
         />
       </View>
     </AuthScreen>

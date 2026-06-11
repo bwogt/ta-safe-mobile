@@ -21,27 +21,27 @@ export default function PasswordReset() {
     formState: { errors },
   } = useForm<PasswordResetRequest>();
 
-  const { t } = useTranslation(['password-reset']);
+  const { t } = useTranslation('password-reset');
   const { email, code } = useLocalSearchParams();
   const [hidePassword, setHidePassword] = useState(true);
   const togglePassword = () => setHidePassword(!hidePassword);
 
-  const { mutate: reset, isPending } = usePasswordReset(setError);
-  const onSubmit = (data: PasswordResetRequest) => reset(data);
+  const { mutate: passwordReset, isPending } = usePasswordReset(setError);
+  const onSubmit = (data: PasswordResetRequest) => passwordReset(data);
 
   useEffect(() => {
     if (email && code) {
       setValue('email', email as string);
       setValue('code', code as string);
     }
-  }, [email, code]);
+  }, [email, code, setValue]);
 
   return (
     <AuthScreen>
       <View className="flex-1 justify-center gap-2xl px-lg">
         <PageHeader
-          title={t('password-reset:title')}
-          subtitle={t('password-reset:subtitle', { email: email })}
+          title={t('reset.title')}
+          subtitle={t('reset.subtitle', { email: email })}
         />
 
         <Controller
@@ -49,7 +49,7 @@ export default function PasswordReset() {
           control={control}
           render={({ field: { value, onChange } }) => (
             <Input
-              label={t('password-reset:fields:newPassword')}
+              label={t('reset.fields.newPassword')}
               value={value}
               error={errors.password?.message}
               editable={!isPending}
@@ -71,8 +71,8 @@ export default function PasswordReset() {
         <Button
           label={
             isPending
-              ? t('password-reset:actions:submit')
-              : t('password-reset:actions:save')
+              ? t('reset.actions.submitting')
+              : t('reset.actions.submit')
           }
           onPress={handleSubmit(onSubmit)}
           disabled={isPending}
@@ -88,8 +88,8 @@ export default function PasswordReset() {
 
         <TextLink
           href="/(public)/login"
-          text={t('password-reset:actions:backToLogin')}
-          className="text-center text-lg font-semibold text-primary"
+          text={t('reset.actions.backToLogin')}
+          disabled={isPending}
         />
       </View>
     </AuthScreen>

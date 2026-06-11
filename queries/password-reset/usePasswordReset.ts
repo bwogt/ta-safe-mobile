@@ -1,7 +1,7 @@
 import { ApiFlashMessageSchema } from '@/schemas/message/api-flash-message.schema';
 import { PasswordResetRequest } from '@/schemas/password-reset/password-reset.schema';
 import api from '@/services/api';
-import { applyValidationErrors } from '@/services/form/apply-validation-errors';
+import { applyApiFormErrors } from '@/utils/forms/applyApiFormErrors';
 import { useMutation } from '@tanstack/react-query';
 import { isAxiosError } from 'axios';
 import { router } from 'expo-router';
@@ -22,7 +22,9 @@ export function usePasswordReset(
 
     onError: (error) => {
       if (isAxiosError(error)) {
-        applyValidationErrors(error, setError);
+        if (error.response?.status === 422) {
+          applyApiFormErrors(error, setError);
+        }
       }
     },
   });
