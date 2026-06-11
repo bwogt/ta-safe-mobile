@@ -1,10 +1,10 @@
 import { z } from 'zod';
 
-import { apiFlashMessageSchema } from './api-flash-message.schema';
+import { ApiFlashMessageSchema } from './api-flash-message.schema';
 
-export const apiFormErrorsSchema = z.object({
-  message: apiFlashMessageSchema,
+export const ApiFormErrorsSchema = z.object({
+  message: ApiFlashMessageSchema,
   errors: z.record(z.string(), z.array(z.string())).optional(),
 });
 
-export type ApiFormErrors = z.infer<typeof apiFormErrorsSchema>;
+export type ApiFormErrors = z.infer<typeof ApiFormErrorsSchema>;

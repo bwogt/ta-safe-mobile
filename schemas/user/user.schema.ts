@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-export const userSchema = z.object({
+export const UserSchema = z.object({
   id: z.number().positive(),
   name: z.string().max(255),
   email: z.email(),
@@ -10,4 +10,4 @@ export const userSchema = z.object({
   updated_at: z.iso.datetime(),
 });
 
-export type User = z.infer<typeof userSchema>;
+export type User = z.infer<typeof UserSchema>;

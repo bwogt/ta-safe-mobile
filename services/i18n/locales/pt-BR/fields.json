@@ -1,7 +1,0 @@
-{
-  "name": "Nome",
-  "email": "E-mail",
-  "password": "Senha",
-  "password_confirmation": "Confirmar Senha",
-  "cpf": "CPF"
-}

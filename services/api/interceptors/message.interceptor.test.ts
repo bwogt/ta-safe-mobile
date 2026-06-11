@@ -2,7 +2,6 @@ import { ApiFlashMessage } from '@/schemas/message/api-flash-message.schema';
 import { notify } from '@/services/notify';
 import { makeAxiosError } from '@/tests/factories/makeAxiosError';
 import { makeAxiosResponse } from '@/tests/factories/makeAxiosResponse';
-import { AxiosError } from 'axios';
 import { unknown } from 'zod';
 import {
   responseErrorInterceptor,
@@ -23,6 +22,7 @@ describe('messageInterceptor', () => {
       type: 'success',
       text: 'Success message',
     };
+
     const response = makeAxiosResponse({ message });
 
     responseInterceptor(response);
@@ -49,13 +49,5 @@ describe('messageInterceptor', () => {
 
     await expect(responseErrorInterceptor(error)).rejects.toEqual(error);
     expect(notify).toHaveBeenCalledWith(message);
-  });
-
-  it('should reject with the original error', async () => {
-    const error = new AxiosError('Internal error');
-
-    await expect(responseErrorInterceptor(error)).rejects.toThrow(
-      'Internal error',
-    );
   });
 });

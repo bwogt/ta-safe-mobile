@@ -1,8 +1,8 @@
 import { ApiFormErrors } from '@/schemas/message/api-form-errors.schema';
 import { makeAxiosError } from '@/tests/factories/makeAxiosError';
-import { applyValidationErrors } from './apply-validation-errors';
+import { applyApiFormErrors } from './applyApiFormErrors';
 
-describe('applyValidationErrors', () => {
+describe('applyApiFormErrors', () => {
   it('should apply validation errors to form fields', () => {
     const setError = jest.fn();
     const emailError = 'E-mail is required';
@@ -16,7 +16,7 @@ describe('applyValidationErrors', () => {
       },
     });
 
-    applyValidationErrors(error, setError);
+    applyApiFormErrors(error, setError);
 
     expect(setError).toHaveBeenCalledWith('email', {
       message: emailError,
@@ -34,7 +34,7 @@ describe('applyValidationErrors', () => {
       message: { type: 'error', text: 'Bad Request' },
     });
 
-    applyValidationErrors(error, setError);
+    applyApiFormErrors(error, setError);
     expect(setError).not.toHaveBeenCalled();
   });
 });

@@ -1,15 +1,15 @@
+import { AuthScreen } from '@/components/ui/AuthScreen';
 import { AuthSwitchLink } from '@/components/ui/AuthSwitchLink';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
+import { TextLink } from '@/components/ui/TextLink';
 import { useLogin } from '@/queries/auth/useLogin';
 import { LoginRequest } from '@/schemas/auth/login-request.schema';
 import { Ionicons } from '@expo/vector-icons';
-import { Stack } from 'expo-router';
 import { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { Text, View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function LoginScreen() {
   const {
@@ -19,7 +19,7 @@ export default function LoginScreen() {
     formState: { errors },
   } = useForm<LoginRequest>();
 
-  const { t } = useTranslation(['login', 'fields']);
+  const { t } = useTranslation('auth');
   const [hidePassword, setHidePassword] = useState(true);
   const togglePassword = () => setHidePassword(!hidePassword);
 
@@ -27,13 +27,12 @@ export default function LoginScreen() {
   const onSubmit = (data: LoginRequest) => login(data);
 
   return (
-    <SafeAreaView className="flex-1">
-      <Stack.Screen options={{ headerShown: false }} />
-      <View className="flex-1 justify-center gap-xl px-lg">
+    <AuthScreen>
+      <View className="flex-1 justify-center gap-2xl px-lg">
         <View className="gap-2xl">
           <View>
-            <Text className="text-5xl font-bold">{t('login:title')}</Text>
-            <Text className="text-xl">{t('login:subtitle')}</Text>
+            <Text className="text-5xl font-bold">{t('login.title')}</Text>
+            <Text className="text-xl">{t('login.subtitle')}</Text>
           </View>
 
           <View>
@@ -43,7 +42,7 @@ export default function LoginScreen() {
                 control={control}
                 render={({ field: { value, onChange } }) => (
                   <Input
-                    label={t('fields:email')}
+                    label={t('login.fields.email')}
                     value={value}
                     editable={!isPending}
                     error={errors.email?.message}
@@ -61,7 +60,7 @@ export default function LoginScreen() {
                 control={control}
                 render={({ field: { value, onChange } }) => (
                   <Input
-                    label={t('fields:password')}
+                    label={t('login.fields.password')}
                     value={value}
                     error={errors.password?.message}
                     editable={!isPending}
@@ -79,12 +78,23 @@ export default function LoginScreen() {
                   />
                 )}
               />
+
+              <TextLink
+                href="/(public)/password-reset/start"
+                text={t('login.actions.forgotPassword')}
+                disabled={isPending}
+                className="text-right"
+              />
             </View>
           </View>
         </View>
 
         <Button
-          label={isPending ? t('login:submit') : t('login:login')}
+          label={
+            isPending
+              ? t('login.actions.submitting')
+              : t('login.actions.submit')
+          }
           onPress={handleSubmit(onSubmit)}
           disabled={isPending}
           iconLeft={
@@ -99,10 +109,11 @@ export default function LoginScreen() {
 
         <AuthSwitchLink
           href="/(public)/register"
-          text={t('login:noAccount')}
-          actionText={t('login:createAccount')}
+          text={t('login.actions.noAccount')}
+          actionText={t('login.actions.createAccount')}
+          disabled={isPending}
         />
       </View>
-    </SafeAreaView>
+    </AuthScreen>
   );
 }

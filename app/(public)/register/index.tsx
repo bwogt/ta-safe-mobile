@@ -1,3 +1,4 @@
+import { AuthScreen } from '@/components/ui/AuthScreen';
 import { AuthSwitchLink } from '@/components/ui/AuthSwitchLink';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
@@ -6,21 +7,20 @@ import { useRegisterUser } from '@/queries/auth/useRegisterUser';
 import { RegisterUserRequest } from '@/schemas/auth/register-user-request.schema';
 import { maskCpf } from '@/utils/masks/maskCpf';
 import { Ionicons } from '@expo/vector-icons';
-import { Stack } from 'expo-router';
 import { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { KeyboardAvoidingView, Platform, ScrollView, View } from 'react-native';
+import { ScrollView, View } from 'react-native';
 
 export default function UserRegistrationScreen() {
   const {
     control,
     handleSubmit,
     setError,
-    formState: { errors, isValid },
+    formState: { errors },
   } = useForm<RegisterUserRequest>();
 
-  const { t } = useTranslation(['fields', 'register-user']);
+  const { t } = useTranslation('auth');
   const [hidePassword, setHidePassword] = useState(true);
   const togglePassword = () => setHidePassword(!hidePassword);
 
@@ -28,21 +28,17 @@ export default function UserRegistrationScreen() {
   const onSubmit = (data: RegisterUserRequest) => register(data);
 
   return (
-    <KeyboardAvoidingView
-      style={{ flex: 1 }}
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-    >
+    <AuthScreen>
       <ScrollView
         keyboardShouldPersistTaps="handled"
         contentContainerStyle={{
           paddingBottom: 48,
         }}
       >
-        <Stack.Screen options={{ headerShown: false }} />
         <View className="mt-3xl flex-1 justify-center gap-2xl px-lg">
           <PageHeader
-            title={t('register-user:title')}
-            subtitle={t('register-user:subtitle')}
+            title={t('registerUser.title')}
+            subtitle={t('registerUser.subtitle')}
           />
 
           <View>
@@ -51,7 +47,7 @@ export default function UserRegistrationScreen() {
               control={control}
               render={({ field: { value, onChange } }) => (
                 <Input
-                  label={t('fields:name')}
+                  label={t('registerUser.fields.name')}
                   value={value}
                   error={errors.name?.message}
                   onChangeText={onChange}
@@ -64,7 +60,7 @@ export default function UserRegistrationScreen() {
               control={control}
               render={({ field: { value, onChange } }) => (
                 <Input
-                  label={t('fields:email')}
+                  label={t('registerUser.fields.email')}
                   value={value}
                   error={errors.email?.message}
                   onChangeText={onChange}
@@ -79,7 +75,7 @@ export default function UserRegistrationScreen() {
               control={control}
               render={({ field: { value, onChange } }) => (
                 <Input
-                  label={t('fields:cpf')}
+                  label={t('registerUser.fields.cpf')}
                   value={value}
                   error={errors.cpf?.message}
                   onChangeText={(text) => onChange(maskCpf(text))}
@@ -94,7 +90,7 @@ export default function UserRegistrationScreen() {
               control={control}
               render={({ field: { value, onChange } }) => (
                 <Input
-                  label={t('fields:password')}
+                  label={t('registerUser.fields.password')}
                   value={value}
                   error={errors.password?.message}
                   onChangeText={onChange}
@@ -116,10 +112,10 @@ export default function UserRegistrationScreen() {
           <Button
             label={
               isPending
-                ? t('register-user:submit')
-                : t('register-user:createAccount')
+                ? t('registerUser.actions.submitting')
+                : t('registerUser.actions.submit')
             }
-            disabled={!isValid || isPending}
+            disabled={isPending}
             onPress={handleSubmit(onSubmit)}
             iconLeft={
               <Ionicons
@@ -133,11 +129,12 @@ export default function UserRegistrationScreen() {
 
           <AuthSwitchLink
             href="/(public)/login"
-            text={t('register-user:haveAccount')}
-            actionText={t('register-user:login')}
+            text={t('registerUser.actions.haveAccount')}
+            actionText={t('registerUser.actions.login')}
+            disabled={isPending}
           />
         </View>
       </ScrollView>
-    </KeyboardAvoidingView>
+    </AuthScreen>
   );
 }

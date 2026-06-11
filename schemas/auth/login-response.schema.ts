@@ -1,13 +1,13 @@
 import { z } from 'zod';
-import { apiFlashMessageSchema } from '../message/api-flash-message.schema';
-import { userSchema } from '../user/user.schema';
+import { ApiFlashMessageSchema } from '../message/api-flash-message.schema';
+import { UserSchema } from '../user/user.schema';
 
-export const loginResponseSchema = z.object({
-  message: apiFlashMessageSchema,
+export const LoginResponseSchema = z.object({
+  message: ApiFlashMessageSchema,
   data: z.object({
-    user: userSchema,
+    user: UserSchema,
     token: z.string(),
   }),
 });
 
-export type LoginResponse = z.infer<typeof loginResponseSchema>;
+export type LoginResponse = z.infer<typeof LoginResponseSchema>;
