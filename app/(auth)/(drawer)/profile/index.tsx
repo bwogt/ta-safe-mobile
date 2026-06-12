@@ -1,8 +1,8 @@
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
+import { useCurrentUser } from '@/queries/user/useCurrentUser';
 import { useUpdateProfile } from '@/queries/user/useUpdateProfile';
 import { UpdateProfileRequest } from '@/schemas/user/update-profile.request.schema';
-import { useAuthStore } from '@/stores/auth/useAuthStore';
 import { colors } from '@/themes/colors';
 import { Ionicons } from '@expo/vector-icons';
 import { Controller, useForm } from 'react-hook-form';
@@ -10,27 +10,20 @@ import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 
 export default function ProfileScreen() {
-  const { user } = useAuthStore.getState();
+  const { data: user } = useCurrentUser();
   const { t } = useTranslation('common');
 
   const {
     control,
     handleSubmit,
     setError,
-    reset,
     formState: { errors, isDirty },
   } = useForm<UpdateProfileRequest>({
-    defaultValues: {
-      name: user?.name,
-      email: user?.email,
-    },
+    values: user ? { name: user.name, email: user.email } : undefined,
   });
 
   const { mutate: updateProfile } = useUpdateProfile(setError);
-  const onSubmit = (data: UpdateProfileRequest) => {
-    updateProfile(data);
-    reset(data);
-  };
+  const onSubmit = async (data: UpdateProfileRequest) => updateProfile(data);
 
   return (
     <View className="gap-xl px-lg pt-lg">

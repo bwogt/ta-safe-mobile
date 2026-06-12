@@ -13,7 +13,7 @@ export default function Button({
   disabled,
   iconLeft,
   iconRight,
-  ...props
+  ...rest
 }: ButtonProps) {
   const variants = {
     primary: 'bg-primary',
@@ -27,7 +27,7 @@ export default function Button({
 
   return (
     <Pressable
-      {...props}
+      {...rest}
       disabled={disabled}
       className={`${buttonStyle} rounded-md p-sm`}
     >

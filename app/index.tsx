@@ -1,12 +1,22 @@
+import LoadingScreen from '@/components/ui/LoadingScreen';
+import { useCurrentUser } from '@/queries/user/useCurrentUser';
 import { useAuthStore } from '@/stores/auth/useAuthStore';
 import { Redirect } from 'expo-router';
+import { queryClient } from './_layout';
 
 export default function Index() {
-  const { accessToken } = useAuthStore.getState();
+  const { isPending, isError } = useCurrentUser();
 
-  if (accessToken) {
-    return <Redirect href="/(auth)/(drawer)/profile" />;
+  if (isPending) {
+    return <LoadingScreen />;
   }
 
-  return <Redirect href="/(public)/login" />;
+  if (isError) {
+    useAuthStore.getState().logout();
+    queryClient.clear();
+
+    return <Redirect href="/(public)/login" />;
+  }
+
+  return <Redirect href="/(auth)/(drawer)/profile" />;
 }

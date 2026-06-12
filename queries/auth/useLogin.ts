@@ -1,3 +1,4 @@
+import { queryClient } from '@/app/_layout';
 import { LoginRequest } from '@/schemas/auth/login-request.schema';
 import { LoginResponseSchema } from '@/schemas/auth/login-response.schema';
 import api from '@/services/api';
@@ -16,7 +17,9 @@ export function useLogin(setError: UseFormSetError<LoginRequest>) {
     },
 
     onSuccess: ({ data: { user, token } }) => {
-      useAuthStore.setState({ user: user, accessToken: token });
+      useAuthStore.setState({ accessToken: token });
+      queryClient.setQueryData(['current-user'], user);
+
       router.replace('/(auth)/(drawer)/profile');
     },
 

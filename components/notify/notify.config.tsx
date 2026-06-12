@@ -36,7 +36,6 @@ const styles = StyleSheet.create({
   toast: {
     borderLeftWidth: 0,
     borderRadius: 8,
-    marginTop: 10,
   },
   iconContainer: {
     justifyContent: 'center',

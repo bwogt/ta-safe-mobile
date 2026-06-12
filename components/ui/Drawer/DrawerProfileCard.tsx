@@ -1,11 +1,11 @@
-import { useAuthStore } from '@/stores/auth/useAuthStore';
+import { useCurrentUser } from '@/queries/user/useCurrentUser';
 import { colors } from '@/themes/colors';
 import { Ionicons } from '@expo/vector-icons';
 import { Link } from 'expo-router';
 import { Pressable, Text, View } from 'react-native';
 
 export default function DrawerProfileCard() {
-  const user = useAuthStore((state) => state.user);
+  const { data: user } = useCurrentUser();
 
   return (
     <View className="rounded-2xl border border-zinc-200 bg-white p-4 shadow">

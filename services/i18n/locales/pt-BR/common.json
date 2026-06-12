@@ -4,5 +4,8 @@
   },
   "actions": {
     "update": "Atualizar"
+  },
+  "loads": {
+    "waiting": "Aguarde..."
   }
 }

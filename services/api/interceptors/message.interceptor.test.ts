@@ -2,6 +2,7 @@ import { ApiFlashMessage } from '@/schemas/message/api-flash-message.schema';
 import { notify } from '@/services/notify';
 import { makeAxiosError } from '@/tests/factories/makeAxiosError';
 import { makeAxiosResponse } from '@/tests/factories/makeAxiosResponse';
+import { AxiosError } from 'axios';
 import { unknown } from 'zod';
 import {
   responseErrorInterceptor,
@@ -43,11 +44,16 @@ describe('messageInterceptor', () => {
     expect(result).toBe(response);
   });
 
-  it('should call notify when error response contains a message', async () => {
+  it('should notify when the error response contains a message', async () => {
     const message: ApiFlashMessage = { type: 'error', text: 'Bad Request' };
     const error = makeAxiosError({ message: message });
 
     await expect(responseErrorInterceptor(error)).rejects.toEqual(error);
     expect(notify).toHaveBeenCalledWith(message);
+  });
+
+  it('should notify a connection error when the request has no response', async () => {
+    const error = {} as AxiosError;
+    await expect(responseErrorInterceptor(error)).rejects.toEqual(error);
   });
 });

@@ -4,18 +4,16 @@ import { Text, TextInput, TextInputProps, View } from 'react-native';
 
 type InputProps = TextInputProps & {
   label: string;
-  value?: string;
   iconRight?: React.ReactNode;
   error?: string;
 };
 
 export default function Input({
   label,
-  value,
-  iconRight,
   error,
+  iconRight,
   editable = true,
-  ...props
+  ...rest
 }: InputProps) {
   const [isFocused, setIsFocused] = useState(false);
 
@@ -38,8 +36,7 @@ export default function Input({
 
         <View className="flex-row">
           <TextInput
-            {...props}
-            value={value}
+            {...rest}
             editable={editable}
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
