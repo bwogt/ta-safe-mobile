@@ -6,7 +6,7 @@ type AuthScreenProps = {
   children: React.ReactNode;
 };
 
-export function AuthScreen({ children }: AuthScreenProps) {
+export default function AuthScreen({ children }: AuthScreenProps) {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <Stack.Screen options={{ headerShown: false }} />

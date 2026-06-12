@@ -1,8 +1,9 @@
-import { AuthScreen } from '@/components/ui/AuthScreen';
-import { AuthSwitchLink } from '@/components/ui/AuthSwitchLink';
-import { Button } from '@/components/ui/Button';
-import { Input } from '@/components/ui/Input';
+import AuthScreen from '@/components/ui/AuthScreen';
+import AuthSwitchLink from '@/components/ui/AuthSwitchLink';
+import Button from '@/components/ui/Button';
+import Input from '@/components/ui/Input';
 import PageHeader from '@/components/ui/PageHeader';
+
 import { useRegisterUser } from '@/queries/auth/useRegisterUser';
 import { RegisterUserRequest } from '@/schemas/auth/register-user-request.schema';
 import { maskCpf } from '@/utils/masks/maskCpf';

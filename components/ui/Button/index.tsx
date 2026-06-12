@@ -7,7 +7,7 @@ type ButtonProps = PressableProps & {
   iconRight?: React.ReactNode;
 };
 
-export function Button({
+export default function Button({
   label,
   variant,
   disabled,

@@ -9,7 +9,7 @@ type InputProps = TextInputProps & {
   error?: string;
 };
 
-export function Input({
+export default function Input({
   label,
   value,
   iconRight,

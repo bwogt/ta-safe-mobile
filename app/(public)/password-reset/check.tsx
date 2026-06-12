@@ -1,8 +1,9 @@
-import { AuthScreen } from '@/components/ui/AuthScreen';
-import { Button } from '@/components/ui/Button';
-import { Input } from '@/components/ui/Input';
+import AuthScreen from '@/components/ui/AuthScreen';
+import Button from '@/components/ui/Button';
+import Input from '@/components/ui/Input';
 import PageHeader from '@/components/ui/PageHeader';
-import { TextLink } from '@/components/ui/TextLink';
+import TextLink from '@/components/ui/TextLink';
+
 import { usePasswordResetCheckCode } from '@/queries/password-reset/usePasswordResetCheckCode';
 import { PasswordResetCheckCodeRequest } from '@/schemas/password-reset/check-code.request.schema';
 import { Ionicons } from '@expo/vector-icons';

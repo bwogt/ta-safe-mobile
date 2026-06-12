@@ -1,5 +1,5 @@
-import { Button } from '@/components/ui/Button';
-import { Input } from '@/components/ui/Input';
+import Button from '@/components/ui/Button';
+import Input from '@/components/ui/Input';
 import { useUpdateProfile } from '@/queries/user/useUpdateProfile';
 import { UpdateProfileRequest } from '@/schemas/user/update-profile.request.schema';
 import { useAuthStore } from '@/stores/auth/useAuthStore';

@@ -1,4 +1,4 @@
-import DrawerProfile from '@/components/ui/Drawer/DrawerContent';
+import DrawerContent from '@/components/ui/Drawer';
 import { colors } from '@/themes/colors';
 import { Drawer } from 'expo-router/drawer';
 import { useTranslation } from 'react-i18next';
@@ -11,7 +11,7 @@ export default function Layout() {
     <>
       <StatusBar barStyle="light-content" backgroundColor={colors.primary} />
       <Drawer
-        drawerContent={(props) => <DrawerProfile {...props} />}
+        drawerContent={(props) => <DrawerContent {...props} />}
         screenOptions={{
           drawerActiveTintColor: 'transparent',
           drawerActiveBackgroundColor: colors.drawer.active,
