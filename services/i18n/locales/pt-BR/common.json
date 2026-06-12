@@ -1,0 +1,8 @@
+{
+  "fields": {
+    "cpf": "CPF"
+  },
+  "actions": {
+    "update": "Atualizar"
+  }
+}

@@ -5,6 +5,7 @@ import { useAuthStore } from '@/stores/auth/useAuthStore';
 import { applyApiFormErrors } from '@/utils/forms/applyApiFormErrors';
 import { useMutation } from '@tanstack/react-query';
 import { isAxiosError } from 'axios';
+import { router } from 'expo-router';
 import { UseFormSetError } from 'react-hook-form';
 
 export function useLogin(setError: UseFormSetError<LoginRequest>) {
@@ -16,6 +17,7 @@ export function useLogin(setError: UseFormSetError<LoginRequest>) {
 
     onSuccess: ({ data: { user, token } }) => {
       useAuthStore.setState({ user: user, accessToken: token });
+      router.replace('/(auth)/(drawer)/profile');
     },
 
     onError: (error) => {

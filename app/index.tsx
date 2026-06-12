@@ -1,5 +1,12 @@
+import { useAuthStore } from '@/stores/auth/useAuthStore';
 import { Redirect } from 'expo-router';
 
 export default function Index() {
-  return <Redirect href={'/(public)/login'} />;
+  const { accessToken } = useAuthStore.getState();
+
+  if (accessToken) {
+    return <Redirect href="/(auth)/(drawer)/profile" />;
+  }
+
+  return <Redirect href="/(public)/login" />;
 }

@@ -1,3 +1,5 @@
+const { colors } = require('./themes/colors');
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   // NOTE: Update this to include the paths to all files that contain Nativewind classes.
@@ -5,12 +7,7 @@ module.exports = {
   presets: [require('nativewind/preset')],
   theme: {
     extend: {
-      colors: {
-        primary: '#6100DD',
-        neutral: '#B2B2B8',
-        subtitle: '#666',
-        danger: '#FF0000',
-      },
+      colors,
       spacing: {
         xs: '4px',
         sm: '8px',
