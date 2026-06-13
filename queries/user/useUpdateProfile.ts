@@ -1,5 +1,6 @@
 import { queryClient } from '@/app/_layout';
 import { UpdateProfileRequest } from '@/schemas/user/update-profile.request.schema';
+import { UpdateProfileResponseSchema } from '@/schemas/user/update-profile.response.schema';
 import api from '@/services/api';
 import { applyApiFormErrors } from '@/utils/forms/applyApiFormErrors';
 import { useMutation } from '@tanstack/react-query';
@@ -11,12 +12,11 @@ export function useUpdateProfile(
 ) {
   return useMutation({
     mutationFn: async (data: UpdateProfileRequest) => {
-      await api.patch('/user', data);
+      const response = await api.patch('/user', data);
+      return UpdateProfileResponseSchema.parse(response.data);
     },
-    onSuccess: async () => {
-      await queryClient.invalidateQueries({
-        queryKey: ['current-user'],
-      });
+    onSuccess: ({ user }) => {
+      queryClient.setQueryData(['current-user'], user);
     },
     onError: (error) => {
       if (isAxiosError(error)) {
