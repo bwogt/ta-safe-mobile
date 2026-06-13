@@ -16,7 +16,7 @@ export function useLogin(setError: UseFormSetError<LoginRequest>) {
       return LoginResponseSchema.parse(response.data);
     },
 
-    onSuccess: ({ data: { user, token } }) => {
+    onSuccess: ({ user, token }) => {
       useAuthStore.setState({ accessToken: token });
       queryClient.setQueryData(['current-user'], user);
 
