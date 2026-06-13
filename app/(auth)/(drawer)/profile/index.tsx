@@ -38,7 +38,7 @@ export default function ProfileScreen() {
             control={control}
             render={({ field: { value, onChange } }) => (
               <Input
-                label="Name"
+                label={t('fields.name')}
                 value={value}
                 error={errors.name?.message}
                 onChangeText={onChange}
@@ -51,7 +51,11 @@ export default function ProfileScreen() {
             control={control}
             render={({ field: { value, onChange } }) => (
               <Input
-                label="E-mail"
+                label={
+                  user?.email_verified_at
+                    ? t('fields.email')
+                    : t('fields.emailNotVerified')
+                }
                 value={value}
                 error={errors.email?.message}
                 onChangeText={onChange}
