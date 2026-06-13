@@ -18,7 +18,7 @@ export function responseInterceptor(response: AxiosResponse) {
 
 export function responseErrorInterceptor(error: AxiosError) {
   if (!error.response) {
-    notify({ type: 'error', text: i18n.t('errors:noConnection') });
+    notify({ type: 'error', text: i18n.t('errors:axios.noConnection') });
     return Promise.reject(error);
   }
 
