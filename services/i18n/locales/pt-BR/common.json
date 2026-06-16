@@ -1,0 +1,14 @@
+{
+  "fields": {
+    "name": "Nome",
+    "email": "E-mail",
+    "emailNotVerified": "E-mail (Não Verificado)",
+    "cpf": "CPF"
+  },
+  "actions": {
+    "update": "Atualizar"
+  },
+  "loads": {
+    "waiting": "Aguarde..."
+  }
+}

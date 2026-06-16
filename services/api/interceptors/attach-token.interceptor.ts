@@ -2,7 +2,7 @@ import { InternalAxiosRequestConfig } from 'axios';
 
 import { useAuthStore } from '@/stores/auth/useAuthStore';
 
-export function authInterceptor(config: InternalAxiosRequestConfig) {
+export function attachTokenInterceptor(config: InternalAxiosRequestConfig) {
   const { accessToken } = useAuthStore.getState();
 
   if (accessToken) {

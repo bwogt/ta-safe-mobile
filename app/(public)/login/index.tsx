@@ -1,8 +1,9 @@
-import { AuthScreen } from '@/components/ui/AuthScreen';
-import { AuthSwitchLink } from '@/components/ui/AuthSwitchLink';
-import { Button } from '@/components/ui/Button';
-import { Input } from '@/components/ui/Input';
-import { TextLink } from '@/components/ui/TextLink';
+import AuthScreen from '@/components/ui/AuthScreen/index';
+import AuthSwitchLink from '@/components/ui/AuthSwitchLink';
+import Button from '@/components/ui/Button';
+import Input from '@/components/ui/Input';
+import TextLink from '@/components/ui/TextLink';
+
 import { useLogin } from '@/queries/auth/useLogin';
 import { LoginRequest } from '@/schemas/auth/login-request.schema';
 import { Ionicons } from '@expo/vector-icons';

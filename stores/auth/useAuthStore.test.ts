@@ -1,7 +1,5 @@
-import { User } from '@/schemas/user/user.schema';
 import { useAuthStore } from '@/stores/auth/useAuthStore';
 import * as SecureStore from 'expo-secure-store';
-import { makeUser } from '../../tests/factories/makeUser';
 
 jest.mock('expo-secure-store', () => ({
   getItemAsync: jest.fn(),
@@ -10,42 +8,35 @@ jest.mock('expo-secure-store', () => ({
 }));
 
 describe('useAuthStore', () => {
-  let user: User;
-  const token = 'token-123';
+  const token = 'jwt|1234567890';
 
   beforeEach(() => {
-    user = makeUser();
     useAuthStore.getState().logout();
     jest.clearAllMocks();
   });
 
-  it('should start with empty session', () => {
+  it('should have no access token before authentication', () => {
     const state = useAuthStore.getState();
-
-    expect(state.user).toBeNull();
     expect(state.accessToken).toBeNull();
   });
 
-  it('should set session correctly', () => {
-    useAuthStore.getState().setSession(user, token);
+  it('should store the access token after authentication', () => {
+    useAuthStore.getState().setAccessToken(token);
     const state = useAuthStore.getState();
 
-    expect(state.user).toEqual(user);
     expect(state.accessToken).toBe(token);
   });
 
-  it('should clear session on logout', () => {
-    useAuthStore.getState().setSession(user, token);
+  it('should remove the access token on logout', () => {
+    useAuthStore.getState().setAccessToken(token);
     useAuthStore.getState().logout();
 
     const state = useAuthStore.getState();
-
-    expect(state.user).toBeNull();
     expect(state.accessToken).toBeNull();
   });
 
-  it('should persist session in secure storage', async () => {
-    useAuthStore.getState().setSession(user, token);
+  it('should persist the access token in SecureStore', async () => {
+    useAuthStore.getState().setAccessToken(token);
     await Promise.resolve();
 
     expect(SecureStore.setItemAsync).toHaveBeenCalledWith(

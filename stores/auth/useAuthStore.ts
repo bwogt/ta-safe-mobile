@@ -6,35 +6,18 @@ import { AuthState } from './auth.types';
 export const useAuthStore = create<AuthState>()(
   persist(
     (set) => ({
-      user: null,
       accessToken: null,
       hydrated: false,
 
-      setSession: (user, token) =>
-        set({
-          user,
-          accessToken: token,
-        }),
-
-      logout: () =>
-        set({
-          user: null,
-          accessToken: null,
-        }),
-
-      setHydrated: (value) =>
-        set({
-          hydrated: value,
-        }),
+      setAccessToken: (token) => set({ accessToken: token }),
+      setHydrated: (value) => set({ hydrated: value }),
+      logout: () => set({ accessToken: null }),
     }),
     {
       name: 'auth-storage',
       storage: createJSONStorage(() => secureStore),
 
-      partialize: (state) => ({
-        user: state.user,
-        accessToken: state.accessToken,
-      }),
+      partialize: (state) => ({ accessToken: state.accessToken }),
 
       onRehydrateStorage: () => (state) => {
         state?.setHydrated(true);

@@ -1,38 +1,49 @@
+import { cn } from '@/utils/styles/cn';
 import { useState } from 'react';
 import { Text, TextInput, TextInputProps, View } from 'react-native';
 
 type InputProps = TextInputProps & {
   label: string;
-  value: string;
   iconRight?: React.ReactNode;
   error?: string;
 };
 
-export function Input({
+export default function Input({
   label,
-  value,
-  iconRight,
   error,
-  ...props
+  iconRight,
+  editable = true,
+  ...rest
 }: InputProps) {
   const [isFocused, setIsFocused] = useState(false);
 
-  const labelColor = isFocused ? 'text-primary' : 'text-neutral';
-  const borderColor = isFocused ? 'border-primary' : 'border-neutral';
-  const baseLabelStyle = 'absolute -top-3 left-3 bg-gray-100 px-1 z-10';
-
   return (
     <View className="min-h-4xl">
-      <View className={`rounded-xl border-2  ${borderColor}`}>
-        <Text className={`${baseLabelStyle} ${labelColor}`}>{label}</Text>
+      <View
+        className={cn(
+          'rounded-xl border-2 border-neutral',
+          isFocused && 'border-primary',
+        )}
+      >
+        <Text
+          className={cn(
+            'absolute -top-3 left-3 z-10 bg-gray-100 px-1 text-neutral',
+            isFocused && 'text-primary',
+          )}
+        >
+          {label}
+        </Text>
 
         <View className="flex-row">
           <TextInput
-            {...props}
-            className="h-2xl flex-1 pl-2 text-lg"
-            value={value}
+            {...rest}
+            editable={editable}
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
+            className={cn(
+              'h-2xl flex-1 pl-2 text-lg ',
+              !editable && 'text-neutral',
+            )}
           />
 
           {iconRight && (

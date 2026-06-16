@@ -1,11 +1,8 @@
-import { User } from '@/schemas/user/user.schema';
-
 export type AuthState = {
-  user: User | null;
   accessToken: string | null;
   hydrated: boolean;
 
-  setSession: (user: User, token: string) => void;
-  logout: () => void;
+  setAccessToken: (token: string) => void;
   setHydrated: (value: boolean) => void;
+  logout: () => void;
 };

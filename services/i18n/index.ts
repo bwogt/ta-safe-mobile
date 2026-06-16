@@ -5,12 +5,14 @@ i18n.use(initReactI18next).init({
   lng: 'pt_BR',
   fallbackLng: 'pt_BR',
 
-  ns: ['axios', 'auth', 'password-reset'],
+  ns: ['auth', 'common', 'drawer', 'errors', 'password-reset'],
 
   resources: {
     pt_BR: {
-      axios: require('./locales/pt-BR/axios.json'),
       auth: require('./locales/pt-BR/auth.json'),
+      common: require('./locales/pt-BR/common.json'),
+      drawer: require('./locales/pt-BR/drawer.json'),
+      errors: require('./locales/pt-BR/errors.json'),
       'password-reset': require('./locales/pt-BR/password-reset.json'),
     },
   },

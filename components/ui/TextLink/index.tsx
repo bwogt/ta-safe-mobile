@@ -9,7 +9,12 @@ type TextLinkProps = {
   className?: string;
 };
 
-export function TextLink({ href, text, disabled, className }: TextLinkProps) {
+export default function TextLink({
+  href,
+  text,
+  disabled,
+  className,
+}: TextLinkProps) {
   return (
     <Link href={href} asChild>
       <Pressable disabled={disabled}>

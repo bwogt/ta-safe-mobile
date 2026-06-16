@@ -1,10 +1,12 @@
 import { LoginRequest } from '@/schemas/auth/login-request.schema';
 import { LoginResponseSchema } from '@/schemas/auth/login-response.schema';
 import api from '@/services/api';
+import { queryClient } from '@/services/queryClient';
 import { useAuthStore } from '@/stores/auth/useAuthStore';
 import { applyApiFormErrors } from '@/utils/forms/applyApiFormErrors';
 import { useMutation } from '@tanstack/react-query';
 import { isAxiosError } from 'axios';
+import { router } from 'expo-router';
 import { UseFormSetError } from 'react-hook-form';
 
 export function useLogin(setError: UseFormSetError<LoginRequest>) {
@@ -14,8 +16,11 @@ export function useLogin(setError: UseFormSetError<LoginRequest>) {
       return LoginResponseSchema.parse(response.data);
     },
 
-    onSuccess: ({ data: { user, token } }) => {
-      useAuthStore.setState({ user: user, accessToken: token });
+    onSuccess: ({ user, token }) => {
+      useAuthStore.setState({ accessToken: token });
+      queryClient.setQueryData(['current-user'], user);
+
+      router.replace('/(auth)/(drawer)/profile');
     },
 
     onError: (error) => {

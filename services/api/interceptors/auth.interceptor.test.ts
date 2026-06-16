@@ -1,6 +1,6 @@
 import { useAuthStore } from '@/stores/auth/useAuthStore';
 import { AxiosHeaders, InternalAxiosRequestConfig } from 'axios';
-import { authInterceptor } from './auth.interceptor';
+import { attachTokenInterceptor } from './attach-token.interceptor';
 
 jest.mock('@/stores/auth/useAuthStore', () => ({
   useAuthStore: {
@@ -10,7 +10,7 @@ jest.mock('@/stores/auth/useAuthStore', () => ({
 
 const mockedGetState = useAuthStore.getState as jest.Mock;
 
-describe('authInterceptor', () => {
+describe('attachTokenInterceptor', () => {
   beforeEach(() => {
     jest.clearAllMocks();
   });
@@ -22,14 +22,14 @@ describe('authInterceptor', () => {
 
   it('should attach authorization header when token exists', () => {
     mockedGetState.mockReturnValue({ accessToken: 'jwt|1234567890' });
-    const result = authInterceptor(createConfig());
+    const result = attachTokenInterceptor(createConfig());
 
     expect(result.headers.Authorization).toBe('Bearer jwt|1234567890');
   });
 
   it('should not attach authorization header when token is null', () => {
     mockedGetState.mockReturnValue({ accessToken: null });
-    const result = authInterceptor(createConfig());
+    const result = attachTokenInterceptor(createConfig());
 
     expect(result.headers.Authorization).toBeUndefined();
   });

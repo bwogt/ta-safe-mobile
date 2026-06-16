@@ -9,7 +9,7 @@ type AuthSwitchLinkProps = {
   disabled?: boolean;
 };
 
-export function AuthSwitchLink({
+export default function AuthSwitchLink({
   href,
   text,
   actionText,
