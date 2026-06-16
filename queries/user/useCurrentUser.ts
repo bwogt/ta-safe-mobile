@@ -10,5 +10,6 @@ export function useCurrentUser() {
       return UserSchema.parse(response.data);
     },
     staleTime: Infinity,
+    gcTime: Infinity,
   });
 }

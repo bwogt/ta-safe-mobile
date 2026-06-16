@@ -1,8 +1,8 @@
 import LoadingScreen from '@/components/ui/LoadingScreen';
 import { useCurrentUser } from '@/queries/user/useCurrentUser';
+import { queryClient } from '@/services/queryClient';
 import { useAuthStore } from '@/stores/auth/useAuthStore';
 import { Redirect } from 'expo-router';
-import { queryClient } from './_layout';
 
 export default function Index() {
   const { isPending, isError } = useCurrentUser();

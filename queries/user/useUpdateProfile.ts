@@ -1,7 +1,7 @@
-import { queryClient } from '@/app/_layout';
 import { UpdateProfileRequest } from '@/schemas/user/update-profile.request.schema';
 import { UpdateProfileResponseSchema } from '@/schemas/user/update-profile.response.schema';
 import api from '@/services/api';
+import { queryClient } from '@/services/queryClient';
 import { applyApiFormErrors } from '@/utils/forms/applyApiFormErrors';
 import { useMutation } from '@tanstack/react-query';
 import { isAxiosError } from 'axios';

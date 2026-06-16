@@ -1,7 +1,7 @@
-import { queryClient } from '@/app/_layout';
 import { LoginRequest } from '@/schemas/auth/login-request.schema';
 import { LoginResponseSchema } from '@/schemas/auth/login-response.schema';
 import api from '@/services/api';
+import { queryClient } from '@/services/queryClient';
 import { useAuthStore } from '@/stores/auth/useAuthStore';
 import { applyApiFormErrors } from '@/utils/forms/applyApiFormErrors';
 import { useMutation } from '@tanstack/react-query';

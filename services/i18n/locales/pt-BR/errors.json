@@ -1,6 +1,7 @@
 {
   "axios": {
-    "noConnection": "Não foi possível se conectar ao servidor. Tente novamente em breve."
+    "noConnection": "Não foi possível se conectar ao servidor. Tente novamente em breve.",
+    "requestFailed": "Ocorreu um erro inesperado. Tente novamente em breve."
   },
   "zod": {
     "error": "Esta versão do aplicativo pode estar desatualizada. Atualize o app e tente novamente."
