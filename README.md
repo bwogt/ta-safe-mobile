@@ -55,7 +55,7 @@ Este repositório contém a **nova versão do aplicativo mobile**, em desenvolvi
 | **Testes**                | Jest 29.7 + jest-expo 54.0        |
 | **Linting/Formatting**    | ESLint 9.25 + Prettier            |
 
-## 📱 Ambiente de Desenvolimento
+## 📱 Ambiente de Desenvolvimento
 
 ### Pré‑requisitos
 - Node.js 20 
