@@ -28,6 +28,20 @@ Este repositório contém a **nova versão do aplicativo mobile**, em desenvolvi
 - 🔌 [TA-SAFE-API (Backend)](https://github.com/bwogt/ta-safe-api)
 - 📱 [Versão legada do app](https://github.com/bwogt/ta-safe-mobile-legacy)
 
+## 🔄 Por que uma nova versão?
+
+A versão original do aplicativo foi desenvolvida como parte do Trabalho de Conclusão de Curso (TCC) e cumpriu com sucesso seu objetivo acadêmico. No entanto, sua arquitetura refletia as decisões e limitações tecnológicas adotadas durante seu desenvolvimento.
+
+Esta nova versão foi reescrita do zero com foco em:
+
++ **Manutenibilidade**: Arquitetura modular e separação clara de responsabilidades;
++ **Performance**: Gerenciamento eficiente de estado local com Zustand e de dados assíncronos com TanStack Query;
++ **Segurança**: Armazenamento seguro de informações sensíveis com SecureStore e validação tipada com Zod;
++ **Produtividade**: Roteamento baseado em arquivos com Expo Router e estilização utilizando NativeWind (Tailwind CSS);
++ **Qualidade de código**: Utilização de TypeScript, ESLint, Prettier e testes automatizados com Jest.
+
+A versão legada permanece disponível para fins históricos e de consulta, enquanto todo o desenvolvimento ativo e a evolução do projeto ocorrem neste repositório.
+
 ## 🚀 Funcionalidades (em construção)
 
 + **Autenticação**: Cadastro, login, atualização de perfil e redefinição de senha;
