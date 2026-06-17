@@ -17,7 +17,7 @@
 
 No Brasil, **mais de 1 milhão de celulares são roubados ou furtados por ano**. Esse mercado paralelo movimenta cifras significativas e alimenta um ciclo em que aparelhos de procedência duvidosa são repassados a consumidores sem qualquer comprovação de origem.
 
-Diante desse cenário, o comprador comum dispõe de poucos recursos para verificar a legalidade e a procedência de um aparelho usado. O Tá Safe surge como um protótipo acadêmico que permite o registro do dispositivo a partir da Nota Fiscal Eletrônica (NF-e) e o registro voluntário das transferências de propriedade entre usuários. Esses dados constroem um histórico público, verificável e rastreável, auxiliando o usuário na avaliação da procedência do aparelho.
+Diante desse cenário, o comprador comum dispõe de poucos recursos para verificar a legalidade e a procedência de um aparelho usado. O Tá Safe surge como um protótipo acadêmico que permite o registro do dispositivo a partir da Nota Fiscal Eletrônica (NF-e) e o gerenciamento da transferência de propriedade entre usuários por meio de um fluxo de solicitação e aceite. A cada transferência concluída, o histórico do dispositivo é atualizado, formando um registro público, verificável e rastreável de propriedade e transferências, auxiliando o usuário na avaliação da procedência do aparelho e promovendo maior transparência sobre sua origem.
 
 Este repositório contém a **nova versão do aplicativo mobile**, em desenvolvimento com foco em arquitetura limpa, performance e manutenibilidade, substituindo a [versão legada](https://github.com/bwogt/ta-safe-mobile-legacy).
 
@@ -48,7 +48,7 @@ A versão legada permanece disponível para fins históricos e de consulta, enqu
 + **Registro de celulares**: Cadastro de dispositivos por meio do preenchimento das informações do aparelho e do código de visualização da Nota Fiscal Eletrônica (NF-e);
 + **Validação de registros**: Extração automática dos dados da NF-e por meio de web scraping e envio das informações para validação no backend;
 + **Histórico de propriedade**: Consulta ao histórico de propriedade e de transferências do dispositivo;
-+ **Transferência de propriedade**: Solicitação e aceite de transferências de propriedade entre usuários;
++ **Transferência de titularidade**: Solicitações de transferência entre usuários, incluindo criação, cancelamento e aceite;
 + **Compartilhamento de registros**: Geração de links públicos para consulta da procedência e do histórico de propriedade do dispositivo.
 
 ## 🛠️ Stack Tecnológica
