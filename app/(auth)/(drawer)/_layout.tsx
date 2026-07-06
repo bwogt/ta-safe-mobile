@@ -34,6 +34,13 @@ export default function Layout() {
             },
           }}
         />
+
+        <Drawer.Screen
+          name="dashboard/index"
+          options={{
+            title: 'Dashboard',
+          }}
+        />
       </Drawer>
     </>
   );

@@ -1,0 +1,8 @@
+{
+  "stats": {
+    "validated": "Ativos",
+    "pending": "Pendentes",
+    "in_analysis": "Em Análise",
+    "rejected": "Rejeitados"
+  }
+}
