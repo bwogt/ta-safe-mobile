@@ -20,7 +20,7 @@ export function useLogin(setError: UseFormSetError<LoginRequest>) {
       useAuthStore.setState({ accessToken: token });
       queryClient.setQueryData(['current-user'], user);
 
-      router.replace('/(auth)/(drawer)/profile');
+      router.replace('/(auth)/(drawer)/dashboard');
     },
 
     onError: (error) => {

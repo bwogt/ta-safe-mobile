@@ -29,16 +29,6 @@ export default function Layout() {
         }}
       >
         <Drawer.Screen
-          name="profile/index"
-          options={{
-            title: t('profile.title'),
-            drawerItemStyle: {
-              display: 'none',
-            },
-          }}
-        />
-
-        <Drawer.Screen
           name="dashboard/index"
           options={{
             title: `Olá, ${user?.name}`,
@@ -49,6 +39,16 @@ export default function Layout() {
                 size={size}
               />
             ),
+          }}
+        />
+
+        <Drawer.Screen
+          name="profile/index"
+          options={{
+            title: t('profile.title'),
+            drawerItemStyle: {
+              display: 'none',
+            },
           }}
         />
       </Drawer>
