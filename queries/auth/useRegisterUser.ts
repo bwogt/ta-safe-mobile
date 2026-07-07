@@ -6,6 +6,7 @@ import { useAuthStore } from '@/stores/auth/useAuthStore';
 import { applyApiFormErrors } from '@/utils/forms/applyApiFormErrors';
 import { useMutation } from '@tanstack/react-query';
 import { isAxiosError } from 'axios';
+import { router } from 'expo-router';
 import { UseFormSetError } from 'react-hook-form';
 
 export function useRegisterUser(
@@ -17,8 +18,9 @@ export function useRegisterUser(
       return LoginResponseSchema.parse(response.data);
     },
 
-    onSuccess: ({ data: { user, token } }) => {
-      useAuthStore.setState({ user: user, accessToken: token });
+    onSuccess: ({ token }) => {
+      useAuthStore.getState().setAccessToken(token);
+      router.replace('/(auth)/(drawer)/dashboard');
     },
 
     onError: (error) => {
