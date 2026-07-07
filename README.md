@@ -1,14 +1,14 @@
 # TA-SAFE-MOBILE
 
-[![Expo](https://img.shields.io/badge/Expo-54-000020?style=flat&logo=expo&logoColor=white)](https://expo.dev) 
-[![React Native](https://img.shields.io/badge/React_Native-0.81-61DAFB?style=flat&logo=react&logoColor=white)](https://reactnative.dev) 
-[![React](https://img.shields.io/badge/React-19-61DAFB?style=flat&logo=react&logoColor=white)](https://react.dev) 
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?style=flat&logo=typescript&logoColor=white)](https://typescriptlang.org) 
-[![Expo Router](https://img.shields.io/badge/Expo_Router-6.0-000020?style=flat&logo=expo&logoColor=white)](https://docs.expo.dev/router/introduction/) 
-[![NativeWind](https://img.shields.io/badge/NativeWind-4.2-06B6D4?style=flat&logo=tailwindcss&logoColor=white)](https://www.nativewind.dev/) 
-[![TanStack Query](https://img.shields.io/badge/TanStack_Query-5.101-FF4154?style=flat&logo=reactquery&logoColor=white)](https://tanstack.com/query) 
-[![Zustand](https://img.shields.io/badge/Zustand-5.0-000000?style=flat&logo=react&logoColor=white)](https://github.com/pmndrs/zustand) 
-[![i18next](https://img.shields.io/badge/i18next-26.1-26A69A?style=flat&logo=i18next&logoColor=white)](https://www.i18next.com/) 
+[![Expo](https://img.shields.io/badge/Expo-54-000020?style=flat&logo=expo&logoColor=white)](https://expo.dev)
+[![React Native](https://img.shields.io/badge/React_Native-0.81-61DAFB?style=flat&logo=react&logoColor=white)](https://reactnative.dev)
+[![React](https://img.shields.io/badge/React-19-61DAFB?style=flat&logo=react&logoColor=white)](https://react.dev)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?style=flat&logo=typescript&logoColor=white)](https://typescriptlang.org)
+[![Expo Router](https://img.shields.io/badge/Expo_Router-6.0-000020?style=flat&logo=expo&logoColor=white)](https://docs.expo.dev/router/introduction/)
+[![NativeWind](https://img.shields.io/badge/NativeWind-4.2-06B6D4?style=flat&logo=tailwindcss&logoColor=white)](https://www.nativewind.dev/)
+[![TanStack Query](https://img.shields.io/badge/TanStack_Query-5.101-FF4154?style=flat&logo=reactquery&logoColor=white)](https://tanstack.com/query)
+[![Zustand](https://img.shields.io/badge/Zustand-5.0-000000?style=flat&logo=react&logoColor=white)](https://github.com/pmndrs/zustand)
+[![i18next](https://img.shields.io/badge/i18next-26.1-26A69A?style=flat&logo=i18next&logoColor=white)](https://www.i18next.com/)
 [![Zod](https://img.shields.io/badge/Zod-4.3-3E67B1?style=flat&logo=zod&logoColor=white)](https://zod.dev/)
 [![ESLint](https://img.shields.io/badge/ESLint-9.25-4B32C3?style=flat&logo=eslint&logoColor=white)](https://eslint.org)
 [![Jest](https://img.shields.io/badge/Jest-29.7-C21325?style=flat&logo=jest&logoColor=white)](https://jestjs.io/)
@@ -34,95 +34,105 @@ A versão original do aplicativo foi desenvolvida como parte do Trabalho de Conc
 
 Esta nova versão foi reescrita do zero com foco em:
 
-+ **Manutenibilidade**: Arquitetura modular e separação clara de responsabilidades;
-+ **Performance**: Gerenciamento eficiente de estado local com Zustand e de dados assíncronos com TanStack Query;
-+ **Segurança**: Armazenamento seguro de informações sensíveis com SecureStore e validação tipada com Zod;
-+ **Produtividade**: Roteamento baseado em arquivos com Expo Router e estilização utilizando NativeWind (Tailwind CSS);
-+ **Qualidade de código**: Utilização de TypeScript, ESLint, Prettier e testes automatizados com Jest.
+- **Manutenibilidade**: Arquitetura modular e separação clara de responsabilidades;
+- **Performance**: Gerenciamento eficiente de estado local com Zustand e de dados assíncronos com TanStack Query;
+- **Segurança**: Armazenamento seguro de informações sensíveis com SecureStore e validação tipada com Zod;
+- **Produtividade**: Roteamento baseado em arquivos com Expo Router e estilização utilizando NativeWind (Tailwind CSS);
+- **Qualidade de código**: Utilização de TypeScript, ESLint, Prettier e testes automatizados com Jest.
 
 A versão legada permanece disponível para fins históricos e de consulta, enquanto todo o desenvolvimento ativo e a evolução do projeto ocorrem neste repositório.
 
 ## 🚀 Funcionalidades (em construção)
 
-+ **Autenticação**: Cadastro, login, atualização de perfil e redefinição de senha;
-+ **Registro de celulares**: Cadastro de dispositivos por meio do preenchimento das informações do aparelho e do código de visualização da Nota Fiscal Eletrônica (NF-e);
-+ **Validação de registros**: Extração automática dos dados da NF-e por meio de web scraping e envio das informações para validação no backend;
-+ **Histórico de propriedade**: Consulta ao histórico de propriedade e de transferências do dispositivo;
-+ **Transferência de titularidade**: Solicitações de transferência entre usuários, incluindo criação, cancelamento e aceite;
-+ **Compartilhamento de registros**: Geração de links públicos para consulta da procedência e do histórico de propriedade do dispositivo.
+- **Autenticação**: Cadastro, login, atualização de perfil e redefinição de senha;
+- **Registro de celulares**: Cadastro de dispositivos por meio do preenchimento das informações do aparelho e do código de visualização da Nota Fiscal Eletrônica (NF-e);
+- **Validação de registros**: Extração automática dos dados da NF-e por meio de web scraping e envio das informações para validação no backend;
+- **Histórico de propriedade**: Consulta ao histórico de propriedade e de transferências do dispositivo;
+- **Transferência de titularidade**: Solicitações de transferência entre usuários, incluindo criação, cancelamento e aceite;
+- **Compartilhamento de registros**: Geração de links públicos para consulta da procedência e do histórico de propriedade do dispositivo.
 
 ## 🛠️ Stack Tecnológica
 
-| Camada                    | Tecnologia                         |
-|---------------------------|-----------------------------------|
-| **Framework**             | Expo 54 + React Native 0.81       |
-| **Linguagem**             | TypeScript 5.9                    |
-| **Navegação**             | Expo Router 6.0 (file-based)      |
+| Camada                      | Tecnologia                                              |
+| --------------------------- | ------------------------------------------------------- |
+| **Framework**               | Expo 54 + React Native 0.81                             |
+| **Linguagem**               | TypeScript 5.9                                          |
+| **Navegação**               | Expo Router 6.0 (file-based)                            |
 | **Gerenciamento de Estado** | Zustand 5.0 (local) + TanStack Query 5.101 (assíncrono) |
-| **Formulários e Validação** | react-hook-form 7.75 + Zod 4.3   |
-| **Requisições HTTP**      | Axios 1.15                        |
-| **Internacionalização**   | i18next 26.1 + react-i18next 17.0 |
-| **Estilização**           | NativeWind 4.2 (Tailwind CSS)     |
-| **Armazenamento Local**   | AsyncStorage 2.2 + SecureStore 15.0 |
-| **UI Components**         | Componentes customizados com Tailwind |
-| **Feedback ao Usuário**   | react-native-toast-message 2.3    |
-| **Testes**                | Jest 29.7 + jest-expo 54.0        |
-| **Linting/Formatting**    | ESLint 9.25 + Prettier            |
+| **Formulários e Validação** | react-hook-form 7.75 + Zod 4.3                          |
+| **Requisições HTTP**        | Axios 1.15                                              |
+| **Internacionalização**     | i18next 26.1 + react-i18next 17.0                       |
+| **Estilização**             | NativeWind 4.2 (Tailwind CSS)                           |
+| **Armazenamento Local**     | AsyncStorage 2.2 + SecureStore 15.0                     |
+| **UI Components**           | Componentes customizados com Tailwind                   |
+| **Feedback ao Usuário**     | react-native-toast-message 2.3                          |
+| **Testes**                  | Jest 29.7 + jest-expo 54.0                              |
+| **Linting/Formatting**      | ESLint 9.25 + Prettier                                  |
 
 ## 📱 Ambiente de Desenvolvimento
 
 ### Pré‑requisitos
-- Node.js 20 
+
+- Node.js 20
 - Aplicativo **Expo Go** (SDK 54)
 
 ### Passos para executar
 
 1. Clone o repositório
-~~~bash
+
+```bash
 git clone git@github.com:bwogt/ta-safe-mobile.git
-~~~
+```
 
 2. Acesse a pasta do projeto
-~~~bash
+
+```bash
 cd ta-safe-mobile
-~~~
+```
 
 3. Copie o arquivo de ambiente
-~~~bash
+
+```bash
 cp .env.example .env.local
-~~~
+```
 
 4. Ajuste a variável de ambiente com a URL da API
-~~~bash
+
+```bash
 EXPO_PUBLIC_API_URL=http://IP_DA_SUA_MAQUINA:80/api
-~~~
+```
 
 > Substitua 'IP_DA_SUA_MAQUINA' pelo endereço IP local da máquina onde a API está sendo executada (por exemplo, 192.168.0.10).
 
 5. Instale as dependências
-~~~bash
+
+```bash
 npm install
-~~~
+```
 
 6. Inicie o servidor de desenvolvimento (com cache limpo)
-~~~bash
+
+```bash
 npx expo start -c
-~~~
+```
 
 7. Abra o aplicativo Expo Go (SDK 54) e leia o QR Code exibido no terminal ou pressione:
+
 - a para iniciar no emulador Android;
 - i para iniciar no simulador iOS (macOS).
 
 ## 🧪 Testes
+
 O projeto utiliza `Jest` com `jest-expo` para testes unitários:
 
-~~~bash
+```bash
 # Executar testes em modo watch
 npm run test
 
 # Executar testes em modo CI com cobertura
 npm run test:ci
-~~~
+```
 
 ## 📱 Capturas de Tela
+
 > Em breve — conforme as telas forem implementadas, imagens serão adicionadas.
