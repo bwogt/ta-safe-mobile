@@ -4,7 +4,7 @@ import { Text, View } from 'react-native';
 
 type StatCardProps = {
   label: string;
-  value: string;
+  value?: number;
   iconName: React.ComponentProps<typeof MaterialCommunityIcons>['name'];
   className: string;
 };
@@ -30,8 +30,8 @@ export default function StatCard({
             </View>
           </View>
           <View className="w-2/3 items-center justify-center">
-            <Text className="text-md">{label}</Text>
-            <Text className="font-semibold">{value}</Text>
+            <Text>{label}</Text>
+            <Text className="text-lg font-semibold">{value}</Text>
           </View>
         </View>
       </View>
