@@ -14,28 +14,29 @@ export default function DashboardStats() {
           label={t('stats.validated')}
           value={stats?.validated}
           iconName="cellphone-check"
-          className="bg-green-500"
+          variant="success"
         />
 
         <StatCard
           label={t('stats.pending')}
           value={stats?.pending}
           iconName="cellphone-cog"
-          className="bg-orange-500"
+          href="/(auth)/(stack)/devices/pending"
+          variant="warning"
         />
 
         <StatCard
           label={t('stats.in_analysis')}
           value={stats?.in_analysis}
           iconName="cellphone-information"
-          className="bg-blue-500"
+          variant="info"
         />
 
         <StatCard
           label={t('stats.rejected')}
           value={stats?.rejected}
           iconName="cellphone-remove"
-          className="bg-red-500"
+          variant="danger"
         />
       </View>
     </View>
