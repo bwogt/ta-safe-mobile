@@ -34,6 +34,9 @@ export default function DevicesPendingScreen() {
           }
         }}
         onEndReachedThreshold={0.2}
+        contentContainerStyle={{
+          paddingBottom: 62,
+        }}
       />
     </>
   );

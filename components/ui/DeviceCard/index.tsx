@@ -11,7 +11,7 @@ type DeviceCardProps = {
 
 export default function DeviceCard({ device }: DeviceCardProps) {
   return (
-    <View className="mt-lg px-md">
+    <View className="mt-xl px-md">
       <View className="rounded-2xl border border-zinc-200 bg-white shadow">
         <View className="p-md">
           <DeviceCardHeader title={device.model.name} />
