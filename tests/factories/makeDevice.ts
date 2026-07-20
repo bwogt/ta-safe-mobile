@@ -1,4 +1,4 @@
-import { Device } from '@/schemas/device/device.schema';
+import { Device } from '@/schemas/device/base/device.schema';
 import { fakerPT_BR as faker } from '@faker-js/faker';
 
 export function makeDevice(overrides?: Partial<Device>): Device {

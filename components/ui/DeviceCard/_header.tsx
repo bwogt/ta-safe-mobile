@@ -10,11 +10,7 @@ export default function DeviceCardHeader({ title }: DeviceCardHeaderProps) {
     <View className="flex-row justify-between">
       <Text className="py-xs text-lg font-semibold">{title}</Text>
       <View className="p-xs">
-        <MaterialCommunityIcons
-          name="arrow-expand-all"
-          color="black"
-          size={22}
-        />
+        <MaterialCommunityIcons name="arrow-expand" color="black" size={22} />
       </View>
     </View>
   );

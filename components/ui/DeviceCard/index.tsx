@@ -1,4 +1,4 @@
-import { Device } from '@/schemas/device/device.schema';
+import { Device } from '@/schemas/device/base/device.schema';
 import { View } from 'react-native';
 import Badge from '../Badge';
 import Divider from '../Divider';

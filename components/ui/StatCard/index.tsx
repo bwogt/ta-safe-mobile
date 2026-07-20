@@ -52,7 +52,7 @@ export default function StatCard({
 
   return (
     <Pressable
-      disabled={!href}
+      disabled={!href || value == 0}
       onPress={href ? () => router.push(href) : undefined}
       className="mb-lg w-[46%]"
     >
