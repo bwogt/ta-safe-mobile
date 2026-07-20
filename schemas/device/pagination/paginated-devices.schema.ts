@@ -7,6 +7,7 @@ export const PaginatedDevicesSchema = z.object({
     current_page: z.number(),
     last_page: z.number(),
     per_page: z.number(),
+    has_next_page: z.boolean(),
     total: z.number(),
   }),
 });

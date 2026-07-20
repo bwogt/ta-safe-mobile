@@ -17,11 +17,13 @@ export default function DashboardScreen() {
   );
 
   const onRefresh = async () => {
-    await refetch();
+    await Promise.all([
+      refetch(),
 
-    queryClient.invalidateQueries({
-      queryKey: ['devices'],
-    });
+      queryClient.resetQueries({
+        queryKey: ['devices'],
+      }),
+    ]);
   };
 
   return (
