@@ -1,10 +1,12 @@
 import { colors } from '@/themes/colors';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Stack, useNavigation } from 'expo-router';
+import { useTranslation } from 'react-i18next';
 import { StatusBar } from 'react-native';
 
 export default function Layout() {
   const navigation = useNavigation();
+  const { t } = useTranslation('stack');
 
   return (
     <>
@@ -25,7 +27,14 @@ export default function Layout() {
             />
           ),
         }}
-      />
+      >
+        <Stack.Screen
+          name="devices/pending"
+          options={{
+            title: t('titles.pendingDevices'),
+          }}
+        />
+      </Stack>
     </>
   );
 }
