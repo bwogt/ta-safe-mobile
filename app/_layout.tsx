@@ -1,4 +1,5 @@
 import { NotifyProvider } from '@/components/notify/notify-provider';
+import '@/dayjs';
 import '@/global.css';
 import '@/services/i18n';
 import { queryClient } from '@/services/queryClient';

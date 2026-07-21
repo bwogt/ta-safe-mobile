@@ -1,3 +1,4 @@
+import { formatDatetime } from '@/utils/date/formatDatetime';
 import { Text, View } from 'react-native';
 
 type DeviceCardFooterProps = {
@@ -7,7 +8,7 @@ type DeviceCardFooterProps = {
 export default function DeviceCardFooter({ updatedAt }: DeviceCardFooterProps) {
   return (
     <View className="flex-row justify-end">
-      <Text>{updatedAt}</Text>
+      <Text>{formatDatetime(updatedAt)}</Text>
     </View>
   );
 }
