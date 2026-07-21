@@ -1,4 +1,4 @@
-import { PaginatedDevicesSchema } from '@/schemas/device/pagination/paginated-devices.schema';
+import { CursorPaginatedDevicesSchema } from '@/schemas/device/pagination/cursor-paginated-devices.schema';
 import { DeviceValidationStatus } from '@/schemas/device/validation/device-validation-status.schema';
 import api from '@/services/api';
 import { useInfiniteQuery } from '@tanstack/react-query';
@@ -6,25 +6,20 @@ import { useInfiniteQuery } from '@tanstack/react-query';
 export function useDevicesByStatus(status: DeviceValidationStatus) {
   return useInfiniteQuery({
     queryKey: ['devices', status],
+    initialPageParam: null as string | null,
 
-    queryFn: async ({ pageParam = 1 }) => {
+    queryFn: async ({ pageParam }) => {
       const response = await api.get(`/user/devices/${status}`, {
-        params: {
-          page: pageParam,
-        },
+        params: pageParam ? { cursor: pageParam } : {},
       });
 
-      return PaginatedDevicesSchema.parse(response.data);
+      return CursorPaginatedDevicesSchema.parse(response.data);
     },
 
-    initialPageParam: 1,
-
     getNextPageParam: (lastPage) => {
-      if (!lastPage.meta.has_next_page) {
-        return undefined;
-      }
-
-      return lastPage.meta.current_page + 1;
+      return lastPage.meta.has_more_page
+        ? lastPage.meta.next_cursor
+        : undefined;
     },
 
     staleTime: 30_000,

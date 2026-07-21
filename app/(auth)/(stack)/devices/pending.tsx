@@ -24,11 +24,11 @@ export default function DevicesPendingScreen() {
       keyExtractor={(item) => item.id.toString()}
       renderItem={({ item }) => <DeviceCard device={item} />}
       onEndReached={() => {
-        if (hasNextPage && !isFetchingNextPage) {
+        if (!isLoading && hasNextPage && !isFetchingNextPage) {
           fetchNextPage();
         }
       }}
-      onEndReachedThreshold={0.2}
+      onEndReachedThreshold={0.1}
       contentContainerStyle={{
         paddingBottom: 62,
       }}
