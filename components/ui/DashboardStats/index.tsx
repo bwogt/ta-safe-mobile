@@ -20,7 +20,7 @@ export default function DashboardStats() {
         <StatCard
           label={t('stats.pending')}
           value={stats?.pending}
-          iconName="cellphone-cog"
+          iconName="cellphone-information"
           href="/(auth)/(stack)/devices/pending"
           variant="warning"
         />
@@ -28,7 +28,7 @@ export default function DashboardStats() {
         <StatCard
           label={t('stats.in_analysis')}
           value={stats?.in_analysis}
-          iconName="cellphone-information"
+          iconName="cellphone-text"
           variant="info"
         />
 
