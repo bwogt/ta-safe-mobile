@@ -34,6 +34,12 @@ export default function Layout() {
             title: t('titles.pendingDevices'),
           }}
         />
+        <Stack.Screen
+          name="devices/validated"
+          options={{
+            title: t('titles.validatedDevices'),
+          }}
+        />
       </Stack>
     </>
   );

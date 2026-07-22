@@ -9,6 +9,13 @@ type DeviceCardProps = {
   device: Device;
 };
 
+type BadgeVariant = 'default' | 'success' | 'danger';
+
+function badgeVariant(value: boolean | undefined): BadgeVariant {
+  if (value === undefined) return 'default';
+  return value ? 'success' : 'danger';
+}
+
 export default function DeviceCard({ device }: DeviceCardProps) {
   return (
     <View className="mt-xl px-md">
@@ -19,10 +26,25 @@ export default function DeviceCard({ device }: DeviceCardProps) {
           <Divider />
 
           <View className="flex-row justify-around">
-            <Badge label={device.model.brand.name} />
-            <Badge label={device.color} />
-            <Badge label={device.model.ram} />
-            <Badge label={device.model.storage} />
+            <Badge
+              label={device.model.brand.name}
+              variant={badgeVariant(device.validated_attributes?.brand_name)}
+            />
+
+            <Badge
+              label={device.color}
+              variant={badgeVariant(device.validated_attributes?.color)}
+            />
+
+            <Badge
+              label={device.model.ram}
+              variant={badgeVariant(device.validated_attributes?.ram)}
+            />
+
+            <Badge
+              label={device.model.storage}
+              variant={badgeVariant(device.validated_attributes?.storage)}
+            />
           </View>
 
           <View className="mt-xl flex-row justify-end">

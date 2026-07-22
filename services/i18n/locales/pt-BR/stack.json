@@ -1,5 +1,6 @@
 {
   "titles": {
-    "pendingDevices": "Dispositivos Pendentes"
+    "pendingDevices": "Dispositivos Pendentes",
+    "validatedDevices": "Dispositivos Ativos"
   }
 }

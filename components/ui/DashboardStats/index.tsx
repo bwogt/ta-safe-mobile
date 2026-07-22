@@ -14,6 +14,7 @@ export default function DashboardStats() {
           label={t('stats.validated')}
           value={stats?.validated}
           iconName="cellphone-check"
+          href="/(auth)/(stack)/devices/validated"
           variant="success"
         />
 
