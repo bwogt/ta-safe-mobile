@@ -30,6 +30,7 @@ export default function DashboardStats() {
           label={t('stats.in_analysis')}
           value={stats?.in_analysis}
           iconName="cellphone-text"
+          href="/(auth)/(stack)/devices/in_analysis"
           variant="info"
         />
 

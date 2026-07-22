@@ -40,6 +40,12 @@ export default function Layout() {
             title: t('titles.validatedDevices'),
           }}
         />
+        <Stack.Screen
+          name="devices/in_analysis"
+          options={{
+            title: t('titles.inAnalysisDevices'),
+          }}
+        />
       </Stack>
     </>
   );
