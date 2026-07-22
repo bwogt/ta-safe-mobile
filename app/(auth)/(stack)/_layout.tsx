@@ -46,6 +46,12 @@ export default function Layout() {
             title: t('titles.inAnalysisDevices'),
           }}
         />
+        <Stack.Screen
+          name="devices/rejected"
+          options={{
+            title: t('titles.rejectedDevices'),
+          }}
+        />
       </Stack>
     </>
   );

@@ -38,6 +38,7 @@ export default function DashboardStats() {
           label={t('stats.rejected')}
           value={stats?.rejected}
           iconName="cellphone-remove"
+          href="/(auth)/(stack)/devices/rejected"
           variant="danger"
         />
       </View>
