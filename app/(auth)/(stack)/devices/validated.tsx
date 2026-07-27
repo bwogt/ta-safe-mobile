@@ -1,10 +1,10 @@
-import DeviceCard from '@/components/ui/DeviceCard';
+import DeviceStatusList from '@/components/ui/DeviceStatusList';
 import Header from '@/components/ui/Header';
 import LoadingScreen from '@/components/ui/LoadingScreen';
 import { useDevicesByStatus } from '@/queries/device/useDevicesByStatus';
 import { useTranslation } from 'react-i18next';
 
-import { FlatList, View } from 'react-native';
+import { View } from 'react-native';
 
 export default function ValidatedDevicesScreen() {
   const { t } = useTranslation('stack');
@@ -26,21 +26,7 @@ export default function ValidatedDevicesScreen() {
   return (
     <View className="flex-1">
       <Header title={t('titles.validatedDevices')} back />
-
-      <FlatList
-        data={devices}
-        keyExtractor={(item) => item.id.toString()}
-        renderItem={({ item }) => <DeviceCard device={item} />}
-        onEndReached={() => {
-          if (!isLoading && hasNextPage && !isFetchingNextPage) {
-            fetchNextPage();
-          }
-        }}
-        onEndReachedThreshold={0.1}
-        contentContainerStyle={{
-          paddingBottom: 62,
-        }}
-      />
+      <DeviceStatusList status="validated" />
     </View>
   );
 }

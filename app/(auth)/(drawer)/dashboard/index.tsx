@@ -5,7 +5,7 @@ import { useCurrentUser } from '@/queries/user/useCurrentUser';
 import { queryClient } from '@/services/queryClient';
 import { useFocusEffect } from 'expo-router';
 import { useCallback } from 'react';
-import { RefreshControl, ScrollView } from 'react-native';
+import { RefreshControl, ScrollView, View } from 'react-native';
 
 export default function DashboardScreen() {
   const { data: user } = useCurrentUser();
@@ -20,17 +20,15 @@ export default function DashboardScreen() {
   );
 
   const onRefresh = async () => {
-    await Promise.all([
-      refetch(),
+    await refetch();
 
-      queryClient.resetQueries({
-        queryKey: ['devices'],
-      }),
-    ]);
+    await queryClient.resetQueries({
+      queryKey: ['devices'],
+    });
   };
 
   return (
-    <>
+    <View className="flex-1">
       <Header title={`Olá, ${user?.name}`} />
       <ScrollView
         refreshControl={
@@ -39,6 +37,6 @@ export default function DashboardScreen() {
       >
         <DashboardStats />
       </ScrollView>
-    </>
+    </View>
   );
 }

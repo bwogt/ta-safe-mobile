@@ -21,7 +21,7 @@ export default function Header({ title, back }: HeaderProps) {
   }
 
   return (
-    <View className="h-28 justify-end bg-primary">
+    <View className="h-20 justify-end bg-primary">
       <TouchableOpacity
         className="absolute bottom-4 left-4 z-10"
         onPress={handlePress}
