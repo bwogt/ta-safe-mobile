@@ -11,14 +11,6 @@ export default function DashboardScreen() {
   const { data: user } = useCurrentUser();
   const { isStale, isRefetching, refetch } = useDashboardStats();
 
-  useFocusEffect(
-    useCallback(() => {
-      if (isStale) {
-        onRefresh();
-      }
-    }, [isStale]),
-  );
-
   const onRefresh = async () => {
     await refetch();
 
@@ -26,6 +18,14 @@ export default function DashboardScreen() {
       queryKey: ['devices'],
     });
   };
+
+  useFocusEffect(
+    useCallback(() => {
+      if (isStale) {
+        onRefresh();
+      }
+    }, [isStale, onRefresh]),
+  );
 
   return (
     <View className="flex-1">

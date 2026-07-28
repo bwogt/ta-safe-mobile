@@ -9,7 +9,7 @@ export default function DrawerProfileCard() {
 
   return (
     <View className="rounded-2xl border border-zinc-200 bg-white p-4 shadow">
-      <Link href="/(auth)/profile" asChild>
+      <Link href="/(auth)/(drawer)/profile" asChild>
         <Pressable className="flex-row items-center">
           <Ionicons name="person-circle" size={80} color={colors.neutral} />
 

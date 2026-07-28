@@ -6,7 +6,7 @@ import { useInfiniteQuery } from '@tanstack/react-query';
 export function useDevicesByStatus(status: DeviceValidationStatus) {
   return useInfiniteQuery({
     queryKey: ['devices', status],
-    initialPageParam: null as string | null,
+    initialPageParam: undefined as string | undefined,
 
     queryFn: async ({ pageParam }) => {
       const response = await api.get(`/user/devices/${status}`, {
