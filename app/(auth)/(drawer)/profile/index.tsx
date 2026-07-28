@@ -1,4 +1,5 @@
 import Button from '@/components/ui/Button';
+import Header from '@/components/ui/Header';
 import Input from '@/components/ui/Input';
 import { useCurrentUser } from '@/queries/user/useCurrentUser';
 import { useUpdateProfile } from '@/queries/user/useUpdateProfile';
@@ -11,7 +12,7 @@ import { View } from 'react-native';
 
 export default function ProfileScreen() {
   const { data: user } = useCurrentUser();
-  const { t } = useTranslation('common');
+  const { t } = useTranslation(['common, drawer']);
 
   const {
     control,
@@ -26,54 +27,62 @@ export default function ProfileScreen() {
   const onSubmit = async (data: UpdateProfileRequest) => updateProfile(data);
 
   return (
-    <View className="gap-xl px-lg pt-lg">
-      <View>
-        <View className="items-center pb-md">
-          <Ionicons name="person-circle" size={140} color={colors.neutral} />
-        </View>
+    <>
+      <Header title={t('drawer:profile.title')} />
 
+      <View className="gap-xl px-lg pt-lg">
         <View>
-          <Controller
-            name="name"
-            control={control}
-            render={({ field: { value, onChange } }) => (
-              <Input
-                label={t('fields.name')}
-                value={value}
-                error={errors.name?.message}
-                onChangeText={onChange}
-              />
-            )}
-          />
+          <View className="items-center pb-md">
+            <Ionicons name="person-circle" size={140} color={colors.neutral} />
+          </View>
 
-          <Controller
-            name="email"
-            control={control}
-            render={({ field: { value, onChange } }) => (
-              <Input
-                label={
-                  user?.email_verified_at
-                    ? t('fields.email')
-                    : t('fields.emailNotVerified')
-                }
-                value={value}
-                error={errors.email?.message}
-                onChangeText={onChange}
-                keyboardType="email-address"
-                autoCapitalize="none"
-              />
-            )}
-          />
+          <View>
+            <Controller
+              name="name"
+              control={control}
+              render={({ field: { value, onChange } }) => (
+                <Input
+                  label={t('common:fields.name')}
+                  value={value}
+                  error={errors.name?.message}
+                  onChangeText={onChange}
+                />
+              )}
+            />
 
-          <Input label={t('fields.cpf')} value={user?.cpf} editable={false} />
+            <Controller
+              name="email"
+              control={control}
+              render={({ field: { value, onChange } }) => (
+                <Input
+                  label={
+                    user?.email_verified_at
+                      ? t('common:fields.email')
+                      : t('common:fields.emailNotVerified')
+                  }
+                  value={value}
+                  error={errors.email?.message}
+                  onChangeText={onChange}
+                  keyboardType="email-address"
+                  autoCapitalize="none"
+                />
+              )}
+            />
+
+            <Input
+              label={t('common:fields.cpf')}
+              value={user?.cpf}
+              editable={false}
+            />
+          </View>
         </View>
-      </View>
 
-      <Button
-        label={t('actions.update')}
-        onPress={handleSubmit(onSubmit)}
-        disabled={!isDirty}
-      />
-    </View>
+        <Button
+          label={t('common:actions.update')}
+          onPress={handleSubmit(onSubmit)}
+          disabled={!isDirty}
+        />
+      </View>
+    </>
   );
 }
