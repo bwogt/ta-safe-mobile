@@ -10,5 +10,11 @@
   },
   "loads": {
     "waiting": "Aguarde..."
+  },
+  "states": {
+    "validated": "Ativos",
+    "pending": "Pendentes",
+    "in_analysis": "Em Análise",
+    "rejected": "Inválidos"
   }
 }

@@ -1,8 +1,14 @@
 {
+  "dashboard": {
+    "title": "Olá, {{name}}"
+  },
   "profile": {
     "title": "Informações do seu perfil"
   },
   "logout": {
     "label": "Encerrar Sessão"
+  },
+  "devices": {
+    "title": "Meus Dispositivos"
   }
 }

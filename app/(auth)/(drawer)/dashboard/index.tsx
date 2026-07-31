@@ -5,11 +5,13 @@ import { useCurrentUser } from '@/queries/user/useCurrentUser';
 import { queryClient } from '@/services/queryClient';
 import { useFocusEffect } from 'expo-router';
 import { useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import { RefreshControl, ScrollView, View } from 'react-native';
 
 export default function DashboardScreen() {
   const { data: user } = useCurrentUser();
   const { isStale, isRefetching, refetch } = useDashboardStats();
+  const { t } = useTranslation('drawer');
 
   const onRefresh = async () => {
     await refetch();
@@ -29,7 +31,7 @@ export default function DashboardScreen() {
 
   return (
     <View className="flex-1">
-      <Header title={`Olá, ${user?.name}`} />
+      <Header title={t('dashboard.title', { name: user?.name })} />
       <ScrollView
         refreshControl={
           <RefreshControl refreshing={isRefetching} onRefresh={onRefresh} />
