@@ -1,7 +1,6 @@
 import { colors } from '@/themes/colors';
 import { cn } from '@/utils/styles/cn';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { Href, useRouter } from 'expo-router';
 import { Pressable, Text, View } from 'react-native';
 
 type StatCardVariants = 'default' | 'success' | 'warning' | 'info' | 'danger';
@@ -11,7 +10,7 @@ type StatCardProps = {
   value?: number;
   iconName: React.ComponentProps<typeof MaterialCommunityIcons>['name'];
   variant?: StatCardVariants;
-  href?: Href;
+  onPress?: () => void;
 };
 
 const variants: Record<
@@ -44,18 +43,13 @@ export default function StatCard({
   label,
   value,
   iconName,
-  href,
+  onPress,
   variant = 'default',
 }: StatCardProps) {
-  const router = useRouter();
   const currentVariant = variants[variant];
 
   return (
-    <Pressable
-      disabled={!href || value == 0}
-      onPress={href ? () => router.push(href) : undefined}
-      className="mb-lg w-[46%]"
-    >
+    <Pressable disabled={!onPress} onPress={onPress} className="mb-lg w-[46%]">
       <View className="rounded-2xl border border-zinc-200 bg-white shadow">
         <View className="flex-row p-4">
           <View className="w-1/3">

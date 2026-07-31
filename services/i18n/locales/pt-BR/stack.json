@@ -1,8 +1,0 @@
-{
-  "titles": {
-    "pendingDevices": "Dispositivos Pendentes",
-    "validatedDevices": "Dispositivos Ativos",
-    "inAnalysisDevices": "Dispositivos em Análise",
-    "rejectedDevices": "Dispositivos Inválidos"
-  }
-}

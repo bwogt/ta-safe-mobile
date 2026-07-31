@@ -2,15 +2,19 @@ import DeviceCard from '@/components/ui/DeviceCard';
 import LoadingScreen from '@/components/ui/LoadingScreen';
 import { useDevicesByStatus } from '@/queries/device/useDevicesByStatus';
 import { FlatList, View } from 'react-native';
+import EmptyDeviceList from './_empty';
+import DeviceStatusListFooter from './_footer';
 
-type Props = {
+type DeviceStatusListProps = {
   status: 'pending' | 'validated' | 'in_analysis' | 'rejected';
 };
 
-export default function DeviceStatusList({ status }: Props) {
+export default function DeviceStatusList({ status }: DeviceStatusListProps) {
   const {
     data: pagination,
     isLoading,
+    isRefetching,
+    refetch,
     fetchNextPage,
     isFetchingNextPage,
     hasNextPage,
@@ -28,15 +32,22 @@ export default function DeviceStatusList({ status }: Props) {
         data={devices}
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => <DeviceCard device={item} />}
+        ListEmptyComponent={<EmptyDeviceList status={status} />}
+        onRefresh={refetch}
+        refreshing={isRefetching}
+        onEndReachedThreshold={0.1}
+        contentContainerStyle={{ paddingBottom: 62 }}
+        contentContainerClassName={
+          devices.length === 0 ? 'grow justify-center items-center' : undefined
+        }
         onEndReached={() => {
           if (hasNextPage && !isFetchingNextPage) {
             fetchNextPage();
           }
         }}
-        onEndReachedThreshold={0.1}
-        contentContainerStyle={{
-          paddingBottom: 62,
-        }}
+        ListFooterComponent={
+          devices.length > 0 ? <DeviceStatusListFooter /> : null
+        }
       />
     </View>
   );
