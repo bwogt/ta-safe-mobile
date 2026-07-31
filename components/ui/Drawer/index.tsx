@@ -1,7 +1,7 @@
 import {
-    DrawerContentComponentProps,
-    DrawerContentScrollView,
-    DrawerItemList,
+  DrawerContentComponentProps,
+  DrawerContentScrollView,
+  DrawerItemList,
 } from '@react-navigation/drawer';
 import Divider from '../Divider';
 import DrawerLogout from './_logout';
@@ -13,6 +13,7 @@ export default function DrawerContent(props: DrawerContentComponentProps) {
       <DrawerProfileCard />
       <Divider />
       <DrawerItemList {...props} />
+      <Divider />
       <DrawerLogout />
     </DrawerContentScrollView>
   );
