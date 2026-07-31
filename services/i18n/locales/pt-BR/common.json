@@ -16,5 +16,9 @@
     "pending": "Pendentes",
     "in_analysis": "Em Análise",
     "rejected": "Inválidos"
+  },
+  "messages": {
+    "emptyDeviceList": "Você não possui dispositivos {{status}}",
+    "endOfList": "-- Não há mais resultados --"
   }
 }
