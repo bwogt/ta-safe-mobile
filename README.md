@@ -135,4 +135,4 @@ npm run test:ci
 
 ## 📱 Capturas de Tela
 
-> Em breve — conforme as telas forem implementadas, imagens serão adicionadas.
+> Em breve — Atuamente disponível somente nas PRs.
