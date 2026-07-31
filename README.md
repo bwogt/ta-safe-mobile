@@ -135,4 +135,4 @@ npm run test:ci
 
 ## 📱 Capturas de Tela
 
-> Em breve — Atuamente disponível somente nas PRs.
+> Em breve — Atualmente disponível somente nas PRs.
