@@ -13,6 +13,8 @@ export default function DeviceStatusList({ status }: DeviceStatusListProps) {
   const {
     data: pagination,
     isLoading,
+    isRefetching,
+    refetch,
     fetchNextPage,
     isFetchingNextPage,
     hasNextPage,
@@ -28,10 +30,12 @@ export default function DeviceStatusList({ status }: DeviceStatusListProps) {
     <View className="flex-1">
       <FlatList
         data={devices}
-        onEndReachedThreshold={0.1}
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => <DeviceCard device={item} />}
         ListEmptyComponent={<EmptyDeviceList status={status} />}
+        onRefresh={refetch}
+        refreshing={isRefetching}
+        onEndReachedThreshold={0.1}
         contentContainerStyle={{ paddingBottom: 62 }}
         contentContainerClassName={
           devices.length === 0 ? 'grow justify-center items-center' : undefined
