@@ -7,8 +7,10 @@ type DeviceCardFooterProps = {
 
 export default function DeviceCardFooter({ updatedAt }: DeviceCardFooterProps) {
   return (
-    <View className="flex-row justify-end">
-      <Text>{formatDatetime(updatedAt)}</Text>
+    <View className="mt-xl flex-row justify-end">
+      <View className="flex-row justify-end">
+        <Text>{formatDatetime(updatedAt)}</Text>
+      </View>
     </View>
   );
 }
