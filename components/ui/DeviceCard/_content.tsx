@@ -1,9 +1,9 @@
-import { Device } from '@/schemas/device/base/device.schema';
+import { DeviceSummary } from '@/schemas/device/pagination/device-summary.schema';
 import { View } from 'react-native';
 import Badge from '../Badge';
 
 type DeviceContentProps = {
-  device: Device;
+  device: DeviceSummary;
 };
 
 type BadgeVariant = 'default' | 'success' | 'danger';

@@ -1,4 +1,4 @@
-import { Device } from '@/schemas/device/base/device.schema';
+import { DeviceSummary } from '@/schemas/device/pagination/device-summary.schema';
 import { View } from 'react-native';
 import Divider from '../Divider';
 import DeviceCardContent from './_content';
@@ -6,7 +6,7 @@ import DeviceCardFooter from './_footer';
 import DeviceCardHeader from './_header';
 
 type DeviceCardProps = {
-  device: Device;
+  device: DeviceSummary;
 };
 
 export default function DeviceCard({ device }: DeviceCardProps) {
