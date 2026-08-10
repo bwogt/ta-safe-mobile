@@ -18,10 +18,13 @@
     "waiting": "Aguarde..."
   },
   "states": {
-    "validated": "Ativos",
-    "pending": "Pendentes",
-    "in_analysis": "Em Análise",
-    "rejected": "Inválidos"
+    "validated_one": "Ativo",
+    "validated_other": "Ativos",
+    "pending_one": "Pendente",
+    "pending_other": "Pendentes",
+    "rejected_one": "Inválido",
+    "rejected_other": "Inválidos",
+    "in_analysis": "Em Análise"
   },
   "messages": {
     "emptyDeviceList": "Você não possui dispositivos {{status}}",

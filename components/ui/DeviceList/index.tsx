@@ -19,10 +19,10 @@ export default function DeviceTabView({ status }: DeviceListProps) {
   const { t } = useTranslation('common');
 
   const routes: Route[] = [
-    { key: 'validated', title: t('common:states.validated') },
-    { key: 'pending', title: t('common:states.pending') },
-    { key: 'in_analysis', title: t('common:states.in_analysis') },
-    { key: 'rejected', title: t('common:states.rejected') },
+    { key: 'validated', title: t('common:states.validated', { count: 2 }) },
+    { key: 'pending', title: t('common:states.pending', { count: 2 }) },
+    { key: 'in_analysis', title: t('common:states.in_analysis', { count: 2 }) },
+    { key: 'rejected', title: t('common:states.rejected', { count: 2 }) },
   ];
 
   const index = useMemo(() => {

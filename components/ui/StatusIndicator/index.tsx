@@ -38,7 +38,7 @@ export default function StatusIndicator({ status }: StatusIndicatorProps) {
   return (
     <View className="flex-row items-center gap-2">
       <View className={`h-2 w-2 rounded-full ${config.bg}`} />
-      <Text>{t(config.label)}</Text>
+      <Text>{t(config.label, { count: 1 })}</Text>
     </View>
   );
 }
