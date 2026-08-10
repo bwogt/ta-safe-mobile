@@ -1,15 +1,16 @@
-import i18n from '@/services/i18n';
 import dayjs from 'dayjs';
+import i18next from 'i18next';
 
-const formats: Record<string, string> = {
-  'pt-BR': 'dddd, D [de] MMMM [de] YYYY, HH:mm',
-  en: 'dddd, MMMM D, YYYY, h:mm A',
+const formats = {
+  'pt-BR': 'DD/MM/YYYY [às] HH:mm:ss',
+  en: 'MM/DD/YYYY [at] HH:mm:ss',
 };
 
 export function formatDatetime(date: string | Date) {
-  const locale = i18n.language;
+  const locale = i18next.language;
+  const formatLocale = locale === 'pt-BR' ? 'pt-BR' : 'en';
 
   return dayjs(date)
-    .locale(locale.toLowerCase())
-    .format(formats[locale] ?? formats.en);
+    .locale(formatLocale.toLowerCase())
+    .format(formats[formatLocale]);
 }

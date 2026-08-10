@@ -14,7 +14,7 @@ export default function DeviceCard({ device }: DeviceCardProps) {
     <View className="mt-xl px-md">
       <View className="rounded-2xl border border-zinc-200 bg-white shadow">
         <View className="p-md">
-          <DeviceCardHeader title={device.model.name} />
+          <DeviceCardHeader device={device} />
           <Divider />
           <DeviceCardContent device={device} />
           <DeviceCardFooter updatedAt={device.updated_at} />

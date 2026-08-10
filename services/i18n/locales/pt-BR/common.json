@@ -1,9 +1,15 @@
 {
+  "titles": {
+    "deviceInfo": "Informações do Dispositivo"
+  },
   "fields": {
     "name": "Nome",
     "email": "E-mail",
     "emailNotVerified": "E-mail (Não Verificado)",
-    "cpf": "CPF"
+    "cpf": "CPF",
+    "owner": "Proprietário",
+    "register": "Registro",
+    "updatedAt": "Última Alteração"
   },
   "actions": {
     "update": "Atualizar"
