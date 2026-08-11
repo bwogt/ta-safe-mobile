@@ -1,7 +1,7 @@
 import { DeviceSummary } from '@/schemas/device/pagination/device-summary.schema';
 import { View } from 'react-native';
+import DeviceFeatureBadges from '../DeviceFeatureBadges';
 import Divider from '../Divider';
-import DeviceCardContent from './_content';
 import DeviceCardFooter from './_footer';
 import DeviceCardHeader from './_header';
 
@@ -13,10 +13,10 @@ export default function DeviceCard({ device }: DeviceCardProps) {
   return (
     <View className="mt-xl px-md">
       <View className="rounded-2xl border border-zinc-200 bg-white shadow">
-        <View className="p-md">
+        <View>
           <DeviceCardHeader device={device} />
           <Divider />
-          <DeviceCardContent device={device} />
+          <DeviceFeatureBadges device={device} />
           <DeviceCardFooter updatedAt={device.updated_at} />
         </View>
       </View>

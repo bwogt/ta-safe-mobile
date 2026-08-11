@@ -14,7 +14,7 @@ export default function DeviceCardHeader({ device }: DeviceCardHeaderProps) {
   };
 
   return (
-    <View className="flex-row items-center justify-between">
+    <View className="flex-row items-center justify-between px-4 pt-4">
       <View>
         <Text className="py-xs text-lg font-semibold">{device.model.name}</Text>
         <StatusIndicator status={device.validation_status} />

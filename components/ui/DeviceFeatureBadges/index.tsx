@@ -1,9 +1,10 @@
+import { Device } from '@/schemas/device/base/device.schema';
 import { DeviceSummary } from '@/schemas/device/pagination/device-summary.schema';
 import { View } from 'react-native';
 import Badge from '../Badge';
 
-type DeviceContentProps = {
-  device: DeviceSummary;
+type DeviceFeatureBadgesProps = {
+  device: Device | DeviceSummary;
 };
 
 type BadgeVariant = 'default' | 'success' | 'danger';
@@ -13,11 +14,18 @@ function badgeVariant(value: boolean | undefined): BadgeVariant {
   return value ? 'success' : 'danger';
 }
 
-export default function DeviceCardContent({ device }: DeviceContentProps) {
+export default function DeviceFeatureBadges({
+  device,
+}: DeviceFeatureBadgesProps) {
   return (
-    <View className="flex-row justify-around">
+    <View className="flex-row flex-wrap justify-between gap-4 p-4">
       <Badge
         label={device.model.brand.name}
+        variant={badgeVariant(device.validated_attributes?.brand_name)}
+      />
+
+      <Badge
+        label={device.model.name}
         variant={badgeVariant(device.validated_attributes?.brand_name)}
       />
 
