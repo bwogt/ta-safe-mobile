@@ -3,13 +3,30 @@ import DeviceInfo from '@/components/ui/DeviceInfo';
 import Header from '@/components/ui/Header';
 import LoadingScreen from '@/components/ui/LoadingScreen';
 import { useDeviceById } from '@/queries/device/useDeviceById';
-import { router, useLocalSearchParams } from 'expo-router';
+import { router, useFocusEffect, useLocalSearchParams } from 'expo-router';
+import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
+import { RefreshControl, ScrollView } from 'react-native';
 
 export default function DeviceScreen() {
   const { t } = useTranslation('common');
   const { id } = useLocalSearchParams<{ id: string }>();
-  const { data: device, isLoading, isError } = useDeviceById(id);
+  const {
+    data: device,
+    isLoading,
+    isError,
+    isStale,
+    isRefetching,
+    refetch,
+  } = useDeviceById(id);
+
+  useFocusEffect(
+    useCallback(() => {
+      if (isStale) {
+        refetch();
+      }
+    }, [isStale, refetch]),
+  );
 
   if (isLoading) {
     return <LoadingScreen />;
@@ -32,8 +49,14 @@ export default function DeviceScreen() {
   return (
     <>
       <Header title={t('titles.deviceInfo')} back onBackPress={onBackPress} />
-      <DeviceInfo device={device} />
-      <DeviceFeaturesCard device={device} />
+      <ScrollView
+        refreshControl={
+          <RefreshControl refreshing={isRefetching} onRefresh={refetch} />
+        }
+      >
+        <DeviceInfo device={device} />
+        <DeviceFeaturesCard device={device} />
+      </ScrollView>
     </>
   );
 }
