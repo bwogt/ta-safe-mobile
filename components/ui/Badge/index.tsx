@@ -9,24 +9,24 @@ type BadgeProps = {
 
 const variants: Record<BadgeVariant, { container: string; text: string }> = {
   default: {
-    container: 'bg-gray-100',
+    container: 'bg-gray-50',
     text: 'text-gray-600',
   },
   info: {
-    container: 'bg-blue-100',
-    text: 'text-blue-700',
+    container: 'bg-blue-50',
+    text: 'text-blue-600',
   },
   success: {
-    container: 'bg-green-100',
-    text: 'text-green-700',
+    container: 'bg-green-50',
+    text: 'text-green-600',
   },
   warning: {
-    container: 'bg-orange-100',
-    text: 'text-orange-700',
+    container: 'bg-orange-50',
+    text: 'text-orange-600',
   },
   danger: {
-    container: 'bg-red-100',
-    text: 'text-red-700',
+    container: 'bg-red-50',
+    text: 'text-red-600',
   },
 };
 
