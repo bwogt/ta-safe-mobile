@@ -1,3 +1,4 @@
+import DeviceFeaturesCard from '@/components/ui/DeviceFeaturesCard';
 import DeviceInfo from '@/components/ui/DeviceInfo';
 import Header from '@/components/ui/Header';
 import LoadingScreen from '@/components/ui/LoadingScreen';
@@ -32,6 +33,7 @@ export default function DeviceScreen() {
     <>
       <Header title={t('titles.deviceInfo')} back onBackPress={onBackPress} />
       <DeviceInfo device={device} />
+      <DeviceFeaturesCard device={device} />
     </>
   );
 }

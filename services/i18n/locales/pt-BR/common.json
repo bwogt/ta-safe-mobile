@@ -1,6 +1,10 @@
 {
   "titles": {
-    "deviceInfo": "Informações do Dispositivo"
+    "deviceInfo": "Informações do Dispositivo",
+    "deviceFeatures": "Características do Dispositivo"
+  },
+  "subtitles": {
+    "deviceFeatures": "Verifique as características do dispositivo e seu status de validação."
   },
   "fields": {
     "name": "Nome",
