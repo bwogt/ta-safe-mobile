@@ -8,45 +8,54 @@ type StatCardVariants = 'default' | 'success' | 'warning' | 'info' | 'danger';
 type StatCardProps = {
   label: string;
   value?: number;
-  iconName: React.ComponentProps<typeof MaterialCommunityIcons>['name'];
+  icon: React.ComponentProps<typeof MaterialCommunityIcons>['name'];
   variant?: StatCardVariants;
   onPress?: () => void;
 };
 
 const variants: Record<
   StatCardVariants,
-  { background: string; color: string }
+  {
+    color: string;
+    border: string;
+    background: string;
+  }
 > = {
   default: {
-    background: 'bg-zinc-100',
-    color: colors.subtitle,
+    color: colors.default.primary,
+    border: 'border-default-secondary',
+    background: 'bg-default-third',
   },
   success: {
-    background: 'bg-green-100',
-    color: colors.success,
+    color: colors.success.primary,
+    border: 'border-success-secondary',
+    background: 'bg-success-third',
   },
   warning: {
-    background: 'bg-orange-100',
-    color: colors.warning,
+    color: colors.warning.primary,
+    border: 'border-warning-secondary',
+    background: 'bg-warning-third',
   },
   info: {
-    background: 'bg-blue-100',
-    color: colors.info,
+    color: colors.info.primary,
+    border: 'border-info-secondary',
+    background: 'bg-info-third',
   },
   danger: {
-    background: 'bg-red-100',
-    color: colors.danger,
+    color: colors.danger.primary,
+    border: 'border-danger-secondary',
+    background: 'bg-danger-third',
   },
 };
 
 export default function StatCard({
   label,
   value,
-  iconName,
+  icon,
   onPress,
   variant = 'default',
 }: StatCardProps) {
-  const currentVariant = variants[variant];
+  const style = variants[variant];
 
   return (
     <Pressable disabled={!onPress} onPress={onPress} className="mb-lg w-[46%]">
@@ -55,14 +64,14 @@ export default function StatCard({
           <View className="w-1/3">
             <View
               className={cn(
-                'h-12 w-12 items-center justify-center rounded-full',
-                currentVariant.background,
+                `h-12 w-12 items-center justify-center rounded-full border ${style.border}`,
+                style.background,
               )}
             >
               <MaterialCommunityIcons
-                name={iconName}
-                size={20}
-                color={currentVariant.color}
+                name={icon}
+                color={style.color}
+                size={22}
               />
             </View>
           </View>

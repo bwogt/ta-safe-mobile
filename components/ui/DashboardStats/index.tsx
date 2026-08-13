@@ -24,7 +24,7 @@ export default function DashboardStats() {
         <StatCard
           label={t('stats.validated')}
           value={stats?.validated}
-          iconName="cellphone-check"
+          icon="cellphone-check"
           variant="success"
           onPress={() => openDevicesList('validated')}
         />
@@ -32,7 +32,7 @@ export default function DashboardStats() {
         <StatCard
           label={t('stats.pending')}
           value={stats?.pending}
-          iconName="cellphone-information"
+          icon="cellphone-information"
           variant="warning"
           onPress={() => openDevicesList('pending')}
         />
@@ -40,7 +40,7 @@ export default function DashboardStats() {
         <StatCard
           label={t('stats.in_analysis')}
           value={stats?.in_analysis}
-          iconName="cellphone-text"
+          icon="cellphone-text"
           variant="info"
           onPress={() => openDevicesList('in_analysis')}
         />
@@ -48,7 +48,7 @@ export default function DashboardStats() {
         <StatCard
           label={t('stats.rejected')}
           value={stats?.rejected}
-          iconName="cellphone-remove"
+          icon="cellphone-remove"
           variant="danger"
           onPress={() => openDevicesList('rejected')}
         />
