@@ -20,14 +20,14 @@ export default function DrawerLogout() {
     <DrawerItem
       label={t('logout.label')}
       onPress={handleLogout}
-      labelStyle={{ color: colors.danger }}
-      pressColor={colors.danger}
+      labelStyle={{ color: colors.danger[500] }}
+      pressColor={colors.danger[500]}
       icon={() => (
         <Ionicons
           className="mr-2"
           name="log-out-outline"
           size={30}
-          color={colors.danger}
+          color={colors.danger[500]}
         />
       )}
     />
