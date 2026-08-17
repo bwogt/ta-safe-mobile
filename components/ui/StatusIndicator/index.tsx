@@ -14,19 +14,19 @@ const statusConfig: Record<
   }
 > = {
   validated: {
-    bg: 'bg-success-primary',
+    bg: 'bg-success-500',
     label: 'states.validated',
   },
   pending: {
-    bg: 'bg-warning-primary',
+    bg: 'bg-warning-500',
     label: 'states.pending',
   },
   in_analysis: {
-    bg: 'bg-info-primary',
+    bg: 'bg-info-500',
     label: 'states.in_analysis',
   },
   rejected: {
-    bg: 'bg-danger-primary',
+    bg: 'bg-danger-500',
     label: 'states.rejected',
   },
 };

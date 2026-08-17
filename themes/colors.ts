@@ -1,34 +1,37 @@
 export const colors = {
+  // Brand / application tokens
   primary: '#6100DD',
   neutral: '#B2B2B8',
   subtitle: '#666',
-  default: {
-    primary: '#6b7280', // gray-500
-    secondary: '#e5e7eb', // gray-200
-    third: '#f9fafb', // gray-50
-  },
-  success: {
-    primary: '#22c55e', // green-500
-    secondary: '#bbf7d0', // green-200
-    third: '#f0fdf4', // green-50
-  },
-  danger: {
-    primary: '#ef4444', // red-500
-    secondary: '#fecaca', // red-200
-    third: '#fef2f2', // red-50
-  },
-  info: {
-    primary: '#3b82f6', // blue-500
-    secondary: '#bfdbfe', // blue-200
-    third: '#eff6ff', // blue-50
-  },
-  warning: {
-    primary: '#f97316', // orange-500
-    secondary: '#fed7aa', // orange-200
-    third: '#fff7ed', // orange-50
-  },
   drawer: {
     active: '#F3F4F6',
     background: '#FAFAFA',
+  },
+
+  // Semantic color scales
+  default: {
+    500: '#6b7280',
+    200: '#e5e7eb',
+    50: '#f9fafb',
+  },
+  success: {
+    500: '#22c55e',
+    200: '#bbf7d0',
+    50: '#f0fdf4',
+  },
+  danger: {
+    500: '#ef4444',
+    200: '#fecaca',
+    50: '#fef2f2',
+  },
+  info: {
+    500: '#3b82f6',
+    200: '#bfdbfe',
+    50: '#eff6ff',
+  },
+  warning: {
+    500: '#f97316',
+    200: '#fed7aa',
+    50: '#fff7ed',
   },
 } as const;

@@ -22,29 +22,29 @@ const variants: Record<
   }
 > = {
   default: {
-    color: colors.default.primary,
-    border: 'border-default-secondary',
-    background: 'bg-default-third',
+    color: colors.default[500],
+    border: 'border-default-200',
+    background: 'bg-default-50',
   },
   success: {
-    color: colors.success.primary,
-    border: 'border-success-secondary',
-    background: 'bg-success-third',
+    color: colors.success[500],
+    border: 'border-success-200',
+    background: 'bg-success-50',
   },
   warning: {
-    color: colors.warning.primary,
-    border: 'border-warning-secondary',
-    background: 'bg-warning-third',
+    color: colors.warning[500],
+    border: 'border-warning-200',
+    background: 'bg-warning-50',
   },
   info: {
-    color: colors.info.primary,
-    border: 'border-info-secondary',
-    background: 'bg-info-third',
+    color: colors.info[500],
+    border: 'border-info-200',
+    background: 'bg-info-50',
   },
   danger: {
-    color: colors.danger.primary,
-    border: 'border-danger-secondary',
-    background: 'bg-danger-third',
+    color: colors.danger[500],
+    border: 'border-danger-200',
+    background: 'bg-danger-50',
   },
 };
 
