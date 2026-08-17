@@ -20,7 +20,7 @@ export default function EmptyDeviceList({ status }: EmptyDeviceListProps) {
       />
       <Text className="text-lg text-neutral">
         {t('messages.emptyDeviceList', {
-          status: t(`states.${status}`).toLowerCase(),
+          status: t(`states.${status}`, { count: 2 }).toLowerCase(),
         })}
       </Text>
     </View>

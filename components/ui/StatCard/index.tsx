@@ -8,45 +8,54 @@ type StatCardVariants = 'default' | 'success' | 'warning' | 'info' | 'danger';
 type StatCardProps = {
   label: string;
   value?: number;
-  iconName: React.ComponentProps<typeof MaterialCommunityIcons>['name'];
+  icon: React.ComponentProps<typeof MaterialCommunityIcons>['name'];
   variant?: StatCardVariants;
   onPress?: () => void;
 };
 
 const variants: Record<
   StatCardVariants,
-  { background: string; color: string }
+  {
+    color: string;
+    border: string;
+    background: string;
+  }
 > = {
   default: {
-    background: 'bg-zinc-100',
-    color: colors.subtitle,
+    color: colors.default[500],
+    border: 'border-default-200',
+    background: 'bg-default-50',
   },
   success: {
-    background: 'bg-green-100',
-    color: colors.success,
+    color: colors.success[500],
+    border: 'border-success-200',
+    background: 'bg-success-50',
   },
   warning: {
-    background: 'bg-orange-100',
-    color: colors.warning,
+    color: colors.warning[500],
+    border: 'border-warning-200',
+    background: 'bg-warning-50',
   },
   info: {
-    background: 'bg-blue-100',
-    color: colors.info,
+    color: colors.info[500],
+    border: 'border-info-200',
+    background: 'bg-info-50',
   },
   danger: {
-    background: 'bg-red-100',
-    color: colors.danger,
+    color: colors.danger[500],
+    border: 'border-danger-200',
+    background: 'bg-danger-50',
   },
 };
 
 export default function StatCard({
   label,
   value,
-  iconName,
+  icon,
   onPress,
   variant = 'default',
 }: StatCardProps) {
-  const currentVariant = variants[variant];
+  const style = variants[variant];
 
   return (
     <Pressable disabled={!onPress} onPress={onPress} className="mb-lg w-[46%]">
@@ -55,14 +64,14 @@ export default function StatCard({
           <View className="w-1/3">
             <View
               className={cn(
-                'h-12 w-12 items-center justify-center rounded-full',
-                currentVariant.background,
+                `h-12 w-12 items-center justify-center rounded-full border ${style.border}`,
+                style.background,
               )}
             >
               <MaterialCommunityIcons
-                name={iconName}
-                size={20}
-                color={currentVariant.color}
+                name={icon}
+                color={style.color}
+                size={22}
               />
             </View>
           </View>

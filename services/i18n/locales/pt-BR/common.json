@@ -1,21 +1,35 @@
 {
+  "titles": {
+    "deviceInfo": "Informações do Dispositivo",
+    "deviceFeatures": "Características do Dispositivo"
+  },
+  "subtitles": {
+    "deviceFeatures": "Verifique as características do dispositivo e seu status de validação."
+  },
   "fields": {
     "name": "Nome",
     "email": "E-mail",
     "emailNotVerified": "E-mail (Não Verificado)",
-    "cpf": "CPF"
+    "cpf": "CPF",
+    "owner": "Proprietário",
+    "register": "Registro",
+    "updatedAt": "Última Alteração"
   },
   "actions": {
-    "update": "Atualizar"
+    "update": "Atualizar",
+    "retry": "Tentar novamente"
   },
   "loads": {
     "waiting": "Aguarde..."
   },
   "states": {
-    "validated": "Ativos",
-    "pending": "Pendentes",
-    "in_analysis": "Em Análise",
-    "rejected": "Inválidos"
+    "validated_one": "Ativo",
+    "validated_other": "Ativos",
+    "pending_one": "Pendente",
+    "pending_other": "Pendentes",
+    "rejected_one": "Inválido",
+    "rejected_other": "Inválidos",
+    "in_analysis": "Em Análise"
   },
   "messages": {
     "emptyDeviceList": "Você não possui dispositivos {{status}}",

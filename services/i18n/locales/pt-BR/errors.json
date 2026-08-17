@@ -5,5 +5,9 @@
   },
   "zod": {
     "error": "Esta versão do aplicativo pode estar desatualizada. Atualize o app e tente novamente."
+  },
+  "actions": {
+    "defaultTitle": "Oops! Algo deu errado.",
+    "loadingDevice": "Não foi possível carregar as informações do dispositivo."
   }
 }

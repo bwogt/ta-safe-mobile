@@ -5,19 +5,32 @@ import { Text, TouchableOpacity, View } from 'react-native';
 
 type HeaderProps = {
   title: string;
-  back?: boolean;
-};
+} & (
+  | {
+      back?: false;
+      onBackPress?: never;
+    }
+  | {
+      back: true;
+      onBackPress?: () => void;
+    }
+);
 
-export default function Header({ title, back }: HeaderProps) {
+export default function Header({ title, back, onBackPress }: HeaderProps) {
   const navigation = useNavigation();
 
   function handlePress() {
-    if (back) {
-      router.back();
+    if (!back) {
+      navigation.dispatch(DrawerActions.toggleDrawer());
       return;
     }
 
-    navigation.dispatch(DrawerActions.toggleDrawer());
+    if (onBackPress) {
+      onBackPress();
+      return;
+    }
+
+    router.back();
   }
 
   return (
