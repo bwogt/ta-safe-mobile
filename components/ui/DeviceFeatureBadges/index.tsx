@@ -9,60 +9,85 @@ type DeviceFeatureBadgesProps = {
 };
 
 type BadgeVariant = 'success' | 'warning' | 'info' | 'danger';
+type BadgeIcon = React.ComponentProps<typeof MaterialCommunityIcons>['name'];
 
-type BadgeConfig = {
-  variant: BadgeVariant;
-  icon: React.ComponentProps<typeof MaterialCommunityIcons>['name'];
+type DeviceBadge = {
+  key: string;
+  label: string;
+  validated: boolean | undefined;
 };
 
-function badgeConfig(
-  device: Device | DeviceSummary,
-  value: boolean | undefined,
-): BadgeConfig {
-  switch (device.validation_status) {
-    case 'pending':
-      return { variant: 'warning', icon: 'shield-lock-open-outline' };
-    case 'in_analysis':
-      return { variant: 'info', icon: 'shield-alert-outline' };
-    default:
-      return device.validated_attributes?.brand_name
-        ? { variant: 'success', icon: 'shield-lock-outline' }
-        : { variant: 'danger', icon: 'shield-remove-outline' };
+function getDeviceBadges(device: Device | DeviceSummary): DeviceBadge[] {
+  return [
+    {
+      key: 'brand',
+      label: device.model.brand.name,
+      validated: device.validated_attributes?.brand_name,
+    },
+    {
+      key: 'model',
+      label: device.model.name,
+      validated: device.validated_attributes?.model_name,
+    },
+    {
+      key: 'color',
+      label: device.color,
+      validated: device.validated_attributes?.color,
+    },
+    {
+      key: 'ram',
+      label: device.model.ram,
+      validated: device.validated_attributes?.ram,
+    },
+    {
+      key: 'storage',
+      label: device.model.storage,
+      validated: device.validated_attributes?.storage,
+    },
+  ];
+}
+
+function getBadgeConfig(
+  validationStatus: Device['validation_status'],
+  validated: boolean | undefined,
+): {
+  variant: BadgeVariant;
+  icon: BadgeIcon;
+} {
+  if (validationStatus === 'pending') {
+    return {
+      variant: 'warning',
+      icon: 'shield-lock-open-outline',
+    };
   }
+
+  if (validationStatus === 'in_analysis') {
+    return {
+      variant: 'info',
+      icon: 'shield-alert-outline',
+    };
+  }
+
+  return validated
+    ? { variant: 'success', icon: 'shield-lock-outline' }
+    : { variant: 'danger', icon: 'shield-remove-outline' };
 }
 
 export default function DeviceFeatureBadges({
   device,
 }: DeviceFeatureBadgesProps) {
-  const config = badgeConfig(device, device.validated_attributes?.brand_name);
+  const badges = getDeviceBadges(device);
 
   return (
     <View className="flex-row flex-wrap gap-6 p-4">
-      <Badge
-        label={device.model.brand.name}
-        variant={config.variant}
-        icon={config.icon}
-      />
+      {badges.map(({ key, label, validated }) => {
+        const { variant, icon } = getBadgeConfig(
+          device.validation_status,
+          validated,
+        );
 
-      <Badge
-        label={device.model.name}
-        variant={config.variant}
-        icon={config.icon}
-      />
-
-      <Badge label={device.color} variant={config.variant} icon={config.icon} />
-
-      <Badge
-        label={device.model.ram}
-        variant={config.variant}
-        icon={config.icon}
-      />
-
-      <Badge
-        label={device.model.storage}
-        variant={config.variant}
-        icon={config.icon}
-      />
+        return <Badge key={key} label={label} variant={variant} icon={icon} />;
+      })}
     </View>
   );
 }
