@@ -13,7 +13,9 @@
     "cpf": "CPF",
     "owner": "Proprietário",
     "register": "Registro",
-    "updatedAt": "Última Alteração"
+    "updatedAt": "Última Alteração",
+    "shareCode": "Código de Compartilhamento",
+    "expiresAt": "Expira em"
   },
   "actions": {
     "update": "Atualizar",
@@ -33,6 +35,7 @@
   },
   "messages": {
     "emptyDeviceList": "Você não possui dispositivos {{status}}",
-    "endOfList": "-- Não há mais resultados --"
+    "endOfList": "-- Não há mais resultados --",
+    "shareCode": "Atenção: copie este código e compartilhe com os usuários que você deseja permitir a visualização temporária deste registro."
   }
 }
