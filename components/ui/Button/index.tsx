@@ -31,7 +31,7 @@ export default function Button({
       disabled={disabled}
       className={`${buttonStyle} rounded-md p-sm`}
     >
-      <View className="flex-row items-center justify-center">
+      <View className="flex-row items-center justify-center gap-2">
         {iconLeft}
         <Text className="text-center text-lg color-white">{label}</Text>
         {iconRight}
