@@ -2,11 +2,11 @@ import { Stack } from 'expo-router';
 import { KeyboardAvoidingView, Platform } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-type AuthScreenProps = {
+type AuthProps = {
   children: React.ReactNode;
 };
 
-export default function AuthScreen({ children }: AuthScreenProps) {
+export default function Auth({ children }: AuthProps) {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <Stack.Screen options={{ headerShown: false }} />

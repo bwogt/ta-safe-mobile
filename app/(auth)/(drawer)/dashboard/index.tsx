@@ -1,4 +1,4 @@
-import DashboardStats from '@/components/ui/DashboardStats';
+import DashboardStats from '@/components/dashboard/DashboardStats';
 import Header from '@/components/ui/Header';
 import { useDashboardStats } from '@/queries/dashboard/useDashboardStats';
 import { useCurrentUser } from '@/queries/user/useCurrentUser';

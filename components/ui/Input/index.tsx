@@ -52,7 +52,7 @@ export default function Input({
         </View>
       </View>
 
-      {error && <Text className="text-danger">{error}</Text>}
+      {error && <Text className="text-danger-500">{error}</Text>}
     </View>
   );
 }

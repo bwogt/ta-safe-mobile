@@ -1,8 +1,8 @@
+import ClipboardButton from '@/components/ui/ClipboardButton';
 import { Device } from '@/schemas/device/base/device.schema';
 import { formatDatetime } from '@/utils/date/formatDatetime';
 import { useTranslation } from 'react-i18next';
 import { Modal, Pressable, Text, View } from 'react-native';
-import ClipboardButton from '../ClipboardButton';
 
 type ShareDeviceModalProps = {
   device: Device;

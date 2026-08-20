@@ -1,8 +1,8 @@
+import Badge from '@/components/ui/Badge';
 import { Device } from '@/schemas/device/base/device.schema';
 import { DeviceSummary } from '@/schemas/device/pagination/device-summary.schema';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { View } from 'react-native';
-import Badge from '../Badge';
 
 type DeviceFeatureBadgesProps = {
   device: Device | DeviceSummary;

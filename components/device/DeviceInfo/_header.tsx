@@ -14,7 +14,9 @@ export default function DeviceInfoHeader({ device }: DeviceInfoHeaderProps) {
         <Text className="text-xl font-bold">{device.model.name}</Text>
         <StatusIndicator status={device.validation_status} />
       </View>
-      <ShareDeviceCode device={device} />
+      {device.validation_status === 'validated' && (
+        <ShareDeviceCode device={device} />
+      )}
     </View>
   );
 }

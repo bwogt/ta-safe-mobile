@@ -2,19 +2,19 @@ import { cn } from '@/utils/styles/cn';
 import { Href, Link } from 'expo-router';
 import { Pressable, Text } from 'react-native';
 
-type AuthSwitchLinkProps = {
+type SwitchLinkProps = {
   href: Href;
   text: string;
   actionText: string;
   disabled?: boolean;
 };
 
-export default function AuthSwitchLink({
+export default function SwitchLink({
   href,
   text,
   actionText,
   disabled,
-}: AuthSwitchLinkProps) {
+}: SwitchLinkProps) {
   return (
     <Link href={href} asChild>
       <Pressable disabled={disabled}>

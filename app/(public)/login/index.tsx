@@ -1,7 +1,7 @@
-import AuthScreen from '@/components/ui/AuthScreen/index';
-import AuthSwitchLink from '@/components/ui/AuthSwitchLink';
+import Auth from '@/components/auth/Auth';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
+import SwitchLink from '@/components/ui/SwitchLink';
 import TextLink from '@/components/ui/TextLink';
 
 import { useLogin } from '@/queries/auth/useLogin';
@@ -28,7 +28,7 @@ export default function LoginScreen() {
   const onSubmit = (data: LoginRequest) => login(data);
 
   return (
-    <AuthScreen>
+    <Auth>
       <View className="flex-1 justify-center gap-2xl px-lg">
         <View className="gap-2xl">
           <View>
@@ -108,13 +108,13 @@ export default function LoginScreen() {
           }
         />
 
-        <AuthSwitchLink
+        <SwitchLink
           href="/(public)/register"
           text={t('login.actions.noAccount')}
           actionText={t('login.actions.createAccount')}
           disabled={isPending}
         />
       </View>
-    </AuthScreen>
+    </Auth>
   );
 }

@@ -1,4 +1,4 @@
-import DeviceList from '@/components/ui/DeviceList';
+import DeviceList from '@/components/device/DeviceList';
 import Header from '@/components/ui/Header';
 import { DeviceValidationStatus } from '@/schemas/device/validation/device-validation-status.schema';
 import { useLocalSearchParams } from 'expo-router';

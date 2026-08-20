@@ -1,7 +1,8 @@
 import { Device } from '@/schemas/device/base/device.schema';
 import { View } from 'react-native';
 import DeviceFeatureBadges from '../DeviceFeatureBadges';
-import Divider from '../Divider';
+
+import Divider from '@/components/ui/Divider';
 import DeviceFeaturesCardHeader from './_header';
 
 type DeviceFeaturesCardProps = {

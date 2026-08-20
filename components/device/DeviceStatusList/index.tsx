@@ -1,8 +1,8 @@
-import DeviceCard from '@/components/ui/DeviceCard';
 import LoadingScreen from '@/components/ui/LoadingScreen';
 import { useDevicesByStatus } from '@/queries/device/useDevicesByStatus';
 import { DeviceValidationStatus } from '@/schemas/device/validation/device-validation-status.schema';
 import { FlatList, View } from 'react-native';
+import DeviceCard from '../DeviceCard';
 import EmptyDeviceList from './_empty';
 import DeviceStatusListFooter from './_footer';
 

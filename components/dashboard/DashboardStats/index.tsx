@@ -1,4 +1,4 @@
-import StatCard from '@/components/ui/StatCard';
+import StatCard from '@/components/dashboard/StatCard';
 import { useDashboardStats } from '@/queries/dashboard/useDashboardStats';
 import { DeviceValidationStatus } from '@/schemas/device/validation/device-validation-status.schema';
 import { router } from 'expo-router';

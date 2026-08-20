@@ -15,7 +15,7 @@ type Route = {
   title: string;
 };
 
-export default function DeviceTabView({ status }: DeviceListProps) {
+export default function DeviceList({ status }: DeviceListProps) {
   const { t } = useTranslation('common');
 
   const routes: Route[] = [
