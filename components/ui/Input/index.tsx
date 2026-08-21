@@ -21,13 +21,13 @@ export default function Input({
     <View className="min-h-4xl">
       <View
         className={cn(
-          'rounded-xl border-2 border-neutral',
+          'rounded-xl border border-neutral',
           isFocused && 'border-primary',
         )}
       >
         <Text
           className={cn(
-            'absolute -top-3 left-3 z-10 bg-gray-100 px-1 text-neutral',
+            'absolute -top-3 left-3 z-10 bg-white px-1 text-neutral',
             isFocused && 'text-primary',
           )}
         >
