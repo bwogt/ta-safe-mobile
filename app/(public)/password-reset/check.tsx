@@ -1,4 +1,4 @@
-import AuthScreen from '@/components/ui/AuthScreen';
+import Auth from '@/components/auth/Auth';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
 import PageHeader from '@/components/ui/PageHeader';
@@ -35,7 +35,7 @@ export default function PasswordResetCheck() {
   }, [email, setValue]);
 
   return (
-    <AuthScreen>
+    <Auth>
       <View className="flex-1 justify-center gap-2xl px-lg">
         <PageHeader
           title={t('check.title')}
@@ -84,6 +84,6 @@ export default function PasswordResetCheck() {
           disabled={isPending}
         />
       </View>
-    </AuthScreen>
+    </Auth>
   );
 }

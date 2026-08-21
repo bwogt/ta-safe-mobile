@@ -1,5 +1,5 @@
-import DeviceFeaturesCard from '@/components/ui/DeviceFeaturesCard';
-import DeviceInfo from '@/components/ui/DeviceInfo';
+import DeviceFeaturesCard from '@/components/device/DeviceFeaturesCard';
+import DeviceInfo from '@/components/device/DeviceInfo';
 import Header from '@/components/ui/Header';
 import LoadingScreen from '@/components/ui/LoadingScreen';
 import QueryError from '@/components/ui/QueryError';

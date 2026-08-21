@@ -1,8 +1,8 @@
-import AuthScreen from '@/components/ui/AuthScreen';
-import AuthSwitchLink from '@/components/ui/AuthSwitchLink';
+import Auth from '@/components/auth/Auth';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
 import PageHeader from '@/components/ui/PageHeader';
+import AuthSwitchLink from '@/components/ui/SwitchLink';
 
 import { useRegisterUser } from '@/queries/auth/useRegisterUser';
 import { RegisterUserRequest } from '@/schemas/auth/register-user-request.schema';
@@ -29,7 +29,7 @@ export default function UserRegistrationScreen() {
   const onSubmit = (data: RegisterUserRequest) => register(data);
 
   return (
-    <AuthScreen>
+    <Auth>
       <ScrollView
         keyboardShouldPersistTaps="handled"
         contentContainerStyle={{
@@ -136,6 +136,6 @@ export default function UserRegistrationScreen() {
           />
         </View>
       </ScrollView>
-    </AuthScreen>
+    </Auth>
   );
 }

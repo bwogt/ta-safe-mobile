@@ -1,4 +1,4 @@
-import AuthScreen from '@/components/ui/AuthScreen';
+import Auth from '@/components/auth/Auth';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
 import PageHeader from '@/components/ui/PageHeader';
@@ -24,7 +24,7 @@ export default function PasswordResetStart() {
   const onSubmit = (data: PasswordResetStartRequest) => start(data);
 
   return (
-    <AuthScreen>
+    <Auth>
       <View className="flex-1 justify-center gap-2xl px-lg ">
         <PageHeader title={t('start.title')} subtitle={t('start.subtitle')} />
 
@@ -68,6 +68,6 @@ export default function PasswordResetStart() {
           disabled={isPending}
         />
       </View>
-    </AuthScreen>
+    </Auth>
   );
 }

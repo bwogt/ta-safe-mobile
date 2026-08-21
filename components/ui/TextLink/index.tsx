@@ -2,19 +2,14 @@ import { cn } from '@/utils/styles/cn';
 import { Link, type Href } from 'expo-router';
 import { Pressable, Text } from 'react-native';
 
-type TextLinkProps = {
+type Props = {
   href: Href;
   text: string;
   disabled?: boolean;
   className?: string;
 };
 
-export default function TextLink({
-  href,
-  text,
-  disabled,
-  className,
-}: TextLinkProps) {
+export default function TextLink({ href, text, disabled, className }: Props) {
   return (
     <Link href={href} asChild>
       <Pressable disabled={disabled}>

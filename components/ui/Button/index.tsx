@@ -1,6 +1,6 @@
 import { Pressable, PressableProps, Text, View } from 'react-native';
 
-type ButtonProps = PressableProps & {
+type Props = PressableProps & {
   label: string;
   variant?: 'primary' | 'danger';
   iconLeft?: React.ReactNode;
@@ -14,7 +14,7 @@ export default function Button({
   iconLeft,
   iconRight,
   ...rest
-}: ButtonProps) {
+}: Props) {
   const variants = {
     primary: 'bg-primary',
     danger: 'bg-danger',
@@ -31,7 +31,7 @@ export default function Button({
       disabled={disabled}
       className={`${buttonStyle} rounded-md p-sm`}
     >
-      <View className="flex-row items-center justify-center">
+      <View className="flex-row items-center justify-center gap-2">
         {iconLeft}
         <Text className="text-center text-lg color-white">{label}</Text>
         {iconRight}

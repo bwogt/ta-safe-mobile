@@ -4,7 +4,7 @@ import { Text, View } from 'react-native';
 
 type BadgeVariant = 'default' | 'info' | 'success' | 'warning' | 'danger';
 
-type BadgeProps = {
+type Props = {
   label: string;
   variant?: BadgeVariant;
   icon?: React.ComponentProps<typeof MaterialCommunityIcons>['name'];
@@ -51,11 +51,7 @@ const variants: Record<
   },
 };
 
-export default function Badge({
-  label,
-  icon,
-  variant = 'default',
-}: BadgeProps) {
+export default function Badge({ label, icon, variant = 'default' }: Props) {
   const style = variants[variant];
 
   return (

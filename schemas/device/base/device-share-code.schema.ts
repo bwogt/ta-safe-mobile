@@ -1,8 +1,10 @@
 import z from 'zod';
 
 export const DeviceShareCodeSchema = z
-  .string()
-  .regex(/^\d{8}$/)
+  .object({
+    code: z.string().regex(/^\d{8}$/),
+    expires_at: z.iso.datetime(),
+  })
   .nullable();
 
 export type DeviceShareCode = z.infer<typeof DeviceShareCodeSchema>;

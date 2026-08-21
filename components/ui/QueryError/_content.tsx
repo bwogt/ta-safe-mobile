@@ -3,11 +3,11 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { useTranslation } from 'react-i18next';
 import { Text, View } from 'react-native';
 
-type QueryErrorContentProps = {
+type Props = {
   message?: string;
 };
 
-export default function QueryErrorContent({ message }: QueryErrorContentProps) {
+export default function QueryErrorContent({ message }: Props) {
   const { t } = useTranslation('errors');
 
   return (
