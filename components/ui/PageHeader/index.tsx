@@ -1,11 +1,11 @@
 import { Text, View } from 'react-native';
 
-type pageHeaderProps = {
+type Props = {
   title: string;
   subtitle: string;
 };
 
-export default function PageHeader({ title, subtitle }: pageHeaderProps) {
+export default function PageHeader({ title, subtitle }: Props) {
   return (
     <View className="gap-sm">
       <Text className="text-2xl font-bold text-primary">{title}</Text>

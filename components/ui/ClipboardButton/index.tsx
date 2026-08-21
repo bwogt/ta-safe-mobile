@@ -3,11 +3,11 @@ import * as Clipboard from 'expo-clipboard';
 import { useState } from 'react';
 import { Pressable } from 'react-native';
 
-type ClipboardButtonProps = {
+type Props = {
   text: string;
 };
 
-export default function ClipboardButton({ text }: ClipboardButtonProps) {
+export default function ClipboardButton({ text }: Props) {
   const [copy, setCopy] = useState<boolean>(false);
 
   const copyToClipboard = async () => {

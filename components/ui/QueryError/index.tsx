@@ -4,12 +4,12 @@ import Button from '../Button';
 import QueryErrorContent from './_content';
 import QueryErrorHeader from './_header';
 
-type QueryErrorProps = {
+type Props = {
   message?: string;
   onRetry?: () => void;
 };
 
-export default function QueryError({ message, onRetry }: QueryErrorProps) {
+export default function QueryError({ message, onRetry }: Props) {
   const { t } = useTranslation('common');
 
   return (

@@ -4,11 +4,11 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { useTranslation } from 'react-i18next';
 import { Text, View } from 'react-native';
 
-type EmptyDeviceListProps = {
+type Props = {
   status: DeviceValidationStatus;
 };
 
-export default function EmptyDeviceList({ status }: EmptyDeviceListProps) {
+export default function EmptyDeviceList({ status }: Props) {
   const { t } = useTranslation('common');
 
   return (

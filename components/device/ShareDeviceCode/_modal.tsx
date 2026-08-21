@@ -4,7 +4,7 @@ import { formatDatetime } from '@/utils/date/formatDatetime';
 import { useTranslation } from 'react-i18next';
 import { Modal, Pressable, Text, View } from 'react-native';
 
-type ShareDeviceModalProps = {
+type Props = {
   device: Device;
   visible: boolean;
   closeModal: () => void;
@@ -14,7 +14,7 @@ export default function ShareDeviceCodeModal({
   device,
   visible,
   closeModal,
-}: ShareDeviceModalProps) {
+}: Props) {
   const { t } = useTranslation('common');
 
   if (device.share_code) {

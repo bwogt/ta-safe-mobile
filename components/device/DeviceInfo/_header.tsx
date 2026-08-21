@@ -3,11 +3,11 @@ import { Text, View } from 'react-native';
 import ShareDeviceCode from '../ShareDeviceCode';
 import StatusIndicator from '../StatusIndicator';
 
-type DeviceInfoHeaderProps = {
+type Props = {
   device: Device;
 };
 
-export default function DeviceInfoHeader({ device }: DeviceInfoHeaderProps) {
+export default function DeviceInfoHeader({ device }: Props) {
   return (
     <View className="flex-row items-center justify-between px-4 pt-4">
       <View>

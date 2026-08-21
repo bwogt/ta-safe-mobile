@@ -5,11 +5,11 @@ import DeviceFeatureBadges from '../DeviceFeatureBadges';
 import DeviceCardFooter from './_footer';
 import DeviceCardHeader from './_header';
 
-type DeviceCardProps = {
+type Props = {
   device: DeviceSummary;
 };
 
-export default function DeviceCard({ device }: DeviceCardProps) {
+export default function DeviceCard({ device }: Props) {
   return (
     <View className="mt-xl px-md">
       <View className="rounded-2xl border border-zinc-200 bg-white shadow">

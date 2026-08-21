@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { TabBar, TabView } from 'react-native-tab-view';
 import DeviceStatusList from '../DeviceStatusList';
 
-type DeviceListProps = {
+type Props = {
   status?: DeviceValidationStatus;
 };
 
@@ -15,7 +15,7 @@ type Route = {
   title: string;
 };
 
-export default function DeviceList({ status }: DeviceListProps) {
+export default function DeviceList({ status }: Props) {
   const { t } = useTranslation('common');
 
   const routes: Route[] = [

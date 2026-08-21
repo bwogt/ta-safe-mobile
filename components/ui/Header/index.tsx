@@ -3,7 +3,7 @@ import { DrawerActions } from '@react-navigation/native';
 import { router, useNavigation } from 'expo-router';
 import { Text, TouchableOpacity, View } from 'react-native';
 
-type HeaderProps = {
+type Props = {
   title: string;
 } & (
   | {
@@ -16,7 +16,7 @@ type HeaderProps = {
     }
 );
 
-export default function Header({ title, back, onBackPress }: HeaderProps) {
+export default function Header({ title, back, onBackPress }: Props) {
   const navigation = useNavigation();
 
   function handlePress() {

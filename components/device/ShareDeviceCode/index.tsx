@@ -3,11 +3,11 @@ import { useState } from 'react';
 import ShareDeviceCodeButton from './_button';
 import ShareDeviceCodeModal from './_modal';
 
-type ShareDeviceCodeProps = {
+type Props = {
   device: Device;
 };
 
-export default function ShareDeviceCode({ device }: ShareDeviceCodeProps) {
+export default function ShareDeviceCode({ device }: Props) {
   const [modalVisible, setModalVisible] = useState(false);
 
   return (

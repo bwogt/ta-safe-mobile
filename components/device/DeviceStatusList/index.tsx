@@ -6,11 +6,11 @@ import DeviceCard from '../DeviceCard';
 import EmptyDeviceList from './_empty';
 import DeviceStatusListFooter from './_footer';
 
-type DeviceStatusListProps = {
+type Props = {
   status: DeviceValidationStatus;
 };
 
-export default function DeviceStatusList({ status }: DeviceStatusListProps) {
+export default function DeviceStatusList({ status }: Props) {
   const {
     data: pagination,
     isLoading,

@@ -4,11 +4,11 @@ import { formatDatetime } from '@/utils/date/formatDatetime';
 import { useTranslation } from 'react-i18next';
 import { Text, View } from 'react-native';
 
-type DeviceInfoContentProps = {
+type Props = {
   device: Device;
 };
 
-export default function DeviceInfoContent({ device }: DeviceInfoContentProps) {
+export default function DeviceInfoContent({ device }: Props) {
   const { data: user } = useCurrentUser();
   const { t } = useTranslation('common');
 

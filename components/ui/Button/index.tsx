@@ -1,6 +1,6 @@
 import { Pressable, PressableProps, Text, View } from 'react-native';
 
-type ButtonProps = PressableProps & {
+type Props = PressableProps & {
   label: string;
   variant?: 'primary' | 'danger';
   iconLeft?: React.ReactNode;
@@ -14,7 +14,7 @@ export default function Button({
   iconLeft,
   iconRight,
   ...rest
-}: ButtonProps) {
+}: Props) {
   const variants = {
     primary: 'bg-primary',
     danger: 'bg-danger',

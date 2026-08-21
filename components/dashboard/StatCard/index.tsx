@@ -5,7 +5,7 @@ import { Pressable, Text, View } from 'react-native';
 
 type StatCardVariants = 'default' | 'success' | 'warning' | 'info' | 'danger';
 
-type StatCardProps = {
+type Props = {
   label: string;
   value?: number;
   icon: React.ComponentProps<typeof MaterialCommunityIcons>['name'];
@@ -54,7 +54,7 @@ export default function StatCard({
   icon,
   onPress,
   variant = 'default',
-}: StatCardProps) {
+}: Props) {
   const style = variants[variant];
 
   return (

@@ -2,7 +2,7 @@ import { DeviceValidationStatus } from '@/schemas/device/validation/device-valid
 import { useTranslation } from 'react-i18next';
 import { Text, View } from 'react-native';
 
-type StatusIndicatorProps = {
+type Props = {
   status: DeviceValidationStatus;
 };
 
@@ -31,7 +31,7 @@ const statusConfig: Record<
   },
 };
 
-export default function StatusIndicator({ status }: StatusIndicatorProps) {
+export default function StatusIndicator({ status }: Props) {
   const { t } = useTranslation('common');
   const config = statusConfig[status];
 

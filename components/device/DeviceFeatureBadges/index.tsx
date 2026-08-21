@@ -4,7 +4,7 @@ import { DeviceSummary } from '@/schemas/device/pagination/device-summary.schema
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { View } from 'react-native';
 
-type DeviceFeatureBadgesProps = {
+type Props = {
   device: Device | DeviceSummary;
 };
 
@@ -73,9 +73,7 @@ function getBadgeConfig(
     : { variant: 'danger', icon: 'shield-remove-outline' };
 }
 
-export default function DeviceFeatureBadges({
-  device,
-}: DeviceFeatureBadgesProps) {
+export default function DeviceFeatureBadges({ device }: Props) {
   const badges = getDeviceBadges(device);
 
   return (

@@ -5,13 +5,11 @@ import DeviceFeatureBadges from '../DeviceFeatureBadges';
 import Divider from '@/components/ui/Divider';
 import DeviceFeaturesCardHeader from './_header';
 
-type DeviceFeaturesCardProps = {
+type Props = {
   device: Device;
 };
 
-export default function DeviceFeaturesCard({
-  device,
-}: DeviceFeaturesCardProps) {
+export default function DeviceFeaturesCard({ device }: Props) {
   return (
     <View className="mt-xl px-md">
       <View className="rounded-2xl border border-zinc-200 bg-white shadow">

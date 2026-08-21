@@ -4,11 +4,11 @@ import { router } from 'expo-router';
 import { Text, TouchableOpacity, View } from 'react-native';
 import StatusIndicator from '../StatusIndicator';
 
-type DeviceCardHeaderProps = {
+type Props = {
   device: DeviceSummary;
 };
 
-export default function DeviceCardHeader({ device }: DeviceCardHeaderProps) {
+export default function DeviceCardHeader({ device }: Props) {
   const onPress = () => {
     router.push(`/(auth)/(stack)/device/${device.id}`);
   };

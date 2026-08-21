@@ -2,7 +2,7 @@ import { cn } from '@/utils/styles/cn';
 import { useState } from 'react';
 import { Text, TextInput, TextInputProps, View } from 'react-native';
 
-type InputProps = TextInputProps & {
+type Props = TextInputProps & {
   label: string;
   iconRight?: React.ReactNode;
   error?: string;
@@ -14,7 +14,7 @@ export default function Input({
   iconRight,
   editable = true,
   ...rest
-}: InputProps) {
+}: Props) {
   const [isFocused, setIsFocused] = useState(false);
 
   return (
