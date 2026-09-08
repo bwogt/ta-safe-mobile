@@ -1,4 +1,4 @@
-import { DeviceValidationStatus } from '@/schemas/device/validation/device-validation-status.schema';
+import { DeviceValidationStatus } from '@/schemas/device';
 import { colors } from '@/themes/colors';
 import { router } from 'expo-router';
 import { useMemo } from 'react';

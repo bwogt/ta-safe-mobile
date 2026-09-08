@@ -1,5 +1,5 @@
-import { ApiFlashMessageSchema } from '@/schemas/message/api-flash-message.schema';
-import { PasswordResetCheckCodeRequest } from '@/schemas/password-reset/check-code.request.schema';
+import { PasswordResetCheckCodeRequest } from '@/schemas/auth';
+import { apiFlashMessageSchema } from '@/schemas/message';
 import api from '@/services/api';
 import { applyApiFormErrors } from '@/utils/forms/applyApiFormErrors';
 import { useMutation } from '@tanstack/react-query';
@@ -13,7 +13,7 @@ export function usePasswordResetCheckCode(
   return useMutation({
     mutationFn: async (data: PasswordResetCheckCodeRequest) => {
       const response = await api.post('/password-reset/check-code', data);
-      return ApiFlashMessageSchema.parse(response.data.message);
+      return apiFlashMessageSchema.parse(response.data.message);
     },
 
     onSuccess: (_, variables) => {

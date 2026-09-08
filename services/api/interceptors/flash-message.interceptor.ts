@@ -1,5 +1,4 @@
-import { ApiFormErrorsSchema } from '@/schemas/message/api-form-errors.schema';
-import { ApiMessageResponseSchema } from '@/schemas/message/api-message-response.schema';
+import { apiFormErrorsSchema, apiMessageResponseSchema } from '@/schemas/message';
 import { notify } from '@/services/notify';
 import { AxiosError, AxiosResponse } from 'axios';
 import { t } from 'i18next';
@@ -16,8 +15,8 @@ export function flashSuccessInterceptor(response: AxiosResponse) {
 
 export function flashErrorInterceptor(error: AxiosError) {
   const data = error.response?.data;
-  const formError = ApiFormErrorsSchema.safeParse(data);
-  const apiMessage = ApiMessageResponseSchema.safeParse(data);
+  const formError = apiFormErrorsSchema.safeParse(data);
+  const apiMessage = apiMessageResponseSchema.safeParse(data);
 
   if (formError.success) {
     notify(formError.data.message, { autoHide: true });

@@ -5,7 +5,7 @@ import PageHeader from '@/components/ui/PageHeader';
 import AuthSwitchLink from '@/components/ui/SwitchLink';
 
 import { useRegisterUser } from '@/queries/auth/useRegisterUser';
-import { RegisterUserRequest } from '@/schemas/auth/register-user-request.schema';
+import { RegisterUserRequest } from '@/schemas/auth';
 import { maskCpf } from '@/utils/masks/maskCpf';
 import { Ionicons } from '@expo/vector-icons';
 import { useState } from 'react';

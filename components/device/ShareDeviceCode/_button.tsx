@@ -1,5 +1,5 @@
 import { useGenerateDeviceShareCode } from '@/queries/device/useGenerateDeviceShareCode';
-import { Device } from '@/schemas/device/base/device.schema';
+import { Device } from '@/schemas/device';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Pressable } from 'react-native';
 

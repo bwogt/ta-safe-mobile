@@ -1,4 +1,4 @@
-import { ApiFormErrors } from '@/schemas/message/api-form-errors.schema';
+import { ApiFormErrors } from '@/schemas/message';
 import { AxiosError } from 'axios';
 import { FieldValues, Path, UseFormSetError } from 'react-hook-form';
 

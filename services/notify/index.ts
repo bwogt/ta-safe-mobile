@@ -1,4 +1,4 @@
-import { ApiFlashMessage } from '@/schemas/message/api-flash-message.schema';
+import { ApiFlashMessage } from '@/schemas/message';
 import Toast from 'react-native-toast-message';
 
 interface NotifyOptions {

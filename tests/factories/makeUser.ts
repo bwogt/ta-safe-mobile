@@ -1,4 +1,4 @@
-import { User } from '@/schemas/user/user.schema';
+import { User } from '@/schemas/user';
 import { fakerPT_BR as faker } from '@faker-js/faker';
 import { cpf } from 'cpf-cnpj-validator';
 

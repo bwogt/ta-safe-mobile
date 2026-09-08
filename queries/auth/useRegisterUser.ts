@@ -1,6 +1,5 @@
-import { LoginRequest } from '@/schemas/auth/login-request.schema';
-import { LoginResponseSchema } from '@/schemas/auth/login-response.schema';
-import { RegisterUserRequest } from '@/schemas/auth/register-user-request.schema';
+
+import { LoginRequest, loginResponseSchema, RegisterUserRequest } from '@/schemas/auth';
 import api from '@/services/api';
 import { useAuthStore } from '@/stores/auth/useAuthStore';
 import { applyApiFormErrors } from '@/utils/forms/applyApiFormErrors';
@@ -15,7 +14,7 @@ export function useRegisterUser(
   return useMutation({
     mutationFn: async (data: LoginRequest) => {
       const response = await api.post('/auth/register', data);
-      return LoginResponseSchema.parse(response.data);
+      return loginResponseSchema.parse(response.data);
     },
 
     onSuccess: ({ token }) => {

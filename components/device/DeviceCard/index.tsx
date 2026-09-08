@@ -1,5 +1,5 @@
 import Divider from '@/components/ui/Divider';
-import { DeviceSummary } from '@/schemas/device/pagination/device-summary.schema';
+import { DeviceSummary } from '@/schemas/device';
 import { View } from 'react-native';
 import DeviceFeatureBadges from '../DeviceFeatureBadges';
 import DeviceCardFooter from './_footer';

@@ -3,7 +3,7 @@ import Header from '@/components/ui/Header';
 import Input from '@/components/ui/Input';
 import { useCurrentUser } from '@/queries/user/useCurrentUser';
 import { useUpdateProfile } from '@/queries/user/useUpdateProfile';
-import { UpdateProfileRequest } from '@/schemas/user/update-profile.request.schema';
+import { UpdateProfileRequest } from '@/schemas/user';
 import { colors } from '@/themes/colors';
 import { Ionicons } from '@expo/vector-icons';
 import { Controller, useForm } from 'react-hook-form';

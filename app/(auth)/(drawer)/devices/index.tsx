@@ -1,6 +1,6 @@
 import DeviceList from '@/components/device/DeviceList';
 import Header from '@/components/ui/Header';
-import { DeviceValidationStatus } from '@/schemas/device/validation/device-validation-status.schema';
+import { DeviceValidationStatus } from '@/schemas/device';
 import { useLocalSearchParams } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';

@@ -1,4 +1,4 @@
-import { DeviceSummary } from '@/schemas/device/pagination/device-summary.schema';
+import { DeviceSummary } from '@/schemas/device';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { router } from 'expo-router';
 import { Text, TouchableOpacity, View } from 'react-native';

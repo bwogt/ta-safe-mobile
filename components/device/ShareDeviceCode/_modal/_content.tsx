@@ -1,5 +1,5 @@
 import ClipboardButton from '@/components/ui/ClipboardButton';
-import { Device } from '@/schemas/device/base/device.schema';
+import { Device } from '@/schemas/device';
 import { formatDatetime } from '@/utils/date/formatDatetime';
 import { useTranslation } from 'react-i18next';
 import { Text, View } from 'react-native';

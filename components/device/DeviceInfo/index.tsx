@@ -1,5 +1,5 @@
 import Divider from '@/components/ui/Divider';
-import { Device } from '@/schemas/device/base/device.schema';
+import { Device } from '@/schemas/device';
 import { View } from 'react-native';
 import DeviceInfoContent from './_content';
 import DeviceInfoHeader from './_header';

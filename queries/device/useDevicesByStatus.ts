@@ -1,5 +1,4 @@
-import { CursorPaginatedDevicesSchema } from '@/schemas/device/pagination/cursor-paginated-devices.schema';
-import { DeviceValidationStatus } from '@/schemas/device/validation/device-validation-status.schema';
+import { cursorPaginatedDevicesSchema, DeviceValidationStatus } from '@/schemas/device';
 import api from '@/services/api';
 import { useInfiniteQuery } from '@tanstack/react-query';
 
@@ -13,7 +12,7 @@ export function useDevicesByStatus(status: DeviceValidationStatus) {
         params: pageParam ? { cursor: pageParam } : {},
       });
 
-      return CursorPaginatedDevicesSchema.parse(response.data);
+      return cursorPaginatedDevicesSchema.parse(response.data);
     },
 
     getNextPageParam: (lastPage) => {

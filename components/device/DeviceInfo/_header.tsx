@@ -1,4 +1,4 @@
-import { Device } from '@/schemas/device/base/device.schema';
+import { Device } from '@/schemas/device';
 import { Text, View } from 'react-native';
 import ShareDeviceCode from '../ShareDeviceCode';
 import StatusIndicator from '../StatusIndicator';
