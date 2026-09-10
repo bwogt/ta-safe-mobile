@@ -1,5 +1,9 @@
+import {
+  LoginRequest,
+  loginResponseSchema,
+  RegisterUserRequest,
+} from '@/schemas/auth';
 
-import { LoginRequest, loginResponseSchema, RegisterUserRequest } from '@/schemas/auth';
 import api from '@/services/api';
 import { useAuthStore } from '@/stores/auth/useAuthStore';
 import { applyApiFormErrors } from '@/utils/forms/applyApiFormErrors';

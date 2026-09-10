@@ -1,5 +1,7 @@
 import DashboardStats from '@/components/dashboard/DashboardStats';
+import DeviceLookup from '@/components/device/DeviceLookup';
 import Header from '@/components/ui/Header';
+
 import { useDashboardStats } from '@/queries/dashboard/useDashboardStats';
 import { useCurrentUser } from '@/queries/user/useCurrentUser';
 import { queryClient } from '@/services/queryClient';
@@ -32,12 +34,14 @@ export default function DashboardScreen() {
   return (
     <View className="flex-1">
       <Header title={t('dashboard.title', { name: user?.name })} />
+
       <ScrollView
         refreshControl={
           <RefreshControl refreshing={isRefetching} onRefresh={onRefresh} />
         }
       >
         <DashboardStats />
+        <DeviceLookup />
       </ScrollView>
     </View>
   );
