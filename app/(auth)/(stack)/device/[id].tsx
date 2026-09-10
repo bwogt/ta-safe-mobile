@@ -3,6 +3,7 @@ import DeviceInfo from '@/components/device/DeviceInfo';
 import Header from '@/components/ui/Header';
 import LoadingScreen from '@/components/ui/LoadingScreen';
 import QueryError from '@/components/ui/QueryError';
+
 import { useDeviceById } from '@/queries/device/useDeviceById';
 import { router, useFocusEffect, useLocalSearchParams } from 'expo-router';
 import { useCallback } from 'react';
@@ -12,6 +13,7 @@ import { RefreshControl, ScrollView } from 'react-native';
 export default function DeviceScreen() {
   const { t } = useTranslation(['common', 'errors']);
   const { id } = useLocalSearchParams<{ id: string }>();
+
   const {
     data: device,
     isLoading,
@@ -33,20 +35,11 @@ export default function DeviceScreen() {
     return <LoadingScreen />;
   }
 
-  if (isError || !device) {
-    return (
-      <QueryError
-        message={t('errors:actions.loadingDevice')}
-        onRetry={refetch}
-      />
-    );
-  }
-
   const onBackPress = () => {
     router.replace({
       pathname: '/devices',
       params: {
-        status: device.validation_status,
+        status: device?.validation_status,
       },
     });
   };
@@ -58,14 +51,25 @@ export default function DeviceScreen() {
         back
         onBackPress={onBackPress}
       />
-      <ScrollView
-        refreshControl={
-          <RefreshControl refreshing={isRefetching} onRefresh={refetch} />
-        }
-      >
-        <DeviceInfo device={device} />
-        <DeviceFeaturesCard device={device} />
-      </ScrollView>
+
+      {isError && (
+        <QueryError
+          title={t('errors:actions.loadingDevice')}
+          description={t('errors:actions.defaultDescription')}
+          onRetry={refetch}
+        />
+      )}
+
+      {device && !isError && (
+        <ScrollView
+          refreshControl={
+            <RefreshControl refreshing={isRefetching} onRefresh={refetch} />
+          }
+        >
+          <DeviceInfo device={device} />
+          <DeviceFeaturesCard device={device} />
+        </ScrollView>
+      )}
     </>
   );
 }

@@ -8,6 +8,8 @@
   },
   "actions": {
     "defaultTitle": "Oops! Algo deu errado.",
-    "loadingDevice": "Não foi possível carregar as informações do dispositivo."
+    "defaultDescription": "Tente novamente em breve.",
+    "loadingDevice": "Não foi possível carregar as informações do dispositivo.",
+    "deviceLookup": "Verifique o código e tente novamente."
   }
 }
