@@ -1,4 +1,8 @@
-import { UpdateProfileRequest, updateProfileResponseSchema } from '@/schemas/user';
+import {
+  UpdateProfileRequest,
+  updateProfileResponseSchema,
+} from '@/schemas/user';
+
 import api from '@/services/api';
 import { queryClient } from '@/services/queryClient';
 import { applyApiFormErrors } from '@/utils/forms/applyApiFormErrors';

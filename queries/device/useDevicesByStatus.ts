@@ -1,4 +1,8 @@
-import { cursorPaginatedDevicesSchema, DeviceValidationStatus } from '@/schemas/device';
+import {
+  cursorPaginatedDevicesSchema,
+  DeviceValidationStatus,
+} from '@/schemas/device';
+
 import api from '@/services/api';
 import { useInfiniteQuery } from '@tanstack/react-query';
 
