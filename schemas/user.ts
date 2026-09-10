@@ -3,7 +3,7 @@ import { apiFlashMessageSchema } from './message';
 
 export const userSchema = z
   .object({
-    id: z.number().positive(),
+    id: z.int().positive(),
     name: z.string().max(255),
     email: z.email(),
     cpf: z.string().regex(/^\d{3}\.\d{3}\.\d{3}\-\d{2}$/),
@@ -11,6 +11,15 @@ export const userSchema = z
     email_verified_at: z.string().nullable().optional(),
     created_at: z.iso.datetime(),
     updated_at: z.iso.datetime(),
+  })
+  .strict();
+
+export const userSummarySchema = z
+  .object({
+    id: z.int().positive(),
+    name: z.string(),
+    cpf: z.string().regex(/^\*{3}\.\d{3}\.\d{3}-\*{2}$/),
+    created_at: z.iso.datetime(),
   })
   .strict();
 
