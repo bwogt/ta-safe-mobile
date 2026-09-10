@@ -9,6 +9,7 @@ import { router, useFocusEffect, useLocalSearchParams } from 'expo-router';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { RefreshControl, ScrollView } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function DeviceScreen() {
   const { t } = useTranslation(['common', 'errors']);
@@ -45,7 +46,7 @@ export default function DeviceScreen() {
   };
 
   return (
-    <>
+    <SafeAreaView className="flex-1">
       <Header
         title={t('common:titles.deviceInfo')}
         back
@@ -70,6 +71,6 @@ export default function DeviceScreen() {
           <DeviceFeaturesCard device={device} />
         </ScrollView>
       )}
-    </>
+    </SafeAreaView>
   );
 }

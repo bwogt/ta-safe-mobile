@@ -3,7 +3,7 @@ import Header from '@/components/ui/Header';
 import { DeviceValidationStatus } from '@/schemas/device';
 import { useLocalSearchParams } from 'expo-router';
 import { useTranslation } from 'react-i18next';
-import { View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function DevicesListScreen() {
   const { t } = useTranslation('drawer');
@@ -13,9 +13,9 @@ export default function DevicesListScreen() {
   }>();
 
   return (
-    <View className="flex-1">
+    <SafeAreaView className="flex-1">
       <Header title={t('drawer:devices.title')} />
       <DeviceList status={status} />
-    </View>
+    </SafeAreaView>
   );
 }

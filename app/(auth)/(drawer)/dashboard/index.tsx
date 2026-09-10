@@ -8,7 +8,8 @@ import { queryClient } from '@/services/queryClient';
 import { useFocusEffect } from 'expo-router';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { RefreshControl, ScrollView, View } from 'react-native';
+import { RefreshControl, ScrollView } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function DashboardScreen() {
   const { data: user } = useCurrentUser();
@@ -32,7 +33,7 @@ export default function DashboardScreen() {
   );
 
   return (
-    <View className="flex-1">
+    <SafeAreaView className="flex-1">
       <Header title={t('dashboard.title', { name: user?.name })} />
 
       <ScrollView
@@ -43,6 +44,6 @@ export default function DashboardScreen() {
         <DashboardStats />
         <DeviceLookup />
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 }

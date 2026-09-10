@@ -9,6 +9,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { Controller, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function ProfileScreen() {
   const { data: user } = useCurrentUser();
@@ -27,7 +28,7 @@ export default function ProfileScreen() {
   const onSubmit = async (data: UpdateProfileRequest) => updateProfile(data);
 
   return (
-    <>
+    <SafeAreaView className="flex-1">
       <Header title={t('drawer:profile.title')} />
 
       <View className="gap-xl px-lg pt-lg">
@@ -83,6 +84,6 @@ export default function ProfileScreen() {
           disabled={!isDirty}
         />
       </View>
-    </>
+    </SafeAreaView>
   );
 }
