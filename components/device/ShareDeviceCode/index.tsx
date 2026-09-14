@@ -1,4 +1,4 @@
-import { Device } from '@/schemas/device/base/device.schema';
+import { Device } from '@/schemas/device';
 import { useState } from 'react';
 import ShareDeviceCodeButton from './_button';
 import ShareDeviceCodeModal from './_modal';

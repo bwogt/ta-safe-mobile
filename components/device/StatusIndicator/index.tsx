@@ -1,4 +1,4 @@
-import { DeviceValidationStatus } from '@/schemas/device/validation/device-validation-status.schema';
+import { DeviceValidationStatus } from '@/schemas/device';
 import { useTranslation } from 'react-i18next';
 import { Text, View } from 'react-native';
 

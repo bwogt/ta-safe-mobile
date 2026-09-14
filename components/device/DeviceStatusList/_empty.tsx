@@ -1,4 +1,4 @@
-import { DeviceValidationStatus } from '@/schemas/device/validation/device-validation-status.schema';
+import { DeviceValidationStatus } from '@/schemas/device';
 import { colors } from '@/themes/colors';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { useTranslation } from 'react-i18next';

@@ -1,8 +1,8 @@
-import { ApiFlashMessage } from '@/schemas/message/api-flash-message.schema';
-import { ApiFormErrors } from '@/schemas/message/api-form-errors.schema';
+import { ApiFlashMessage, ApiFormErrors } from '@/schemas/message';
 import { notify } from '@/services/notify';
 import { makeAxiosError } from '@/tests/factories/makeAxiosError';
 import { AxiosError, AxiosResponse } from 'axios';
+
 import {
   flashErrorInterceptor,
   flashSuccessInterceptor,

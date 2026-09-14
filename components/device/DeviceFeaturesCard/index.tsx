@@ -1,12 +1,12 @@
-import { Device } from '@/schemas/device/base/device.schema';
 import { View } from 'react-native';
 import DeviceFeatureBadges from '../DeviceFeatureBadges';
 
 import Divider from '@/components/ui/Divider';
+import { Device, DevicePublic } from '@/schemas/device';
 import DeviceFeaturesCardHeader from './_header';
 
 type Props = {
-  device: Device;
+  device: Device | DevicePublic;
 };
 
 export default function DeviceFeaturesCard({ device }: Props) {

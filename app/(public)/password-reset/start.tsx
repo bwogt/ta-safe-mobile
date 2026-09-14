@@ -5,7 +5,7 @@ import PageHeader from '@/components/ui/PageHeader';
 import TextLink from '@/components/ui/TextLink';
 
 import { usePasswordResetStart } from '@/queries/password-reset/usePasswordResetStart';
-import { PasswordResetStartRequest } from '@/schemas/password-reset/start.request.schema';
+import { PasswordResetStartRequest } from '@/schemas/auth';
 import { Ionicons } from '@expo/vector-icons';
 import { Controller, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';

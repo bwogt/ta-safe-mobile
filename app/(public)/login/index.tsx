@@ -5,7 +5,7 @@ import SwitchLink from '@/components/ui/SwitchLink';
 import TextLink from '@/components/ui/TextLink';
 
 import { useLogin } from '@/queries/auth/useLogin';
-import { LoginRequest } from '@/schemas/auth/login-request.schema';
+import { LoginRequest } from '@/schemas/auth';
 import { Ionicons } from '@expo/vector-icons';
 import { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';

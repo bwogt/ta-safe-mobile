@@ -8,7 +8,7 @@ import { StatusBar } from 'react-native';
 
 export default function Layout() {
   const { data: user } = useCurrentUser();
-  const { t } = useTranslation('drawer');
+  const { t } = useTranslation(['common', 'drawer']);
 
   return (
     <>
@@ -49,10 +49,24 @@ export default function Layout() {
         <Drawer.Screen
           name="devices/index"
           options={{
-            title: t('devices.title'),
+            title: t('drawer:devices.title'),
             drawerIcon: ({ color, size }) => (
               <MaterialCommunityIcons
                 name="cellphone-text"
+                color={color}
+                size={size}
+              />
+            ),
+          }}
+        />
+
+        <Drawer.Screen
+          name="lookup/index"
+          options={{
+            title: t('common:titles.deviceLookup'),
+            drawerIcon: ({ color, size }) => (
+              <MaterialCommunityIcons
+                name="shield-search"
                 color={color}
                 size={size}
               />

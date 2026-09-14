@@ -1,26 +1,24 @@
-import { useCurrentUser } from '@/queries/user/useCurrentUser';
-import { Device } from '@/schemas/device';
+import { DevicePublic } from '@/schemas/device';
 import { formatDatetime } from '@/utils/date/formatDatetime';
 import { useTranslation } from 'react-i18next';
 import { Text, View } from 'react-native';
 
 type Props = {
-  device: Device;
+  device: DevicePublic;
 };
 
-export default function DeviceInfoContent({ device }: Props) {
-  const { data: user } = useCurrentUser();
+export default function DevicePublicInfoContent({ device }: Props) {
   const { t } = useTranslation('common');
 
   return (
     <View className="pb-4 pl-4">
       <Text className="text-lg font-semibold">
         {t('fields.owner')}:{' '}
-        <Text className="text-lg font-normal">{user?.name}</Text>
+        <Text className="text-lg font-normal">{device.owner.name}</Text>
       </Text>
       <Text className="text-lg font-semibold">
         {t('fields.cpf')}:{' '}
-        <Text className="text-lg font-normal">{user?.cpf_masked}</Text>
+        <Text className="text-lg font-normal">{device.owner.cpf}</Text>
       </Text>
       <Text className="text-lg font-semibold">
         {t('fields.register')}:{' '}

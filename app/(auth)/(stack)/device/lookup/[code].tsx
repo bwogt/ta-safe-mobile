@@ -1,19 +1,18 @@
 import DeviceFeaturesCard from '@/components/device/DeviceFeaturesCard';
-import DeviceInfo from '@/components/device/DeviceInfo';
+import DevicePublicInfo from '@/components/device/DevicePublicInfo';
 import Header from '@/components/ui/Header';
 import LoadingScreen from '@/components/ui/LoadingScreen';
 import QueryError from '@/components/ui/QueryError';
-
-import { useDeviceById } from '@/queries/device/useDeviceById';
+import useDeviceByShareCode from '@/queries/device/useDeviceByShareCode';
 import { router, useFocusEffect, useLocalSearchParams } from 'expo-router';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { RefreshControl, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-export default function DeviceScreen() {
+export default function DeviceLookupScreen() {
   const { t } = useTranslation(['common', 'errors']);
-  const { id } = useLocalSearchParams<{ id: string }>();
+  const { code } = useLocalSearchParams<{ code: string }>();
 
   const {
     data: device,
@@ -22,7 +21,7 @@ export default function DeviceScreen() {
     isStale,
     isRefetching,
     refetch,
-  } = useDeviceById(id);
+  } = useDeviceByShareCode(code);
 
   useFocusEffect(
     useCallback(() => {
@@ -36,27 +35,18 @@ export default function DeviceScreen() {
     return <LoadingScreen />;
   }
 
-  const onBackPress = () => {
-    router.replace({
-      pathname: '/devices',
-      params: {
-        status: device?.validation_status,
-      },
-    });
-  };
-
   return (
     <SafeAreaView className="flex-1">
       <Header
         title={t('common:titles.deviceInfo')}
         back
-        onBackPress={onBackPress}
+        onBackPress={() => router.replace('/dashboard')}
       />
 
       {isError && (
         <QueryError
           title={t('errors:actions.loadingDevice')}
-          description={t('errors:actions.defaultDescription')}
+          description={t('errors:actions.deviceLookup')}
           onRetry={refetch}
         />
       )}
@@ -67,7 +57,7 @@ export default function DeviceScreen() {
             <RefreshControl refreshing={isRefetching} onRefresh={refetch} />
           }
         >
-          <DeviceInfo device={device} />
+          <DevicePublicInfo device={device} />
           <DeviceFeaturesCard device={device} />
         </ScrollView>
       )}

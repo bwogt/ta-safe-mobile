@@ -1,4 +1,4 @@
-import { Device } from '@/schemas/device/base/device.schema';
+import { Device } from '@/schemas/device';
 import { Modal, View } from 'react-native';
 import ShareDeviceCodeModalBackdrop from './_backdrop';
 import ShareDeviceCodeModalContent from './_content';

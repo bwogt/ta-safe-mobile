@@ -1,7 +1,6 @@
-import { DeviceValidationStatus } from '@/schemas/device/validation/device-validation-status.schema';
+import { DeviceValidationStatus } from '@/schemas/device';
 import { colors } from '@/themes/colors';
 import { router } from 'expo-router';
-import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { TabBar, TabView } from 'react-native-tab-view';
 import DeviceStatusList from '../DeviceStatusList';
@@ -25,10 +24,8 @@ export default function DeviceList({ status }: Props) {
     { key: 'rejected', title: t('common:states.rejected', { count: 2 }) },
   ];
 
-  const index = useMemo(() => {
-    const index = routes.findIndex((route) => route.key === status);
-    return index >= 0 ? index : 0;
-  }, [status, routes]);
+  const found = routes.findIndex((route) => route.key === status);
+  const index = found >= 0 ? found : 0;
 
   const renderScene = ({ route }: { route: Route }) => (
     <DeviceStatusList status={route.key} />

@@ -1,4 +1,4 @@
-import { DashboardStatsResponseSchema } from '@/schemas/dashboard/dashboard-stats-response.schema';
+import { dashboardStatsResponseSchema } from '@/schemas/dashboard';
 import api from '@/services/api';
 import { useQuery } from '@tanstack/react-query';
 
@@ -7,7 +7,7 @@ export function useDashboardStats() {
     queryKey: ['dashboard-stats'],
     queryFn: async () => {
       const response = await api.get('/dashboard');
-      return DashboardStatsResponseSchema.parse(response.data);
+      return dashboardStatsResponseSchema.parse(response.data);
     },
     staleTime: 60_000,
   });

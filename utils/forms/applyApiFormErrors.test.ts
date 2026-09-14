@@ -1,4 +1,4 @@
-import { ApiFormErrors } from '@/schemas/message/api-form-errors.schema';
+import { ApiFormErrors } from '@/schemas/message';
 import { makeAxiosError } from '@/tests/factories/makeAxiosError';
 import { applyApiFormErrors } from './applyApiFormErrors';
 

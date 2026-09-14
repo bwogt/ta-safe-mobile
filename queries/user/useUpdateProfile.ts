@@ -1,5 +1,8 @@
-import { UpdateProfileRequest } from '@/schemas/user/update-profile.request.schema';
-import { UpdateProfileResponseSchema } from '@/schemas/user/update-profile.response.schema';
+import {
+  UpdateProfileRequest,
+  updateProfileResponseSchema,
+} from '@/schemas/user';
+
 import api from '@/services/api';
 import { queryClient } from '@/services/queryClient';
 import { applyApiFormErrors } from '@/utils/forms/applyApiFormErrors';
@@ -13,7 +16,7 @@ export function useUpdateProfile(
   return useMutation({
     mutationFn: async (data: UpdateProfileRequest) => {
       const response = await api.patch('/user', data);
-      return UpdateProfileResponseSchema.parse(response.data);
+      return updateProfileResponseSchema.parse(response.data);
     },
     onSuccess: ({ user }) => {
       queryClient.setQueryData(['current-user'], user);

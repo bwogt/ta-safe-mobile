@@ -5,7 +5,7 @@ import PageHeader from '@/components/ui/PageHeader';
 import TextLink from '@/components/ui/TextLink';
 
 import { usePasswordResetCheckCode } from '@/queries/password-reset/usePasswordResetCheckCode';
-import { PasswordResetCheckCodeRequest } from '@/schemas/password-reset/check-code.request.schema';
+import { PasswordResetCheckCodeRequest } from '@/schemas/auth';
 import { Ionicons } from '@expo/vector-icons';
 import { useLocalSearchParams } from 'expo-router';
 import { useEffect } from 'react';
