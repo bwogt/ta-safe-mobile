@@ -16,20 +16,17 @@ export default function DashboardScreen() {
   const { isStale, isRefetching, refetch } = useDashboardStats();
   const { t } = useTranslation('drawer');
 
-  const onRefresh = async () => {
+  const onRefresh = useCallback(async () => {
     await refetch();
-
-    await queryClient.resetQueries({
-      queryKey: ['devices'],
-    });
-  };
+    await queryClient.resetQueries({ queryKey: ['devices'] });
+  }, [refetch]);
 
   useFocusEffect(
     useCallback(() => {
-      if (isStale) {
-        onRefresh();
-      }
-    }, [isStale, onRefresh]),
+      if (isStale) onRefresh();
+
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [isStale, refetch]),
   );
 
   return (
