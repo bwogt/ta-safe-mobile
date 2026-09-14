@@ -132,7 +132,3 @@ npm run test
 # Executar testes em modo CI com cobertura
 npm run test:ci
 ```
-
-## 📱 Capturas de Tela
-
-> Em breve — Atualmente disponível somente nas PRs.
