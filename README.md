@@ -127,10 +127,7 @@ npm install
 npx expo start -c
 ```
 
-7. Abra o aplicativo Expo Go (SDK 57) e leia o QR Code exibido no terminal ou pressione:
-
-- a para iniciar no emulador Android;
-- i para iniciar no simulador iOS (macOS).
+7. Abra o aplicativo Expo Go (SDK 57) e leia o QR Code exibido no terminal
 
 ### 🧪 Testes
 
