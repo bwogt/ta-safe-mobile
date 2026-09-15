@@ -2,7 +2,8 @@ import {
   DrawerContentComponentProps,
   DrawerContentScrollView,
   DrawerItemList,
-} from '@react-navigation/drawer';
+} from 'expo-router/drawer';
+
 import Divider from '../Divider';
 import DrawerLogout from './_logout';
 import DrawerProfileCard from './_profile';

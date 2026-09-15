@@ -1,6 +1,6 @@
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { DrawerActions } from '@react-navigation/native';
 import { router, useNavigation } from 'expo-router';
+import { DrawerActions } from 'expo-router/react-navigation';
 import { Text, TouchableOpacity, View } from 'react-native';
 
 type Props = {
