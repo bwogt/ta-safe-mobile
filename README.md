@@ -34,10 +34,10 @@ Este repositório traz a nova versão do app mobile, reconstruída com foco em a
 
 ### 📌 Links úteis
 
-- 📄 [Monografia (TCC)](https://tcc.tsi.pro.br/uploads/academic_activity/pdf/268/GP_COINT_2024_1_BRUNO_JOSE_DOS_SANTOS_WOGT_MONOGRAFIA.pdf)
+- 🎓 [Monografia (TCC)](https://tcc.tsi.pro.br/uploads/academic_activity/pdf/268/GP_COINT_2024_1_BRUNO_JOSE_DOS_SANTOS_WOGT_MONOGRAFIA.pdf)
 - 🎯 [Gestão de atividades (Kanban)](https://github.com/users/bwogt/projects/25)
 - 🔌 [TA-SAFE-API (Backend)](https://github.com/bwogt/ta-safe-api)
-- 📱 [Versão legada do app](https://github.com/bwogt/ta-safe-mobile-legacy)
+- 📱 [Versão legada do App](https://github.com/bwogt/ta-safe-mobile-legacy)
 
 ### ✨ Por que uma nova versão?
 
