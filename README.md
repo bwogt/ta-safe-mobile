@@ -63,18 +63,18 @@ A versão legada permanece disponível para fins históricos e de consulta, enqu
 
 | Camada                      | Tecnologia                                              |
 | --------------------------- | ------------------------------------------------------- |
-| **Framework**               | Expo 54 + React Native 0.81                             |
-| **Linguagem**               | TypeScript 5.9                                          |
-| **Navegação**               | Expo Router 6.0 (file-based)                            |
+| **Framework**               | Expo 57 + React Native 0.86                             |
+| **Linguagem**               | TypeScript 6.0                                          |
+| **Navegação**               | Expo Router 57 (file-based)                             |
 | **Gerenciamento de Estado** | Zustand 5.0 (local) + TanStack Query 5.101 (assíncrono) |
 | **Formulários e Validação** | react-hook-form 7.75 + Zod 4.3                          |
 | **Requisições HTTP**        | Axios 1.15                                              |
 | **Internacionalização**     | i18next 26.1 + react-i18next 17.0                       |
 | **Estilização**             | NativeWind 4.2 (Tailwind CSS)                           |
-| **Armazenamento Local**     | AsyncStorage 2.2 + SecureStore 15.0                     |
+| **Armazenamento Local**     | AsyncStorage 2.2 + SecureStore 57.0                     |
 | **UI Components**           | Componentes customizados com Tailwind                   |
 | **Feedback ao Usuário**     | react-native-toast-message 2.3                          |
-| **Testes**                  | Jest 29.7 + jest-expo 54.0                              |
+| **Testes**                  | Jest 29.7 + jest-expo 57.0                              |
 | **Linting/Formatting**      | ESLint 9.25 + Prettier                                  |
 
 ## 📱 Ambiente de Desenvolvimento
