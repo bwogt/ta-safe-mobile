@@ -22,12 +22,15 @@
 [![CI](https://github.com/bwogt/ta-safe-mobile/actions/workflows/ci.yml/badge.svg)](https://github.com/bwogt/ta-safe-mobile/actions/workflows/ci.yml)
 
 ### Descrição
+No Brasil, estima-se que **mais de 1 milhão de aparelhos celulares** sejam roubados ou furtados anualmente. Esse mercado paralelo movimenta cifras expressivas e sustenta um ciclo no qual dispositivos de procedência incerta são repassados a consumidores sem qualquer comprovação de origem.
 
-No Brasil, **mais de 1 milhão de celulares são roubados ou furtados por ano**. Esse mercado paralelo movimenta cifras significativas e alimenta um ciclo em que aparelhos de procedência duvidosa são repassados a consumidores sem qualquer comprovação de origem.
+Nesse contexto, o comprador comum dispõe de recursos limitados para verificar a legalidade e a procedência de um aparelho usado.
 
-Diante desse cenário, o comprador comum dispõe de poucos recursos para verificar a legalidade e a procedência de um aparelho usado. O Tá Safe surge como um protótipo acadêmico que permite o registro do dispositivo a partir da Nota Fiscal Eletrônica (NF-e) e o gerenciamento da transferência de propriedade entre usuários por meio de um fluxo de solicitação e aceite. A cada transferência concluída, o histórico do dispositivo é atualizado, formando um registro público, verificável e rastreável de propriedade e transferências, auxiliando o usuário na avaliação da procedência do aparelho e promovendo maior transparência sobre sua origem.
+O Tá Safe propõe-se a mitigar essa lacuna por meio de um protótipo acadêmico que possibilita o registro do dispositivo a partir da Nota Fiscal Eletrônica (NF-e) e o gerenciamento da transferência de propriedade entre usuários, mediante um fluxo de solicitação e aceite.
 
-Este repositório contém a **nova versão do aplicativo mobile**, em desenvolvimento com foco em arquitetura limpa, performance e manutenibilidade, substituindo a [versão legada](https://github.com/bwogt/ta-safe-mobile-legacy).
+A cada transferência, o histórico do aparelho é atualizado, formando um registro público, verificável e rastreável de propriedade. Na prática: você passa a ter como avaliar a procedência do celular antes de comprar. E o mercado fica um pouco mais transparente.
+
+Este repositório traz a nova versão do app mobile, reconstruída com foco em arquitetura limpa, performance e manutenibilidade, em substituição à [versão legada](https://github.com/bwogt/ta-safe-mobile-legacy).
 
 ### 📌 Links úteis
 
