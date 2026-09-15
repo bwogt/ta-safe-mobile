@@ -129,7 +129,7 @@ npx expo start -c
 - a para iniciar no emulador Android;
 - i para iniciar no simulador iOS (macOS).
 
-## 🧪 Testes
+### 🧪 Testes
 
 O projeto utiliza `Jest` com `jest-expo` para testes unitários:
 
