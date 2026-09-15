@@ -21,7 +21,7 @@
 [![Runs with Expo Go](https://img.shields.io/badge/Runs_with_Expo_Go-4630EB.svg?style=flat&logo=EXPO&labelColor=000&logoColor=fff)](https://expo.dev/client)
 [![CI](https://github.com/bwogt/ta-safe-mobile/actions/workflows/ci.yml/badge.svg)](https://github.com/bwogt/ta-safe-mobile/actions/workflows/ci.yml)
 
-## 🧠 Contexto e Motivação
+## Descrição
 
 No Brasil, **mais de 1 milhão de celulares são roubados ou furtados por ano**. Esse mercado paralelo movimenta cifras significativas e alimenta um ciclo em que aparelhos de procedência duvidosa são repassados a consumidores sem qualquer comprovação de origem.
 
