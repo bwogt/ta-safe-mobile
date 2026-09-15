@@ -32,7 +32,7 @@ A cada transferência, o histórico do aparelho é atualizado, formando um regis
 
 Este repositório traz a nova versão do app mobile, reconstruída com foco em arquitetura limpa, performance e manutenibilidade, em substituição à [versão legada](https://github.com/bwogt/ta-safe-mobile-legacy).
 
-### 📌 Links úteis
+### 🔗 Links úteis
 
 - 🎓 [Monografia (TCC)](https://tcc.tsi.pro.br/uploads/academic_activity/pdf/268/GP_COINT_2024_1_BRUNO_JOSE_DOS_SANTOS_WOGT_MONOGRAFIA.pdf)
 - 🎯 [Gestão de atividades (Kanban)](https://github.com/users/bwogt/projects/25)
