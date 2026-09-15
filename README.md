@@ -21,7 +21,7 @@
 [![Runs with Expo Go](https://img.shields.io/badge/Runs_with_Expo_Go-4630EB.svg?style=flat&logo=EXPO&labelColor=000&logoColor=fff)](https://expo.dev/client)
 [![CI](https://github.com/bwogt/ta-safe-mobile/actions/workflows/ci.yml/badge.svg)](https://github.com/bwogt/ta-safe-mobile/actions/workflows/ci.yml)
 
-## Descrição
+### Descrição
 
 No Brasil, **mais de 1 milhão de celulares são roubados ou furtados por ano**. Esse mercado paralelo movimenta cifras significativas e alimenta um ciclo em que aparelhos de procedência duvidosa são repassados a consumidores sem qualquer comprovação de origem.
 
@@ -29,14 +29,14 @@ Diante desse cenário, o comprador comum dispõe de poucos recursos para verific
 
 Este repositório contém a **nova versão do aplicativo mobile**, em desenvolvimento com foco em arquitetura limpa, performance e manutenibilidade, substituindo a [versão legada](https://github.com/bwogt/ta-safe-mobile-legacy).
 
-## 📌 Links úteis
+### 📌 Links úteis
 
 - 📄 [Monografia (TCC)](https://tcc.tsi.pro.br/uploads/academic_activity/pdf/268/GP_COINT_2024_1_BRUNO_JOSE_DOS_SANTOS_WOGT_MONOGRAFIA.pdf)
 - 🎯 [Gestão de atividades (Kanban)](https://github.com/users/bwogt/projects/25)
 - 🔌 [TA-SAFE-API (Backend)](https://github.com/bwogt/ta-safe-api)
 - 📱 [Versão legada do app](https://github.com/bwogt/ta-safe-mobile-legacy)
 
-## 🔄 Por que uma nova versão?
+### ✨ Por que uma nova versão?
 
 A versão original do aplicativo foi desenvolvida como parte do Trabalho de Conclusão de Curso (TCC) e cumpriu com sucesso seu objetivo acadêmico. No entanto, sua arquitetura refletia as decisões e limitações tecnológicas adotadas durante seu desenvolvimento.
 
@@ -50,7 +50,7 @@ Esta nova versão foi reescrita do zero com foco em:
 
 A versão legada permanece disponível para fins históricos e de consulta, enquanto todo o desenvolvimento ativo e a evolução do projeto ocorrem neste repositório.
 
-## 🚀 Funcionalidades (em construção)
+### 🚀 Funcionalidades (em construção)
 
 - :green_circle: **Autenticação**: Cadastro, login, atualização de perfil e redefinição de senha;
 - 🚧 **Registro de celulares**: Cadastro de dispositivos por meio do preenchimento das informações do aparelho e do código de visualização da Nota Fiscal Eletrônica (NF-e);
@@ -59,7 +59,7 @@ A versão legada permanece disponível para fins históricos e de consulta, enqu
 - 🚧 **Transferência de titularidade**: Solicitações de transferência entre usuários, incluindo criação, cancelamento e aceite;
 - :green_circle: **Compartilhamento de registros**: Geração de códigos de compartilhamento de 6 dígitos para consulta pública dos dados de procedência e do histórico de propriedade do dispositivo.
 
-## 🛠️ Stack Tecnológica
+### 🛠️ Stack Tecnológica
 
 | Camada                      | Tecnologia                                              |
 | --------------------------- | ------------------------------------------------------- |
@@ -77,7 +77,7 @@ A versão legada permanece disponível para fins históricos e de consulta, enqu
 | **Testes**                  | Jest 29.7 + jest-expo 57.0                              |
 | **Linting/Formatting**      | ESLint 9.25 + Prettier                                  |
 
-## 📱 Ambiente de Desenvolvimento
+### 📱 Ambiente de Desenvolvimento
 
 ### Pré‑requisitos
 
@@ -124,7 +124,7 @@ npm install
 npx expo start -c
 ```
 
-7. Abra o aplicativo Expo Go (SDK 54) e leia o QR Code exibido no terminal ou pressione:
+7. Abra o aplicativo Expo Go (SDK 57) e leia o QR Code exibido no terminal ou pressione:
 
 - a para iniciar no emulador Android;
 - i para iniciar no simulador iOS (macOS).
