@@ -1,17 +1,25 @@
 # TA-SAFE-MOBILE
 
-[![Expo](https://img.shields.io/badge/Expo-54-000020?style=flat&logo=expo&logoColor=white)](https://expo.dev)
-[![React Native](https://img.shields.io/badge/React_Native-0.81-61DAFB?style=flat&logo=react&logoColor=white)](https://reactnative.dev)
-[![React](https://img.shields.io/badge/React-19-61DAFB?style=flat&logo=react&logoColor=white)](https://react.dev)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?style=flat&logo=typescript&logoColor=white)](https://typescriptlang.org)
-[![Expo Router](https://img.shields.io/badge/Expo_Router-6.0-000020?style=flat&logo=expo&logoColor=white)](https://docs.expo.dev/router/introduction/)
+[![React](https://img.shields.io/badge/React-19.2-61DAFB?style=flat&logo=react&logoColor=white)](https://react.dev)
+[![React Native](https://img.shields.io/badge/React_Native-0.86-61DAFB?style=flat&logo=react&logoColor=white)](https://reactnative.dev)
+[![Expo](https://img.shields.io/badge/Expo-57-000020?style=flat&logo=expo&logoColor=white)](https://expo.dev)
+[![Expo Router](https://img.shields.io/badge/Expo_Router-57.0-000020?style=flat&logo=expo&logoColor=white)](https://docs.expo.dev/router/introduction/)
+[![Node.js](https://img.shields.io/badge/Node.js-24-43853D?style=flat&logo=node.js&logoColor=white)](https://nodejs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-6.0-3178C6?style=flat&logo=typescript&logoColor=white)](https://typescriptlang.org)
+[![Axios](https://img.shields.io/badge/Axios-1.15-5A29E4?style=flat&logo=axios&logoColor=white)](https://axios-http.com/)
 [![NativeWind](https://img.shields.io/badge/NativeWind-4.2-06B6D4?style=flat&logo=tailwindcss&logoColor=white)](https://www.nativewind.dev/)
+[![React Hook Form](https://img.shields.io/badge/React_Hook_Form-7.75-EC5990?style=flat&logo=reacthookform&logoColor=white)](https://react-hook-form.com/)
 [![TanStack Query](https://img.shields.io/badge/TanStack_Query-5.101-FF4154?style=flat&logo=reactquery&logoColor=white)](https://tanstack.com/query)
 [![Zustand](https://img.shields.io/badge/Zustand-5.0-000000?style=flat&logo=react&logoColor=white)](https://github.com/pmndrs/zustand)
 [![i18next](https://img.shields.io/badge/i18next-26.1-26A69A?style=flat&logo=i18next&logoColor=white)](https://www.i18next.com/)
 [![Zod](https://img.shields.io/badge/Zod-4.3-3E67B1?style=flat&logo=zod&logoColor=white)](https://zod.dev/)
 [![ESLint](https://img.shields.io/badge/ESLint-9.25-4B32C3?style=flat&logo=eslint&logoColor=white)](https://eslint.org)
 [![Jest](https://img.shields.io/badge/Jest-29.7-C21325?style=flat&logo=jest&logoColor=white)](https://jestjs.io/)
+[![Prettier](https://img.shields.io/badge/Prettier-3.6-F7B93E?style=flat&logo=prettier&logoColor=white)](https://prettier.io/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+[![Runs with Expo Go](https://img.shields.io/badge/Runs_with_Expo_Go-4630EB.svg?style=flat&logo=EXPO&labelColor=000&logoColor=fff)](https://expo.dev/client)
+[![CI](https://github.com/bwogt/ta-safe-mobile/actions/workflows/ci.yml/badge.svg)](https://github.com/bwogt/ta-safe-mobile/actions/workflows/ci.yml)
 
 ## 🧠 Contexto e Motivação
 
