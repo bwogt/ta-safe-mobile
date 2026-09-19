@@ -61,7 +61,7 @@ export default function Layout() {
         />
 
         <Drawer.Screen
-          name="lookup/index"
+          name="devices/lookup"
           options={{
             title: t('common:titles.deviceLookup'),
             drawerIcon: ({ color, size }) => (
