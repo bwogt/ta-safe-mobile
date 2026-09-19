@@ -1,6 +1,7 @@
 import { cn } from '@/utils/styles/cn';
 import { useState } from 'react';
-import { Text, TextInput, TextInputProps, View } from 'react-native';
+import { TextInput, TextInputProps, View } from 'react-native';
+import Field from '../Field';
 
 type Props = TextInputProps & {
   label: string;
@@ -15,44 +16,24 @@ export default function Input({
   editable = true,
   ...rest
 }: Props) {
-  const [isFocused, setIsFocused] = useState(false);
+  const [isFocused, setIsFocused] = useState<boolean>(false);
 
   return (
-    <View className="min-h-4xl">
-      <View
-        className={cn(
-          'rounded-xl border border-neutral',
-          isFocused && 'border-primary',
-        )}
-      >
-        <Text
+    <Field label={label} error={error} focused={isFocused}>
+      <View className="flex-row">
+        <TextInput
+          {...rest}
+          editable={editable}
+          onFocus={() => setIsFocused(true)}
+          onBlur={() => setIsFocused(false)}
           className={cn(
-            'absolute -top-3 left-3 z-10 bg-white px-1 text-neutral',
-            isFocused && 'text-primary',
+            'h-2xl flex-1 pl-2 text-lg',
+            !editable && 'text-neutral',
           )}
-        >
-          {label}
-        </Text>
+        />
 
-        <View className="flex-row">
-          <TextInput
-            {...rest}
-            editable={editable}
-            onFocus={() => setIsFocused(true)}
-            onBlur={() => setIsFocused(false)}
-            className={cn(
-              'h-2xl flex-1 pl-2 text-lg ',
-              !editable && 'text-neutral',
-            )}
-          />
-
-          {iconRight && (
-            <View className="justify-center px-4">{iconRight}</View>
-          )}
-        </View>
+        {iconRight && <View className="justify-center px-4">{iconRight}</View>}
       </View>
-
-      {error && <Text className="text-danger-500">{error}</Text>}
-    </View>
+    </Field>
   );
 }
