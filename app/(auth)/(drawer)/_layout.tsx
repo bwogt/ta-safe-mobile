@@ -61,6 +61,20 @@ export default function Layout() {
         />
 
         <Drawer.Screen
+          name="devices/register"
+          options={{
+            title: t('device:register.title'),
+            drawerIcon: ({ color, size }) => (
+              <MaterialCommunityIcons
+                name="cellphone-key"
+                color={color}
+                size={size}
+              />
+            ),
+          }}
+        />
+
+        <Drawer.Screen
           name="devices/lookup"
           options={{
             title: t('device:lookup.title'),

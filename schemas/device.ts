@@ -1,4 +1,5 @@
 import z from 'zod';
+import { deviceModelSchema } from './brand';
 import { userSummarySchema } from './user';
 
 // ─────────────────────────────────────────────
@@ -18,23 +19,6 @@ const deviceTransferStatusSchema = z.enum([
   'cancelled',
   'rejected',
 ]);
-
-const deviceBrandSchema = z
-  .object({
-    id: z.int().positive(),
-    name: z.string(),
-  })
-  .strict();
-
-const deviceModelSchema = z
-  .object({
-    id: z.int().positive(),
-    name: z.string(),
-    ram: z.string(),
-    storage: z.string(),
-    brand: deviceBrandSchema,
-  })
-  .strict();
 
 const deviceValidatedAttributesSchema = z
   .object({

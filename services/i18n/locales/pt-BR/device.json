@@ -31,6 +31,19 @@
     }
   },
 
+  "register": {
+    "title": "Registrar Dispositivo",
+    "steps": {
+      "brand": "Selecione a marca do dispositivo que deseja registrar."
+    },
+    "select": {
+      "brand": "Selecione uma marca"
+    },
+    "errors": {
+      "brand": "Não foi possível carregar as informações sobre marcas."
+    }
+  },
+
   "states": {
     "validated_one": "Ativo",
     "validated_other": "Ativos",

@@ -11,14 +11,17 @@
     "updatedAt": "Última Alteração",
     "code": "Código",
     "shareCode": "Código de Compartilhamento",
-    "expiresAt": "Expira em"
+    "expiresAt": "Expira em",
+    "step": "Passo",
+    "brand": "Marca"
   },
 
   "actions": {
     "update": "Atualizar",
     "retry": "Tentar novamente",
     "lookup": "Consultar",
-    "submit": "Enviar"
+    "submit": "Enviar",
+    "next": "Avançar"
   },
 
   "loads": {
