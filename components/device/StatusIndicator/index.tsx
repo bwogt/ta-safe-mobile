@@ -15,24 +15,24 @@ const statusConfig: Record<
 > = {
   validated: {
     bg: 'bg-success-500',
-    label: 'states.validated',
+    label: 'device:states.validated',
   },
   pending: {
     bg: 'bg-warning-500',
-    label: 'states.pending',
+    label: 'device:states.pending',
   },
   in_analysis: {
     bg: 'bg-info-500',
-    label: 'states.in_analysis',
+    label: 'device:states.in_analysis',
   },
   rejected: {
     bg: 'bg-danger-500',
-    label: 'states.rejected',
+    label: 'device:states.rejected',
   },
 };
 
 export default function StatusIndicator({ status }: Props) {
-  const { t } = useTranslation('common');
+  const { t } = useTranslation('device');
   const config = statusConfig[status];
 
   return (

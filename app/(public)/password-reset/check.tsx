@@ -22,7 +22,7 @@ export default function PasswordResetCheck() {
     formState: { errors },
   } = useForm<PasswordResetCheckCodeRequest>();
 
-  const { t } = useTranslation('password-reset');
+  const { t } = useTranslation(['auth', 'common']);
   const { email } = useLocalSearchParams();
 
   const { mutate: checkCode, isPending } = usePasswordResetCheckCode(setError);
@@ -38,8 +38,8 @@ export default function PasswordResetCheck() {
     <Auth>
       <View className="flex-1 justify-center gap-2xl px-lg">
         <PageHeader
-          title={t('check.title')}
-          subtitle={t('check.subtitle', { email: email })}
+          title={t('auth:reset.check.title')}
+          subtitle={t('auth:reset.check.subtitle', { email: email })}
         />
 
         <Controller
@@ -47,7 +47,7 @@ export default function PasswordResetCheck() {
           name="code"
           render={({ field: { value, onChange } }) => (
             <Input
-              label={t('check.fields.code')}
+              label={t('common:fields.code')}
               value={value}
               error={errors.code?.message}
               onChangeText={(text) => {
@@ -63,8 +63,8 @@ export default function PasswordResetCheck() {
         <Button
           label={
             isPending
-              ? t('check.actions.submitting')
-              : t('check.actions.submit')
+              ? t('common:loads.checking')
+              : t('auth:reset.actions.checkCode')
           }
           onPress={handleSubmit(onSubmit)}
           disabled={isPending}
@@ -80,7 +80,7 @@ export default function PasswordResetCheck() {
 
         <TextLink
           href="/(public)/login"
-          text={t('check.actions.backToLogin')}
+          text={t('auth:reset.actions.backToLogin')}
           disabled={isPending}
         />
       </View>

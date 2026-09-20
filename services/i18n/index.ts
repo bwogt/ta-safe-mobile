@@ -5,16 +5,16 @@ i18n.use(initReactI18next).init({
   lng: 'pt-BR',
   fallbackLng: 'pt-BR',
 
-  ns: ['auth', 'common', 'dashboard', 'drawer', 'errors', 'password-reset'],
+  ns: ['auth', 'common', 'dashboard', 'device', 'errors', 'profile'],
 
   resources: {
     'pt-BR': {
       auth: require('./locales/pt-BR/auth.json'),
       common: require('./locales/pt-BR/common.json'),
       dashboard: require('./locales/pt-BR/dashboard.json'),
-      drawer: require('./locales/pt-BR/drawer.json'),
+      device: require('./locales/pt-BR/device.json'),
       errors: require('./locales/pt-BR/errors.json'),
-      'password-reset': require('./locales/pt-BR/password-reset.json'),
+      profile: require('./locales/pt-BR/profile.json'),
     },
   },
 

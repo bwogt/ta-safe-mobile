@@ -1,44 +1,29 @@
 {
-  "titles": {
-    "deviceInfo": "Informações do Dispositivo",
-    "deviceFeatures": "Características do Dispositivo",
-    "deviceLookup": "Consultar Dispositivo"
-  },
-  "subtitles": {
-    "deviceFeatures": "Verifique as características do dispositivo e seu status de validação.",
-    "deviceLookup": "Informe o código de compartilhamento de 8 dígitos para visualizar as informações públicas de um registro."
-  },
   "fields": {
     "name": "Nome",
     "email": "E-mail",
     "emailNotVerified": "E-mail (Não Verificado)",
     "cpf": "CPF",
+    "password": "Senha",
+    "newPassword": "Nova Senha",
     "owner": "Proprietário",
     "register": "Registro",
     "updatedAt": "Última Alteração",
+    "code": "Código",
     "shareCode": "Código de Compartilhamento",
     "expiresAt": "Expira em"
   },
+
   "actions": {
     "update": "Atualizar",
     "retry": "Tentar novamente",
-    "lookup": "Consultar"
+    "lookup": "Consultar",
+    "submit": "Enviar"
   },
+
   "loads": {
-    "waiting": "Aguarde..."
-  },
-  "states": {
-    "validated_one": "Ativo",
-    "validated_other": "Ativos",
-    "pending_one": "Pendente",
-    "pending_other": "Pendentes",
-    "rejected_one": "Inválido",
-    "rejected_other": "Inválidos",
-    "in_analysis": "Em Análise"
-  },
-  "messages": {
-    "emptyDeviceList": "Você não possui dispositivos {{status}}",
-    "endOfList": "-- Não há mais resultados --",
-    "shareCode": "Atenção: copie este código e compartilhe com os usuários que você deseja permitir a visualização temporária deste registro."
+    "waiting": "Aguarde...",
+    "submitting": "Enviando...",
+    "checking": "Verificando..."
   }
 }

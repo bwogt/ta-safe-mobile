@@ -2,14 +2,14 @@ import { useTranslation } from 'react-i18next';
 import { Text, View } from 'react-native';
 
 export default function DeviceFeaturesCardHeader() {
-  const { t } = useTranslation('common');
+  const { t } = useTranslation('device');
 
   return (
     <View className="px-4 pt-4">
       <Text className="text-xl font-semibold">
-        {t('titles.deviceFeatures')}
+        {t('device:features.title')}
       </Text>
-      <Text>{t('subtitles.deviceFeatures')}</Text>
+      <Text>{t('device:features.subtitle')}</Text>
     </View>
   );
 }

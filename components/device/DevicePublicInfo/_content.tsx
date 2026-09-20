@@ -13,21 +13,21 @@ export default function DevicePublicInfoContent({ device }: Props) {
   return (
     <View className="pb-4 pl-4">
       <Text className="text-lg font-semibold">
-        {t('fields.owner')}:{' '}
+        {t('common:fields.owner')}:{' '}
         <Text className="text-lg font-normal">{device.owner.name}</Text>
       </Text>
       <Text className="text-lg font-semibold">
-        {t('fields.cpf')}:{' '}
+        {t('common:fields.cpf')}:{' '}
         <Text className="text-lg font-normal">{device.owner.cpf}</Text>
       </Text>
       <Text className="text-lg font-semibold">
-        {t('fields.register')}:{' '}
+        {t('common:fields.register')}:{' '}
         <Text className="text-md font-normal">
           {formatDatetime(device.created_at)}
         </Text>
       </Text>
       <Text className="text-lg font-semibold">
-        {t('fields.updatedAt')}:{' '}
+        {t('common:fields.updatedAt')}:{' '}
         <Text className="text-md font-normal">
           {formatDatetime(device.updated_at)}
         </Text>

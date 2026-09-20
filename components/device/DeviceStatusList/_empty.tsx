@@ -9,7 +9,7 @@ type Props = {
 };
 
 export default function EmptyDeviceList({ status }: Props) {
-  const { t } = useTranslation('common');
+  const { t } = useTranslation('device');
 
   return (
     <View className="items-center gap-4">
@@ -19,8 +19,8 @@ export default function EmptyDeviceList({ status }: Props) {
         color={colors.neutral}
       />
       <Text className="text-lg text-neutral">
-        {t('messages.emptyDeviceList', {
-          status: t(`states.${status}`, { count: 2 }).toLowerCase(),
+        {t('device:list.messages.emptyDeviceList', {
+          status: t(`device:states.${status}`, { count: 2 }).toLowerCase(),
         })}
       </Text>
     </View>

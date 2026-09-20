@@ -9,13 +9,13 @@ type Props = {
 };
 
 export default function ShareDeviceCodeModalContent({ device }: Props) {
-  const { t } = useTranslation('common');
+  const { t } = useTranslation(['common', 'device']);
 
   return (
     <View className="p-4">
       <View className="gap-4 rounded-lg border border-zinc-200 bg-white p-4">
         <Text className="text-center text-xl font-bold">
-          {t('fields.shareCode')}
+          {t('common:fields.shareCode')}
         </Text>
 
         <View className="flex-row items-center justify-center gap-4">
@@ -26,12 +26,14 @@ export default function ShareDeviceCodeModalContent({ device }: Props) {
         </View>
 
         <Text className="text-center text-lg text-danger-500">
-          {t('fields.expiresAt')}
+          {t('common:fields.expiresAt')}
           {': '}
           {formatDatetime(device.share_code!.expires_at)}
         </Text>
 
-        <Text className="p-2 text-center">{t('messages.shareCode')}</Text>
+        <Text className="p-2 text-center">
+          {t('device:lookup.messages.shareCode')}
+        </Text>
       </View>
     </View>
   );

@@ -21,7 +21,7 @@ export default function UserRegistrationScreen() {
     formState: { errors },
   } = useForm<RegisterUserRequest>();
 
-  const { t } = useTranslation('auth');
+  const { t } = useTranslation(['auth', 'common']);
   const [hidePassword, setHidePassword] = useState(true);
   const togglePassword = () => setHidePassword(!hidePassword);
 
@@ -38,8 +38,8 @@ export default function UserRegistrationScreen() {
       >
         <View className="mt-3xl flex-1 justify-center gap-2xl px-lg">
           <PageHeader
-            title={t('registerUser.title')}
-            subtitle={t('registerUser.subtitle')}
+            title={t('auth:register.title')}
+            subtitle={t('auth:register.subtitle')}
           />
 
           <View>
@@ -48,7 +48,7 @@ export default function UserRegistrationScreen() {
               control={control}
               render={({ field: { value, onChange } }) => (
                 <Input
-                  label={t('registerUser.fields.name')}
+                  label={t('common:fields.name')}
                   value={value}
                   error={errors.name?.message}
                   onChangeText={onChange}
@@ -61,7 +61,7 @@ export default function UserRegistrationScreen() {
               control={control}
               render={({ field: { value, onChange } }) => (
                 <Input
-                  label={t('registerUser.fields.email')}
+                  label={t('common:fields.email')}
                   value={value}
                   error={errors.email?.message}
                   onChangeText={onChange}
@@ -76,7 +76,7 @@ export default function UserRegistrationScreen() {
               control={control}
               render={({ field: { value, onChange } }) => (
                 <Input
-                  label={t('registerUser.fields.cpf')}
+                  label={t('common:fields.cpf')}
                   value={value}
                   error={errors.cpf?.message}
                   onChangeText={(text) => onChange(maskCpf(text))}
@@ -91,7 +91,7 @@ export default function UserRegistrationScreen() {
               control={control}
               render={({ field: { value, onChange } }) => (
                 <Input
-                  label={t('registerUser.fields.password')}
+                  label={t('common:fields.password')}
                   value={value}
                   error={errors.password?.message}
                   onChangeText={onChange}
@@ -113,8 +113,8 @@ export default function UserRegistrationScreen() {
           <Button
             label={
               isPending
-                ? t('registerUser.actions.submitting')
-                : t('registerUser.actions.submit')
+                ? t('auth:register.actions.submitting')
+                : t('auth:register.actions.submit')
             }
             disabled={isPending}
             onPress={handleSubmit(onSubmit)}
@@ -130,8 +130,8 @@ export default function UserRegistrationScreen() {
 
           <AuthSwitchLink
             href="/(public)/login"
-            text={t('registerUser.actions.haveAccount')}
-            actionText={t('registerUser.actions.login')}
+            text={t('auth:register.actions.haveAccount')}
+            actionText={t('auth:register.actions.login')}
             disabled={isPending}
           />
         </View>

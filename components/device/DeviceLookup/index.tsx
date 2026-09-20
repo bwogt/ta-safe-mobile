@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next';
 import { Text, View } from 'react-native';
 
 export default function DeviceLookup() {
-  const { t } = useTranslation('common');
+  const { t } = useTranslation(['common', 'device']);
   const [code, setCode] = useState('');
   const isLookupDisabled = code.length !== 8;
 
@@ -21,13 +21,13 @@ export default function DeviceLookup() {
         <View className="p-4">
           <View className="gap-2 pb-10">
             <Text className="text-lg font-bold">
-              {t('titles.deviceLookup')}
+              {t('device:lookup.title')}
             </Text>
-            <Text>{t('subtitles.deviceLookup')}</Text>
+            <Text>{t('device:lookup.subtitle')}</Text>
           </View>
 
           <Input
-            label={t('fields.shareCode')}
+            label={t('common:fields.shareCode')}
             value={code}
             maxLength={8}
             keyboardType="number-pad"
@@ -38,7 +38,7 @@ export default function DeviceLookup() {
           />
 
           <Button
-            label={t('actions.lookup')}
+            label={t('common:actions.lookup')}
             disabled={isLookupDisabled}
             onPress={handlePress}
             iconLeft={

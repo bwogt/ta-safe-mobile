@@ -7,7 +7,7 @@ import { DrawerItem } from 'expo-router/drawer';
 import { useTranslation } from 'react-i18next';
 
 export default function DrawerLogout() {
-  const { t } = useTranslation('drawer');
+  const { t } = useTranslation('auth');
 
   const handleLogout = () => {
     useAuthStore.getState().logout();
@@ -18,7 +18,7 @@ export default function DrawerLogout() {
 
   return (
     <DrawerItem
-      label={t('logout.label')}
+      label={t('auth:logout.title')}
       onPress={handleLogout}
       labelStyle={{ color: colors.danger[500] }}
       pressColor={colors.danger[500]}

@@ -5,22 +5,22 @@ import Button from '../Button';
 
 type Props = {
   title: string;
-  description?: string;
+  message?: string;
   onRetry?: () => void;
 };
 
-export default function QueryError({ title, description, onRetry }: Props) {
+export default function QueryError({ title, message, onRetry }: Props) {
   const { t } = useTranslation('common');
 
   return (
     <View className="flex-1 items-center justify-center gap-20">
       <View className="items-center">
         <Text>{title}</Text>
-        <Text>{description}</Text>
+        <Text>{message}</Text>
       </View>
 
       <Button
-        label={t('actions.retry')}
+        label={t('common:actions.retry')}
         onPress={onRetry}
         iconLeft={
           <MaterialCommunityIcons name="reload-alert" size={26} color="white" />

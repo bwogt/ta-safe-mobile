@@ -15,13 +15,13 @@ type Route = {
 };
 
 export default function DeviceList({ status }: Props) {
-  const { t } = useTranslation('common');
+  const { t } = useTranslation('device');
 
   const routes: Route[] = [
-    { key: 'validated', title: t('common:states.validated', { count: 2 }) },
-    { key: 'pending', title: t('common:states.pending', { count: 2 }) },
-    { key: 'in_analysis', title: t('common:states.in_analysis', { count: 2 }) },
-    { key: 'rejected', title: t('common:states.rejected', { count: 2 }) },
+    { key: 'validated', title: t('device:states.validated', { count: 2 }) },
+    { key: 'pending', title: t('device:states.pending', { count: 2 }) },
+    { key: 'in_analysis', title: t('device:states.in_analysis', { count: 2 }) },
+    { key: 'rejected', title: t('device:states.rejected', { count: 2 }) },
   ];
 
   const found = routes.findIndex((route) => route.key === status);

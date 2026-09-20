@@ -20,7 +20,7 @@ export default function LoginScreen() {
     formState: { errors },
   } = useForm<LoginRequest>();
 
-  const { t } = useTranslation('auth');
+  const { t } = useTranslation(['auth', 'common']);
   const [hidePassword, setHidePassword] = useState(true);
   const togglePassword = () => setHidePassword(!hidePassword);
 
@@ -32,8 +32,8 @@ export default function LoginScreen() {
       <View className="flex-1 justify-center gap-2xl px-lg">
         <View className="gap-2xl">
           <View>
-            <Text className="text-5xl font-bold">{t('login.title')}</Text>
-            <Text className="text-xl">{t('login.subtitle')}</Text>
+            <Text className="text-5xl font-bold">{t('auth:login.title')}</Text>
+            <Text className="text-xl">{t('auth:login.subtitle')}</Text>
           </View>
 
           <View>
@@ -43,7 +43,7 @@ export default function LoginScreen() {
                 control={control}
                 render={({ field: { value, onChange } }) => (
                   <Input
-                    label={t('login.fields.email')}
+                    label={t('common:fields.email')}
                     value={value}
                     editable={!isPending}
                     error={errors.email?.message}
@@ -61,7 +61,7 @@ export default function LoginScreen() {
                 control={control}
                 render={({ field: { value, onChange } }) => (
                   <Input
-                    label={t('login.fields.password')}
+                    label={t('common:fields.password')}
                     value={value}
                     error={errors.password?.message}
                     editable={!isPending}
@@ -82,7 +82,7 @@ export default function LoginScreen() {
 
               <TextLink
                 href="/(public)/password-reset/start"
-                text={t('login.actions.forgotPassword')}
+                text={t('auth:login.actions.forgotPassword')}
                 disabled={isPending}
                 className="text-right"
               />
@@ -93,8 +93,8 @@ export default function LoginScreen() {
         <Button
           label={
             isPending
-              ? t('login.actions.submitting')
-              : t('login.actions.submit')
+              ? t('auth:login.actions.submitting')
+              : t('auth:login.actions.submit')
           }
           onPress={handleSubmit(onSubmit)}
           disabled={isPending}
@@ -110,8 +110,8 @@ export default function LoginScreen() {
 
         <SwitchLink
           href="/(public)/register"
-          text={t('login.actions.noAccount')}
-          actionText={t('login.actions.createAccount')}
+          text={t('auth:login.actions.noAccount')}
+          actionText={t('auth:login.actions.createAccount')}
           disabled={isPending}
         />
       </View>

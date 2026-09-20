@@ -14,7 +14,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 export default function DashboardScreen() {
   const { data: user } = useCurrentUser();
   const { isStale, isRefetching, refetch } = useDashboardStats();
-  const { t } = useTranslation('drawer');
+  const { t } = useTranslation('dashboard');
 
   const onRefresh = useCallback(async () => {
     await refetch();
@@ -31,7 +31,7 @@ export default function DashboardScreen() {
 
   return (
     <SafeAreaView className="flex-1">
-      <Header title={t('dashboard.title', { name: user?.name })} />
+      <Header title={t('dashboard:title', { name: user?.name })} />
 
       <ScrollView
         refreshControl={
