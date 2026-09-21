@@ -34,13 +34,16 @@
   "register": {
     "title": "Registrar Dispositivo",
     "steps": {
-      "brand": "Selecione a marca do dispositivo que deseja registrar."
+      "brand": "Selecione a marca do dispositivo que deseja registrar.",
+      "model": "Selecione um modelo."
     },
     "select": {
-      "brand": "Selecione uma marca"
+      "brand": "Selecione uma marca",
+      "model": "Selecione um modelo"
     },
     "errors": {
-      "brand": "Não foi possível carregar as informações sobre marcas."
+      "brand": "Não foi possível carregar as marcas.",
+      "model": "Não foi possível carregar os modelos."
     }
   },
 

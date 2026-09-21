@@ -13,7 +13,8 @@
     "shareCode": "Código de Compartilhamento",
     "expiresAt": "Expira em",
     "step": "Passo",
-    "brand": "Marca"
+    "brand": "Marca",
+    "model": "Modelo"
   },
 
   "actions": {

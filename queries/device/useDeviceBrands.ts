@@ -9,6 +9,6 @@ export function useDeviceBrands() {
       const response = await api.get('brands');
       return deviceBrandsSchema.parse(response.data);
     },
-    staleTime: 30_000,
+    staleTime: 60_000,
   });
 }

@@ -18,3 +18,4 @@ export const deviceModelSchema = z
   .strict();
 
 export const deviceBrandsSchema = z.array(deviceBrandSchema);
+export const deviceModelsSchema = z.array(deviceModelSchema);

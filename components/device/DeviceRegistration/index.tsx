@@ -9,6 +9,7 @@ export default function DeviceRegistration() {
   const formControls = useForm({
     defaultValues: {
       brandId: 0,
+      modelId: 0,
     },
   });
 
