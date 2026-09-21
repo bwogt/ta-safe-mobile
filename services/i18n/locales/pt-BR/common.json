@@ -21,7 +21,8 @@
     "retry": "Tentar novamente",
     "lookup": "Consultar",
     "submit": "Enviar",
-    "next": "Avançar"
+    "next": "Avançar",
+    "previous": "Voltar"
   },
 
   "loads": {

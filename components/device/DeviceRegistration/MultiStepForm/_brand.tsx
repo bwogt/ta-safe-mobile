@@ -1,12 +1,11 @@
-import Button from '@/components/ui/Button';
 import LoadingScreen from '@/components/ui/LoadingScreen';
 import QueryError from '@/components/ui/QueryError';
 import Select from '@/components/ui/Select';
 import { useDeviceBrands } from '@/queries/device/useDeviceBrands';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Controller, useFormContext, useWatch } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
+import StepControl from './_control';
 import StepTitle from './_title';
 
 type Props = {
@@ -14,8 +13,8 @@ type Props = {
 };
 
 export default function BrandSelectionStep({ onNext }: Props) {
-  const { data: brands, isLoading, isError } = useDeviceBrands();
   const { t } = useTranslation(['common', 'device']);
+  const { data: brands, isLoading, isError } = useDeviceBrands();
   const { control } = useFormContext();
 
   const brandId = useWatch({
@@ -32,7 +31,7 @@ export default function BrandSelectionStep({ onNext }: Props) {
       {isError && <QueryError title={t('device:register.errors.brand')} />}
 
       {brands && !isError && (
-        <View className="px-4">
+        <View className="gap-10 px-4">
           <StepTitle step={1} title={t('device:register.steps.brand')} />
 
           <Controller
@@ -57,18 +56,7 @@ export default function BrandSelectionStep({ onNext }: Props) {
             )}
           />
 
-          <Button
-            label={t('common:actions.next')}
-            disabled={disableNextStep}
-            onPress={onNext}
-            iconLeft={
-              <MaterialCommunityIcons
-                name="page-next-outline"
-                size={22}
-                color={'white'}
-              />
-            }
-          />
+          <StepControl onNext={onNext} disableNextStep={disableNextStep} />
         </View>
       )}
     </View>
