@@ -54,7 +54,7 @@ export default function ModelSelectionScreen({ onNext, onPrevious }: Props) {
                     value: 0,
                   },
                   ...models.map((model) => ({
-                    label: model.name,
+                    label: `${model.name} (${model.ram} | ${model.storage})`,
                     value: model.id,
                   })),
                 ]}

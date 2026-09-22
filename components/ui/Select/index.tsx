@@ -1,3 +1,4 @@
+import { colors } from '@/themes/colors';
 import { Picker } from '@react-native-picker/picker';
 import { useState } from 'react';
 import { View } from 'react-native';
@@ -32,6 +33,7 @@ export default function Select({ label, value, options, onChange }: Props) {
               key={option.value}
               label={option.label}
               value={option.value}
+              color={option.value == 0 ? colors.subtitle : '#000'}
             />
           ))}
         </Picker>
