@@ -19,13 +19,19 @@ export default function QueryError({ title, message, onRetry }: Props) {
         <Text>{message}</Text>
       </View>
 
-      <Button
-        label={t('common:actions.retry')}
-        onPress={onRetry}
-        iconLeft={
-          <MaterialCommunityIcons name="reload-alert" size={26} color="white" />
-        }
-      />
+      {onRetry && (
+        <Button
+          label={t('common:actions.retry')}
+          onPress={onRetry}
+          iconLeft={
+            <MaterialCommunityIcons
+              name="reload-alert"
+              size={26}
+              color="white"
+            />
+          }
+        />
+      )}
     </View>
   );
 }

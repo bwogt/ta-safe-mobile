@@ -16,7 +16,8 @@
     "brand": "Marca",
     "model": "Modelo",
     "color": "Cor",
-    "accessKey": "Chave de Acesso (NFe)"
+    "accessKey": "Chave de Acesso (NFe)",
+    "progress": "{{step}} de {{total}}"
   },
 
   "actions": {
@@ -24,7 +25,7 @@
     "retry": "Tentar novamente",
     "lookup": "Consultar",
     "submit": "Enviar",
-    "next": "Avançar",
+    "next": "Continuar",
     "previous": "Voltar"
   },
 

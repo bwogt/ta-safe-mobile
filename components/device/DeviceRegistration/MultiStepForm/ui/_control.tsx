@@ -1,6 +1,4 @@
 import Button from '@/components/ui/Button';
-import { colors } from '@/themes/colors';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { useTranslation } from 'react-i18next';
 import { Pressable, Text, View } from 'react-native';
 
@@ -24,13 +22,6 @@ export default function StepControl({
           label={t('actions.next')}
           onPress={onNext}
           disabled={disableNextStep}
-          iconRight={
-            <MaterialCommunityIcons
-              name="chevron-right"
-              size={22}
-              color="white"
-            />
-          }
         />
       </View>
 
@@ -40,12 +31,6 @@ export default function StepControl({
           className="flex-row items-center gap-2"
           hitSlop={8}
         >
-          <MaterialCommunityIcons
-            name="chevron-left"
-            size={22}
-            color={colors.primary}
-          />
-
           <Text className="text-lg font-semibold text-primary">
             {t('actions.previous')}
           </Text>

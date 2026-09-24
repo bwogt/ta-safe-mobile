@@ -3,6 +3,7 @@ import { Controller, useFormContext, useWatch } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import StepControl from '../ui/_control';
+import StepProgress from '../ui/_progress';
 import StepTitle from '../ui/_title';
 
 type Props = {
@@ -22,8 +23,10 @@ export default function ColorStep({ onNext, onPrevious }: Props) {
   const disableNextStep = color.length == 0;
 
   return (
-    <View className="flex-1 justify-center">
-      <View className="gap-6 px-4">
+    <View className="flex-1 p-4 pt-8">
+      <StepProgress step={3} totalSteps={5} />
+
+      <View className="flex-1 justify-center gap-4">
         <StepTitle step={3} title={t('device:register.steps.color')} />
 
         <Controller
