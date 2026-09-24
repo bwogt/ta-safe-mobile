@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Text } from 'react-native';
 import BrandSelectionStep from './_brand';
+import ColorStep from './_color';
 import ModelSelectionScreen from './_model';
 
 export default function MultiStepForm() {
@@ -13,7 +14,11 @@ export default function MultiStepForm() {
   }
 
   if (step == 3) {
-    return <Text>Color Selection</Text>;
+    return <ColorStep onNext={nextStep} onPrevious={previousStep} />;
+  }
+
+  if (step == 4) {
+    return <Text>Access Key</Text>;
   }
 
   return <BrandSelectionStep onNext={nextStep} />;

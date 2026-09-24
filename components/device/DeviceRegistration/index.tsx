@@ -1,6 +1,7 @@
 import Header from '@/components/ui/Header';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
+import { KeyboardAvoidingView, Platform } from 'react-native';
 import MultiStepForm from './MultiStepForm';
 
 export default function DeviceRegistration() {
@@ -10,13 +11,19 @@ export default function DeviceRegistration() {
     defaultValues: {
       brandId: 0,
       modelId: 0,
+      color: '',
     },
   });
 
   return (
     <FormProvider {...formControls}>
       <Header title={t('device:register.title')} />
-      <MultiStepForm />
+      <KeyboardAvoidingView
+        style={{ flex: 1 }}
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      >
+        <MultiStepForm />
+      </KeyboardAvoidingView>
     </FormProvider>
   );
 }

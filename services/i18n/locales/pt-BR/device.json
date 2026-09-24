@@ -35,7 +35,8 @@
     "title": "Registrar Dispositivo",
     "steps": {
       "brand": "Selecione a marca do dispositivo que deseja registrar.",
-      "model": "Selecione um modelo."
+      "model": "Selecione um modelo.",
+      "color": "Digite a cor do dispositivo."
     },
     "select": {
       "brand": "Selecione uma marca",

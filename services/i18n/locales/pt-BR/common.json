@@ -14,7 +14,8 @@
     "expiresAt": "Expira em",
     "step": "Passo",
     "brand": "Marca",
-    "model": "Modelo"
+    "model": "Modelo",
+    "color": "Cor"
   },
 
   "actions": {
