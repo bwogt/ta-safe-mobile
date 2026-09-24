@@ -15,7 +15,8 @@
     "step": "Passo",
     "brand": "Marca",
     "model": "Modelo",
-    "color": "Cor"
+    "color": "Cor",
+    "accessKey": "Chave de Acesso (NFe)"
   },
 
   "actions": {

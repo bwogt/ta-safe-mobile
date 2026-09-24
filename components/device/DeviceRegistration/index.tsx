@@ -12,6 +12,7 @@ export default function DeviceRegistration() {
       brandId: 0,
       modelId: 0,
       color: '',
+      accessKey: '',
     },
   });
 

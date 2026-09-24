@@ -36,7 +36,8 @@
     "steps": {
       "brand": "Selecione a marca do dispositivo que deseja registrar.",
       "model": "Selecione um modelo.",
-      "color": "Digite a cor do dispositivo."
+      "color": "Digite a cor do dispositivo.",
+      "accessKey": "Digite a chave de acesso da NFe."
     },
     "select": {
       "brand": "Selecione uma marca",
