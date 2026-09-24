@@ -2,8 +2,8 @@ import Input from '@/components/ui/Input';
 import { Controller, useFormContext, useWatch } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
-import StepControl from './_control';
-import StepTitle from './_title';
+import StepControl from '../ui/_control';
+import StepTitle from '../ui/_title';
 
 type Props = {
   onNext: () => void;

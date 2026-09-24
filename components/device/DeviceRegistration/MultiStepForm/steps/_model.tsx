@@ -1,20 +1,20 @@
 import LoadingScreen from '@/components/ui/LoadingScreen';
 import QueryError from '@/components/ui/QueryError';
 import Select from '@/components/ui/Select';
-import { useDeviceBrands } from '@/queries/device/useDeviceBrands';
+import { useDeviceModels } from '@/queries/device/useDeviceModels';
 import { Controller, useFormContext, useWatch } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
-import StepControl from './_control';
-import StepTitle from './_title';
+import StepControl from '../ui/_control';
+import StepTitle from '../ui/_title';
 
 type Props = {
   onNext: () => void;
+  onPrevious: () => void;
 };
 
-export default function BrandSelectionStep({ onNext }: Props) {
+export default function ModelStep({ onNext, onPrevious }: Props) {
   const { t } = useTranslation(['common', 'device']);
-  const { data: brands, isLoading, isError } = useDeviceBrands();
   const { control } = useFormContext();
 
   const brandId = useWatch({
@@ -22,41 +22,51 @@ export default function BrandSelectionStep({ onNext }: Props) {
     name: 'brandId',
   });
 
-  const disableNextStep = brandId === 0;
+  const modelId = useWatch({
+    control,
+    name: 'modelId',
+  });
+
+  const { data: models, isLoading, isError } = useDeviceModels(brandId);
+  const disableNextStep = modelId === 0;
 
   if (isLoading) return <LoadingScreen />;
 
   return (
     <View className="flex-1 justify-center">
-      {isError && <QueryError title={t('device:register.errors.brand')} />}
+      {isError && <QueryError title={t('device:register.errors.model')} />}
 
-      {brands && !isError && (
+      {models && !isError && (
         <View className="gap-10 px-4">
-          <StepTitle step={1} title={t('device:register.steps.brand')} />
+          <StepTitle step={2} title={t('device:register.steps.model')} />
 
           <Controller
             control={control}
-            name="brandId"
+            name="modelId"
             render={({ field: { value, onChange } }) => (
               <Select
-                label={t('common:fields.brand')}
+                label={t('common:fields.model')}
                 value={value}
                 onChange={onChange}
                 options={[
                   {
-                    label: t('device:register.select.brand'),
+                    label: t('device:register.select.model'),
                     value: 0,
                   },
-                  ...brands.map((brand) => ({
-                    label: brand.name,
-                    value: brand.id,
+                  ...models.map((model) => ({
+                    label: `${model.name} (${model.ram} | ${model.storage})`,
+                    value: model.id,
                   })),
                 ]}
               />
             )}
           />
 
-          <StepControl onNext={onNext} disableNextStep={disableNextStep} />
+          <StepControl
+            onNext={onNext}
+            onPrevious={onPrevious}
+            disableNextStep={disableNextStep}
+          />
         </View>
       )}
     </View>
