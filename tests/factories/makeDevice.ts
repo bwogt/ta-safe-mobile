@@ -8,8 +8,6 @@ export function makeDevice(overrides?: Partial<Device>): Device {
   return {
     id: faker.number.int(),
     color: 'Laranja',
-    imei_1: faker.string.numeric(15),
-    imei_2: faker.string.numeric(15),
     access_key: faker.string.numeric(45),
     share_code: null,
 

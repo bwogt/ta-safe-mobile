@@ -70,8 +70,6 @@ export const deviceSchema = z
   .object({
     id: z.int().positive(),
     color: z.string(),
-    imei_1: z.string().regex(/^\d{15}$/),
-    imei_2: z.string().regex(/^\d{15}$/),
     access_key: z.string().regex(/^\d{44}$/),
     validation_status: deviceValidationStatusSchema,
     share_code: deviceShareCodeSchema,
@@ -87,8 +85,6 @@ export const devicePublicSchema = z
   .object({
     id: z.int().positive(),
     color: z.string(),
-    imei_1: z.string().regex(/^\d{3}\*{9}\d{3}$/),
-    imei_2: z.string().regex(/^\d{3}\*{9}\d{3}$/),
     validation_status: deviceValidationStatusSchema,
     created_at: z.iso.datetime(),
     updated_at: z.iso.datetime(),
