@@ -24,7 +24,7 @@ export default function AccessKeyStep({ onNext, onPrevious }: Props) {
 
   return (
     <View className="flex-1 p-4 pt-8">
-      <StepProgress step={5} totalSteps={5} />
+      <StepProgress step={4} totalSteps={5} />
 
       <View className="flex-1 justify-center gap-4">
         <StepTitle step={4} title={t('device:register.steps.accessKey')} />

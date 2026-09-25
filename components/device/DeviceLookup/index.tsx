@@ -27,7 +27,7 @@ export default function DeviceLookup() {
           </View>
 
           <Input
-            label={t('common:fields.shareCode')}
+            label={t('common:labels.shareCode')}
             value={code}
             maxLength={8}
             keyboardType="number-pad"

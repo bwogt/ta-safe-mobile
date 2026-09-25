@@ -1,4 +1,15 @@
 {
+  "labels": {
+    "deviceInfo": "Informações do Dispositivo",
+    "owner": "Proprietário",
+    "createdAt": "Registro",
+    "updatedAt": "Última Alteração",
+    "shareCode": "Código de Compartilhamento",
+    "expiresAt": "Expira em",
+    "step": "Passo",
+    "progress": "{{step}} de {{total}}"
+  },
+
   "fields": {
     "name": "Nome",
     "email": "E-mail",
@@ -6,21 +17,15 @@
     "cpf": "CPF",
     "password": "Senha",
     "newPassword": "Nova Senha",
-    "owner": "Proprietário",
-    "register": "Registro",
-    "updatedAt": "Última Alteração",
     "code": "Código",
-    "shareCode": "Código de Compartilhamento",
-    "expiresAt": "Expira em",
-    "step": "Passo",
     "brand": "Marca",
     "model": "Modelo",
     "color": "Cor",
-    "accessKey": "Chave de Acesso (NFe)",
-    "progress": "{{step}} de {{total}}"
+    "accessKey": "Chave de Acesso (NFe)"
   },
 
   "actions": {
+    "register": "Registrar",
     "update": "Atualizar",
     "retry": "Tentar novamente",
     "lookup": "Consultar",

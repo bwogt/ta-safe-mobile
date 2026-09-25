@@ -15,7 +15,7 @@ export default function ShareDeviceCodeModalContent({ device }: Props) {
     <View className="p-4">
       <View className="gap-4 rounded-lg border border-zinc-200 bg-white p-4">
         <Text className="text-center text-xl font-bold">
-          {t('common:fields.shareCode')}
+          {t('common:labels.shareCode')}
         </Text>
 
         <View className="flex-row items-center justify-center gap-4">
@@ -26,7 +26,7 @@ export default function ShareDeviceCodeModalContent({ device }: Props) {
         </View>
 
         <Text className="text-center text-lg text-danger-500">
-          {t('common:fields.expiresAt')}
+          {t('common:labels.expiresAt')}
           {': '}
           {formatDatetime(device.share_code!.expires_at)}
         </Text>

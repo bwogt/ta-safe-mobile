@@ -15,7 +15,7 @@ export default function DeviceInfoContent({ device }: Props) {
   return (
     <View className="pb-4 pl-4">
       <Text className="text-lg font-semibold">
-        {t('common:fields.owner')}:{' '}
+        {t('common:labels.owner')}:{' '}
         <Text className="text-lg font-normal">{user?.name}</Text>
       </Text>
       <Text className="text-lg font-semibold">
@@ -23,13 +23,13 @@ export default function DeviceInfoContent({ device }: Props) {
         <Text className="text-lg font-normal">{user?.cpf_masked}</Text>
       </Text>
       <Text className="text-lg font-semibold">
-        {t('common:fields.register')}:{' '}
+        {t('common:labels.register')}:{' '}
         <Text className="text-md font-normal">
           {formatDatetime(device.created_at)}
         </Text>
       </Text>
       <Text className="text-lg font-semibold">
-        {t('common:fields.updatedAt')}:{' '}
+        {t('common:labels.updatedAt')}:{' '}
         <Text className="text-md font-normal">
           {formatDatetime(device.updated_at)}
         </Text>

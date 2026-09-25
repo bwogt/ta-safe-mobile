@@ -11,7 +11,7 @@ export default function StepTitle({ step, title }: Props) {
 
   return (
     <Text className="py-10 text-center text-xl font-bold text-primary">
-      {t('fields.step')} {step}:{' '}
+      {t('common:labels.step')} {step}:{' '}
       <Text className="font-normal text-black">{title}</Text>
     </Text>
   );

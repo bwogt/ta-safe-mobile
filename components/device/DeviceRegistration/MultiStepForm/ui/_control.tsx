@@ -26,11 +26,7 @@ export default function StepControl({
       </View>
 
       {onPrevious && (
-        <Pressable
-          onPress={onPrevious}
-          className="flex-row items-center gap-2"
-          hitSlop={8}
-        >
+        <Pressable onPress={onPrevious} hitSlop={8}>
           <Text className="text-lg font-semibold text-primary">
             {t('actions.previous')}
           </Text>

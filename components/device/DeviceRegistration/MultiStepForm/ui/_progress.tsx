@@ -14,10 +14,10 @@ export default function StepProgress({ step, totalSteps }: Props) {
     <View className="gap-4">
       <View>
         <Text className="text-sm text-gray-500">
-          {t('common:fields.step')}
+          {t('common:labels.step')}
           {': '}
 
-          {t('common:fields.progress', {
+          {t('common:labels.progress', {
             step,
             total: totalSteps,
           })}
@@ -27,9 +27,7 @@ export default function StepProgress({ step, totalSteps }: Props) {
       <View className="h-1.5 overflow-hidden rounded-full bg-gray-200">
         <View
           className="h-full rounded-full bg-primary"
-          style={{
-            width: `${progress * 100}%`,
-          }}
+          style={{ width: `${progress * 100}%` }}
         />
       </View>
     </View>
