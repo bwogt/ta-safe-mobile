@@ -2,6 +2,7 @@ import LoadingScreen from '@/components/ui/LoadingScreen';
 import QueryError from '@/components/ui/QueryError';
 import Select from '@/components/ui/Select';
 import { useDeviceModels } from '@/queries/device/useDeviceModels';
+import { DeviceRegistrationForm } from '@/schemas/device';
 import { Controller, useFormContext, useWatch } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
@@ -16,7 +17,7 @@ type Props = {
 
 export default function ModelStep({ onNext, onPrevious }: Props) {
   const { t } = useTranslation(['common', 'device']);
-  const { control } = useFormContext();
+  const { control } = useFormContext<DeviceRegistrationForm>();
 
   const brand = useWatch({
     control,
@@ -28,7 +29,7 @@ export default function ModelStep({ onNext, onPrevious }: Props) {
     name: 'model',
   });
 
-  const { data: models, isLoading, isError } = useDeviceModels(brand.id);
+  const { data: models, isLoading, isError } = useDeviceModels(brand?.id);
   const disableNextStep = !model;
 
   if (isLoading) return <LoadingScreen />;

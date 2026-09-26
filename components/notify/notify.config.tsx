@@ -1,4 +1,4 @@
-import { Ionicons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { StyleSheet, View } from 'react-native';
 import { BaseToast, ToastConfigParams } from 'react-native-toast-message';
 
@@ -10,8 +10,14 @@ export const toastConfig = {
       text1Style={styles.text}
       style={[styles.toast, styles.success]}
       renderLeadingIcon={() => (
-        <View style={styles.iconContainer}>
-          <Ionicons name="checkmark-circle" style={styles.icon} />
+        <View style={[styles.iconContainer]}>
+          <View style={[styles.iconSuccessBorder]}>
+            <MaterialCommunityIcons
+              name="check-circle"
+              color="#00B82F"
+              size={22}
+            />
+          </View>
         </View>
       )}
     />
@@ -24,8 +30,8 @@ export const toastConfig = {
       text1Style={styles.text}
       style={[styles.toast, styles.error]}
       renderLeadingIcon={() => (
-        <View style={styles.iconContainer}>
-          <Ionicons name="alert-circle" style={styles.icon} />
+        <View style={[styles.iconContainer]}>
+          <MaterialCommunityIcons name="alert-circle" color="#fff" size={22} />
         </View>
       )}
     />
@@ -34,26 +40,28 @@ export const toastConfig = {
 
 const styles = StyleSheet.create({
   toast: {
+    marginTop: 30,
     borderLeftWidth: 0,
-    borderRadius: 8,
+    borderRadius: 28,
   },
   iconContainer: {
     justifyContent: 'center',
     paddingLeft: 12,
   },
-  icon: {
-    fontSize: 24,
-    color: '#ffffff',
+  iconSuccessBorder: {
+    borderRadius: 9999,
+    backgroundColor: '#bbf7d0',
+    padding: 4,
   },
   text: {
     fontSize: 14,
-    color: '#ffffff',
-    fontWeight: '600',
+    color: '#fff',
+    fontWeight: 700,
   },
   success: {
-    backgroundColor: '#20D66B',
+    backgroundColor: '#2E2E2E',
   },
   error: {
-    backgroundColor: '#ff0000',
+    backgroundColor: '#FF0000',
   },
 });

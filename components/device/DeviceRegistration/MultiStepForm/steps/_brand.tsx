@@ -2,6 +2,7 @@ import LoadingScreen from '@/components/ui/LoadingScreen';
 import QueryError from '@/components/ui/QueryError';
 import Select from '@/components/ui/Select';
 import { useDeviceBrands } from '@/queries/device/useDeviceBrands';
+import { DeviceRegistrationForm } from '@/schemas/device';
 import { Controller, useFormContext, useWatch } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
@@ -16,7 +17,7 @@ type Props = {
 export default function BrandStep({ onNext }: Props) {
   const { t } = useTranslation(['common', 'device']);
   const { data: brands, isLoading, isError } = useDeviceBrands();
-  const { control } = useFormContext();
+  const { control } = useFormContext<DeviceRegistrationForm>();
 
   const brand = useWatch({
     control,

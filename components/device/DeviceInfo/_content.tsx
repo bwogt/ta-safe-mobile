@@ -23,7 +23,7 @@ export default function DeviceInfoContent({ device }: Props) {
         <Text className="text-lg font-normal">{user?.cpf_masked}</Text>
       </Text>
       <Text className="text-lg font-semibold">
-        {t('common:labels.register')}:{' '}
+        {t('common:labels.createdAt')}:{' '}
         <Text className="text-md font-normal">
           {formatDatetime(device.created_at)}
         </Text>

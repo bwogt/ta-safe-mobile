@@ -1,4 +1,5 @@
 import Header from '@/components/ui/Header';
+import { DeviceRegistrationForm } from '@/schemas/device';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { KeyboardAvoidingView, Platform } from 'react-native';
@@ -7,7 +8,7 @@ import MultiStepForm from './MultiStepForm';
 export default function DeviceRegistration() {
   const { t } = useTranslation('device');
 
-  const formControls = useForm({
+  const formControls = useForm<DeviceRegistrationForm>({
     defaultValues: {
       brand: null,
       model: null,

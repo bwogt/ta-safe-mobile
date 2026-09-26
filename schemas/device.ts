@@ -54,6 +54,25 @@ const deviceSummarySchema = z
   })
   .strict();
 
+const deviceRegistrationSchema = z.object({
+  brand: z
+    .object({
+      id: z.number(),
+      name: z.string(),
+    })
+    .nullable(),
+
+  model: z
+    .object({
+      id: z.number(),
+      name: z.string(),
+    })
+    .nullable(),
+
+  color: z.string(),
+  accessKey: z.string(),
+});
+
 // ─────────────────────────────────────────────
 // Exported schemas
 // ─────────────────────────────────────────────
@@ -112,6 +131,7 @@ export const cursorPaginatedDevicesSchema = z
 export type Device = z.infer<typeof deviceSchema>;
 export type DeviceSummary = z.infer<typeof deviceSummarySchema>;
 export type DevicePublic = z.infer<typeof devicePublicSchema>;
+export type DeviceRegistrationForm = z.infer<typeof deviceRegistrationSchema>;
 
 export type DeviceValidationStatus = z.infer<
   typeof deviceValidationStatusSchema

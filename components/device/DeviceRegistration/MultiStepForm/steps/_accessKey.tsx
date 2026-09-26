@@ -1,4 +1,5 @@
 import Input from '@/components/ui/Input';
+import { DeviceRegistrationForm } from '@/schemas/device';
 import { Controller, useFormContext, useWatch } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
@@ -13,7 +14,7 @@ type Props = {
 
 export default function AccessKeyStep({ onNext, onPrevious }: Props) {
   const { t } = useTranslation(['common', 'device']);
-  const { control } = useFormContext();
+  const { control } = useFormContext<DeviceRegistrationForm>();
 
   const accessKey = useWatch({
     control,

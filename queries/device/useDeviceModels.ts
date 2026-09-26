@@ -2,7 +2,7 @@ import { deviceModelsSchema } from '@/schemas/brand';
 import api from '@/services/api';
 import { useQuery } from '@tanstack/react-query';
 
-export function useDeviceModels(brandId: number | null) {
+export function useDeviceModels(brandId?: number) {
   return useQuery({
     queryKey: ['models', brandId],
     queryFn: async () => {
