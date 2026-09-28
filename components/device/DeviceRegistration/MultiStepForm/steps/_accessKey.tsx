@@ -1,6 +1,13 @@
 import Input from '@/components/ui/Input';
 import { DeviceRegistrationForm } from '@/schemas/device';
-import { Controller, useFormContext, useWatch } from 'react-hook-form';
+
+import {
+  Controller,
+  useFormContext,
+  useFormState,
+  useWatch,
+} from 'react-hook-form';
+
 import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import StepControl from '../ui/_control';
@@ -16,9 +23,14 @@ export default function AccessKeyStep({ onNext, onPrevious }: Props) {
   const { t } = useTranslation(['common', 'device']);
   const { control } = useFormContext<DeviceRegistrationForm>();
 
+  const { errors } = useFormState<DeviceRegistrationForm>({
+    control,
+    name: 'access_key',
+  });
+
   const accessKey = useWatch({
     control,
-    name: 'accessKey',
+    name: 'access_key',
   });
 
   const disableNextStep = accessKey.length < 44;
@@ -32,11 +44,12 @@ export default function AccessKeyStep({ onNext, onPrevious }: Props) {
 
         <Controller
           control={control}
-          name="accessKey"
+          name="access_key"
           render={({ field: { value, onChange } }) => (
             <Input
               label={t('common:fields.accessKey')}
               value={value}
+              error={errors.access_key?.message}
               maxLength={44}
               keyboardType="number-pad"
               onChangeText={(text) => {

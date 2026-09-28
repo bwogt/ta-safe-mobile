@@ -70,7 +70,7 @@ const deviceRegistrationSchema = z.object({
     .nullable(),
 
   color: z.string(),
-  accessKey: z.string(),
+  access_key: z.string(),
 });
 
 // ─────────────────────────────────────────────

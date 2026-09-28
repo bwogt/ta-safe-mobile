@@ -1,8 +1,9 @@
 import Button from '@/components/ui/Button';
+import LabeledText from '@/components/ui/LabeledText';
 import { useDeviceRegister } from '@/queries/device/useDeviceRegister';
 import { DeviceRegistrationForm } from '@/schemas/device';
 import { router } from 'expo-router';
-import { useFormContext } from 'react-hook-form';
+import { useFormContext, useFormState } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { Pressable, Text, View } from 'react-native';
 import StepProgress from '../ui/_progress';
@@ -10,28 +11,33 @@ import StepTitle from '../ui/_title';
 
 type Props = {
   onPrevious: () => void;
-  resetStepForm: () => void;
+  goToStep: (step: number) => void;
 };
 
-export default function FinalStep({ onPrevious, resetStepForm }: Props) {
+export default function FinalStep({ onPrevious, goToStep }: Props) {
   const { t } = useTranslation(['common', 'device']);
 
-  const { reset, getValues, handleSubmit } =
+  const { control, reset, setError, getValues, handleSubmit } =
     useFormContext<DeviceRegistrationForm>();
 
-  const { brand, model, color, accessKey } = getValues();
-  const { mutate: register } = useDeviceRegister();
+  const { mutate: register, isPending } = useDeviceRegister(setError);
+  const { brand, model, color, access_key } = getValues();
+
+  const { errors } = useFormState<DeviceRegistrationForm>({
+    control,
+    name: 'access_key',
+  });
 
   const onSubmit = (data: DeviceRegistrationForm) => {
     register(data, {
       onSuccess: () => {
-        reset();
-        resetStepForm();
-
         router.push({
           pathname: '/(auth)/(drawer)/devices',
           params: { status: 'pending' },
         });
+
+        reset();
+        goToStep(1);
       },
     });
   };
@@ -43,34 +49,17 @@ export default function FinalStep({ onPrevious, resetStepForm }: Props) {
       <StepTitle step={5} title={t('device:register.steps.final')} />
 
       <View className="rounded-2xl border border-zinc-200">
-        <View className="gap-2 p-4">
-          <Text className="text-lg font-bold">
-            {t('common:labels.deviceInfo')}
-          </Text>
+        <View className="gap-3 p-4">
+          <LabeledText label={t('common:labels.deviceInfo')} />
+          <LabeledText label={t('common:fields.brand')} value={brand?.name} />
+          <LabeledText label={t('common:fields.model')} value={model?.name} />
+          <LabeledText label={t('common:fields.color')} value={color} />
 
-          <Text className="text-lg font-bold">
-            {t('common:fields.brand')}
-            {': '}
-            <Text className="font-normal text-black">{brand?.name}</Text>
-          </Text>
-
-          <Text className="text-lg font-bold">
-            {t('common:fields.model')}
-            {': '}
-            <Text className="font-normal text-black">{model?.name}</Text>
-          </Text>
-
-          <Text className="text-lg font-bold">
-            {t('common:fields.color')}
-            {': '}
-            <Text className="font-normal text-black">{color}</Text>
-          </Text>
-
-          <Text className="text-lg font-bold">
-            {t('common:fields.accessKey')}
-            {': '}
-            <Text className="font-normal text-black">{accessKey}</Text>
-          </Text>
+          <LabeledText
+            label={t('common:fields.accessKey')}
+            value={access_key}
+            error={errors.access_key?.message}
+          />
         </View>
       </View>
 
@@ -79,6 +68,7 @@ export default function FinalStep({ onPrevious, resetStepForm }: Props) {
           <Button
             label={t('common:actions.register')}
             onPress={handleSubmit(onSubmit)}
+            disabled={isPending}
           />
         </View>
 

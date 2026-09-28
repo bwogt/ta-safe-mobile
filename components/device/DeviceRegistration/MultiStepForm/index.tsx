@@ -10,7 +10,7 @@ export default function MultiStepForm() {
 
   const nextStep = () => setStep(step + 1);
   const previousStep = () => setStep(step - 1);
-  const resetStepForm = () => setStep(1);
+  const goToStep = (step: number) => setStep(step);
 
   switch (step) {
     case 2:
@@ -20,9 +20,7 @@ export default function MultiStepForm() {
     case 4:
       return <AccessKeyStep onNext={nextStep} onPrevious={previousStep} />;
     case 5:
-      return (
-        <FinalStep onPrevious={previousStep} resetStepForm={resetStepForm} />
-      );
+      return <FinalStep onPrevious={previousStep} goToStep={goToStep} />;
 
     default:
       return <BrandStep onNext={nextStep} />;

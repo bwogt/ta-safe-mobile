@@ -13,7 +13,7 @@ export default function DeviceRegistration() {
       brand: null,
       model: null,
       color: '',
-      accessKey: '',
+      access_key: '',
     },
   });
 
