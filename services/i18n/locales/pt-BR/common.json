@@ -7,7 +7,8 @@
     "shareCode": "Código de Compartilhamento",
     "expiresAt": "Expira em",
     "step": "Passo",
-    "progress": "{{step}} de {{total}}"
+    "progress": "{{step}} de {{total}}",
+    "device": "Dispositivo"
   },
 
   "fields": {

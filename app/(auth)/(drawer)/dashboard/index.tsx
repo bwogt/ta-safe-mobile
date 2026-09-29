@@ -1,4 +1,5 @@
 import DashboardStats from '@/components/dashboard/DashboardStats';
+import QuickAccess from '@/components/dashboard/QuickAccess';
 import DeviceLookup from '@/components/device/DeviceLookup';
 import Header from '@/components/ui/Header';
 
@@ -34,11 +35,14 @@ export default function DashboardScreen() {
       <Header title={t('dashboard:title', { name: user?.name })} />
 
       <ScrollView
+        keyboardShouldPersistTaps="handled"
+        automaticallyAdjustKeyboardInsets
         refreshControl={
           <RefreshControl refreshing={isRefetching} onRefresh={onRefresh} />
         }
       >
         <DashboardStats />
+        <QuickAccess />
         <DeviceLookup />
       </ScrollView>
     </SafeAreaView>
