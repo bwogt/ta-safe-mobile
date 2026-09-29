@@ -21,7 +21,7 @@ export default function DevicePublicInfoContent({ device }: Props) {
         <Text className="text-lg font-normal">{device.owner.cpf}</Text>
       </Text>
       <Text className="text-lg font-semibold">
-        {t('common:labels.register')}:{' '}
+        {t('common:labels.createdAt')}:{' '}
         <Text className="text-md font-normal">
           {formatDatetime(device.created_at)}
         </Text>

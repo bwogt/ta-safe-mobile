@@ -19,14 +19,9 @@ export default function ModelStep({ onNext, onPrevious }: Props) {
   const { t } = useTranslation(['common', 'device']);
   const { control } = useFormContext<DeviceRegistrationForm>();
 
-  const brand = useWatch({
+  const [brand, model] = useWatch({
     control,
-    name: 'brand',
-  });
-
-  const model = useWatch({
-    control,
-    name: 'model',
+    name: ['brand', 'model'],
   });
 
   const { data: models, isLoading, isError } = useDeviceModels(brand?.id);
@@ -55,7 +50,7 @@ export default function ModelStep({ onNext, onPrevious }: Props) {
                     value={value?.id ?? 0}
                     onChange={(modelId) => {
                       const selectedModel = models.find(
-                        (model) => model.id == modelId,
+                        (model) => model.id === modelId,
                       );
 
                       onChange(selectedModel ?? null);

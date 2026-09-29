@@ -22,7 +22,6 @@ export default function MultiStepForm({ step, setStep }: Props) {
       return <AccessKeyStep onNext={nextStep} onPrevious={previousStep} />;
     case 5:
       return <FinalStep onPrevious={previousStep} />;
-
     default:
       return <BrandStep onNext={nextStep} />;
   }

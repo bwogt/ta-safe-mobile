@@ -1,6 +1,5 @@
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Href, Link } from 'expo-router';
-import { useTranslation } from 'react-i18next';
 import { Pressable, Text, View } from 'react-native';
 
 type Props = {
@@ -10,8 +9,6 @@ type Props = {
 };
 
 export default function QuickAccessOption({ href, icon, label }: Props) {
-  const { t } = useTranslation('common');
-
   return (
     <View className="items-center gap-2 py-4">
       <Link href={href} asChild>

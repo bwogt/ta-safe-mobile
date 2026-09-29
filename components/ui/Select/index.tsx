@@ -33,7 +33,7 @@ export default function Select({ label, value, options, onChange }: Props) {
               key={option.value}
               label={option.label}
               value={option.value}
-              color={option.value == 0 ? colors.subtitle : '#000'}
+              color={option.value === 0 ? colors.subtitle : '#000'}
             />
           ))}
         </Picker>

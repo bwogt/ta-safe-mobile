@@ -49,7 +49,7 @@ export default function BrandStep({ onNext }: Props) {
                     value={value?.id ?? 0}
                     onChange={(brandId) => {
                       const selectedBrand = brands.find(
-                        (brand) => brand.id == brandId,
+                        (brand) => brand.id === brandId,
                       );
 
                       onChange(selectedBrand ?? null);

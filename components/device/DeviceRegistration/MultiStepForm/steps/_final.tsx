@@ -16,7 +16,7 @@ type Props = {
 export default function FinalStep({ onPrevious }: Props) {
   const { t } = useTranslation(['common', 'device']);
 
-  const { control, reset, setError, getValues, handleSubmit } =
+  const { control, setError, getValues, handleSubmit } =
     useFormContext<DeviceRegistrationForm>();
 
   const { mutate: register, isPending } = useDeviceRegister(setError);
