@@ -56,7 +56,7 @@ A versão legada permanece disponível para fins históricos e de consulta, enqu
 ### 🚀 Funcionalidades (em construção)
 
 - :green_circle: **Autenticação**: Cadastro, login, atualização de perfil e redefinição de senha;
-- 🚧 **Registro de celulares**: Cadastro de dispositivos por meio do preenchimento das informações do aparelho e do código de visualização da Nota Fiscal Eletrônica (NF-e);
+- :green_circle: **Registro de celulares**: Cadastro de dispositivos por meio do preenchimento das informações do aparelho e do código de visualização da Nota Fiscal Eletrônica (NF-e);
 - 🚧 **Validação de registros**: Extração automática dos dados da NF-e por meio de web scraping e envio das informações para validação no backend;
 - :green_circle: **Histórico de propriedade**: Consulta ao histórico de propriedade e de transferências do dispositivo;
 - 🚧 **Transferência de titularidade**: Solicitações de transferência entre usuários, incluindo criação, cancelamento e aceite;
