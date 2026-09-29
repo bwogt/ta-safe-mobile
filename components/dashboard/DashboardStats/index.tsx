@@ -22,7 +22,7 @@ export default function DashboardStats() {
     <View className="mt-lg px-4">
       <View className="flex-row flex-wrap justify-between">
         <StatCard
-          label={t('stats.validated')}
+          label={t('dashboard:stats.validated')}
           value={stats?.validated}
           icon="cellphone-check"
           variant="success"
@@ -30,7 +30,7 @@ export default function DashboardStats() {
         />
 
         <StatCard
-          label={t('stats.pending')}
+          label={t('dashboard:stats.pending')}
           value={stats?.pending}
           icon="cellphone-information"
           variant="warning"
@@ -38,7 +38,7 @@ export default function DashboardStats() {
         />
 
         <StatCard
-          label={t('stats.in_analysis')}
+          label={t('dashboard:stats.in_analysis')}
           value={stats?.in_analysis}
           icon="cellphone-text"
           variant="info"
@@ -46,7 +46,7 @@ export default function DashboardStats() {
         />
 
         <StatCard
-          label={t('stats.rejected')}
+          label={t('dashboard:stats.rejected')}
           value={stats?.rejected}
           icon="cellphone-remove"
           variant="danger"

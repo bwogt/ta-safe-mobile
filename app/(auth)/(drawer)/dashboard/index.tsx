@@ -1,4 +1,5 @@
 import DashboardStats from '@/components/dashboard/DashboardStats';
+import QuickAccess from '@/components/dashboard/QuickAccess';
 import DeviceLookup from '@/components/device/DeviceLookup';
 import Header from '@/components/ui/Header';
 
@@ -14,7 +15,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 export default function DashboardScreen() {
   const { data: user } = useCurrentUser();
   const { isStale, isRefetching, refetch } = useDashboardStats();
-  const { t } = useTranslation('drawer');
+  const { t } = useTranslation('dashboard');
 
   const onRefresh = useCallback(async () => {
     await refetch();
@@ -31,14 +32,17 @@ export default function DashboardScreen() {
 
   return (
     <SafeAreaView className="flex-1">
-      <Header title={t('dashboard.title', { name: user?.name })} />
+      <Header title={t('dashboard:title', { name: user?.name })} />
 
       <ScrollView
+        keyboardShouldPersistTaps="handled"
+        automaticallyAdjustKeyboardInsets
         refreshControl={
           <RefreshControl refreshing={isRefetching} onRefresh={onRefresh} />
         }
       >
         <DashboardStats />
+        <QuickAccess />
         <DeviceLookup />
       </ScrollView>
     </SafeAreaView>

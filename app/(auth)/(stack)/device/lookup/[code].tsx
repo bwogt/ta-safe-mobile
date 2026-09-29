@@ -11,7 +11,7 @@ import { RefreshControl, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function DeviceLookupScreen() {
-  const { t } = useTranslation(['common', 'errors']);
+  const { t } = useTranslation('device');
   const { code } = useLocalSearchParams<{ code: string }>();
 
   const {
@@ -38,15 +38,15 @@ export default function DeviceLookupScreen() {
   return (
     <SafeAreaView className="flex-1">
       <Header
-        title={t('common:titles.deviceInfo')}
+        title={t('device:info.title')}
         back
         onBackPress={() => router.replace('/dashboard')}
       />
 
       {isError && (
         <QueryError
-          title={t('errors:actions.loadingDevice')}
-          description={t('errors:actions.deviceLookup')}
+          title={t('device:lookup.errors.title')}
+          message={t('device:lookup.errors.message')}
           onRetry={refetch}
         />
       )}

@@ -5,11 +5,11 @@ import { KeyboardAvoidingView, Platform } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function DeviceLookupScreen() {
-  const { t } = useTranslation('common');
+  const { t } = useTranslation('device');
 
   return (
     <SafeAreaView className="flex-1">
-      <Header title={t('titles.deviceLookup')} />
+      <Header title={t('device:lookup.title')} />
 
       <KeyboardAvoidingView
         style={{ flex: 1 }}

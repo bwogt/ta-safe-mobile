@@ -1,4 +1,11 @@
 {
+  "title": "Olá, {{name}}",
+
+  "quickAccess": {
+    "title": "Acesso Rápido",
+    "registerDevice": "Registrar Dispositivo"
+  },
+
   "stats": {
     "validated": "Ativos",
     "pending": "Pendentes",

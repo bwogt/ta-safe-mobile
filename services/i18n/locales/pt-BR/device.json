@@ -1,0 +1,62 @@
+{
+  "info": {
+    "title": "Informações do Dispositivo",
+    "errors": {
+      "title": "Não foi possível carregar as informações do dispositivo."
+    }
+  },
+
+  "list": {
+    "title": "Meus Dispositivos",
+    "messages": {
+      "emptyDeviceList": "Você não possui dispositivos {{status}}",
+      "endOfList": "-- Não há mais resultados --"
+    }
+  },
+
+  "features": {
+    "title": "Características do Dispositivo",
+    "subtitle": "Verifique as características do dispositivo e seu status de validação."
+  },
+
+  "lookup": {
+    "title": "Consultar Dispositivo",
+    "subtitle": "Informe o código de compartilhamento de 8 dígitos para visualizar as informações públicas de um registro.",
+    "messages": {
+      "shareCode": "Atenção: copie este código e compartilhe com os usuários que você deseja permitir a visualização temporária deste registro."
+    },
+    "errors": {
+      "title": "Não foi possível carregar as informações do dispositivo.",
+      "message": "Verifique o código e tente novamente."
+    }
+  },
+
+  "register": {
+    "title": "Registrar Dispositivo",
+    "steps": {
+      "brand": "Selecione a marca do dispositivo que deseja registrar.",
+      "model": "Selecione um modelo.",
+      "color": "Digite a cor do dispositivo.",
+      "accessKey": "Digite a chave de acesso da NFe.",
+      "final": "Confirmação"
+    },
+    "select": {
+      "brand": "Selecione uma marca",
+      "model": "Selecione um modelo"
+    },
+    "errors": {
+      "brand": "Não foi possível carregar as marcas.",
+      "model": "Não foi possível carregar os modelos."
+    }
+  },
+
+  "states": {
+    "validated_one": "Ativo",
+    "validated_other": "Ativos",
+    "pending_one": "Pendente",
+    "pending_other": "Pendentes",
+    "rejected_one": "Inválido",
+    "rejected_other": "Inválidos",
+    "in_analysis": "Em Análise"
+  }
+}

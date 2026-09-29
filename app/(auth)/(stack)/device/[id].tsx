@@ -12,7 +12,7 @@ import { RefreshControl, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function DeviceScreen() {
-  const { t } = useTranslation(['common', 'errors']);
+  const { t } = useTranslation('device');
   const { id } = useLocalSearchParams<{ id: string }>();
 
   const {
@@ -47,18 +47,10 @@ export default function DeviceScreen() {
 
   return (
     <SafeAreaView className="flex-1">
-      <Header
-        title={t('common:titles.deviceInfo')}
-        back
-        onBackPress={onBackPress}
-      />
+      <Header title={t('device:info.title')} back onBackPress={onBackPress} />
 
       {isError && (
-        <QueryError
-          title={t('errors:actions.loadingDevice')}
-          description={t('errors:actions.defaultDescription')}
-          onRetry={refetch}
-        />
+        <QueryError title={t('device:info.errors.title')} onRetry={refetch} />
       )}
 
       {device && !isError && (

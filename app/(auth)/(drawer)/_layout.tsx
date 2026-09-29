@@ -8,7 +8,7 @@ import { StatusBar } from 'react-native';
 
 export default function Layout() {
   const { data: user } = useCurrentUser();
-  const { t } = useTranslation(['common', 'drawer']);
+  const { t } = useTranslation(['dashboard', 'device']);
 
   return (
     <>
@@ -26,7 +26,7 @@ export default function Layout() {
         <Drawer.Screen
           name="dashboard/index"
           options={{
-            title: t('drawer:dashboard.title', { name: user?.name }),
+            title: t('dashboard:title', { name: user?.name }),
             drawerIcon: ({ color, size }) => (
               <MaterialCommunityIcons
                 name="view-dashboard-outline"
@@ -49,7 +49,7 @@ export default function Layout() {
         <Drawer.Screen
           name="devices/index"
           options={{
-            title: t('drawer:devices.title'),
+            title: t('device:list.title'),
             drawerIcon: ({ color, size }) => (
               <MaterialCommunityIcons
                 name="cellphone-text"
@@ -61,9 +61,23 @@ export default function Layout() {
         />
 
         <Drawer.Screen
-          name="lookup/index"
+          name="devices/register"
           options={{
-            title: t('common:titles.deviceLookup'),
+            title: t('device:register.title'),
+            drawerIcon: ({ color, size }) => (
+              <MaterialCommunityIcons
+                name="cellphone-key"
+                color={color}
+                size={size}
+              />
+            ),
+          }}
+        />
+
+        <Drawer.Screen
+          name="devices/lookup"
+          options={{
+            title: t('device:lookup.title'),
             drawerIcon: ({ color, size }) => (
               <MaterialCommunityIcons
                 name="shield-search"

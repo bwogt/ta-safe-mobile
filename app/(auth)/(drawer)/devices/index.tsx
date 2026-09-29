@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function DevicesListScreen() {
-  const { t } = useTranslation('drawer');
+  const { t } = useTranslation('device');
 
   const { status = 'validated' } = useLocalSearchParams<{
     status?: DeviceValidationStatus;
@@ -14,7 +14,7 @@ export default function DevicesListScreen() {
 
   return (
     <SafeAreaView className="flex-1">
-      <Header title={t('drawer:devices.title')} />
+      <Header title={t('device:list.title')} />
       <DeviceList status={status} />
     </SafeAreaView>
   );

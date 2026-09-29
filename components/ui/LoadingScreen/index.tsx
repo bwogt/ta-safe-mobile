@@ -7,7 +7,7 @@ export default function LoadingScreen() {
   return (
     <View className="flex-1 items-center justify-center bg-primary">
       <Text className="text-2xl font-bold text-white">
-        {t('loads.waiting')}
+        {t('common:loads.waiting')}
       </Text>
       <ActivityIndicator size="large" className="my-lg color-white" />
     </View>

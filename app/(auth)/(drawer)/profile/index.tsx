@@ -13,7 +13,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function ProfileScreen() {
   const { data: user } = useCurrentUser();
-  const { t } = useTranslation(['common, drawer']);
+  const { t } = useTranslation(['common, profile']);
 
   const {
     control,
@@ -29,7 +29,7 @@ export default function ProfileScreen() {
 
   return (
     <SafeAreaView className="flex-1">
-      <Header title={t('drawer:profile.title')} />
+      <Header title={t('profile:title')} />
 
       <View className="gap-xl px-lg pt-lg">
         <View>

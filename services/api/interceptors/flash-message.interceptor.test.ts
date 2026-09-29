@@ -18,7 +18,12 @@ jest.mock('i18next', () => ({
 
 describe('flash-message.interceptor', () => {
   beforeEach(() => {
+    jest.useFakeTimers();
     jest.clearAllMocks();
+  });
+
+  afterEach(() => {
+    jest.useRealTimers();
   });
 
   describe('flashSuccessInterceptor', () => {
@@ -33,6 +38,9 @@ describe('flash-message.interceptor', () => {
       } as AxiosResponse;
 
       flashSuccessInterceptor(mockResponse);
+      expect(notify).not.toHaveBeenCalled();
+
+      jest.runOnlyPendingTimers();
 
       expect(notify).toHaveBeenCalledTimes(1);
       expect(notify).toHaveBeenCalledWith(message);

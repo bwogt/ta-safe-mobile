@@ -22,7 +22,7 @@ export default function PasswordReset() {
     formState: { errors },
   } = useForm<PasswordResetRequest>();
 
-  const { t } = useTranslation('password-reset');
+  const { t } = useTranslation(['auth', 'common']);
   const { email, code } = useLocalSearchParams();
   const [hidePassword, setHidePassword] = useState(true);
   const togglePassword = () => setHidePassword(!hidePassword);
@@ -41,8 +41,8 @@ export default function PasswordReset() {
     <Auth>
       <View className="flex-1 justify-center gap-2xl px-lg">
         <PageHeader
-          title={t('reset.title')}
-          subtitle={t('reset.subtitle', { email: email })}
+          title={t('auth:reset.final.title')}
+          subtitle={t('auth:reset.final.subtitle', { email: email })}
         />
 
         <Controller
@@ -50,7 +50,7 @@ export default function PasswordReset() {
           control={control}
           render={({ field: { value, onChange } }) => (
             <Input
-              label={t('reset.fields.newPassword')}
+              label={t('common:fields.newPassword')}
               value={value}
               error={errors.password?.message}
               editable={!isPending}
@@ -72,8 +72,8 @@ export default function PasswordReset() {
         <Button
           label={
             isPending
-              ? t('reset.actions.submitting')
-              : t('reset.actions.submit')
+              ? t('common:loads.waiting')
+              : t('auth:reset.actions.changePassword')
           }
           onPress={handleSubmit(onSubmit)}
           disabled={isPending}
@@ -89,7 +89,7 @@ export default function PasswordReset() {
 
         <TextLink
           href="/(public)/login"
-          text={t('reset.actions.backToLogin')}
+          text={t('auth:reset.actions.backToLogin')}
           disabled={isPending}
         />
       </View>
