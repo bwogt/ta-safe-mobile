@@ -15,14 +15,12 @@ export default function QuickAccessOption({ href, icon, label }: Props) {
   return (
     <View className="items-center gap-2 py-4">
       <Link href={href} asChild>
-        <Pressable className="items-center rounded-full bg-gray-200 p-5">
+        <Pressable className="h-14 w-14 items-center justify-center rounded-full border border-zinc-300 bg-gray-200">
           <MaterialCommunityIcons name={icon} size={22} />
         </Pressable>
       </Link>
 
-      <View className="w-28">
-        <Text className="text-center font-semibold">{label}</Text>
-      </View>
+      <Text className="w-28 text-center">{label}</Text>
     </View>
   );
 }
