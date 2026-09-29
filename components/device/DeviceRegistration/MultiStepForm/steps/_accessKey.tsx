@@ -34,7 +34,7 @@ export default function AccessKeyStep({ onNext, onPrevious }: Props) {
     name: 'access_key',
   });
 
-  const disableNextStep = accessKey.length < 44;
+  const disableNextStep = accessKey.length < 54;
 
   return (
     <View className="flex-1 p-4 pt-8">
