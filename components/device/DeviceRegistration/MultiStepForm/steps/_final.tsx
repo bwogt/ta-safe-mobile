@@ -11,10 +11,9 @@ import StepTitle from '../ui/_title';
 
 type Props = {
   onPrevious: () => void;
-  goToStep: (step: number) => void;
 };
 
-export default function FinalStep({ onPrevious, goToStep }: Props) {
+export default function FinalStep({ onPrevious }: Props) {
   const { t } = useTranslation(['common', 'device']);
 
   const { control, reset, setError, getValues, handleSubmit } =
@@ -31,13 +30,10 @@ export default function FinalStep({ onPrevious, goToStep }: Props) {
   const onSubmit = (data: DeviceRegistrationForm) => {
     register(data, {
       onSuccess: () => {
-        router.push({
+        router.replace({
           pathname: '/(auth)/(drawer)/devices',
           params: { status: 'pending' },
         });
-
-        reset();
-        goToStep(1);
       },
     });
   };

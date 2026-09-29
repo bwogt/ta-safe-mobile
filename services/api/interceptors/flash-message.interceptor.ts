@@ -7,11 +7,15 @@ import { notify } from '@/services/notify';
 import { AxiosError, AxiosResponse } from 'axios';
 import { t } from 'i18next';
 
+const FLASH_DELAY = 300;
+
 export function flashSuccessInterceptor(response: AxiosResponse) {
   const message = response.data?.message;
 
   if (message) {
-    notify(message);
+    setTimeout(() => {
+      notify(message);
+    }, FLASH_DELAY);
   }
 
   return response;
