@@ -29,6 +29,10 @@ export function useDeviceRegister(
       queryClient.invalidateQueries({
         queryKey: ['devices', 'pending'],
       });
+
+      queryClient.invalidateQueries({
+        queryKey: ['dashboard-stats'],
+      });
     },
 
     onError: (error) => {
