@@ -18,7 +18,7 @@ export function useDeviceRegister(
     }: DeviceRegistrationForm) => {
       const response = await api.post('devices', {
         device_model_id: model?.id,
-        access_key,
+        access_key: access_key.replace(/\D/g, ''),
         color,
       });
 

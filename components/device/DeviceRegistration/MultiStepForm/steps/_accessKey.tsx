@@ -8,6 +8,7 @@ import {
   useWatch,
 } from 'react-hook-form';
 
+import { maskNfeKey } from '@/utils/masks/maskNfeKey';
 import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import StepControl from '../ui/_control';
@@ -50,12 +51,9 @@ export default function AccessKeyStep({ onNext, onPrevious }: Props) {
               label={t('common:fields.accessKey')}
               value={value}
               error={errors.access_key?.message}
-              maxLength={44}
+              maxLength={54}
               keyboardType="number-pad"
-              onChangeText={(text) => {
-                const onlyNumbers = text.replace(/\D/g, '');
-                onChange(onlyNumbers);
-              }}
+              onChangeText={(value) => onChange(maskNfeKey(value))}
             />
           )}
         />

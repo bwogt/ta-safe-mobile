@@ -38,6 +38,7 @@ export default function ColorStep({ onNext, onPrevious }: Props) {
               label={t('common:fields.color')}
               value={value}
               onChangeText={onChange}
+              maxLength={50}
             />
           )}
         />
