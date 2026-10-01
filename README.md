@@ -140,3 +140,11 @@ npm run test
 # Executar testes em modo CI com cobertura
 npm run test:ci
 ```
+
+## 📱 Capturas de Tela
+
+### Login
+<div>
+<img src="https://github.com/user-attachments/assets/694f19d4-14fa-46e1-b1f8-4fe68e69277d"  width="1280px">  
+</div>
+
