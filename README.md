@@ -143,13 +143,18 @@ npm run test:ci
 
 ## 📱 Capturas de Tela
 
-### Login
+### 1. Login
 <div>
     <img src="https://github.com/user-attachments/assets/694f19d4-14fa-46e1-b1f8-4fe68e69277d" width="1280px">  
 </div>
 
-### Redefinição de Senha
+### 2. Redefinição de Senha
 <div>
   <img src="https://github.com/user-attachments/assets/2538b4a8-7110-4feb-a8ae-644da63d7129" width="1280px">  
+</div>
+
+### 3. Cadastro de Usuário
+<div>
+  <img src="https://github.com/user-attachments/assets/7cbff954-b664-4e32-8def-22ea4b58f280" width="1280px">  
 </div>
 
