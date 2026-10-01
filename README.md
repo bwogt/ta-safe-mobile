@@ -145,6 +145,11 @@ npm run test:ci
 
 ### Login
 <div>
-<img src="https://github.com/user-attachments/assets/694f19d4-14fa-46e1-b1f8-4fe68e69277d"  width="1280px">  
+    <img src="https://github.com/user-attachments/assets/694f19d4-14fa-46e1-b1f8-4fe68e69277d" width="1280px">  
+</div>
+
+### Redefinição de Senha
+<div>
+  <img src="https://github.com/user-attachments/assets/2538b4a8-7110-4feb-a8ae-644da63d7129" width="1280px">  
 </div>
 
