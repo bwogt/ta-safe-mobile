@@ -158,9 +158,14 @@ npm run test:ci
   <img src="https://github.com/user-attachments/assets/7cbff954-b664-4e32-8def-22ea4b58f280" width="1280px">  
 </div>
 
-### 3. Registrar Dispositivo
+### 4. Registrar Dispositivo
 <div>
   <img src="https://github.com/user-attachments/assets/502b6eed-cc22-4c54-8a07-8f957a4d20f0" width="1280px">  
+</div>
+
+### 5. Código de Compartilhamento (Apenas para dispositivos ativos)
+<div>
+  <img src="https://github.com/user-attachments/assets/85146285-5a53-4c8a-a38b-fa60ab21ed8b" width="1280px">  
 </div>
 
 
