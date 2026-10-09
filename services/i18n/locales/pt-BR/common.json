@@ -8,7 +8,8 @@
     "expiresAt": "Expira em",
     "step": "Passo",
     "progress": "{{step}} de {{total}}",
-    "device": "Dispositivo"
+    "device": "Dispositivo",
+    "targetUser": "Usuário de Destino"
   },
 
   "fields": {
