@@ -5,7 +5,15 @@ i18n.use(initReactI18next).init({
   lng: 'pt-BR',
   fallbackLng: 'pt-BR',
 
-  ns: ['auth', 'common', 'dashboard', 'device', 'errors', 'profile'],
+  ns: [
+    'auth',
+    'common',
+    'dashboard',
+    'device',
+    'errors',
+    'profile',
+    'transfer',
+  ],
 
   resources: {
     'pt-BR': {
@@ -15,6 +23,7 @@ i18n.use(initReactI18next).init({
       device: require('./locales/pt-BR/device.json'),
       errors: require('./locales/pt-BR/errors.json'),
       profile: require('./locales/pt-BR/profile.json'),
+      transfer: require('./locales/pt-BR/transfer.json'),
     },
   },
 

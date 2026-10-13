@@ -1,0 +1,9 @@
+{
+  "create": {
+    "title": "Transferência de Titularidade",
+    "steps": {
+      "searchUser": "Informe o e-mail do novo proprietário.",
+      "confirmation": "Confirme os dados do usuário de destino."
+    }
+  }
+}

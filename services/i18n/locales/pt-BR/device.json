@@ -50,14 +50,6 @@
     }
   },
 
-  "transfer": {
-    "title": "Transferência de Titularidade",
-    "steps": {
-      "searchUser": "Informe o e-mail do novo proprietário.",
-      "confirmation": "Confirme os dados do usuário de destino."
-    }
-  },
-
   "states": {
     "validated_one": "Ativo",
     "validated_other": "Ativos",

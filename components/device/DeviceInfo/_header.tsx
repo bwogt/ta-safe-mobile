@@ -1,8 +1,8 @@
+import CreateTransfer from '@/components/transfer/Create';
 import { Device } from '@/schemas/device';
 import { Text, View } from 'react-native';
 import ShareDeviceCode from '../ShareDeviceCode';
 import StatusIndicator from '../StatusIndicator';
-import TransferOwnerShip from '../TransferOwership';
 
 type Props = {
   device: Device;
@@ -18,7 +18,7 @@ export default function DeviceInfoHeader({ device }: Props) {
 
       {device.validation_status === 'validated' && (
         <View className="flex-row items-center gap-5">
-          <TransferOwnerShip />
+          <CreateTransfer device={device} />
           <ShareDeviceCode device={device} />
         </View>
       )}

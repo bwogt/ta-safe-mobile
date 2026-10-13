@@ -16,7 +16,7 @@ export function TransferOwnershipSearchUser({
   setTargetUser,
   nextStep,
 }: Props) {
-  const { t } = useTranslation(['common', 'device']);
+  const { t } = useTranslation(['common', 'transfer']);
 
   const {
     control,
@@ -43,9 +43,9 @@ export function TransferOwnershipSearchUser({
       <View className="gap-4 rounded-lg border border-zinc-200 bg-white p-4">
         <View className="pb-8">
           <Text className="text-lg font-bold">
-            {t('device:transfer.title')}
+            {t('transfer:create.title')}
           </Text>
-          <Text>{t('device:transfer.steps.searchUser')}</Text>
+          <Text>{t('transfer:create.steps.searchUser')}</Text>
         </View>
 
         <Controller
@@ -66,7 +66,7 @@ export function TransferOwnershipSearchUser({
 
         <Button
           label={
-            isPending ? t('common:actions.wait') : t('common:actions.next')
+            isPending ? t('common:loads.waiting') : t('common:actions.next')
           }
           disabled={isInvalidEmail}
           onPress={handleSubmit(onSubmit)}
