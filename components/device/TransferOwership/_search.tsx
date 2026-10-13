@@ -1,8 +1,9 @@
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
+import { useCurrentUser } from '@/queries/user/useCurrentUser';
 import { useUserByEmail } from '@/queries/user/useUserByEmail';
 import { FindUserByEmailRequest, UserPublic } from '@/schemas/user';
-import { Controller, useForm } from 'react-hook-form';
+import { Controller, useForm, useWatch } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { Text, View } from 'react-native';
 
@@ -22,11 +23,13 @@ export function TransferOwnershipSearchUser({
     handleSubmit,
     setError,
     formState: { errors },
-  } = useForm<FindUserByEmailRequest>({
-    shouldUnregister: false,
-  });
+  } = useForm<FindUserByEmailRequest>();
 
   const { mutateAsync: findUser, isPending } = useUserByEmail(setError);
+  const { data: currentUser } = useCurrentUser();
+
+  const email = useWatch({ control, name: 'email' });
+  const isInvalidEmail = currentUser?.email === email;
 
   const onSubmit = async ({ email }: FindUserByEmailRequest) => {
     const user = await findUser(email);
@@ -65,6 +68,7 @@ export function TransferOwnershipSearchUser({
           label={
             isPending ? t('common:actions.wait') : t('common:actions.next')
           }
+          disabled={isInvalidEmail}
           onPress={handleSubmit(onSubmit)}
         />
       </View>
