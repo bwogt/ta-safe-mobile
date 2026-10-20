@@ -18,6 +18,7 @@ export const userSummarySchema = z
   .object({
     id: z.int().positive(),
     name: z.string(),
+    email: z.email(),
     cpf: z.string().regex(/^\*{3}\.\d{3}\.\d{3}-\*{2}$/),
     created_at: z.iso.datetime(),
   })

@@ -9,7 +9,11 @@
     "step": "Passo",
     "progress": "{{step}} de {{total}}",
     "device": "Dispositivo",
-    "targetUser": "Usuário de Destino"
+    "transfer": {
+      "targetUser": "Usuário de Destino",
+      "send": "Transferência Enviada",
+      "received": "Transferência Recebida"
+    }
   },
 
   "fields": {

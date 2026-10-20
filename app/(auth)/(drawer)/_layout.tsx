@@ -8,7 +8,7 @@ import { StatusBar } from 'react-native';
 
 export default function Layout() {
   const { data: user } = useCurrentUser();
-  const { t } = useTranslation(['dashboard', 'device']);
+  const { t } = useTranslation(['dashboard', 'device', 'transfer']);
 
   return (
     <>
@@ -81,6 +81,20 @@ export default function Layout() {
             drawerIcon: ({ color, size }) => (
               <MaterialCommunityIcons
                 name="shield-search"
+                color={color}
+                size={size}
+              />
+            ),
+          }}
+        />
+
+        <Drawer.Screen
+          name="transfers/index"
+          options={{
+            title: t('transfer:list.title'),
+            drawerIcon: ({ color, size }) => (
+              <MaterialCommunityIcons
+                name="transfer"
                 color={color}
                 size={size}
               />

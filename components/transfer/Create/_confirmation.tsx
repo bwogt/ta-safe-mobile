@@ -41,7 +41,7 @@ export function TransferOwnershipConfirmation({
         </View>
 
         <View className=" p-2">
-          <LabeledText label={t('common:labels.targetUser')} />
+          <LabeledText label={t('common:labels.transfer.targetUser')} />
 
           <LabeledText
             label={t('common:fields.name')}

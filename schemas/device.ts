@@ -16,7 +16,7 @@ const deviceValidationStatusSchema = z.enum([
 const deviceTransferStatusSchema = z.enum([
   'pending',
   'accepted',
-  'cancelled',
+  'canceled',
   'rejected',
 ]);
 
@@ -33,7 +33,7 @@ const deviceValidatedAttributesSchema = z
   .strict()
   .nullable();
 
-const deviceTransferSchema = z
+const deviceTransferSummarySchema = z
   .object({
     id: z.int().positive(),
     status: deviceTransferStatusSchema,
@@ -73,6 +73,19 @@ const deviceRegistrationSchema = z.object({
   access_key: z.string(),
 });
 
+const deviceTransferSchema = z
+  .object({
+    id: z.int().positive(),
+    type: z.enum(['send', 'received']),
+    status: deviceTransferStatusSchema,
+    source_user: userSummarySchema,
+    target_user: userSummarySchema,
+    device: deviceSummarySchema,
+    created_at: z.iso.datetime(),
+    updated_at: z.iso.datetime(),
+  })
+  .strict();
+
 // ─────────────────────────────────────────────
 // Exported schemas
 // ─────────────────────────────────────────────
@@ -96,7 +109,7 @@ export const deviceSchema = z
     updated_at: z.iso.datetime(),
     model: deviceModelSchema,
     validated_attributes: deviceValidatedAttributesSchema,
-    transfers: z.array(deviceTransferSchema),
+    transfers: z.array(deviceTransferSummarySchema),
   })
   .strict();
 
@@ -110,7 +123,7 @@ export const devicePublicSchema = z
     owner: userSummarySchema,
     model: deviceModelSchema,
     validated_attributes: deviceValidatedAttributesSchema,
-    transfers: z.array(deviceTransferSchema),
+    transfers: z.array(deviceTransferSummarySchema),
   })
   .strict();
 
@@ -124,13 +137,25 @@ export const cursorPaginatedDevicesSchema = z
   })
   .strict();
 
+export const paginatedDeviceTransfersSchema = z
+  .object({
+    data: z.array(deviceTransferSchema),
+    meta: z.object({
+      has_more_page: z.boolean(),
+      next_cursor: z.string().nullable(),
+    }),
+  })
+  .strict();
+
 // ─────────────────────────────────────────────
-// Exported types
+// Types
 // ─────────────────────────────────────────────
 
 export type Device = z.infer<typeof deviceSchema>;
 export type DeviceSummary = z.infer<typeof deviceSummarySchema>;
 export type DevicePublic = z.infer<typeof devicePublicSchema>;
+export type DeviceTransfer = z.infer<typeof deviceTransferSchema>;
+export type DeviceTransferStatus = z.infer<typeof deviceTransferStatusSchema>;
 export type DeviceRegistrationForm = z.infer<typeof deviceRegistrationSchema>;
 
 export type DeviceValidationStatus = z.infer<
