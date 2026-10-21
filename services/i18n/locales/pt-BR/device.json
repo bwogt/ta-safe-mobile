@@ -9,8 +9,7 @@
   "list": {
     "title": "Meus Dispositivos",
     "messages": {
-      "emptyDeviceList": "Você não possui dispositivos {{status}}",
-      "endOfList": "-- Não há mais resultados --"
+      "emptyDeviceList": "Você não possui dispositivos {{status}}"
     }
   },
 

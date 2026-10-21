@@ -45,5 +45,9 @@
     "waiting": "Aguarde...",
     "submitting": "Enviando...",
     "checking": "Verificando..."
+  },
+
+  "list": {
+    "footer": "-- Não há mais resultados --"
   }
 }
