@@ -33,16 +33,6 @@ const deviceValidatedAttributesSchema = z
   .strict()
   .nullable();
 
-const deviceTransferSummarySchema = z
-  .object({
-    id: z.int().positive(),
-    status: deviceTransferStatusSchema,
-    source_user: userSummarySchema,
-    target_user: userSummarySchema,
-    updated_at: z.iso.datetime(),
-  })
-  .strict();
-
 const deviceSummarySchema = z
   .object({
     id: z.int().positive(),
@@ -109,7 +99,6 @@ export const deviceSchema = z
     updated_at: z.iso.datetime(),
     model: deviceModelSchema,
     validated_attributes: deviceValidatedAttributesSchema,
-    transfers: z.array(deviceTransferSummarySchema),
   })
   .strict();
 
@@ -123,7 +112,6 @@ export const devicePublicSchema = z
     owner: userSummarySchema,
     model: deviceModelSchema,
     validated_attributes: deviceValidatedAttributesSchema,
-    transfers: z.array(deviceTransferSummarySchema),
   })
   .strict();
 
