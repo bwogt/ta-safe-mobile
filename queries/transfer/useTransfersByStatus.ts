@@ -26,5 +26,7 @@ export function useTransfersByStatus(
         ? lastPage.meta.next_cursor
         : undefined;
     },
+
+    staleTime: 30_000,
   });
 }

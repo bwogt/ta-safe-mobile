@@ -13,7 +13,10 @@ export default function TransferList() {
     data: pagination,
     isLoading,
     isRefetching,
+    hasNextPage,
+    isFetchingNextPage,
     refetch,
+    fetchNextPage,
   } = useTransfersByStatus();
 
   const transfers = pagination?.pages.flatMap((page) => page.data) ?? [];
@@ -28,9 +31,15 @@ export default function TransferList() {
       ListEmptyComponent={<EmptyList message={t('transfer:list.empty')} />}
       onRefresh={refetch}
       refreshing={isRefetching}
+      onEndReachedThreshold={0.1}
       contentContainerClassName={
         transfers.length === 0 ? 'grow justify-center items-center' : undefined
       }
+      onEndReached={() => {
+        if (hasNextPage && !isFetchingNextPage) {
+          fetchNextPage();
+        }
+      }}
       ListFooterComponent={
         transfers.length > 0 ? (
           <ListFooter message={t('common:list.footer')} />
