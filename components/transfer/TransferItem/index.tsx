@@ -1,21 +1,21 @@
 import Divider from '@/components/ui/Divider';
-import { DeviceTransfer } from '@/schemas/device';
+import { DeviceTransferSummary } from '@/schemas/device';
 import { formatDatetime } from '@/utils/date/formatDatetime';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { useTranslation } from 'react-i18next';
 import { Text, View } from 'react-native';
 
 type Props = {
-  transfer: DeviceTransfer;
+  transfer: DeviceTransferSummary;
 };
 
 export default function TransferItem({ transfer }: Props) {
   const { t } = useTranslation(['common', 'transfer']);
 
-  const icon = transfer.type == 'send' ? 'tray-arrow-up' : 'tray-arrow-down';
+  const icon = transfer.type == 'sent' ? 'tray-arrow-up' : 'tray-arrow-down';
   const title = t(`common:labels.transfer.${transfer.type}`);
-  const brand = transfer.device.model.brand.name;
-  const model = transfer.device.model.name;
+  const brand = transfer.device_model.brand.name;
+  const model = transfer.device_model.name;
 
   return (
     <View>

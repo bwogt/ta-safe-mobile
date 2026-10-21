@@ -11,7 +11,7 @@
     "device": "Dispositivo",
     "transfer": {
       "targetUser": "Usuário de Destino",
-      "send": "Transferência Enviada",
+      "sent": "Transferência Enviada",
       "received": "Transferência Recebida"
     }
   },
