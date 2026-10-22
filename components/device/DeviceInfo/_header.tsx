@@ -1,4 +1,4 @@
-import CreateTransfer from '@/components/transfer/Create';
+import CreateTransfer from '@/components/transfer/CreateTransfer';
 import { Device } from '@/schemas/device';
 import { Text, View } from 'react-native';
 import ShareDeviceCode from '../ShareDeviceCode';
