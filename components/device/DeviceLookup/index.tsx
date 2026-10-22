@@ -12,7 +12,7 @@ export default function DeviceLookup() {
   const isLookupDisabled = code.length !== 8;
 
   const handlePress = () => {
-    router.push(`/(auth)/(stack)/device/lookup/${code}`);
+    router.push(`/(auth)/(drawer)/devices/(stack)/lookup/${code}`);
   };
 
   return (

@@ -47,6 +47,15 @@ export default function Layout() {
         />
 
         <Drawer.Screen
+          name="devices/(stack)"
+          options={{
+            drawerItemStyle: {
+              display: 'none',
+            },
+          }}
+        />
+
+        <Drawer.Screen
           name="devices/index"
           options={{
             title: t('device:list.title'),
