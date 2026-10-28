@@ -2,7 +2,7 @@
   "labels": {
     "deviceInfo": "Informações do Dispositivo",
     "owner": "Proprietário",
-    "createdAt": "Registro",
+    "createdAt": "Data",
     "updatedAt": "Última Alteração",
     "shareCode": "Código de Compartilhamento",
     "expiresAt": "Expira em",
@@ -27,8 +27,7 @@
     "brand": "Marca",
     "model": "Modelo",
     "color": "Cor",
-    "accessKey": "Chave de Acesso(NFe)",
-    "created_at": "Data"
+    "accessKey": "Chave de Acesso(NFe)"
   },
 
   "actions": {

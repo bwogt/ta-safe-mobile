@@ -1,8 +1,9 @@
+import LabeledText from '@/components/ui/LabeledText';
 import { useCurrentUser } from '@/queries/user/useCurrentUser';
 import { Device } from '@/schemas/device';
 import { formatDatetime } from '@/utils/date/formatDatetime';
 import { useTranslation } from 'react-i18next';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
 
 type Props = {
   device: Device;
@@ -13,27 +14,19 @@ export default function DeviceInfoContent({ device }: Props) {
   const { t } = useTranslation('common');
 
   return (
-    <View className="pb-4 pl-4">
-      <Text className="text-lg font-semibold">
-        {t('common:labels.owner')}:{' '}
-        <Text className="text-lg font-normal">{user?.name}</Text>
-      </Text>
-      <Text className="text-lg font-semibold">
-        {t('common:fields.cpf')}:{' '}
-        <Text className="text-lg font-normal">{user?.cpf_masked}</Text>
-      </Text>
-      <Text className="text-lg font-semibold">
-        {t('common:labels.createdAt')}:{' '}
-        <Text className="text-md font-normal">
-          {formatDatetime(device.created_at)}
-        </Text>
-      </Text>
-      <Text className="text-lg font-semibold">
-        {t('common:labels.updatedAt')}:{' '}
-        <Text className="text-md font-normal">
-          {formatDatetime(device.updated_at)}
-        </Text>
-      </Text>
+    <View className="p-4">
+      <LabeledText label={t('common:labels.owner')} value={user?.name} />
+      <LabeledText label={t('common:fields.cpf')} value={user?.cpf} />
+
+      <LabeledText
+        label={t('common:labels.createdAt')}
+        value={formatDatetime(device.created_at)}
+      />
+
+      <LabeledText
+        label={t('common:labels.updatedAt')}
+        value={formatDatetime(device.updated_at)}
+      />
     </View>
   );
 }

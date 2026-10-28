@@ -1,7 +1,7 @@
+import LabeledText from '@/components/ui/LabeledText';
 import { DeviceTransfer } from '@/schemas/transfer';
 import { formatDatetime } from '@/utils/date/formatDatetime';
 import { useTranslation } from 'react-i18next';
-import { Text } from 'react-native';
 
 type Props = {
   transfer: DeviceTransfer;
@@ -14,27 +14,14 @@ export default function TransferInfoContent({ transfer }: Props) {
 
   return (
     <>
-      <Text className="text-lg font-bold">
-        {t('common:fields.name')}:{' '}
-        <Text className="font-normal">{user.name}</Text>
-      </Text>
+      <LabeledText label={t('common:fields.name')} value={user.name} />
+      <LabeledText label={t('common:fields.cpf')} value={user.cpf} />
+      <LabeledText label={t('common:fields.email')} value={user.email} />
 
-      <Text className="text-lg font-bold">
-        {t('common:fields.cpf')}:{' '}
-        <Text className="font-normal">{user.cpf}</Text>
-      </Text>
-
-      <Text className="text-lg font-bold">
-        {t('common:fields.email')}:{' '}
-        <Text className="font-normal">{user.email}</Text>
-      </Text>
-
-      <Text className="text-lg font-bold">
-        {t('common:fields.created_at')}:{' '}
-        <Text className="font-normal">
-          {formatDatetime(transfer.created_at)}
-        </Text>
-      </Text>
+      <LabeledText
+        label={t('common:labels.createdAt')}
+        value={formatDatetime(transfer.created_at)}
+      />
     </>
   );
 }
