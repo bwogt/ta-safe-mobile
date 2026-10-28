@@ -110,6 +110,17 @@ export const devicePublicSchema = z
   })
   .strict();
 
+export const deviceTransferSchema = z.object({
+  id: z.int().positive(),
+  type: z.enum(['sent', 'received']),
+  status: deviceTransferStatusSchema,
+  source_user: userSummarySchema,
+  target_user: userSummarySchema,
+  device: deviceSummarySchema,
+  created_at: z.iso.datetime(),
+  updated_at: z.iso.datetime(),
+});
+
 export const cursorPaginatedDevicesSchema = z
   .object({
     data: z.array(deviceSummarySchema),
@@ -137,6 +148,7 @@ export const paginatedDeviceTransfersSchema = z
 export type Device = z.infer<typeof deviceSchema>;
 export type DeviceSummary = z.infer<typeof deviceSummarySchema>;
 export type DevicePublic = z.infer<typeof devicePublicSchema>;
+export type DeviceTransfer = z.infer<typeof deviceTransferSchema>;
 export type DeviceTransferSummary = z.infer<typeof deviceTransferSummarySchema>;
 export type DeviceTransferStatus = z.infer<typeof deviceTransferStatusSchema>;
 export type DeviceRegistrationForm = z.infer<typeof deviceRegistrationSchema>;

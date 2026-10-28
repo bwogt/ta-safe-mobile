@@ -27,7 +27,8 @@
     "brand": "Marca",
     "model": "Modelo",
     "color": "Cor",
-    "accessKey": "Chave de Acesso(NFe)"
+    "accessKey": "Chave de Acesso(NFe)",
+    "created_at": "Data"
   },
 
   "actions": {

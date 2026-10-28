@@ -1,4 +1,8 @@
 {
+  "info": {
+    "title": "Informações da Transferência"
+  },
+
   "list": {
     "title": "Transferências",
     "empty": "Você não possui histórico de transferências."

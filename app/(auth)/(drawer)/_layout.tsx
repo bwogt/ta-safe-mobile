@@ -38,24 +38,6 @@ export default function Layout() {
         />
 
         <Drawer.Screen
-          name="profile/index"
-          options={{
-            drawerItemStyle: {
-              display: 'none',
-            },
-          }}
-        />
-
-        <Drawer.Screen
-          name="devices/(stack)"
-          options={{
-            drawerItemStyle: {
-              display: 'none',
-            },
-          }}
-        />
-
-        <Drawer.Screen
           name="devices/index"
           options={{
             title: t('device:list.title'),
@@ -108,6 +90,33 @@ export default function Layout() {
                 size={size}
               />
             ),
+          }}
+        />
+
+        <Drawer.Screen
+          name="profile/index"
+          options={{
+            drawerItemStyle: {
+              display: 'none',
+            },
+          }}
+        />
+
+        <Drawer.Screen
+          name="devices/(stack)"
+          options={{
+            drawerItemStyle: {
+              display: 'none',
+            },
+          }}
+        />
+
+        <Drawer.Screen
+          name="transfers/(stack)"
+          options={{
+            drawerItemStyle: {
+              display: 'none',
+            },
           }}
         />
       </Drawer>

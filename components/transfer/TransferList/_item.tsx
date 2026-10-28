@@ -2,8 +2,9 @@ import Divider from '@/components/ui/Divider';
 import { DeviceTransferSummary } from '@/schemas/device';
 import { formatDatetime } from '@/utils/date/formatDatetime';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { router } from 'expo-router';
 import { useTranslation } from 'react-i18next';
-import { Text, View } from 'react-native';
+import { Pressable, Text, View } from 'react-native';
 
 type Props = {
   transfer: DeviceTransferSummary;
@@ -17,8 +18,12 @@ export default function TransferItem({ transfer }: Props) {
   const brand = transfer.device_model.brand.name;
   const model = transfer.device_model.name;
 
+  const onPress = () => {
+    router.push(`/(auth)/(drawer)/transfers/(stack)/${transfer.id}`);
+  };
+
   return (
-    <View>
+    <>
       <View className="flex-row p-4">
         <View className="w-2/3 flex-row items-center gap-6">
           <View className="w-1/3 items-center gap-2">
@@ -36,12 +41,15 @@ export default function TransferItem({ transfer }: Props) {
           </View>
         </View>
 
-        <View className="w-1/3 flex-row items-center justify-end px-4">
+        <Pressable
+          onPress={onPress}
+          className="w-1/3 flex-row items-center justify-end px-4"
+        >
           <MaterialCommunityIcons name="arrow-expand" size={22} />
-        </View>
+        </Pressable>
       </View>
 
       <Divider />
-    </View>
+    </>
   );
 }

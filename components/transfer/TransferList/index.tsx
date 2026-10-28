@@ -4,7 +4,7 @@ import LoadingScreen from '@/components/ui/LoadingScreen';
 import { useTransfersByStatus } from '@/queries/transfer/useTransfersByStatus';
 import { useTranslation } from 'react-i18next';
 import { FlatList } from 'react-native';
-import TransferItem from '../TransferItem';
+import TransferItem from './_item';
 
 export default function TransferList() {
   const { t } = useTranslation(['common', 'transfer']);
