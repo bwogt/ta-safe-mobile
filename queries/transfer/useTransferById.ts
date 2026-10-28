@@ -1,4 +1,4 @@
-import { deviceTransferSchema } from '@/schemas/device';
+import { deviceTransferSchema } from '@/schemas/transfer';
 import api from '@/services/api';
 import { useQuery } from '@tanstack/react-query';
 

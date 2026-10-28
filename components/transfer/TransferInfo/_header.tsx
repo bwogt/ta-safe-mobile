@@ -1,5 +1,5 @@
 import Badge from '@/components/ui/Badge';
-import { DeviceTransfer } from '@/schemas/device';
+import { DeviceTransfer } from '@/schemas/transfer';
 import { useTranslation } from 'react-i18next';
 import { Text, View } from 'react-native';
 import StatusIndicator from '../StatusIndicator';

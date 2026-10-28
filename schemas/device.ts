@@ -3,20 +3,13 @@ import { deviceModelSchema } from './brand';
 import { userSummarySchema } from './user';
 
 // ─────────────────────────────────────────────
-// Internal schemas
+// Local Schemas
 // ─────────────────────────────────────────────
 
 const deviceValidationStatusSchema = z.enum([
   'validated',
   'pending',
   'in_analysis',
-  'rejected',
-]);
-
-const deviceTransferStatusSchema = z.enum([
-  'pending',
-  'accepted',
-  'canceled',
   'rejected',
 ]);
 
@@ -32,17 +25,6 @@ const deviceValidatedAttributesSchema = z
   })
   .strict()
   .nullable();
-
-const deviceSummarySchema = z
-  .object({
-    id: z.int().positive(),
-    color: z.string(),
-    model: deviceModelSchema,
-    validation_status: deviceValidationStatusSchema,
-    validated_attributes: deviceValidatedAttributesSchema,
-    updated_at: z.iso.datetime(),
-  })
-  .strict();
 
 const deviceRegistrationSchema = z.object({
   brand: z
@@ -61,14 +43,6 @@ const deviceRegistrationSchema = z.object({
 
   color: z.string(),
   access_key: z.string(),
-});
-
-const deviceTransferSummarySchema = z.object({
-  id: z.int().positive(),
-  type: z.enum(['sent', 'received']),
-  status: deviceTransferStatusSchema,
-  device_model: deviceModelSchema,
-  created_at: z.iso.datetime(),
 });
 
 // ─────────────────────────────────────────────
@@ -97,6 +71,17 @@ export const deviceSchema = z
   })
   .strict();
 
+export const deviceSummarySchema = z
+  .object({
+    id: z.int().positive(),
+    color: z.string(),
+    model: deviceModelSchema,
+    validation_status: deviceValidationStatusSchema,
+    validated_attributes: deviceValidatedAttributesSchema,
+    updated_at: z.iso.datetime(),
+  })
+  .strict();
+
 export const devicePublicSchema = z
   .object({
     id: z.int().positive(),
@@ -110,30 +95,9 @@ export const devicePublicSchema = z
   })
   .strict();
 
-export const deviceTransferSchema = z.object({
-  id: z.int().positive(),
-  type: z.enum(['sent', 'received']),
-  status: deviceTransferStatusSchema,
-  source_user: userSummarySchema,
-  target_user: userSummarySchema,
-  device: deviceSummarySchema,
-  created_at: z.iso.datetime(),
-  updated_at: z.iso.datetime(),
-});
-
 export const cursorPaginatedDevicesSchema = z
   .object({
     data: z.array(deviceSummarySchema),
-    meta: z.object({
-      has_more_page: z.boolean(),
-      next_cursor: z.string().nullable(),
-    }),
-  })
-  .strict();
-
-export const paginatedDeviceTransfersSchema = z
-  .object({
-    data: z.array(deviceTransferSummarySchema),
     meta: z.object({
       has_more_page: z.boolean(),
       next_cursor: z.string().nullable(),
@@ -148,9 +112,6 @@ export const paginatedDeviceTransfersSchema = z
 export type Device = z.infer<typeof deviceSchema>;
 export type DeviceSummary = z.infer<typeof deviceSummarySchema>;
 export type DevicePublic = z.infer<typeof devicePublicSchema>;
-export type DeviceTransfer = z.infer<typeof deviceTransferSchema>;
-export type DeviceTransferSummary = z.infer<typeof deviceTransferSummarySchema>;
-export type DeviceTransferStatus = z.infer<typeof deviceTransferStatusSchema>;
 export type DeviceRegistrationForm = z.infer<typeof deviceRegistrationSchema>;
 
 export type DeviceValidationStatus = z.infer<

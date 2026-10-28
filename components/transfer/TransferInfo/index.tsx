@@ -1,6 +1,6 @@
 import DeviceFeaturesCard from '@/components/device/DeviceFeaturesCard';
 import Divider from '@/components/ui/Divider';
-import { DeviceTransfer } from '@/schemas/device';
+import { DeviceTransfer } from '@/schemas/transfer';
 import { View } from 'react-native';
 import TransferInfoContent from './_content';
 import TransferInfoHeader from './_header';

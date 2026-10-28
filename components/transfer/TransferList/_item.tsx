@@ -1,5 +1,5 @@
 import Divider from '@/components/ui/Divider';
-import { DeviceTransferSummary } from '@/schemas/device';
+import { DeviceTransferSummary } from '@/schemas/transfer';
 import { formatDatetime } from '@/utils/date/formatDatetime';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { router } from 'expo-router';

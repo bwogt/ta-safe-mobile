@@ -1,4 +1,4 @@
-import { DeviceTransfer } from '@/schemas/device';
+import { DeviceTransfer } from '@/schemas/transfer';
 import { formatDatetime } from '@/utils/date/formatDatetime';
 import { useTranslation } from 'react-i18next';
 import { Text } from 'react-native';

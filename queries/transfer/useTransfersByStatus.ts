@@ -1,8 +1,7 @@
 import {
   DeviceTransferStatus,
   paginatedDeviceTransfersSchema,
-} from '@/schemas/device';
-
+} from '@/schemas/transfer';
 import api from '@/services/api';
 import { useInfiniteQuery } from '@tanstack/react-query';
 

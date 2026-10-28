@@ -1,4 +1,4 @@
-import { DeviceTransferStatus } from '@/schemas/device';
+import { DeviceTransferStatus } from '@/schemas/transfer';
 import { useTranslation } from 'react-i18next';
 import { Text, View } from 'react-native';
 
