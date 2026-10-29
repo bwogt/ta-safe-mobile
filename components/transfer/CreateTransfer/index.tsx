@@ -1,3 +1,4 @@
+import { NotifyProvider } from '@/components/notify/notify-provider';
 import ModalBackdrop from '@/components/ui/ModalBackdrop';
 import { Device } from '@/schemas/device';
 import { UserPublic } from '@/schemas/user';
@@ -55,6 +56,8 @@ export default function CreateTransfer({ device }: Props) {
             />
           )}
         </View>
+
+        <NotifyProvider />
       </Modal>
     </>
   );

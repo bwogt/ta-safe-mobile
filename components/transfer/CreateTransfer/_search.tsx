@@ -25,17 +25,19 @@ export function TransferOwnershipSearchUser({
     formState: { errors },
   } = useForm<FindUserByEmailRequest>();
 
-  const { mutateAsync: findUser, isPending } = useUserByEmail(setError);
+  const { mutate: findUser, isPending } = useUserByEmail(setError);
   const { data: currentUser } = useCurrentUser();
 
   const email = useWatch({ control, name: 'email' });
   const isInvalidEmail = currentUser?.email === email;
 
-  const onSubmit = async ({ email }: FindUserByEmailRequest) => {
-    const user = await findUser(email);
-
-    setTargetUser(user);
-    nextStep();
+  const onSubmit = ({ email }: FindUserByEmailRequest) => {
+    findUser(email, {
+      onSuccess: (user) => {
+        setTargetUser(user);
+        nextStep();
+      },
+    });
   };
 
   return (
