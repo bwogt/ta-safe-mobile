@@ -11,23 +11,18 @@ type Props = {
   device: Device;
   targetUser: UserPublic;
   previousStep: () => void;
-  closeModal: () => void;
 };
 
 export function TransferOwnershipConfirmation({
   device,
   targetUser,
   previousStep,
-  closeModal,
 }: Props) {
   const { t } = useTranslation(['common', 'transfer']);
   const { mutate: create, isPending } = useCreateDeviceTransfer();
 
   const onSubmit = () => {
-    create(
-      { device_id: device.id, target_user_id: targetUser.id },
-      { onSettled: () => closeModal() },
-    );
+    create({ device_id: device.id, target_user_id: targetUser.id });
   };
 
   return (

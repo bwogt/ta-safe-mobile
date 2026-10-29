@@ -52,7 +52,6 @@ export default function CreateTransfer({ device }: Props) {
               device={device}
               targetUser={targetUser}
               previousStep={previousStep}
-              closeModal={closeModal}
             />
           )}
         </View>

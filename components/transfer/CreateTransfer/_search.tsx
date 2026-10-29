@@ -29,7 +29,7 @@ export function TransferOwnershipSearchUser({
   const { data: currentUser } = useCurrentUser();
 
   const email = useWatch({ control, name: 'email' });
-  const isInvalidEmail = currentUser?.email === email;
+  const disabled = currentUser?.email === email || isPending;
 
   const onSubmit = ({ email }: FindUserByEmailRequest) => {
     findUser(email, {
@@ -70,7 +70,7 @@ export function TransferOwnershipSearchUser({
           label={
             isPending ? t('common:loads.waiting') : t('common:actions.next')
           }
-          disabled={isInvalidEmail}
+          disabled={disabled}
           onPress={handleSubmit(onSubmit)}
         />
       </View>
