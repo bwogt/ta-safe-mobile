@@ -3,20 +3,13 @@ import { deviceModelSchema } from './brand';
 import { userSummarySchema } from './user';
 
 // ─────────────────────────────────────────────
-// Internal schemas
+// Local Schemas
 // ─────────────────────────────────────────────
 
 const deviceValidationStatusSchema = z.enum([
   'validated',
   'pending',
   'in_analysis',
-  'rejected',
-]);
-
-const deviceTransferStatusSchema = z.enum([
-  'pending',
-  'accepted',
-  'cancelled',
   'rejected',
 ]);
 
@@ -32,27 +25,6 @@ const deviceValidatedAttributesSchema = z
   })
   .strict()
   .nullable();
-
-const deviceTransferSchema = z
-  .object({
-    id: z.int().positive(),
-    status: deviceTransferStatusSchema,
-    source_user: userSummarySchema,
-    target_user: userSummarySchema,
-    updated_at: z.iso.datetime(),
-  })
-  .strict();
-
-const deviceSummarySchema = z
-  .object({
-    id: z.int().positive(),
-    color: z.string(),
-    model: deviceModelSchema,
-    validation_status: deviceValidationStatusSchema,
-    validated_attributes: deviceValidatedAttributesSchema,
-    updated_at: z.iso.datetime(),
-  })
-  .strict();
 
 const deviceRegistrationSchema = z.object({
   brand: z
@@ -96,7 +68,17 @@ export const deviceSchema = z
     updated_at: z.iso.datetime(),
     model: deviceModelSchema,
     validated_attributes: deviceValidatedAttributesSchema,
-    transfers: z.array(deviceTransferSchema),
+  })
+  .strict();
+
+export const deviceSummarySchema = z
+  .object({
+    id: z.int().positive(),
+    color: z.string(),
+    model: deviceModelSchema,
+    validation_status: deviceValidationStatusSchema,
+    validated_attributes: deviceValidatedAttributesSchema,
+    updated_at: z.iso.datetime(),
   })
   .strict();
 
@@ -110,7 +92,6 @@ export const devicePublicSchema = z
     owner: userSummarySchema,
     model: deviceModelSchema,
     validated_attributes: deviceValidatedAttributesSchema,
-    transfers: z.array(deviceTransferSchema),
   })
   .strict();
 
@@ -125,7 +106,7 @@ export const cursorPaginatedDevicesSchema = z
   .strict();
 
 // ─────────────────────────────────────────────
-// Exported types
+// Types
 // ─────────────────────────────────────────────
 
 export type Device = z.infer<typeof deviceSchema>;

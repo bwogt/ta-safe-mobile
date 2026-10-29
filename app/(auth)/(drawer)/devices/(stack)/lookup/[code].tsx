@@ -13,6 +13,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 export default function DeviceLookupScreen() {
   const { t } = useTranslation('device');
   const { code } = useLocalSearchParams<{ code: string }>();
+  const onBackPress = () => router.push('/(auth)/(drawer)/devices/lookup');
 
   const {
     data: device,
@@ -37,11 +38,7 @@ export default function DeviceLookupScreen() {
 
   return (
     <SafeAreaView className="flex-1">
-      <Header
-        title={t('device:info.title')}
-        back
-        onBackPress={() => router.replace('/dashboard')}
-      />
+      <Header title={t('device:info.title')} back onBackPress={onBackPress} />
 
       {isError && (
         <QueryError

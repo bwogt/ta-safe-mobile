@@ -18,7 +18,18 @@ export const userSummarySchema = z
   .object({
     id: z.int().positive(),
     name: z.string(),
+    email: z.email(),
     cpf: z.string().regex(/^\*{3}\.\d{3}\.\d{3}-\*{2}$/),
+    created_at: z.iso.datetime(),
+  })
+  .strict();
+
+export const userPublicSchema = z
+  .object({
+    id: z.int().positive(),
+    name: z.string(),
+    cpf: z.string().regex(/^\*{3}\.\d{3}\.\d{3}-\*{2}$/),
+    email: z.email(),
     created_at: z.iso.datetime(),
   })
   .strict();
@@ -35,6 +46,15 @@ export const updateProfileResponseSchema = z
   })
   .strict();
 
+export const findUserByEmailRequestSchema = z.object({
+  email: z.email(),
+});
+
 export type User = z.infer<typeof userSchema>;
+export type UserPublic = z.infer<typeof userPublicSchema>;
 export type UpdateProfileRequest = z.infer<typeof updateProfileRequestSchema>;
 export type UpdateProfileResponse = z.infer<typeof updateProfileResponseSchema>;
+
+export type FindUserByEmailRequest = z.infer<
+  typeof findUserByEmailRequestSchema
+>;

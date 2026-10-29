@@ -2,13 +2,18 @@
   "labels": {
     "deviceInfo": "Informações do Dispositivo",
     "owner": "Proprietário",
-    "createdAt": "Registro",
+    "createdAt": "Data",
     "updatedAt": "Última Alteração",
     "shareCode": "Código de Compartilhamento",
     "expiresAt": "Expira em",
     "step": "Passo",
     "progress": "{{step}} de {{total}}",
-    "device": "Dispositivo"
+    "device": "Dispositivo",
+    "transfer": {
+      "targetUser": "Usuário de Destino",
+      "sent": "Transferência Enviada",
+      "received": "Transferência Recebida"
+    }
   },
 
   "fields": {
@@ -22,7 +27,7 @@
     "brand": "Marca",
     "model": "Modelo",
     "color": "Cor",
-    "accessKey": "Chave de Acesso (NFe)"
+    "accessKey": "Chave de Acesso(NFe)"
   },
 
   "actions": {
@@ -32,12 +37,17 @@
     "lookup": "Consultar",
     "submit": "Enviar",
     "next": "Continuar",
-    "previous": "Voltar"
+    "previous": "Voltar",
+    "transfer": "Transferir"
   },
 
   "loads": {
     "waiting": "Aguarde...",
     "submitting": "Enviando...",
     "checking": "Verificando..."
+  },
+
+  "list": {
+    "footer": "-- Não há mais resultados --"
   }
 }

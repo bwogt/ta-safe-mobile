@@ -2,7 +2,7 @@ import { colors } from '@/themes/colors';
 import { Stack } from 'expo-router';
 import { StatusBar } from 'react-native';
 
-export default function Layout() {
+export default function StackLayout() {
   return (
     <>
       <StatusBar barStyle={'light-content'} backgroundColor={colors.primary} />

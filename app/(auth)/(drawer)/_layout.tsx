@@ -8,7 +8,7 @@ import { StatusBar } from 'react-native';
 
 export default function Layout() {
   const { data: user } = useCurrentUser();
-  const { t } = useTranslation(['dashboard', 'device']);
+  const { t } = useTranslation(['dashboard', 'device', 'transfer']);
 
   return (
     <>
@@ -34,15 +34,6 @@ export default function Layout() {
                 size={size}
               />
             ),
-          }}
-        />
-
-        <Drawer.Screen
-          name="profile/index"
-          options={{
-            drawerItemStyle: {
-              display: 'none',
-            },
           }}
         />
 
@@ -85,6 +76,47 @@ export default function Layout() {
                 size={size}
               />
             ),
+          }}
+        />
+
+        <Drawer.Screen
+          name="transfers/index"
+          options={{
+            title: t('transfer:list.title'),
+            drawerIcon: ({ color, size }) => (
+              <MaterialCommunityIcons
+                name="transfer"
+                color={color}
+                size={size}
+              />
+            ),
+          }}
+        />
+
+        <Drawer.Screen
+          name="profile/index"
+          options={{
+            drawerItemStyle: {
+              display: 'none',
+            },
+          }}
+        />
+
+        <Drawer.Screen
+          name="devices/(stack)"
+          options={{
+            drawerItemStyle: {
+              display: 'none',
+            },
+          }}
+        />
+
+        <Drawer.Screen
+          name="transfers/(stack)"
+          options={{
+            drawerItemStyle: {
+              display: 'none',
+            },
           }}
         />
       </Drawer>

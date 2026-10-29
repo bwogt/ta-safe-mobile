@@ -10,7 +10,7 @@ type Props = {
 
 export default function DeviceCardHeader({ device }: Props) {
   const onPress = () => {
-    router.push(`/(auth)/(stack)/device/${device.id}`);
+    router.push(`/(auth)/(drawer)/devices/(stack)/${device.id}`);
   };
 
   return (

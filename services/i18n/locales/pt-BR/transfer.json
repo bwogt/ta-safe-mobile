@@ -1,0 +1,32 @@
+{
+  "info": {
+    "title": "Informações da Transferência",
+    "errors": {
+      "load": "Não foi possível carregar os detalhes da transferência."
+    }
+  },
+
+  "list": {
+    "title": "Transferências",
+    "empty": "Você não possui histórico de transferências."
+  },
+
+  "create": {
+    "title": "Transferência de Titularidade",
+    "steps": {
+      "searchUser": "Informe o e-mail do novo proprietário.",
+      "confirmation": "Confirme os dados do usuário de destino."
+    }
+  },
+
+  "states": {
+    "accepted_one": "Aceita",
+    "accepted_other": "Aceitas",
+    "pending_one": "Pendente",
+    "pending_other": "Pendentes",
+    "rejected_one": "Rejeitada",
+    "rejected_other": "Rejeitadas",
+    "canceled_one": "Cancelada",
+    "canceled_other": "Canceladas"
+  }
+}
