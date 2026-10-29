@@ -35,7 +35,7 @@ export function TransferOwnershipConfirmation({
           <Text>{t('transfer:create.steps.confirmation')}</Text>
         </View>
 
-        <View className=" p-2">
+        <View className="p-2">
           <LabeledText label={t('common:labels.transfer.targetUser')} />
 
           <LabeledText

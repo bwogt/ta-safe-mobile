@@ -13,7 +13,7 @@ type Props = {
 export default function TransferItem({ transfer }: Props) {
   const { t } = useTranslation(['common', 'transfer']);
 
-  const icon = transfer.type == 'sent' ? 'tray-arrow-up' : 'tray-arrow-down';
+  const icon = transfer.type === 'sent' ? 'tray-arrow-up' : 'tray-arrow-down';
   const title = t(`common:labels.transfer.${transfer.type}`);
   const brand = transfer.device_model.brand.name;
   const model = transfer.device_model.name;

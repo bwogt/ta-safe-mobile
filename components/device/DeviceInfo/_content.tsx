@@ -16,7 +16,7 @@ export default function DeviceInfoContent({ device }: Props) {
   return (
     <View className="p-4">
       <LabeledText label={t('common:labels.owner')} value={user?.name} />
-      <LabeledText label={t('common:fields.cpf')} value={user?.cpf} />
+      <LabeledText label={t('common:fields.cpf')} value={user?.cpf_masked} />
 
       <LabeledText
         label={t('common:labels.createdAt')}

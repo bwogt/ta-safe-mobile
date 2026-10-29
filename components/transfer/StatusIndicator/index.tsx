@@ -13,13 +13,13 @@ const variants: Record<Variant, { bg: string }> = {
     bg: 'bg-info-500',
   },
   accepted: {
-    bg: 'bg-default-500',
+    bg: 'bg-success-500',
   },
   canceled: {
-    bg: 'bg-warning-500',
+    bg: 'bg-danger-500',
   },
   rejected: {
-    bg: 'bg-success-500',
+    bg: 'bg-danger-500',
   },
 };
 

@@ -1,6 +1,9 @@
 {
   "info": {
-    "title": "Informações da Transferência"
+    "title": "Informações da Transferência",
+    "errors": {
+      "load": "Não foi possível carregar os detalhes da transferência."
+    }
   },
 
   "list": {
