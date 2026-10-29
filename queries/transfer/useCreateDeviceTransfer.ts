@@ -9,9 +9,13 @@ export function useCreateDeviceTransfer() {
       device_id,
       target_user_id,
     }: CreateDeviceTransferRequest) => {
-      const response = await api.post(`/devices/${device_id}`, undefined, {
-        params: { target_user_id },
-      });
+      const response = await api.post(
+        `/devices/${device_id}/transfers`,
+        undefined,
+        {
+          params: { target_user_id },
+        },
+      );
 
       return apiMessageResponseSchema.parse(response.data);
     },
