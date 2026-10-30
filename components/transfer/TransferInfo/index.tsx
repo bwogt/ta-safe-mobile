@@ -13,7 +13,7 @@ type Props = {
 export default function TransferInfo({ transfer }: Props) {
   return (
     <>
-      <View className="p-4">
+      <View className="px-4 pt-4">
         <View className="rounded-2xl border border-zinc-200 bg-white p-4">
           <TransferInfoHeader transfer={transfer} />
           <Divider />
