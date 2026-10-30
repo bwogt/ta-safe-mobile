@@ -118,14 +118,7 @@ export default function UserRegistrationScreen() {
             }
             disabled={isPending}
             onPress={handleSubmit(onSubmit)}
-            iconLeft={
-              <Ionicons
-                className="mr-2"
-                name={isPending ? 'sync' : 'log-in-outline'}
-                size={20}
-                color="white"
-              />
-            }
+            iconLeft={isPending ? 'sync' : 'login'}
           />
 
           <AuthSwitchLink

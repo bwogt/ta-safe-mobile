@@ -1,4 +1,3 @@
-import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { useTranslation } from 'react-i18next';
 import { Text, View } from 'react-native';
 import Button from '../Button';
@@ -23,13 +22,7 @@ export default function QueryError({ title, message, onRetry }: Props) {
         <Button
           label={t('common:actions.retry')}
           onPress={onRetry}
-          iconLeft={
-            <MaterialCommunityIcons
-              name="reload-alert"
-              size={26}
-              color="white"
-            />
-          }
+          iconLeft="reload-alert"
         />
       )}
     </View>

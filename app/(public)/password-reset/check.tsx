@@ -6,7 +6,6 @@ import TextLink from '@/components/ui/TextLink';
 
 import { usePasswordResetCheckCode } from '@/queries/password-reset/usePasswordResetCheckCode';
 import { PasswordResetCheckCodeRequest } from '@/schemas/auth';
-import { Ionicons } from '@expo/vector-icons';
 import { useLocalSearchParams } from 'expo-router';
 import { useEffect } from 'react';
 import { Controller, useForm } from 'react-hook-form';
@@ -67,15 +66,8 @@ export default function PasswordResetCheck() {
               : t('auth:reset.actions.checkCode')
           }
           onPress={handleSubmit(onSubmit)}
+          iconLeft="shield-key-outline"
           disabled={isPending}
-          iconLeft={
-            <Ionicons
-              className="mr-2"
-              name={'barcode-outline'}
-              size={20}
-              color="white"
-            />
-          }
         />
 
         <TextLink
