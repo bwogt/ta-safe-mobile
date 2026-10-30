@@ -40,7 +40,8 @@
     "previous": "Voltar",
     "transfer": "Transferir",
     "accept": "Aceitar",
-    "cancel": "Cancelar"
+    "cancel": "Cancelar",
+    "reject": "Rejeitar"
   },
 
   "loads": {
