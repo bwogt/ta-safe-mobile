@@ -38,7 +38,8 @@
     "submit": "Enviar",
     "next": "Continuar",
     "previous": "Voltar",
-    "transfer": "Transferir"
+    "transfer": "Transferir",
+    "cancel": "Cancelar"
   },
 
   "loads": {

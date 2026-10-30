@@ -1,7 +1,9 @@
+import Divider from '@/components/ui/Divider';
 import LabeledText from '@/components/ui/LabeledText';
 import { DeviceTransfer } from '@/schemas/transfer';
 import { formatDatetime } from '@/utils/date/formatDatetime';
 import { useTranslation } from 'react-i18next';
+import { Text, View } from 'react-native';
 
 type Props = {
   transfer: DeviceTransfer;
@@ -22,6 +24,13 @@ export default function TransferInfoContent({ transfer }: Props) {
         label={t('common:labels.createdAt')}
         value={formatDatetime(transfer.created_at)}
       />
+
+      <Divider />
+
+      <View className="flex-row items-center justify-center">
+        <Text>{t('common:labels.updatedAt')}: </Text>
+        <Text>{formatDatetime(transfer.updated_at)}</Text>
+      </View>
     </>
   );
 }
