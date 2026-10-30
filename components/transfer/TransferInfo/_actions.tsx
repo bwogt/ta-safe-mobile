@@ -1,6 +1,7 @@
 import Button from '@/components/ui/Button';
 import { useAcceptTransfer } from '@/queries/transfer/useAcceptTransfer';
 import { useCancelTransfer } from '@/queries/transfer/useCancelTransfer';
+import { useRejectTransfer } from '@/queries/transfer/useRejectTransfer';
 import { DeviceTransfer } from '@/schemas/transfer';
 import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
@@ -17,6 +18,10 @@ export default function TransferInfoActions({ transfer }: Props) {
   );
 
   const { mutate: accept, isPending: isAccepting } = useAcceptTransfer(
+    transfer.id,
+  );
+
+  const { mutate: reject, isPending: isRejecting } = useRejectTransfer(
     transfer.id,
   );
 
@@ -44,6 +49,16 @@ export default function TransferInfoActions({ transfer }: Props) {
                 label={t('common:actions.accept')}
                 onPress={() => accept()}
                 disabled={isAccepting}
+              />
+            </View>
+
+            <View className="w-4/5">
+              <Button
+                label={t('common:actions.reject')}
+                onPress={() => reject()}
+                disabled={isRejecting}
+                variant="danger"
+                iconLeft="cancel"
               />
             </View>
           </View>
