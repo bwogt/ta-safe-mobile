@@ -2,7 +2,6 @@ import DeviceFeaturesCard from '@/components/device/DeviceFeaturesCard';
 import Divider from '@/components/ui/Divider';
 import { DeviceTransfer } from '@/schemas/transfer';
 import { View } from 'react-native';
-import TransferInfoActions from './_actions';
 import TransferInfoContent from './_content';
 import TransferInfoHeader from './_header';
 
@@ -22,8 +21,6 @@ export default function TransferInfo({ transfer }: Props) {
       </View>
 
       <DeviceFeaturesCard device={transfer.device} />
-
-      <TransferInfoActions transfer={transfer} />
     </>
   );
 }

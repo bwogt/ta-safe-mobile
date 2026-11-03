@@ -19,6 +19,21 @@
     }
   },
 
+  "accept": {
+    "title": "Aceitar transferência",
+    "subtitle": "Ao aceitar a transferência, o registro do dispositivo será vinculado à sua conta."
+  },
+
+  "cancel": {
+    "title": "Cancelar transferência",
+    "subtitle": "Ao cancelar a transferência, o registro do dispositivo permanecerá vinculado à sua conta."
+  },
+
+  "reject": {
+    "title": "Rejeitar transferência",
+    "subtitle": "Ao rejeitar a transferência, o registro do dispositivo permanecerá vinculado à conta do usuário de origem."
+  },
+
   "states": {
     "accepted_one": "Aceita",
     "accepted_other": "Aceitas",

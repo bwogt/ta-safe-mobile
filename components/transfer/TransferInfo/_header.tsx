@@ -1,8 +1,10 @@
-import Badge from '@/components/ui/Badge';
 import { DeviceTransfer } from '@/schemas/transfer';
 import { useTranslation } from 'react-i18next';
 import { Text, View } from 'react-native';
 import StatusIndicator from '../StatusIndicator';
+import TransferAccept from './Actions/_accept';
+import TransferCancel from './Actions/_cancel';
+import TransferReject from './Actions/_reject';
 
 type Props = {
   transfer: DeviceTransfer;
@@ -26,7 +28,13 @@ export default function TransferInfoHeader({ transfer }: Props) {
           <StatusIndicator status={transfer.status} />
         </View>
 
-        <Badge label={label} />
+        {transfer.status === 'pending' && (
+          <View className="flex-row gap-8">
+            <TransferCancel transfer={transfer} />
+            <TransferReject transfer={transfer} />
+            <TransferAccept transfer={transfer} />
+          </View>
+        )}
       </View>
     </>
   );

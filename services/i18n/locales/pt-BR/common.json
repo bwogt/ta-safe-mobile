@@ -44,6 +44,12 @@
     "reject": "Rejeitar"
   },
 
+  "confirmation": {
+    "continue": "Deseja Continuar?",
+    "yes": "Sim",
+    "no": "Não"
+  },
+
   "loads": {
     "waiting": "Aguarde...",
     "submitting": "Enviando...",
