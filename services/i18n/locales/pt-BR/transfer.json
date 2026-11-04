@@ -36,7 +36,8 @@
 
   "history": {
     "title": "Histórico de Proprietários",
-    "subtitle": "Consulte as alterações de titularidade deste aparelho, com os respectivos proprietários e datas de transferência."
+    "subtitle": "Consulte as alterações de titularidade deste aparelho, com os respectivos proprietários e datas de transferência.",
+    "empty": "-- Este dispositivo ainda não possui transferências de titularidade registradas. --"
   },
 
   "states": {

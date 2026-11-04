@@ -10,6 +10,7 @@ type Props = {
 
 export default function TransferHistory({ device }: Props) {
   const { t } = useTranslation('transfer');
+  const transfers = device.transfer_history;
 
   return (
     <View className="px-4 py-8">
@@ -18,6 +19,8 @@ export default function TransferHistory({ device }: Props) {
         <Text>{t('transfer:history.subtitle')}</Text>
 
         <Divider />
+
+        {transfers.length === 0 && <Text>{t('transfer:history.empty')}</Text>}
 
         {device.transfer_history?.map((item) => (
           <TransferHistoryInfo key={item.id} transfer={item} />
