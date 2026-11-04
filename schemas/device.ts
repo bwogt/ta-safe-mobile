@@ -57,6 +57,16 @@ export const deviceShareCodeSchema = z
   .strict()
   .nullable();
 
+const deviceTransferHistorySchema = z
+  .object({
+    id: z.int().positive(),
+    status: z.enum(['accepted']),
+    source_user: userSummarySchema,
+    target_user: userSummarySchema,
+    updated_at: z.iso.datetime(),
+  })
+  .strict();
+
 export const deviceSchema = z
   .object({
     id: z.int().positive(),
@@ -68,6 +78,7 @@ export const deviceSchema = z
     updated_at: z.iso.datetime(),
     model: deviceModelSchema,
     validated_attributes: deviceValidatedAttributesSchema,
+    transfer_history: z.array(deviceTransferHistorySchema),
   })
   .strict();
 
@@ -92,6 +103,7 @@ export const devicePublicSchema = z
     owner: userSummarySchema,
     model: deviceModelSchema,
     validated_attributes: deviceValidatedAttributesSchema,
+    transfer_history: z.array(deviceTransferHistorySchema),
   })
   .strict();
 
@@ -113,6 +125,7 @@ export type Device = z.infer<typeof deviceSchema>;
 export type DeviceSummary = z.infer<typeof deviceSummarySchema>;
 export type DevicePublic = z.infer<typeof devicePublicSchema>;
 export type DeviceRegistrationForm = z.infer<typeof deviceRegistrationSchema>;
+export type DeviceTransferHistory = z.infer<typeof deviceTransferHistorySchema>;
 
 export type DeviceValidationStatus = z.infer<
   typeof deviceValidationStatusSchema

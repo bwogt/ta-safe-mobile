@@ -34,6 +34,11 @@
     "subtitle": "Ao rejeitar a transferência, o registro do dispositivo permanecerá vinculado à conta do usuário de origem."
   },
 
+  "history": {
+    "title": "Histórico de Proprietários",
+    "subtitle": "Consulte as alterações de titularidade deste aparelho, com os respectivos proprietários e datas de transferência."
+  },
+
   "states": {
     "accepted_one": "Aceita",
     "accepted_other": "Aceitas",
