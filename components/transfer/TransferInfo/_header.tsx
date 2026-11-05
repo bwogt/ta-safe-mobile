@@ -1,5 +1,4 @@
 import { DeviceTransfer } from '@/schemas/transfer';
-import { useTranslation } from 'react-i18next';
 import { Text, View } from 'react-native';
 import StatusIndicator from '../StatusIndicator';
 import TransferAccept from './Actions/_accept';
@@ -11,13 +10,6 @@ type Props = {
 };
 
 export default function TransferInfoHeader({ transfer }: Props) {
-  const { t } = useTranslation('common');
-
-  const label =
-    transfer.type === 'sent'
-      ? t('common:labels.transfer.sent')
-      : t('common:labels.transfer.received');
-
   return (
     <>
       <View className="flex-row items-center justify-between">

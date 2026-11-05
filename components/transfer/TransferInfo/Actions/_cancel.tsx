@@ -21,9 +21,9 @@ export default function TransferCancel({ transfer }: Props) {
       {transfer.type === 'sent' && (
         <>
           <ConfirmDialog
-            visible={modalVisible}
             title={t('transfer:cancel.title')}
             subtitle={t('transfer:cancel.subtitle')}
+            visible={modalVisible}
             onRequestClose={() => setModalVisible(false)}
             onConfirm={cancel}
           />

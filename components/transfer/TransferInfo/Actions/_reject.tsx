@@ -21,9 +21,9 @@ export default function TransferReject({ transfer }: Props) {
       {transfer.type === 'received' && (
         <>
           <ConfirmDialog
-            visible={modalVisible}
             title={t('transfer:reject.title')}
             subtitle={t('transfer:reject.subtitle')}
+            visible={modalVisible}
             onRequestClose={() => setModalVisible(false)}
             onConfirm={reject}
           />

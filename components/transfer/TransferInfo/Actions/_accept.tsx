@@ -21,9 +21,9 @@ export default function TransferAccept({ transfer }: Props) {
       {transfer.type === 'received' && (
         <>
           <ConfirmDialog
-            visible={modalVisible}
             title={t('transfer:accept.title')}
             subtitle={t('transfer:accept.subtitle')}
+            visible={modalVisible}
             onRequestClose={() => setModalVisible(false)}
             onConfirm={accept}
           />
