@@ -77,14 +77,7 @@ export default function PasswordReset() {
           }
           onPress={handleSubmit(onSubmit)}
           disabled={isPending}
-          iconLeft={
-            <Ionicons
-              className="mr-2"
-              name={'shield-checkmark-outline'}
-              size={20}
-              color="white"
-            />
-          }
+          iconLeft="shield-check-outline"
         />
 
         <TextLink

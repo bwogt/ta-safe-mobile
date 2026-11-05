@@ -19,6 +19,27 @@
     }
   },
 
+  "accept": {
+    "title": "Aceitar transferência",
+    "subtitle": "Ao aceitar a transferência, o registro do dispositivo será vinculado à sua conta."
+  },
+
+  "cancel": {
+    "title": "Cancelar transferência",
+    "subtitle": "Ao cancelar a transferência, o registro do dispositivo permanecerá vinculado à sua conta."
+  },
+
+  "reject": {
+    "title": "Rejeitar transferência",
+    "subtitle": "Ao rejeitar a transferência, o registro do dispositivo permanecerá vinculado à conta do usuário de origem."
+  },
+
+  "history": {
+    "title": "Histórico de Proprietários",
+    "subtitle": "Consulte as alterações de titularidade deste aparelho, com os respectivos proprietários e datas de transferência.",
+    "empty": "-- Este dispositivo ainda não possui transferências de titularidade registradas. --"
+  },
+
   "states": {
     "accepted_one": "Aceita",
     "accepted_other": "Aceitas",

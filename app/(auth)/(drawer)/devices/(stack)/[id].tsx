@@ -1,5 +1,6 @@
 import DeviceFeaturesCard from '@/components/device/DeviceFeaturesCard';
 import DeviceInfo from '@/components/device/DeviceInfo';
+import TransferHistory from '@/components/transfer/TransferHistory';
 import Header from '@/components/ui/Header';
 import LoadingScreen from '@/components/ui/LoadingScreen';
 import QueryError from '@/components/ui/QueryError';
@@ -61,6 +62,7 @@ export default function DeviceScreen() {
         >
           <DeviceInfo device={device} />
           <DeviceFeaturesCard device={device} />
+          <TransferHistory device={device} />
         </ScrollView>
       )}
     </SafeAreaView>
