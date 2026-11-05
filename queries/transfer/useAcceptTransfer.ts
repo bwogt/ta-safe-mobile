@@ -11,10 +11,10 @@ export function useAcceptTransfer(transferId: number) {
     onSuccess: async ({ transfer }) => {
       queryClient.setQueryData(['transfer', String(transferId)], transfer);
 
-      await queryClient.invalidateQueries({
-        queryKey: ['transfers'],
-        refetchType: 'all',
-      });
+      await Promise.all([
+        queryClient.invalidateQueries({ queryKey: ['transfers'] }),
+        queryClient.invalidateQueries({ queryKey: ['dashboard-stats'] }),
+      ]);
     },
   });
 }

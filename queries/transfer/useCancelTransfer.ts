@@ -10,11 +10,7 @@ export function useCancelTransfer(transferId: number) {
     },
     onSuccess: async ({ transfer }) => {
       queryClient.setQueryData(['transfer', String(transferId)], transfer);
-
-      await queryClient.invalidateQueries({
-        queryKey: ['transfers'],
-        refetchType: 'all',
-      });
+      await queryClient.invalidateQueries({ queryKey: ['transfers'] });
     },
   });
 }
