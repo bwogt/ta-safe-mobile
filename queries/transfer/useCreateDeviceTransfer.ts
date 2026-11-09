@@ -1,6 +1,7 @@
 import { apiMessageResponseSchema } from '@/schemas/message';
 import { CreateDeviceTransferRequest } from '@/schemas/transfer';
 import api from '@/services/api';
+import { queryClient } from '@/services/queryClient';
 import { useMutation } from '@tanstack/react-query';
 
 export function useCreateDeviceTransfer() {
@@ -18,6 +19,9 @@ export function useCreateDeviceTransfer() {
       );
 
       return apiMessageResponseSchema.parse(response.data);
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['transfers'] });
     },
   });
 }

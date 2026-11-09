@@ -2,6 +2,8 @@ import EmptyList from '@/components/ui/EmptyList';
 import ListFooter from '@/components/ui/ListFooter';
 import LoadingScreen from '@/components/ui/LoadingScreen';
 import { useTransfersByStatus } from '@/queries/transfer/useTransfersByStatus';
+import { useFocusEffect } from 'expo-router';
+import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FlatList } from 'react-native';
 import TransferItem from './_item';
@@ -13,11 +15,21 @@ export default function TransferList() {
     data: pagination,
     isLoading,
     isRefetching,
+    isStale,
     hasNextPage,
     isFetchingNextPage,
     refetch,
     fetchNextPage,
   } = useTransfersByStatus();
+
+  useFocusEffect(
+    useCallback(() => {
+      if (isStale) {
+        refetch();
+      }
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [isStale, refetch]),
+  );
 
   const transfers = pagination?.pages.flatMap((page) => page.data) ?? [];
 

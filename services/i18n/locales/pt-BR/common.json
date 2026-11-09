@@ -10,9 +10,11 @@
     "progress": "{{step}} de {{total}}",
     "device": "Dispositivo",
     "transfer": {
-      "targetUser": "Usuário de Destino",
       "sent": "Transferência Enviada",
-      "received": "Transferência Recebida"
+      "received": "Transferência Recebida",
+      "targetUser": "Usuário de Destino",
+      "newOwner": "Novo Proprietário",
+      "oldOwner": "Proprietário Anterior"
     }
   },
 
@@ -38,7 +40,16 @@
     "submit": "Enviar",
     "next": "Continuar",
     "previous": "Voltar",
-    "transfer": "Transferir"
+    "transfer": "Transferir",
+    "accept": "Aceitar",
+    "cancel": "Cancelar",
+    "reject": "Rejeitar"
+  },
+
+  "confirmation": {
+    "continue": "Deseja Continuar?",
+    "yes": "Sim",
+    "no": "Não"
   },
 
   "loads": {

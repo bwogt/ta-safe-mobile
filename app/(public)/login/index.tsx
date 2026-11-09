@@ -97,15 +97,8 @@ export default function LoginScreen() {
               : t('auth:login.actions.submit')
           }
           onPress={handleSubmit(onSubmit)}
+          iconLeft={isPending ? 'sync' : 'login'}
           disabled={isPending}
-          iconLeft={
-            <Ionicons
-              className="mr-2"
-              name={isPending ? 'sync' : 'log-in-outline'}
-              size={20}
-              color="white"
-            />
-          }
         />
 
         <SwitchLink

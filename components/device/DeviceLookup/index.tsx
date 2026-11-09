@@ -1,6 +1,5 @@
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { router } from 'expo-router';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -41,13 +40,7 @@ export default function DeviceLookup() {
             label={t('common:actions.lookup')}
             disabled={isLookupDisabled}
             onPress={handlePress}
-            iconLeft={
-              <MaterialCommunityIcons
-                name="shield-search"
-                size={24}
-                color="white"
-              />
-            }
+            iconLeft="shield-search"
           />
         </View>
       </View>

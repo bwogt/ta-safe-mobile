@@ -19,7 +19,7 @@ export default function TransferScreen() {
   if (isLoading) return <LoadingScreen />;
 
   return (
-    <SafeAreaView>
+    <SafeAreaView className="flex-1">
       <Header title={t('transfer:info.title')} back onBackPress={onBackPress} />
 
       {isError && (

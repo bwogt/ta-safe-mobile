@@ -6,7 +6,6 @@ import TextLink from '@/components/ui/TextLink';
 
 import { usePasswordResetStart } from '@/queries/password-reset/usePasswordResetStart';
 import { PasswordResetStartRequest } from '@/schemas/auth';
-import { Ionicons } from '@expo/vector-icons';
 import { Controller, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
@@ -54,15 +53,8 @@ export default function PasswordResetStart() {
               : t('auth:reset.actions.submitCode')
           }
           onPress={handleSubmit(onSubmit)}
+          iconLeft={isPending ? 'sync' : 'email-fast-outline'}
           disabled={isPending}
-          iconLeft={
-            <Ionicons
-              className="mr-2"
-              name={isPending ? 'sync' : 'mail-outline'}
-              size={20}
-              color="white"
-            />
-          }
         />
 
         <TextLink
