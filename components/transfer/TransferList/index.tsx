@@ -46,7 +46,17 @@ export default function TransferList() {
         data={transfers}
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => <TransferItem transfer={item} />}
-        ListEmptyComponent={<EmptyList message={t('transfer:list.empty')} />}
+        ListEmptyComponent={
+          <EmptyList
+            message={
+              status
+                ? t('transfer:list.empty', {
+                    status: t(`transfer:states.${status}_other`).toLowerCase(),
+                  })
+                : t('transfer:list.empty_all')
+            }
+          />
+        }
         onRefresh={refetch}
         refreshing={isRefetching}
         onEndReachedThreshold={0.1}

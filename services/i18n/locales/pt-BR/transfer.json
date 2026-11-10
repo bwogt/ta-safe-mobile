@@ -8,7 +8,8 @@
 
   "list": {
     "title": "Transferências",
-    "empty": "Você não possui histórico de transferências."
+    "empty": "Você não possui transferências {{status}}.",
+    "empty_all": "Você não possui histórico de transferências."
   },
 
   "create": {
