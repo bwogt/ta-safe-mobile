@@ -4,22 +4,19 @@ import LoadingScreen from '@/components/ui/LoadingScreen';
 import { useTransfersByStatus } from '@/queries/transfer/useTransfersByStatus';
 import { DeviceTransferStatus } from '@/schemas/transfer';
 import { useFocusEffect } from 'expo-router';
-import { useCallback, useState } from 'react';
+import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FlatList } from 'react-native';
 import TransferListControl from './_control';
 import TransferItem from './_item';
 
 type Props = {
-  initialStatus?: DeviceTransferStatus;
+  status: DeviceTransferStatus | null;
+  onStatusChange: (status: DeviceTransferStatus | null) => void;
 };
 
-export default function TransferList({ initialStatus }: Props) {
+export default function TransferList({ status, onStatusChange }: Props) {
   const { t } = useTranslation(['common', 'transfer']);
-
-  const [status, setStatus] = useState<DeviceTransferStatus | null>(
-    initialStatus ?? null,
-  );
 
   const {
     data: pagination,
@@ -47,7 +44,7 @@ export default function TransferList({ initialStatus }: Props) {
 
   return (
     <>
-      <TransferListControl status={status} setStatus={setStatus} />
+      <TransferListControl status={status} setStatus={onStatusChange} />
 
       <FlatList
         data={transfers}

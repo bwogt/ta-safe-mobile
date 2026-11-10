@@ -10,9 +10,7 @@ export default function QuickAccess() {
   const openTransferList = (status: DeviceTransferStatus) => {
     router.push({
       pathname: '/(auth)/(drawer)/transfers',
-      params: {
-        status: status,
-      },
+      params: { status },
     });
   };
 
