@@ -59,6 +59,8 @@
   },
 
   "list": {
+    "all": "Tudo",
+    "all_plural_feminine": "Todas",
     "footer": "-- Não há mais resultados --"
   }
 }

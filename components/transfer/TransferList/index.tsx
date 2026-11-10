@@ -2,13 +2,20 @@ import EmptyList from '@/components/ui/EmptyList';
 import ListFooter from '@/components/ui/ListFooter';
 import LoadingScreen from '@/components/ui/LoadingScreen';
 import { useTransfersByStatus } from '@/queries/transfer/useTransfersByStatus';
+import { DeviceTransferStatus } from '@/schemas/transfer';
 import { useFocusEffect } from 'expo-router';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FlatList } from 'react-native';
+import TransferListControl from './_control';
 import TransferItem from './_item';
 
-export default function TransferList() {
+type Props = {
+  status: DeviceTransferStatus | null;
+  onStatusChange: (status: DeviceTransferStatus | null) => void;
+};
+
+export default function TransferList({ status, onStatusChange }: Props) {
   const { t } = useTranslation(['common', 'transfer']);
 
   const {
@@ -20,7 +27,7 @@ export default function TransferList() {
     isFetchingNextPage,
     refetch,
     fetchNextPage,
-  } = useTransfersByStatus();
+  } = useTransfersByStatus(status);
 
   useFocusEffect(
     useCallback(() => {
@@ -36,27 +43,43 @@ export default function TransferList() {
   if (isLoading) return <LoadingScreen />;
 
   return (
-    <FlatList
-      data={transfers}
-      keyExtractor={(item) => item.id.toString()}
-      renderItem={({ item }) => <TransferItem transfer={item} />}
-      ListEmptyComponent={<EmptyList message={t('transfer:list.empty')} />}
-      onRefresh={refetch}
-      refreshing={isRefetching}
-      onEndReachedThreshold={0.1}
-      contentContainerClassName={
-        transfers.length === 0 ? 'grow justify-center items-center' : undefined
-      }
-      onEndReached={() => {
-        if (hasNextPage && !isFetchingNextPage) {
-          fetchNextPage();
+    <>
+      <TransferListControl status={status} setStatus={onStatusChange} />
+
+      <FlatList
+        data={transfers}
+        keyExtractor={(item) => item.id.toString()}
+        renderItem={({ item }) => <TransferItem transfer={item} />}
+        ListEmptyComponent={
+          <EmptyList
+            message={
+              status
+                ? t('transfer:list.empty', {
+                    status: t(`transfer:states.${status}_other`).toLowerCase(),
+                  })
+                : t('transfer:list.empty_all')
+            }
+          />
         }
-      }}
-      ListFooterComponent={
-        transfers.length > 0 ? (
-          <ListFooter message={t('common:list.footer')} />
-        ) : null
-      }
-    />
+        onRefresh={refetch}
+        refreshing={isRefetching}
+        onEndReachedThreshold={0.1}
+        contentContainerClassName={
+          transfers.length === 0
+            ? 'grow justify-center items-center'
+            : undefined
+        }
+        onEndReached={() => {
+          if (hasNextPage && !isFetchingNextPage) {
+            fetchNextPage();
+          }
+        }}
+        ListFooterComponent={
+          transfers.length > 0 ? (
+            <ListFooter message={t('common:list.footer')} />
+          ) : null
+        }
+      />
+    </>
   );
 }

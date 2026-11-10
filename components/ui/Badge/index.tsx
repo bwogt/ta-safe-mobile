@@ -1,4 +1,5 @@
 import { colors } from '@/themes/colors';
+import { cn } from '@/utils/styles/cn';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Text, View } from 'react-native';
 
@@ -8,6 +9,7 @@ type Props = {
   label: string;
   variant?: BadgeVariant;
   icon?: React.ComponentProps<typeof MaterialCommunityIcons>['name'];
+  active?: boolean;
 };
 
 const variants: Record<
@@ -51,17 +53,35 @@ const variants: Record<
   },
 };
 
-export default function Badge({ label, icon, variant = 'default' }: Props) {
-  const style = variants[variant];
+export default function Badge({
+  label,
+  icon,
+  variant = 'default',
+  active = false,
+}: Props) {
+  const theme = variants[variant];
 
   return (
     <View
-      className={`flex-row items-center gap-2 rounded-lg border p-2 ${style.background} ${style.border}`}
+      className={cn(
+        'flex-row items-center gap-2 rounded-lg border p-2',
+        `${theme.background} ${theme.border}`,
+        active && 'border-2 border-primary',
+      )}
     >
       {icon && (
-        <MaterialCommunityIcons name={icon} size={22} color={style.iconColor} />
+        <MaterialCommunityIcons
+          name={icon}
+          size={22}
+          color={active ? colors.primary : theme.iconColor}
+        />
       )}
-      <Text className={`font-semibold ${style.text}`}>{label}</Text>
+
+      <Text
+        className={cn(`font-semibold ${theme.text}`, active && 'text-primary')}
+      >
+        {label}
+      </Text>
     </View>
   );
 }

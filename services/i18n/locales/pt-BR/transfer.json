@@ -8,7 +8,8 @@
 
   "list": {
     "title": "Transferências",
-    "empty": "Você não possui histórico de transferências."
+    "empty": "Você não possui transferências {{status}}.",
+    "empty_all": "Você não possui histórico de transferências."
   },
 
   "create": {
@@ -38,6 +39,11 @@
     "title": "Histórico de Proprietários",
     "subtitle": "Consulte as alterações de titularidade deste aparelho, com os respectivos proprietários e datas de transferência.",
     "empty": "-- Este dispositivo ainda não possui transferências de titularidade registradas. --"
+  },
+
+  "quickAccess": {
+    "pending": "Transferências Pendentes",
+    "accepted": "Transferências Aceitas"
   },
 
   "states": {

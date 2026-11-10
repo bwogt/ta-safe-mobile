@@ -13,7 +13,11 @@ export function useTransfersByStatus(
     initialPageParam: undefined as string | undefined,
 
     queryFn: async ({ pageParam }) => {
-      const response = await api.get('user/transfers', {
+      const url = status
+        ? `user/transfers/${encodeURIComponent(status)}`
+        : 'user/transfers';
+
+      const response = await api.get(url, {
         params: pageParam ? { cursor: pageParam } : {},
       });
 
