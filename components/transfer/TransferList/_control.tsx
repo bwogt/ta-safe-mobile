@@ -24,14 +24,14 @@ export default function TransferListControl({ status, setStatus }: Props) {
       icon: 'format-list-bulleted',
     },
     {
-      key: 'accepted',
-      label: t('transfer:states.accepted_other'),
-      icon: 'playlist-check',
-    },
-    {
       key: 'pending',
       label: t('transfer:states.pending_other'),
       icon: 'format-list-bulleted-triangle',
+    },
+    {
+      key: 'accepted',
+      label: t('transfer:states.accepted_other'),
+      icon: 'playlist-check',
     },
     {
       key: 'canceled',
