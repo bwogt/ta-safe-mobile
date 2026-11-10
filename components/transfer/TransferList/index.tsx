@@ -3,8 +3,8 @@ import ListFooter from '@/components/ui/ListFooter';
 import LoadingScreen from '@/components/ui/LoadingScreen';
 import { useTransfersByStatus } from '@/queries/transfer/useTransfersByStatus';
 import { DeviceTransferStatus } from '@/schemas/transfer';
-import { useFocusEffect } from 'expo-router';
-import { useCallback, useState } from 'react';
+import { useFocusEffect, useLocalSearchParams } from 'expo-router';
+import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FlatList } from 'react-native';
 import TransferListControl from './_control';
@@ -12,7 +12,18 @@ import TransferItem from './_item';
 
 export default function TransferList() {
   const { t } = useTranslation(['common', 'transfer']);
-  const [status, setStatus] = useState<DeviceTransferStatus | null>(null);
+
+  const { status: initialStatus } = useLocalSearchParams<{
+    status?: DeviceTransferStatus;
+  }>();
+
+  const [status, setStatus] = useState<DeviceTransferStatus | null>(
+    initialStatus ?? null,
+  );
+
+  useEffect(() => {
+    setStatus(initialStatus ?? null);
+  }, [initialStatus]);
 
   const {
     data: pagination,

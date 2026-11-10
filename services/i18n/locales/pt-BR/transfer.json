@@ -41,6 +41,11 @@
     "empty": "-- Este dispositivo ainda não possui transferências de titularidade registradas. --"
   },
 
+  "quickAccess": {
+    "pending": "Transferências Pendentes",
+    "accepted": "Transferências Aceitas"
+  },
+
   "states": {
     "accepted_one": "Aceita",
     "accepted_other": "Aceitas",
