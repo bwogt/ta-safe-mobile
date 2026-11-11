@@ -59,7 +59,7 @@ A versão legada permanece disponível para fins históricos e de consulta, enqu
 - :green_circle: **Registro de celulares**: Cadastro de dispositivos por meio do preenchimento das informações do aparelho e do código de visualização da Nota Fiscal Eletrônica (NF-e);
 - 🚧 **Validação de registros**: Extração automática dos dados da NF-e por meio de web scraping e envio das informações para validação no backend;
 - :green_circle: **Histórico de propriedade**: Consulta ao histórico de propriedade e de transferências do dispositivo;
-- 🚧 **Transferência de titularidade**: Solicitações de transferência entre usuários, incluindo criação, cancelamento e aceite;
+- :green_circle: **Transferência de titularidade**: Solicitações de transferência entre usuários, incluindo criação, cancelamento e aceite;
 - :green_circle: **Compartilhamento de registros**: Geração de códigos de compartilhamento de 6 dígitos para consulta pública dos dados de procedência e do histórico de propriedade do dispositivo.
 
 ### 🛠️ Stack Tecnológica
@@ -168,5 +168,23 @@ npm run test:ci
   <img src="https://github.com/user-attachments/assets/85146285-5a53-4c8a-a38b-fa60ab21ed8b" width="1280px">  
 </div>
 
+### 6. Criar Transferência 
+<div>
+  <img src="https://github.com/user-attachments/assets/b67802f4-a8eb-41e2-94c6-9b7708b9578a" width="1280px">  
+</div>
 
+### 7. Aceitar Transferência 
+<div>
+  <img src="https://github.com/user-attachments/assets/97dc12b0-6913-4ef3-a074-bb102685d8e8" width="1280px">  
+</div>
+
+### 8. Histórico de Proprietários do Dispositivo 
+<div>
+  <img src="https://github.com/user-attachments/assets/153ed50b-318b-4513-8664-abecebd96eea" width="1280px">  
+</div>
+
+### 9. Filtrar Transferências por Status
+<div>
+  <img src="https://github.com/user-attachments/assets/862e7852-229e-40bd-be04-b93e120f32bb" width="1280px">  
+</div>
 
